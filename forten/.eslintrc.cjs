@@ -1,4 +1,7 @@
 module.exports = {
+  // window와 mac에 따른 줄바꿈 스타일을 자동으로 변경해줍니다
+  'linebreak-style': ['error', require('os').EOL === '\r\n' ? 'windows' : 'unix'],
+  'prettier/prettier': ['error', { endOfLine: 'auto' }],
   root: true,
   env: { browser: true, es2020: true },
   extends: [
