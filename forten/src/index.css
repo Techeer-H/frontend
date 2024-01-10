@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+/* html{
+
+
+    @media (max-width: 1600px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 1200px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 10px;
+    }
+} */
+
