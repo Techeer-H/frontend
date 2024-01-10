@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 function AuthCheckedLayout() {
   // TODO: 회원인지 확인하는 로직
   return (
     <>
       <header>
-
+        <Navbar />
       </header>{' '}
       <main>
         <Outlet />

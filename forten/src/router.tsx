@@ -5,10 +5,11 @@ import AuthCheckedLayout from './layouts/AuthCheckedLayout';
 import LoginPage from './pages/login';
 import NotFoundPage from './pages/NotFoundPage';
 import StartPage from './pages/onboard/start';
+import TeacherPage from './pages/teacher/teacher';
 
 const routers = createBrowserRouter([
   {
-    path: '/teacher',
+    path: '/',
     element: <AuthCheckedLayout />,
     children: [
       { index: true, element: <StartPage /> },
@@ -30,6 +31,10 @@ const routers = createBrowserRouter([
   {
     path: '*',
     element: <NotFoundPage />,
+  },
+  {
+    path: '/teacher',
+    element: <TeacherPage />,
   },
 ]);
 
