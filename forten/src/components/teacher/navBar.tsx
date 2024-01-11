@@ -1,6 +1,6 @@
 import React from 'react';
-import Profile from '../../src/assets/profile.svg';
-import Logo from '../../src/assets/logo.svg';
+import Profile from '../../assets/profile.svg';
+import Logo from '../../../src/assets/logo.svg';
 
 const Navbar = () => {
   return (
