@@ -6,7 +6,7 @@ const Memo = () => {
       <textarea
         className="maincontainer  flex-shrink-0"
         style={{
-          width: '62.5rem',
+          width: '50rem',
           minHeight: '11rem',
           paddingBottom: '6%',
           overflow: 'scroll', // 어느정도 짤라서 보여줌 scroll,auto 등이 있으니 참고
@@ -15,7 +15,7 @@ const Memo = () => {
           //세로 방향으로 스크롤바가 생기는데요. 가로 방향으로 스크롤바가 생기게 하고 싶다면 단순히 white-space 속성을
           // nowrap으로 변경하여 줄바꿈이 되지 않도록 하면 됩니다.
           boxSizing: 'border-box',
-          margin: '0 8.75rem 1.56rem 8.75rem',
+          margin: '0 0 0.44rem 0',
           padding: '0.625rem',
           position: 'relative',
           borderRadius: '1.73688rem',

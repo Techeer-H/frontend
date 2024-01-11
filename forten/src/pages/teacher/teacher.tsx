@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
-import Navbar from '../../components/Navbar';
-import Memo from '../../components/Memo';
+import Navbar from '../../components/teacher/navBar';
+import Memo from '../../components/teacher/memo';
 interface Props {}
 
 const TeacherPage = (props: Props) => {
@@ -48,7 +48,7 @@ const TeacherPage = (props: Props) => {
             background: 'white',
             width: '17.16081rem',
             height: '2.52506rem',
-            border: '0.84px solid #cdcfd4',
+            border: '0.05rem solid #cdcfd4',
             borderRadius: '1.73688rem',
             margin: '0.9rem 22.67rem 26.58rem 22.67rem',
           }}
