@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import StudentTable from "../../StudentTable";
-import ColseBtn from '../../../assets/closeBtn.png';
+import StudentTable from "../components/modal/studentTable";
+import ColseBtn from '../assets/closeBtn.png';
+import WordBox from "../components/modal/wordBox";
+import ParentAvergy from "../components/modal/parentAvergy";
+import WriteButton from "../components/modal/writeButton";
 
 const Backdrop = styled.div`
   position: fixed;
@@ -35,11 +38,11 @@ const Close = styled.img`
 
 const Center = styled.div`
   display:flex;
-  justify-content: center;
+  justify-content: center; 
   margin-top: 1.25rem;
 `
 
-function StudentDetail() {
+function studentDetail() {
     return (
         <div>
             <Backdrop />
@@ -51,19 +54,19 @@ function StudentDetail() {
                 <div>
                     <div>
                         <div>학생 평가</div>
-                        <div>학부모 평가</div>
+                        <ParentAvergy />
                     </div>
                     <div>
                         <div>내신, 모의고사 내용</div>
-                        <div>조회 내용</div>
+                        <WordBox />
                     </div>
                 </div>
                 <div>
-                    작성하기 버튼
+                    <WriteButton />
                 </div>
             </Modal>
         </div>
     )
 }
 
-export default StudentDetail;
+export default studentDetail;
