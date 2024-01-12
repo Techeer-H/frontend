@@ -10,7 +10,7 @@ import SuccessModal from './components/modal/successmodal';
 import WarningSignModal from './components/modal/warningsign';
 import WarningSignModalid from './components/modal/warningsignid';
 import ConsultantMainPage from './pages/consultant/consultantmain';
-
+import EvaluationStudent from './pages/evaluationstudent/index';
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -56,6 +56,10 @@ const routers = createBrowserRouter([
   {
     path: '/warningsignmodalid',
     element: <WarningSignModalid />,
+  },
+  {
+    path: '/evaluationstudent',
+    element: <EvaluationStudent/>,
   },
 ]);
 
