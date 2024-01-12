@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { abs } from '../../../../node_modules/@types/stylis/index.d';
 
 export const background = styled.div`
   justify-content: center;
@@ -73,16 +74,32 @@ export const FlexContainer = styled.div`
 `;
 
 export const RegisterStudentButton = styled.div`
-  background: #f1e4ff;
+  background: #ffe4f2;
+  transition: background-color 0.9s ease;
   width: 5.75rem;
   height: 1.75rem;
   border-radius: 1.44rem;
+
+  &:hover {
+    background: #6ea3ff;
+  }
 `;
+export const ModalWrapper = styled.div<{ isOpen: boolean }>`
+  display: ${(props) => (props.isOpen ? 'block' : 'none')};
+  position: absolute;
+  top: -1rem; /* Adjust as needed */
+  left: 8rem; /* Adjust as needed */
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+`;
+
 export const StyledButton = styled.input`
   font-size: 0.4rem;
   color: #5c5c5c;
-  width: 100%;
+  width: 5.6rem;
   text-align: center;
+  height: 1.6rem;
+
   /* Add any other styles or overrides here */
 `;
 
