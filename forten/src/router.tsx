@@ -6,6 +6,9 @@ import LoginPage from './pages/login';
 import NotFoundPage from './pages/NotFoundPage';
 import StartPage from './pages/onboard';
 import TeacherPage from './pages/teacher/teacher';
+import SuccessModal from './components/modal/successmodal';
+import WarningSignModal from './components/modal/warningsign';
+import WarningSignModalid from './components/modal/warningsignid';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 const routers = createBrowserRouter([
@@ -41,7 +44,24 @@ const routers = createBrowserRouter([
   {
     path: '/teacher',
     element: <TeacherPage />,
+
   },
+  {
+    path: '/successmodal',
+    element: <SuccessModal />,
+
+  },
+  {
+    path: '/warningsignmodal',
+    element: <WarningSignModal/>,
+
+  },
+  {
+    path: '/warningsignmodalid',
+    element: <WarningSignModalid/>,
+
+  },
+  
 ]);
 
 export default routers;
