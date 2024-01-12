@@ -2,7 +2,7 @@ import React from 'react';
 import Profile from '../../assets/profile.svg';
 import Logo from '../../../src/assets/logo.svg';
 
-const Navbar = () => {
+const Tnavbar = () => {
   return (
     <div
       id="Navbar"
@@ -16,6 +16,7 @@ const Navbar = () => {
         background:
           'linear-gradient(270deg, #E1FBFF 14.43%, rgba(242, 255, 225, 0.61) 57.19%, rgba(255, 248, 225, 0.53) 95.11%)',
         border: '0.5px solid #ffa154',
+        borderRadius: '1.43rem',
       }}
     >
       <img
@@ -68,4 +69,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Tnavbar;

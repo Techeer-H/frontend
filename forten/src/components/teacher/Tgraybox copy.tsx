@@ -26,7 +26,7 @@ const SmallSpacing = styled.div`
   margin-right: 2rem;
 `;
 
-const grayBox = () => {
+const TgrayBox = () => {
   return (
     <div id="grayBox">
       <GrayBoxContainer id="grayBox">
@@ -45,4 +45,4 @@ const grayBox = () => {
   );
 };
 
-export default grayBox;
+export default TgrayBox;

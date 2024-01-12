@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Memo = () => {
+const Tmemo = () => {
   return (
     <div>
       <textarea
@@ -20,7 +20,7 @@ const Memo = () => {
           position: 'relative',
           borderRadius: '1.73688rem',
           filter: 'drop-shadow(4px 4px 4px rgba(0,0,0,0.25))',
-          border: '0.1rem solid #B9B9B9',
+          border: '1px solid #dadada',
         }}
 
         // placeholder="신뢰할 수 있는 거래를 위해 자세히 적어주세요"
@@ -54,4 +54,4 @@ const Memo = () => {
   );
 };
 
-export default Memo;
+export default Tmemo;
