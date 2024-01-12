@@ -4,6 +4,9 @@ import ColseBtn from '../assets/closeBtn.png';
 import WordBox from "../components/modal/wordBox";
 import ParentAvergy from "../components/modal/parentAvergy";
 import WriteButton from "../components/modal/writeButton";
+import StudentAvergy from "../components/modal/studentAvergy";
+import SchoolGrades from "../components/modal/schoolGrades"; // 내신 성적
+import SchoolMock from "../components/modal/schoolMock"; // 모의고사 성적
 
 const Backdrop = styled.div`
   position: fixed;
@@ -34,39 +37,65 @@ const Close = styled.img`
   cursor: pointer;
   width: 1.5rem;
   height: 1.5rem;
+  position: absolute;
 `;
 
-const Center = styled.div`
-  display:flex;
-  justify-content: center; 
-  margin-top: 1.25rem;
+const FlexWrapper = styled.div`
+  display: flex;
+  height: 45rem;
+`
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 49rem;
+  padding-top: 2.5rem;
 `
 
-function studentDetail() {
-    return (
-        <div>
-            <Backdrop />
-            <Modal>
-                <Close src={ColseBtn} alt="닫기" />
-                <Center>
-                    <StudentTable />
-                </Center>
-                <div>
-                    <div>
-                        <div>학생 평가</div>
-                        <ParentAvergy />
-                    </div>
-                    <div>
-                        <div>내신, 모의고사 내용</div>
-                        <WordBox />
-                    </div>
-                </div>
-                <div>
-                    <WriteButton />
-                </div>
-            </Modal>
-        </div>
-    )
+const FlexBox = styled.div`
+ display: flex;
+ flex-direction: column;
+`
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+`
+
+function StudentDetail() {
+  return (
+    <div>
+      <Backdrop />
+      <Modal>
+        <Close src={ColseBtn} alt="닫기" />
+        <FlexWrapper>
+          {/* 학생 정보 */}
+          <StudentTable />
+          <div>
+            <FlexContainer >
+              <FlexBox>
+                {/* 학생 성적(내신, 모의고사) */}
+                <SchoolGrades />
+                <SchoolMock />
+              </FlexBox>
+              <Container>
+                {/* 강사가 평가한 학생 평균, 부모님 평가 */}
+                <StudentAvergy />
+                <ParentAvergy />
+              </Container>
+            </FlexContainer>
+
+            {/* 내가 작성한 코멘트 및 전송 버튼 */}
+
+            <WordBox />
+            <WriteButton />
+
+          </div >
+        </FlexWrapper>
+      </Modal>
+    </div>
+  )
 }
 
-export default studentDetail;
+export default StudentDetail;

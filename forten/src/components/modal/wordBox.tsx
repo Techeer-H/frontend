@@ -1,29 +1,28 @@
 import styled from "styled-components";
 
-const ColumnContainer = styled.div`
+const Center = styled.div`
   display: flex;
-  flex-direction: column;
-`;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+`
 
-const Explan = styled.p`
+const TextArea = styled.div`
+  width: 94%;
+  height: 5rem;
+  border: 1px solid #717171;
+  border-radius: 10px;
+  padding: 0.25rem;
   font-size: 0.875rem;
 `;
 
-const TextArea = styled.div`
-  width: 38.125rem;
-  height: 9.125rem;
-  border: 1px solid #A3A3A3;
-  border-radius: 10px;
-`;
-
+// 작성한 글 보여주는 컴포넌트
 const WordBox = () => {
   return (
-    <ColumnContainer>
-      <Explan>내가 작성한 글</Explan>
+    <Center>
       <TextArea>
         이 학생은 이렇고.. 저렇고... 이렇습니다..
       </TextArea>
-    </ColumnContainer>
+    </Center>
   );
 };
 

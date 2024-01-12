@@ -1,13 +1,20 @@
 import styled from "styled-components";
 
+const Wrapper = styled.div`
+  width: 18.75rem;
+  height: 16rem;
+  margin-bottom: 1rem;
+`
+
 const Explan = styled.p`
-  font-size: 0.875rem;
+  font-size: 1rem;
+  font-weight: 900;
 `
 
 const FlexContainer = styled.div`
   display: flex;
-  width: 16.25rem;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  margin-top: 1.5rem;
 `
 
 const ImgWrapper = styled.div`
@@ -15,6 +22,9 @@ const ImgWrapper = styled.div`
   height: 4.125rem;
   border: 0.56px solid #000;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
 `
 
 const AvgWrapper = styled.div`
@@ -23,22 +33,23 @@ const AvgWrapper = styled.div`
   background-color: #B59FF2;
   border-radius: 10px;
   color: #fff;
-  font-size:0.75rem;
+  font-size:0.875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `
 
-
-function parentAvergy() {
+// 학부모 평가 컴포넌트
+function ParentAvergy() {
     return (
-        <div>
+        <Wrapper>
             <Explan>학부모 평가</Explan>
             <FlexContainer>
                 <ImgWrapper>
                     <div>
-                        이미지 삽입
+                        div로 이미지 크기 조절
+                        <img />
                     </div>
                 </ImgWrapper>
                 <AvgWrapper>
@@ -50,8 +61,8 @@ function parentAvergy() {
                     </div>
                 </AvgWrapper>
             </FlexContainer>
-        </div>
+        </Wrapper>
     )
 }
 
-export default parentAvergy;
+export default ParentAvergy;

@@ -1,18 +1,17 @@
 import styled from "styled-components";
 import SendImg from '../../assets/send.png';
 
-const FlexContainer = styled.button`
-  width: 9.375rem;
-  height: 3.75rem;
-  background-color: #FFF5F5;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  justify-content: space-evenly;
+const RightBox = styled.div`
+  padding-left: 79%;
 `
 
-const Explan = styled.p`
-  font-size: 1rem;
+const FlexContainer = styled.button`
+  width: 8.125rem;
+  height: 2.5rem;
+  background: linear-gradient(to right, #73A6FF, #EFC2FF);
+  display: flex;
+  border-radius: 15px;
+  justify-content: center;
 `
 
 const ImgBox = styled.div`
@@ -20,16 +19,17 @@ const ImgBox = styled.div`
   height: 2.5rem;
 `
 
-
+// 작성하러가기 컴포넌트
 function WriteButton() {
-    return (
-        <FlexContainer>
-            <Explan>작성하러 가기</Explan>
-            <ImgBox>
-                <img src={SendImg} alt="보내기" />
-            </ImgBox>
-        </FlexContainer>
-    )
+  return (
+    <RightBox>
+      <FlexContainer>
+        <ImgBox>
+          <img src={SendImg} alt="보내기" />
+        </ImgBox>
+      </FlexContainer>
+    </RightBox>
+  )
 }
 
 export default WriteButton;
