@@ -1,14 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import OnBoardPage from './pages/onboard/onboard';
+import OnBoardPage from './pages/onboard';
 import AuthCheckedLayout from './layouts/AuthCheckedLayout';
 import LoginPage from './pages/login';
 import NotFoundPage from './pages/NotFoundPage';
-import StartPage from './pages/onboard/start';
+import StartPage from './pages/onboard';
 import TeacherPage from './pages/teacher/teacher';
 import SuccessModal from './components/modal/successmodal';
 import WarningSignModal from './components/modal/warningsign';
 import WarningSignModalid from './components/modal/warningsignid';
+import ConsultantMainPage from './pages/consultant/consultantmain';
 
 const routers = createBrowserRouter([
   {
@@ -23,9 +24,14 @@ const routers = createBrowserRouter([
     path: '/',
     element: <StartPage />,
   },
+
   {
     path: '/onboard',
     element: <OnBoardPage />,
+  },
+  {
+    path: '/consultantMain',
+    element: <ConsultantMainPage />,
   },
   {
     path: '/login',
