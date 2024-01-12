@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div
       id="Navbar"
-      className="relative flex items-center justify-between"
+      className=" flex items-center justify-between"
       style={{
         width: '62.5rem',
         height: '4rem',
@@ -15,7 +15,7 @@ const Navbar = () => {
         marginRight: '8.75rem',
         background:
           'linear-gradient(270deg, #E2E1FF 14.43%, rgba(255, 225, 225, 0.61) 57.19%, rgba(255, 225, 225, 0.25) 95.11%)',
-        //  border: '0.5px solid #ffa154',
+        border: '0.5px solid #ffa154',
         borderRadius: '1.43rem',
       }}
     >
