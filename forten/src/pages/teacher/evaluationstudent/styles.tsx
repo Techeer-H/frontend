@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import Navbar from '../../../components/teacher/navBar';
+import Navbar from '../../../components/consultant/navBar';
 import Commentname from '../../../assets/Commentname.svg';
 import Evaluation from '../../../assets/Evaluation.svg';
+
 export const Fullcontainer = styled.div`
 width: 80rem;
 height: 52rem;
@@ -108,7 +109,7 @@ fill: #FFF;
 margin: 0 12.06rem 2rem 6.75rem;
 border-radius: 2rem;
 `;
-export const CheckBoxContainer =styled.div`
+export const CheckBoxContainer = styled.div`
 width: 100%;
 `;
 export const Check = styled.div`

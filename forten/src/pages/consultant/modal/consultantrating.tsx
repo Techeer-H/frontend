@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import SubmitIcon from '../../assets/checkIcon_gradient.svg';
-import Rating from '../modal/rating';
-import LogoAndLetter from '../../assets/LogoAndLetter.svg';
+import SubmitIcon from '../../../assets/checkIcon_gradient.svg';
+import Rating from '../../../components/modal/rating';
+import LogoAndLetter from '../../../assets/LogoAndLetter.svg';
 const FullContainer = styled.div`
   width: 25rem;
   height: 20rem;
@@ -24,10 +24,10 @@ const TextContainer = styled.p`
   font-style: normal;
   text-align: center;
 `;
-
+// 로고
 const ImgBox = styled.div`
   margin-top: 1.5rem;
-  margin-bottom: 3.36rem;
+  margin-bottom: 1.81rem;
   display: flex;
   justify-content: center;
 `;
@@ -35,17 +35,16 @@ const Button = styled.button`
   width: 6rem;
   height: 1.75rem;
   display: flex;
-  margin-top: 4rem;
+  margin-top: 0.87rem;
   border: 0.1rem solid #85a1ff;
   border-radius: 1rem; /* 원하는 값으로 조절 */
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
   flex-direction: row;
 `;
 
-const TeacherRatingPage = () => {
+const ConsultantRatingPage = () => {
   return (
     <FullContainer>
       <Container>
@@ -56,6 +55,8 @@ const TeacherRatingPage = () => {
         <Rating />
       </Container>
       <Container>
+        <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
+        <Rating />
         <Button>
           <img src={SubmitIcon} alt="제출" />
         </Button>
@@ -64,4 +65,4 @@ const TeacherRatingPage = () => {
   );
 };
 
-export default TeacherRatingPage;
+export default ConsultantRatingPage;

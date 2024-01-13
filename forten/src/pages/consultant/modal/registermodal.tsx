@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Xicon from '../../assets/Xicon.svg';
+import Xicon from '../../../assets/Xicon.svg';
 import styled from 'styled-components';
 
 interface RegisterModalProps {
@@ -215,7 +215,7 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
         <Student type="text" placeholder="학생의 이름을 입력하세요"></Student>
         <Age ref={birthDayEl}>
           {' '}
-          <option> 학년 선택 </option>
+          <option> 나이 선택 </option>
         </Age>
       </div>
       <div style={{ display: 'flex' }}>

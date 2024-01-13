@@ -8,8 +8,8 @@ import search from '../../../assets/searchIcon.svg';
 import star from '../../../assets/star.svg';
 import StudentInfo from '../../../components/consultant/studentInfo';
 import BookMarkList from '../../../components/consultant/bookMarkList';
-import RegisterModal from '../../../components/modal/registermodal';
-interface Props {}
+import RegisterModal from '../modal/registermodal';
+interface Props { }
 
 const ConsultantMainPage = (props: Props) => {
   const [isModalOpened, setIsOpened] = useState<boolean>(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import Warningsignid from '../../assets/Warningsignid.svg';
+import Warningsignid from '../../../assets/Warningsignid.svg';
 import styled from 'styled-components';
 
 const Container = styled.div`
