@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 
 import Navbar from '../../../components/consultant/navBar';
@@ -8,10 +8,17 @@ import search from '../../../assets/searchIcon.svg';
 import star from '../../../assets/star.svg';
 import StudentInfo from '../../../components/consultant/studentInfo';
 import BookMarkList from '../../../components/consultant/bookMarkList';
+import RegisterModal from '../../../components/modal/registermodal';
+interface Props {}
 
-const ConsultantMainPage = () => {
+const ConsultantMainPage = (props: Props) => {
+  const [isModalOpened, setIsOpened] = useState<boolean>(false);
+  const handleClick = () => {
+    setIsOpened((prev) => !prev); // setIsOpened(!isModalOpened);
+  };
   return (
     // 전체화면
+
     <S.background>
       <Navbar />
 
@@ -29,7 +36,13 @@ const ConsultantMainPage = () => {
           <S.SearchContainer>
             <S.FlexContainer>
               <S.RegisterStudentButton>
-                <S.StyledButton type="button" value="학생 등록" />
+                <S.ModalWrapper isOpen={isModalOpened}>
+                  {isModalOpened && (
+                    <RegisterModal isOpen={isModalOpened} handleClick={handleClick} />
+                  )}
+                </S.ModalWrapper>
+
+                <S.StyledButton type="button" value="학생 등록" onClick={handleClick} />
               </S.RegisterStudentButton>
 
               <S.StudentSearchContainer>
