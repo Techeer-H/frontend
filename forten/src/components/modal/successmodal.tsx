@@ -30,7 +30,7 @@ const Text = styled.div`
 const Img = styled.div`
   width: 16rem;
   height: 5.75rem;
-  maring-left: 10rem;
+
   display: flex;
   justify-content: flex-end;
 `;
@@ -50,15 +50,18 @@ const Button = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  border: 1px solid #ffffff; //
+
   border-radius: 1rem; //
   margin-left: 8rem;
   margin-top: 2.2rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
+
+  transition: background-color 0.3s ease;
+
   &:hover {
-    background: linear-gradient(120deg, #e8cdff -15.93%, #fefeff 77.48%);
-    color: black;
+    background: #ebdeff;
+    color: #7c7c7c;
   }
 `;
 

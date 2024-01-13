@@ -11,6 +11,7 @@ import WarningSignModal from './components/modal/warningsign';
 import WarningSignModalid from './components/modal/warningsignid';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
+
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -21,6 +22,10 @@ const routers = createBrowserRouter([
     ],
   },
   {
+    path: '*',
+    element: <NotFoundPage />,
+  },
+  {
     path: '/',
     element: <StartPage />,
   },
@@ -29,18 +34,21 @@ const routers = createBrowserRouter([
     path: '/onboard',
     element: <OnBoardPage />,
   },
+
   {
-    path: '/consultantMain',
-    element: <ConsultantMainPage />,
+    path: '/signup',
+    element: <SignUpPage />,
   },
   {
     path: '/login',
     element: <LoginPage />,
   },
+
   {
-    path: '*',
-    element: <NotFoundPage />,
+    path: '/consultantMain',
+    element: <ConsultantMainPage />,
   },
+
   {
     path: '/teacher',
     element: <TeacherPage />,
