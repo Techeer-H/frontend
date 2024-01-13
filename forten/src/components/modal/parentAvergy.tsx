@@ -65,4 +65,5 @@ function ParentAvergy() {
     )
 }
 
+
 export default ParentAvergy;
