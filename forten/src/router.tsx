@@ -10,8 +10,7 @@ import SuccessModal from './components/modal/successmodal';
 import WarningSignModal from './components/modal/warningsign';
 import WarningSignModalid from './components/modal/warningsignid';
 import ConsultantMainPage from './pages/consultant/consultantmain';
-import SignUpPage from './pages/signup/index';
-import EvaluationStudent from './pages/evaluationstudent/index';
+
 
 const routers = createBrowserRouter([
   {
@@ -67,8 +66,7 @@ const routers = createBrowserRouter([
     element: <WarningSignModalid />,
   },
   {
-    path: '/evaluationstudent',
-    element: <EvaluationStudent/>,
+
   },
 ]);
 

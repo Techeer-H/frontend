@@ -30,6 +30,7 @@ const Text = styled.div`
 const Img = styled.div`
   width: 16rem;
   height: 5.75rem;
+
   display: flex;
   justify-content: flex-end;
 `;
@@ -49,12 +50,13 @@ const Button = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  border: 2px solid #ffffff;
+
   border-radius: 1rem; //
   margin-left: 8rem;
   margin-top: 2.2rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
+
   transition: background-color 0.3s ease;
 
   &:hover {
