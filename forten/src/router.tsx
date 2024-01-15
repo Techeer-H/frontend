@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import SignUpPage from './pages/signup/main/index';
-import OnBoardPage from './pages/onboard';
+import OnBoardPage from './pages/onboard/firstpage';
 import AuthCheckedLayout from './layouts/AuthCheckedLayout';
 import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
-import StartPage from './pages/onboard';
+import StartPage from './pages/onboard/firstpage';
 import TeacherPage from './pages/teacher/main/index';
 import SuccessModal from './pages/signup/modal/successmodal';
 import WarningSignModal from './pages/signup/modal/warningsign';
@@ -15,7 +15,7 @@ import ConsultantMainPage from './pages/consultant/consultantmain';
 import ConsultantRating from './pages/consultant/modal/consultantrating';
 import StudentDetail from './pages/consultant/modal/studentDetail';
 import TeacherRatingPage from './pages/teacher/modal/teacherrating';
-
+import OnBoardingPage from './pages/onboard/thirdpage/index';
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -43,6 +43,7 @@ const routers = createBrowserRouter([
     path: '/signup',
     element: <SignUpPage />,
   },
+
   {
     path: '/login',
     element: <LoginPage />,
@@ -58,7 +59,7 @@ const routers = createBrowserRouter([
     element: <TeacherPage />,
   },
 
-  // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다) 
+  // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다)
   {
     path: '/successmodal',
     element: <SuccessModal />,
@@ -73,16 +74,21 @@ const routers = createBrowserRouter([
   },
   {
     path: '/consultantrating',
-    element: <ConsultantRating />
+    element: <ConsultantRating />,
   },
   {
     path: '/studenteetail',
-    element: <StudentDetail />
+    element: <StudentDetail />,
   },
   {
     path: '/teacherratingpage',
-    element: <TeacherRatingPage />
-  }
+    element: <TeacherRatingPage />,
+  },
+
+  {
+    path: '/onboarding',
+    element: <OnBoardingPage />,
+  },
 ]);
 
 export default routers;
