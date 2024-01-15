@@ -6,9 +6,15 @@ import LogoAndLetter from '../../../assets/LogoAndLetter.svg';
 const FullContainer = styled.div`
   width: 25rem;
   height: 20rem;
-  border-radius: 1.5rem;
+  border-radius: 0.4rem;
   border: 0.1rem solid #85a1ff;
   background: #ffffff;
+  &:hover {
+    outline: none;
+    border-color: #0800ff;
+    border: 0.5rem;
+    box-shadow: 0 0 0 3px rgba(0, 21, 255, 0.3);
+  }
 `;
 
 const Container = styled.div`

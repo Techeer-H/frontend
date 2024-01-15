@@ -16,6 +16,8 @@ import ConsultantRating from './pages/consultant/modal/consultantrating';
 import StudentDetail from './pages/consultant/modal/studentDetail';
 import TeacherRatingPage from './pages/teacher/modal/teacherrating';
 
+import Evaluationstudent from './pages/teacher/evaluationstudent/index';
+
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -58,7 +60,7 @@ const routers = createBrowserRouter([
     element: <TeacherPage />,
   },
 
-  // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다) 
+  // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다)
   {
     path: '/successmodal',
     element: <SuccessModal />,
@@ -73,16 +75,20 @@ const routers = createBrowserRouter([
   },
   {
     path: '/consultantrating',
-    element: <ConsultantRating />
+    element: <ConsultantRating />,
   },
   {
     path: '/studenteetail',
-    element: <StudentDetail />
+    element: <StudentDetail />,
   },
   {
     path: '/teacherratingpage',
-    element: <TeacherRatingPage />
-  }
+    element: <TeacherRatingPage />,
+  },
+  {
+    path: '/evaluate',
+    element: <Evaluationstudent />,
+  },
 ]);
 
 export default routers;

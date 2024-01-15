@@ -76,7 +76,7 @@ export const Button = styled.button`
   margin-top: 2rem;
   border-radius: 1.2em;
   border: none;
-  background: linear-gradient(105deg, #73fdff 15.97%, #efc2ff 85.11%);
+  background: linear-gradient(105deg, #b6feff 15.97%, #efc2ff 85.11%);
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
