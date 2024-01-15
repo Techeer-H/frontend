@@ -13,7 +13,7 @@ import WarningSignModalid from './pages/login/modal/warningsignid';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';
-import StudentDetail from './pages/consultant/modal/studentDetail';
+import StudentDetail from './pages/teacher/modal/studentDetail';
 import TeacherRatingPage from './pages/teacher/modal/teacherrating';
 
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
@@ -84,7 +84,7 @@ const routers = createBrowserRouter([
     element: <ConsultantRating />,
   },
   {
-    path: '/studenteetail',
+    path: '/studentdetail',
     element: <StudentDetail />,
   },
   {
