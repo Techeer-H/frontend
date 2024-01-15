@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import UserIcon from '../../assets/userIcon.png';
+import styled from 'styled-components';
+import UserIcon from '../../assets/PersonIcon.svg';
 
 const ColumnContainer = styled.div`
   display: flex;
@@ -9,54 +9,54 @@ const ColumnContainer = styled.div`
   height: 100%;
   border-right: 1px solid #979797;
   padding-top: 2.5rem;
-`
+`;
 const UserBox = styled.div`
   width: 7.7rem;
   height: 1.875rem;
-  background-color: #B59FF2;
+  background-color: #b59ff2;
   border-radius: 10px;
   display: flex;
   justify-content: space-evenly;
+  text-align: center;
   align-items: center;
-`
+`;
 
 const UserName = styled.p`
   font-size: 1rem;
-  color: #F1F1F1;
-`
+  color: #f1f1f1;
+`;
 
 const School = styled.p`
   font-size: 1rem;
-  color: #737B7B;
+  color: #737b7b;
   margin-top: 1rem;
-`
+`;
 
 const Grade = styled.p`
   font-size: 0.75rem;
   margin-top: 0.5rem;
-`
+`;
 
 const PhoneNumber = styled.p`
   font-size: 0.75rem;
   margin-top: 0.5rem;
-`
+`;
 
 // 학생 정보 컴포넌트
 function StudentTable() {
-
-    return (
-        <ColumnContainer>
-            <UserBox>
-                <div>
-                    <img src={UserIcon} alt='유저아이콘' />
-                </div>
-                <UserName>이현진</UserName>
-            </UserBox>
-            <School>목일중학교</School>
-            <Grade>중3</Grade>
-            <PhoneNumber>010-1111-1111</PhoneNumber>
-        </ColumnContainer>
-    )
+  return (
+    <ColumnContainer>
+      <UserBox>
+        <div>
+          <img src={UserIcon} alt="유저아이콘" />
+        </div>
+        <UserName>이현진</UserName>
+      </UserBox>
+      <School>목일중학교</School>
+      <Grade>중3</Grade>
+      <PhoneNumber>010-1111-1111</PhoneNumber>
+    </ColumnContainer>
+  );
 }
 
 export default StudentTable;

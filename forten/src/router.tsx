@@ -13,13 +13,13 @@ import WarningSignModalid from './pages/login/modal/warningsignid';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';
-import StudentDetail from './pages/consultant/modal/studentDetail';
+import StudentDetail from './pages/teacher/modal/studentDetail';
 import TeacherRatingPage from './pages/teacher/modal/teacherrating';
-
 
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
 import OnBoardingPage from './pages/onboard/thirdpage/index';
 
+import AiPromptPage from './pages/consultant/AiPrompt';
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -57,7 +57,10 @@ const routers = createBrowserRouter([
     path: '/consultantMain',
     element: <ConsultantMainPage />,
   },
-
+  {
+    path: '/aiprompt',
+    element: <AiPromptPage />,
+  },
   {
     path: '/teacher',
     element: <TeacherPage />,
@@ -81,23 +84,22 @@ const routers = createBrowserRouter([
     element: <ConsultantRating />,
   },
   {
-    path: '/studenteetail',
+    path: '/studentdetail',
     element: <StudentDetail />,
   },
   {
-    path: '/teacherratingpage',
+    path: '/teacherrating',
     element: <TeacherRatingPage />,
   },
 
   {
     path: '/evaluate',
     element: <Evaluationstudent />,
-
+  },
 
   {
     path: '/onboarding',
     element: <OnBoardingPage />,
-
   },
 ]);
 
