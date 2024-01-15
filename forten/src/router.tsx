@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import SignUpPage from './pages/signup/main/index';
-import OnBoardPage from './pages/onboard';
+import OnBoardPage from './pages/onboard/firstpage';
 import AuthCheckedLayout from './layouts/AuthCheckedLayout';
 import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
-import StartPage from './pages/onboard';
+import StartPage from './pages/onboard/firstpage';
 import TeacherPage from './pages/teacher/main/index';
 import SuccessModal from './pages/signup/modal/successmodal';
 import WarningSignModal from './pages/signup/modal/warningsign';
@@ -16,7 +16,9 @@ import ConsultantRating from './pages/consultant/modal/consultantrating';
 import StudentDetail from './pages/consultant/modal/studentDetail';
 import TeacherRatingPage from './pages/teacher/modal/teacherrating';
 
+
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
+import OnBoardingPage from './pages/onboard/thirdpage/index';
 
 const routers = createBrowserRouter([
   {
@@ -45,6 +47,7 @@ const routers = createBrowserRouter([
     path: '/signup',
     element: <SignUpPage />,
   },
+
   {
     path: '/login',
     element: <LoginPage />,
@@ -85,9 +88,16 @@ const routers = createBrowserRouter([
     path: '/teacherratingpage',
     element: <TeacherRatingPage />,
   },
+
   {
     path: '/evaluate',
     element: <Evaluationstudent />,
+
+
+  {
+    path: '/onboarding',
+    element: <OnBoardingPage />,
+
   },
 ]);
 
