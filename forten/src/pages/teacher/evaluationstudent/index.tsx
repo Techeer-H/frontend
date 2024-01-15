@@ -1,44 +1,44 @@
 import React from 'react';
-import * as S from './styles'
-import Commentname from '../../assets/Commentname.svg';
-import Rectangle from '../../assets/Rectangle.svg';
-import { NavBar, NamesContainer, Name, Divider, Age } from './styles'; // styles.tsx
-import Evaluation from '../../assets/Evaluation.svg';
-import Check from '../../assets/Check.svg';
+import * as S from './styles';
+import Evaluation from '../../../assets/Evaluation.svg';
+import Check from '../../../assets/Check.svg';
+import EvaluateImg from '../../../assets/evaluateImg.svg';
+
+import TeacherRating from '../../../pages/teacher/modal/teacherrating';
+import { styled } from 'styled-components';
+import Lottie from 'react-lottie';
+import TsubmitButton from '../../../components/teacher/TsubmitButton';
+
 const teacherevaluate = () => {
   return (
     <div>
       <S.Fullcontainer>
         <S.Container>
           <S.TextContainer>
-            <NavBar>
-              <NamesContainer>
-                <Name>하재민</Name>
-                <Divider></Divider>
-                <Name>양명고/19</Name>
-              </NamesContainer>
-            </NavBar>
+            <S.NameBox>
+              <S.NameImg src={EvaluateImg} />
+              <S.NamesContainer>
+                <S.Name>하재민</S.Name>
+                <S.Name>양명고/19</S.Name>
+              </S.NamesContainer>
+            </S.NameBox>
           </S.TextContainer>
         </S.Container>
         <S.CommentBox>
           <S.TitleBox>
-            <S.Img> <img src={Commentname} alt="Comment" /> </S.Img>
             <S.Img>
-              <a href="학생평가 링크주소 혹은 액션">
-                <img src={Evaluation} alt="Evaluation" />
-                <button> </button>
-              </a>
+              <img src={Evaluation} alt="Evaluation" />
             </S.Img>
           </S.TitleBox>
           <S.TitleBar></S.TitleBar>
-          <S.CommentContainer>
-          </S.CommentContainer>
+          <div style={{ display: 'flex' }}>
+            <S.LeftContainer placeholder="학생의 평가를 적어주세요"></S.LeftContainer>
+            <S.RightContainer>
+              <TeacherRating />
+              <TsubmitButton />
+            </S.RightContainer>
+          </div>
         </S.CommentBox>
-        <S.CheckBoxContainer>
-          <S.CheckBox>
-            <img src={Check} alt='Check' />
-          </S.CheckBox>
-        </S.CheckBoxContainer>
       </S.Fullcontainer>
     </div>
   );

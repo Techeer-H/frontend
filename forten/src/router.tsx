@@ -15,7 +15,11 @@ import ConsultantMainPage from './pages/consultant/consultantmain';
 import ConsultantRating from './pages/consultant/modal/consultantrating';
 import StudentDetail from './pages/consultant/modal/studentDetail';
 import TeacherRatingPage from './pages/teacher/modal/teacherrating';
+
+
+import Evaluationstudent from './pages/teacher/evaluationstudent/index';
 import OnBoardingPage from './pages/onboard/thirdpage/index';
+
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -86,8 +90,14 @@ const routers = createBrowserRouter([
   },
 
   {
+    path: '/evaluate',
+    element: <Evaluationstudent />,
+
+
+  {
     path: '/onboarding',
     element: <OnBoardingPage />,
+
   },
 ]);
 

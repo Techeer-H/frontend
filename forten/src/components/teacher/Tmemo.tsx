@@ -8,7 +8,6 @@ const Tmemo = () => {
         style={{
           width: '50rem',
           minHeight: '11rem',
-          paddingBottom: '6%',
           overflow: 'scroll', // 어느정도 짤라서 보여줌 scroll,auto 등이 있으니 참고
           resize: 'vertical',
           // whitespace:'nowrap', 기본적으로 텍스트나 이미지와 같은 인라인 요소들은 가로 공간이 부족한 경우 줄바꿈이 되기 때문에,
@@ -22,23 +21,10 @@ const Tmemo = () => {
           filter: 'drop-shadow(4px 4px 4px rgba(0,0,0,0.25))',
           border: '1px solid #dadada',
         }}
-
-        // placeholder="신뢰할 수 있는 거래를 위해 자세히 적어주세요"
+        placeholder="기억해야할 것들을 적어주세요"
 
         //flexDirection: 'column',
-      >
-        <label
-          style={{
-            fontSize: '0.69956rem',
-            fontStyle: 'normal',
-            fontWeight: 'bold',
-            color: '#c5c5c5',
-            margin: '1.34rem 58.99rem 8.67rem 1.03rem ', // Add bottom margin for spacing
-          }}
-        >
-          MEMO
-        </label>
-      </textarea>
+      ></textarea>
       {/* 
         //display: 'flex',
         // alignItems: 'start',
