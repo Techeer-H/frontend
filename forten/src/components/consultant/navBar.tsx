@@ -6,13 +6,12 @@ const Navbar = () => {
   return (
     <div
       id="Navbar"
-      className=" flex items-center justify-between"
+      className=" flex items-center justify-center"
       style={{
         width: '62.5rem',
         height: '4rem',
-        marginTop: '2.4rem',
-        marginLeft: '8.75rem',
-        marginRight: '8.75rem',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         background:
           'linear-gradient(270deg, #E2E1FF 14.43%, rgba(255, 225, 225, 0.61) 57.19%, rgba(255, 225, 225, 0.25) 95.11%)',
         border: '0.5px solid #ffa154',

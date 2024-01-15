@@ -5,8 +5,8 @@ export const background = styled.div`
   justify-content: center;
   align-items: center;
   background: linear-gradient(107deg, #fff7f8 7.23%, #e5e4fe 99.24%);
-  height: 52rem;
-  width: 80rem;
+  height: 100vh;
+  width: 100%;
   display: block;
   overflow: auto;
 `;
@@ -16,12 +16,12 @@ export const fullcontainer = styled.div`
   flex-direction: row;
   // marginRight: '8.75rem',
   // marginLeft: '8.75rem',
+
   width: 62.5rem;
   height: 43rem;
   border-radius: 1.78569rem;
-  margin-left: 8.75rem;
-  margin-right: 8.75rem;
-  margin: 2rem 8.75rem 1.63rem 8.75rem;
+  justify-content: center;
+  margin: 2rem auto 1.63rem auto;
   background: linear-gradient(90deg, #e7e6ff 4.39%, #ffeded 32.89%);
 `;
 

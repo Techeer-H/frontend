@@ -12,7 +12,7 @@ import TstudentInfo from '../../../components/teacher/TstudentInfo';
 import star from '../../../assets/star.svg';
 import search from '../../../assets/searchIcon.svg';
 
-interface Props { }
+interface Props {}
 
 const TeacherPage = (props: Props) => {
   return (
@@ -20,8 +20,8 @@ const TeacherPage = (props: Props) => {
       className="background"
       style={{
         background: 'linear-gradient(106deg, #F0EAE3 -4.89%, #E2FCFF 105.97%)',
-        height: '52rem',
-        width: '80rem',
+        height: '100vh',
+        width: '100%',
         display: 'block',
         overflow: 'auto',
       }}
@@ -32,14 +32,11 @@ const TeacherPage = (props: Props) => {
         className="fullContainer flex"
         style={{
           flexDirection: 'row',
-          // marginRight: '8.75rem',
-          // marginLeft: '8.75rem',
+
           width: '62.5rem',
           height: '43rem',
           borderRadius: '1.78569rem',
-          marginLeft: '8.75rem',
-          marginRight: '8.75rem',
-          margin: '2rem 8.75rem 1.63rem 8.75rem',
+          margin: '2rem auto 1.63rem auto',
 
           background: 'linear-gradient(90deg, #E6FDFF 4.39%, #FFEDF1 32.89%)',
         }}

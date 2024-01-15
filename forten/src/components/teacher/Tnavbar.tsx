@@ -10,9 +10,8 @@ const Tnavbar = () => {
       style={{
         width: '62.5rem',
         height: '4rem',
-        marginTop: '2.4rem',
-        marginLeft: '8.75rem',
-        marginRight: '8.75rem',
+        marginLeft: 'auto',
+        marginRight: 'auto',
         background:
           'linear-gradient(270deg, #E1FBFF 14.43%, rgba(242, 255, 225, 0.61) 57.19%, rgba(255, 248, 225, 0.53) 95.11%)',
         border: '0.5px solid #ffa154',

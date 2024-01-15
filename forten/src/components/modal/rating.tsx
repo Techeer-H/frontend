@@ -1,46 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-export const FullContainer = styled.div`
-  width: 25rem;
-  height: 20rem;
-  border-radius: 1.5rem;
-  border: 0.1rem solid #85a1ff;
-  background: #ffffff;
-`;
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const TextContainer = styled.p`
-  color: #737b7b;
-  font-size: 1rem;
-  font-style: normal;
-  text-align: center;
-`;
-
-export const ImgBox = styled.div`
-  margin-top: 0.5rem;
-  margin-bottom: 1.81rem;
-  display: flex;
-  justify-content: center;
-`;
-export const Button = styled.button`
-  width: 6rem;
-  height: 1.75rem;
-  display: flex;
-  margin-top: 0.87rem;
-  border-radius: 1rem; /* 원하는 값으로 조절 */
-  border: 0.1rem solid #a3a3a3;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-direction: row;
-`;
 
 // slider코드
 
