@@ -41,10 +41,7 @@ const studentInfo = () => {
           </ImgBox>
 
           <ImgBox>
-            <img src={inquireStudent} alt="학생정보조회하기" />
-          </ImgBox>
-          <ImgBox>
-            <img src={aiPrompt} alt="학생정보조회하기" />
+            <img src={aiPrompt} alt="프롬트제작페이지" />
           </ImgBox>
         </ImgContainer>
         <div>상태</div>

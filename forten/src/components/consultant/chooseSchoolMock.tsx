@@ -1,12 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import SchoolTest from '../../pages/consultant/graderegister/schoolTest';
+import MockTest from '../../pages/consultant/graderegister/mockTest';
 
 const Wrapper = styled.div`
   width: 11rem;
   height: 43rem;
-  background-color: #E8E7FF;
+  background-color: #e8e7ff;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-`
+`;
 
 const SubBox = styled.div`
   height: 40%;
@@ -14,7 +17,7 @@ const SubBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-`
+`;
 
 const StudentName = styled.div`
   width: 80%;
@@ -24,38 +27,36 @@ const StudentName = styled.div`
   align-items: center;
   font-size: 1rem;
   font-weight: 900;
-  background-color: #B59FF2;
+  background-color: #b59ff2;
   border-radius: 30px;
-`
+`;
 
 const SelectTest = styled.div`
-  width: 80%;
+  width: 100%;
   height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
   font-weight: 900;
-  background-color: #D1E1FF;
+  background-color: #d1e1ff;
   border-radius: 30px;
-`
+`;
 
 function ChooseSchoolMock() {
-    return (
-        <Wrapper>
-            <SubBox>
-                <StudentName>
-                    학생명
-                </StudentName>
-                <SelectTest>
-                    내신
-                </SelectTest>
-                <SelectTest>
-                    모의고사
-                </SelectTest>
-            </SubBox>
-        </Wrapper>
-    )
+  return (
+    <Wrapper>
+      <SubBox>
+        <StudentName>학생명</StudentName>
+        <Link to="/MockTest">
+          <SelectTest>내신</SelectTest>
+        </Link>
+        <Link to="/SchoolTest">
+          <SelectTest>모의고사</SelectTest>
+        </Link>
+      </SubBox>
+    </Wrapper>
+  );
 }
 
 export default ChooseSchoolMock;

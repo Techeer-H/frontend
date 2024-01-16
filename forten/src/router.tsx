@@ -20,6 +20,9 @@ import Evaluationstudent from './pages/teacher/evaluationstudent/index';
 import OnBoardingPage from './pages/onboard/thirdpage/index';
 
 import AiPromptPage from './pages/consultant/AiPrompt';
+import MockGrade from './pages/consultant/graderegister/mockTest';
+import SchoolGrade from './pages/consultant/graderegister/schoolTest';
+
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -56,6 +59,15 @@ const routers = createBrowserRouter([
   {
     path: '/consultantMain',
     element: <ConsultantMainPage />,
+  },
+  {
+    path: '/schooltest',
+    element: <SchoolGrade />,
+  },
+
+  {
+    path: '/mocktest',
+    element: <MockGrade />,
   },
   {
     path: '/aiprompt',
