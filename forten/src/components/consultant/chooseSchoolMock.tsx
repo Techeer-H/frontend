@@ -48,10 +48,10 @@ function ChooseSchoolMock() {
     <Wrapper>
       <SubBox>
         <StudentName>학생명</StudentName>
-        <Link to="/MockTest">
+        <Link to="/SchoolTest">
           <SelectTest>내신</SelectTest>
         </Link>
-        <Link to="/SchoolTest">
+        <Link to="/MockTest">
           <SelectTest>모의고사</SelectTest>
         </Link>
       </SubBox>
