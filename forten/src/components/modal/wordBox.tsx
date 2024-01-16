@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 const Center = styled.div`
   display: flex;
@@ -15,15 +17,28 @@ const TextArea = styled.div`
   font-size: 0.875rem;
 `;
 
+
+
 // 작성한 글 보여주는 컴포넌트
 const WordBox = () => {
-    return (
-        <Center>
-            <TextArea>
-                이 학생은 이렇고.. 저렇고... 이렇습니다..
-            </TextArea>
-        </Center>
-    );
+  const [text, setText] = useState('')
+
+  axios.get('http://3.37.41.244:8000/api/analysis/prompt/1/')
+    .then((res) => {
+      setTimeout(function () { console.log(res); }, 60000);
+
+
+    }).catch((error) => {
+      console.log(error);
+    })
+
+  return (
+    <Center>
+      <TextArea>
+        이 학생은 이렇고.. 저렇고... 이렇습니다..
+      </TextArea>
+    </Center>
+  );
 };
 
 export default WordBox;
