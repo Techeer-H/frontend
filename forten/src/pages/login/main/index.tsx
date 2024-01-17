@@ -1,9 +1,76 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from '../../../assets/logo.svg';
 import LoginImg from '../../../assets/LoginImg.svg';
 import * as S from './styles';
+import { useNavigate } from 'react-router-dom';
+import SuccessModal from '../modal/successLoginModal';
+import FailModal from '../modal/failLoginModal';
+interface Props {}
 
-const LoginPage = () => {
+const LoginPage = (props: Props) => {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const [isLogin, setIsLogin] = useState(false); //로그인 유무확인
+  //버튼활성화
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [passwordValid, setPassWordValid] = useState<boolean>(false);
+  const [notAllow, setNotAllow] = useState<boolean>(true);
+
+  const [isSuccessOpen, setIsSuccessOpen] = useState<boolean>(false);
+  const [isFailOpen, setIsFailOpen] = useState<boolean>(false);
+
+  const User = {
+    email: 'penloo@naver.com',
+    password: 'shb931012580',
+  };
+
+  const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    setEmail(e.target.value);
+
+    const regex =
+      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/; //정규식
+    if (regex.test(email)) {
+      setEmailValid(true);
+    } else {
+      setEmailValid(false);
+    }
+  };
+
+  const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    setPassword(e.target.value);
+    const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/; //정규식
+    if (regex.test(password)) {
+      setPassWordValid(true);
+    } else {
+      setPassWordValid(false);
+    }
+  };
+
+  useEffect(() => {
+    if (emailValid && passwordValid) {
+      setNotAllow(false);
+      return;
+    }
+    setNotAllow(true);
+  }, [emailValid, passwordValid]);
+
+  // const passwordChangeHandler = (e) => {
+  //   setPassword(e.target.value);
+  // };
+
+  const onSubmitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault(); //클릭 기본 방지
+    console.log(email + password);
+    if (email === User.email && password === User.password) {
+      setIsSuccessOpen(true);
+    } else setIsFailOpen(true);
+  };
+
   return (
     <S.Section>
       <S.LeftColumn>
@@ -11,21 +78,51 @@ const LoginPage = () => {
           <S.LogoImage src={Logo} alt="" />
           <div>
             <S.InputWrapper>
-              <S.Input type="Id" name="" id="" placeholder="아이디" />
+              <S.Input
+                value={email}
+                onChange={emailChangeHandler}
+                type="text"
+                name="email"
+                placeholder="이메일"
+              />
+              <div className="errorMessageWrap">
+                {!emailValid && email.length > 0 && <div>올바른 이메일을 입력해주세요.</div>}
+              </div>
             </S.InputWrapper>
           </div>
           <div>
             <S.InputWrapper>
-              <S.Input type="password" name="" id="" placeholder="비밀번호" />
+              <S.Input
+                value={password}
+                onChange={passwordChangeHandler}
+                type="password"
+                name="password"
+                placeholder="비밀번호"
+              />
+              <div className="errorMessageWrap">
+                {!passwordValid && password.length > 0 && (
+                  <div>영문,숫자 포함 8글자이상 입력해주세요.</div>
+                )}
+              </div>
             </S.InputWrapper>
           </div>
-          <div>
-            <S.Button type="submit">로그인</S.Button>
-          </div>
+
+          {isSuccessOpen ? <SuccessModal setIsOpen={setIsSuccessOpen} /> : null}
+          {isFailOpen ? <FailModal setIsFailOpen={setIsFailOpen} /> : null}
+
+          <S.Button>
+            <button
+              onClick={onSubmitHandler}
+              className="bottomButton"
+              disabled={notAllow}
+              type="submit"
+            >
+              로그인
+            </button>
+          </S.Button>
           <S.TextSecondary style={{ textAlign: 'center' }}>
             아직 회원이 아니신가요?
             <S.Link href="/signup" title="">
-              <br />
               <br /> <br />
               회원가입
             </S.Link>
