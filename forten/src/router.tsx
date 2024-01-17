@@ -19,8 +19,13 @@ import Evaluationstudent from './pages/teacher/evaluationstudent/index';
 import OnBoardingPage from './pages/onboard/thirdpage/index';
 
 import AiPromptPage from './pages/consultant/AiPrompt';
+
+import RegisterStudent from './pages/consultant/modal/registerstudent';
+import RegisterModal from './pages/consultant/modal/registermodal';
+
 import MockGrade from './pages/consultant/graderegister/mockTest';
 import SchoolGrade from './pages/consultant/graderegister/schoolTest';
+
 
 const routers = createBrowserRouter([
   {
@@ -108,6 +113,10 @@ const routers = createBrowserRouter([
   {
     path: '/onboarding',
     element: <OnBoardingPage />,
+  },
+  {
+    path: '/registermodal',
+    element: <RegisterModal />,
   },
 ]);
 
