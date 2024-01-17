@@ -41,7 +41,7 @@ export const LeftColumn = styled.div`
 export const LogoImage = styled.img`
   width: 24rem;
   height: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 
 export const Form = styled.form`
@@ -50,7 +50,14 @@ export const Form = styled.form`
   flex-direction: column;
 `;
 
-export const InputForm = styled.form``;
+export const InputForm = styled.form`
+  .errorMessageWrap {
+    margin-left: 0.5rem;
+    color: #ef0000;
+    font-size: 0.7rem;
+    margin-top: 0.4rem;
+  }
+`;
 
 export const Input = styled.input`
   width: 16rem;
@@ -62,7 +69,7 @@ export const Input = styled.input`
   background: #fff;
   font-size: 0.8rem;
   color: #1f2937;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
   &:focus {
     outline: none;
     border-color: #2563eb;
@@ -70,22 +77,29 @@ export const Input = styled.input`
   }
 `;
 
-export const Button = styled.button`
-  width: 16rem;
-  height: 2.4rem;
-  margin-top: 2rem;
-  border-radius: 1.2em;
-  border: none;
-  background: linear-gradient(105deg, #b6feff 15.97%, #efc2ff 85.11%);
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.9s ease;
-  &:hover {
-    background: #7df6ff;
-    color: #c6c6c6;
-    border: 1px solid #671845;
+export const Button = styled.div`
+  .bottomButton {
+    width: 16rem;
+    height: 2.4rem;
+    margin-top: 2rem;
+    border-radius: 1.2em;
+    border: none;
+    background: linear-gradient(105deg, #b6feff 15.97%, #efc2ff 85.11%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.9s ease;
+    &:hover {
+      background: #7df6ff;
+      color: #c6c6c6;
+      border: 1px solid #671845;
+    }
+  }
+
+  .bottomButton:disabled {
+    background: #dadada;
+    color: white;
   }
 `;
 

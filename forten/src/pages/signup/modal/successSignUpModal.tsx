@@ -1,8 +1,17 @@
 import React from 'react';
 import Checkicon from '../../../assets/Checkicon.svg';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+
+interface SuccessSignUpProps {
+  setIsOpen: (isOpen: boolean) => void;
+}
 
 const Container = styled.div`
+  position: absolute;
+  z-index: 1;
+  left: 12rem;
+  top: 7rem;
   width: 26.25rem;
   height: 15rem;
   border-radius: 1rem;
@@ -19,7 +28,6 @@ const Text = styled.div`
   color: #5a5252;
   margin-left: 0.8rem;
   margin-bottom: 1rem;
-
   text-align: center;
   font-family: Inter;
   font-size: 1.375rem;
@@ -30,7 +38,7 @@ const Text = styled.div`
 const Img = styled.div`
   width: 16rem;
   height: 5.75rem;
-
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: flex-end;
 `;
@@ -50,7 +58,6 @@ const Button = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-
   border-radius: 1rem; //
   margin-left: 8rem;
   margin-top: 2.2rem;
@@ -65,7 +72,13 @@ const Button = styled.div`
   }
 `;
 
-const successmodal = () => {
+const successSignUpModal = ({ setIsOpen }: SuccessSignUpProps) => {
+  const navigate = useNavigate();
+  const handlerButtonClick = () => {
+    setIsOpen(false);
+    navigate('/login');
+  };
+
   return (
     <Container>
       <Img>
@@ -73,9 +86,9 @@ const successmodal = () => {
       </Img>
       <Text>회원가입 성공 !</Text>
 
-      <Button>확인</Button>
+      <Button onClick={handlerButtonClick}>확인</Button>
     </Container>
   );
 };
 
-export default successmodal;
+export default successSignUpModal;

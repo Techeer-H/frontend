@@ -1,13 +1,10 @@
 import React from 'react';
+import CommentList from '../../../components/teacher/commentList';
 import * as S from './styles';
 import Evaluation from '../../../assets/Evaluation.svg';
 import Check from '../../../assets/Check.svg';
 import EvaluateImg from '../../../assets/evaluateImg.svg';
 
-import TeacherRating from '../../../pages/teacher/modal/teacherrating';
-import { styled } from 'styled-components';
-import Lottie from 'react-lottie';
-import TsubmitButton from '../../../components/teacher/TsubmitButton';
 
 const teacherevaluate = () => {
   return (
@@ -25,19 +22,29 @@ const teacherevaluate = () => {
           </S.TextContainer>
         </S.Container>
         <S.CommentBox>
-          <S.TitleBox>
-            <S.Img>
-              <img src={Evaluation} alt="Evaluation" />
-            </S.Img>
-          </S.TitleBox>
+          <S.Explan>
+            해당 학생의 평가 목록을 볼 수 있습니다
+          </S.Explan>
           <S.TitleBar></S.TitleBar>
-          <div style={{ display: 'flex' }}>
-            <S.LeftContainer placeholder="학생의 평가를 적어주세요"></S.LeftContainer>
-            <S.RightContainer>
-              <TeacherRating />
-              <TsubmitButton />
-            </S.RightContainer>
-          </div>
+
+          <S.CommentWrapper>
+            <CommentList />
+            <CommentList />
+            <CommentList />
+            <CommentList />
+            <CommentList />
+            <CommentList />
+            <CommentList />
+            <CommentList />
+            <CommentList />
+            <CommentList />
+          </S.CommentWrapper>
+          <S.BtnContainer>
+            <S.WriteBtn>
+              평가 작성하기
+            </S.WriteBtn>
+          </S.BtnContainer>
+
         </S.CommentBox>
       </S.Fullcontainer>
     </div>
