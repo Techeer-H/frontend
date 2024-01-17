@@ -56,7 +56,7 @@ export const LogoImage = styled.img`
 `;
 
 export const TextSecondary = styled.p`
-  margin: 1rem 0 2.45rem -0.3rem;
+  margin: 0rem 0 2.45rem -0.3rem;
   font-size: 0.9rem;
   line-height: 1.5;
   color: #d2d5db;
@@ -85,6 +85,13 @@ export const Form = styled.form`
 export const InputWrapper = styled.div`
   position: relative;
   gap: 2.4rem;
+
+  .errorMessageWrap {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    color: #ef0000;
+    font-size: 0.7rem;
+  }
 `;
 
 export const Input = styled.input`
@@ -104,21 +111,28 @@ export const Input = styled.input`
   }
 `;
 
-export const Button = styled.button`
-  margin-top: 1rem;
-  width: 16rem;
-  height: 2rem;
-  border-radius: 1.2em;
-  border: none;
-  background: linear-gradient(105deg, #73a6ff 15.97%, #efc2ff 85.11%);
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.9s ease;
-  &:hover {
-    background: #e0baff;
-    color: #292929;
+export const Button = styled.div`
+  .bottomButton {
+    width: 16rem;
+    height: 2rem;
+    border-radius: 1.2em;
+    border: none;
+    background: linear-gradient(105deg, #73a6ff 15.97%, #efc2ff 85.11%);
+    color: #ffffff;
+
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.9s ease;
+    &:hover {
+      background: #e0baff;
+      color: #292929;
+    }
+  }
+
+  .bottomButton:disabled {
+    background: #dadada;
+    color: white;
   }
 `;
 
