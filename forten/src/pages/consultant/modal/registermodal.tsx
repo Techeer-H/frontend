@@ -315,9 +315,7 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
      
   };
 
-useEffect(() =>{
-  console.log(birth);
-}, [birth]);
+
   return (
     <Modal>
       <TitleBar>
@@ -326,8 +324,8 @@ useEffect(() =>{
       <Ximg onClick={handleClick} />
       <div style={{ display: 'flex' }}>
         <Student onChange = {studentName} value= {name} type="text" placeholder="학생의 이름을 입력하세요"></Student>
-        <Age onChange = {(e) =>{
-          
+        <Age onChange = {(e) =>{ const selectBirth=e.target.value;
+           console.log(selectBirth);
           setBirth(e.target.value);
         }}ref={birthDayEl}>
          <option> 출생년도 </option>
