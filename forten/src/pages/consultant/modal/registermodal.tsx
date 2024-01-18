@@ -254,28 +254,36 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
   const createStudent = async () => {
     try {
       // 필요한 상태들이 모두 정의되었는지 확인
-      if (name && school && number && parent && figure && student ) {
+      if (name && school && number && parent && figure && student && birth) {
         const data = {
-          academy_id:1,
-          name:name,
-      school:school,
-      phone:number,
-      parent_name:parent,
-      parent_phone:figure,
-      grade:student,
-      birth:birth,
-
-    };
-  console.log(data)
-        const response = await axios.post("http://3.37.41.244:8000/api/student/",data, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+          academy_id: 1,
+          name: name,
+          school: school,
+          phone: number,
+          parent_name: parent,
+          parent_phone: figure,
+          grade: student,
+          birth: birth,
+        };
+  
+        console.log(data);
+        const response = await axios.post(
+          "http://3.37.41.244:8000/api/student/",
+          data,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
   
         console.log(response.data);
+  
+        // 등록이 성공했을 때 모달을 닫음
+        handleClick();
       } else {
-        console.error("필요한 상태가 정의되지 않았거나 비어 있습니다");
+        // 필요한 정보가 비어있을 때 alert 표시
+        alert("모든 정보를 입력하세요");
       }
     } catch (error) {
       console.error("createStudent에서 오류:", error);
@@ -340,12 +348,12 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
   setStudent(e.target.value);
 }}>
   <option> 학년 선택 </option>
-  <option value="1">중1</option>
-  <option value="2">중2</option>
-  <option value="3">중3</option>
-  <option value="4">고1</option>
-  <option value="5">고2</option>
-  <option value="6">고3</option>
+  <option value="중1">중1</option>
+  <option value="중2">중2</option>
+  <option value="중3">중3</option>
+  <option value="고1">고1</option>
+  <option value="고2">고2</option>
+  <option value="고3">고3</option>
 </Select>
       </div>
       <StudentNum onChange={studentPhone} value={ number} type="tel" placeholder="학생의 전화번호를 입력하세요"></StudentNum>
