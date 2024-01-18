@@ -199,7 +199,9 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
         console.error("데이터 전송 실패", error);
       });
   };
+
   useEffect(() => {
+   
     const handleFocus = (
       ref: React.RefObject<HTMLSelectElement>,
       isOptionExisted: React.MutableRefObject<boolean>,
@@ -312,7 +314,10 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
     setStudent(e.target.value); 
      
   };
+
+useEffect(() =>{
   console.log(birth);
+}, [birth]);
   return (
     <Modal>
       <TitleBar>
@@ -322,11 +327,11 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       <div style={{ display: 'flex' }}>
         <Student onChange = {studentName} value= {name} type="text" placeholder="학생의 이름을 입력하세요"></Student>
         <Age onChange = {(e) =>{
-          setBirth(e.target.value);
           
+          setBirth(e.target.value);
         }}ref={birthDayEl}>
-        
-</Age>
+         <option> 출생년도 </option>
+          </Age>
       </div>
       <div style={{ display: 'flex' }}>
         <School onChange = {schoolName} value= { school } type="text" placeholder="학교명을 입력하세요"></School>
