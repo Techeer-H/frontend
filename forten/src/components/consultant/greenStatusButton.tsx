@@ -1,27 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const GreenStatusButton = styled.div`
-  width: 3.3rem;
-  height: 1.7rem;
-  background-color: #f5fbf5;
+const Button = styled.div`
+  width: 3rem;
+  height: 1.2rem;
+  background-color: #dbffdb;
   border-radius: 1.22rem;
-  display: flex; /* Flexbox를 활성화합니다. */
-  justify-content: center; /* 수평 가운데 정렬 */
+  margin-right: 0.4rem;
   align-items: center; /* 수직 가운데 정렬 */
   font-size: 0.5rem;
+  padding-left: 1rem;
+  padding-top: 0.2rem;
 `;
 
-const TextContainer = styled.div`
-  color: #56c456;
+const TextContainer = styled.text`
+  color: #3eb079;
 `;
 
-const GreenButton = () => {
+const GreenStatusButton = () => {
   return (
     <div id="GreenButton">
-      <GreenStatusButton id="GreenButton">
+      <Button id="GreenButton">
         <TextContainer>완료</TextContainer>
-      </GreenStatusButton>
+      </Button>
     </div>
   );
 };
