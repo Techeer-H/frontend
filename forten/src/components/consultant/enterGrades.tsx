@@ -10,12 +10,13 @@ interface EnterGradesProps {
 }
 
 function EnterGrades({ examId, selectedGrade }: EnterGradesProps) {
+  // 각 과목에 대한 등급을 상태로 관리(값이 학년, 학기별로 변하므로)
   const [koreanGrade, setKoreanGrade] = useState('');
   const [mathGrade, setMathGrade] = useState('');
   const [englishGrade, setEnglishGrade] = useState('');
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // 여기서 등급 저장 또는 다른 작업 수행
+    // 폼 제출할 때 실행되는 함수-등급을 서버에 저장하는 로직 ㅇ
 
     // SCORE, GRADE, EXAM_ID, SUBJECT_ID
     const data = {
