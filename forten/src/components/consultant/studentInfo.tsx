@@ -1,12 +1,10 @@
 // 학생리스트
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
-import inquireStudent from '../../assets/inquireStudent.svg';
 import registerGrade from '../../assets/registerGrade.svg';
 import axios from 'axios';
-import GreenStatusButton from './greenStatusButton';
 import RedStatusButton from './redStatusButton';
 
 //1차 샘플데이터

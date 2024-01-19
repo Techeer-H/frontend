@@ -1,23 +1,22 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Logo from '../../../assets/logo.svg';
-import LoginImg from '../../../assets/LoginImg.svg';
+import React, { useEffect, useState } from 'react';
+
 import SignUpLogo from '../../../assets/siginuplogo.svg';
 import SuccessSignUp from '../modal/successSignUpModal';
 import * as S from './styles';
-import { useNavigate } from 'react-router-dom';
 
-interface SignUpForm {
-  email: string;
-  password: string;
-  name: string;
-  phone: string;
-  birth: string;
-}
+
+// interface SignUpForm {
+//   email: string;
+//   password: string;
+//   name: string;
+//   phone: string;
+//   birth: string;
+// }
 type Role = 'T' | 'C';
 
 const SignUpPage: React.FC = () => {
   //상태관리 및 api
-  const navigate = useNavigate();
+
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -43,12 +42,6 @@ const SignUpPage: React.FC = () => {
   const [phoneValid, setPhoneValid] = useState<boolean>(false);
   const [birthValid, setBirthValid] = useState<boolean>(false);
 
-  const [idError, setIdError] = useState<string>('');
-  const [passWordError, setPassWordError] = useState<string>('');
-  const [confirmError, setConfirmError] = useState<string>('');
-
-  const [isCheckedEamil, setIsCheckedEmail] = useState<boolean>(false); // 중복 검사를 했는지 안했는지
-  const [isIdAvailable, setIsIdAvailable] = useState<boolean>(false); // 아이디 사용 가능한지 아닌지
 
   // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   setSignUpInfo({ ...signupInfo, [e.target.name]: e.target.value });

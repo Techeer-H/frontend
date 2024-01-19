@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import SchoolTest from '../../pages/consultant/graderegister/schoolTest';
-import MockTest from '../../pages/consultant/graderegister/mockTest';
 
 const Wrapper = styled.div`
   width: 11rem;

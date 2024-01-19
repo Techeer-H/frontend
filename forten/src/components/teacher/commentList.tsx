@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import { Button } from '../../pages/signup/main/styles';
 import Delete from '../../assets/delete.svg';
 import Modify from '../../assets/modify.svg';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TeacherRatingPage from '../../pages/teacher/modal/teacherrating';
-import axios from 'axios';
+
 
 interface CommentListProps {
   content: string;
@@ -17,17 +16,17 @@ const CommentList: React.FC<CommentListProps> = (props) => {
   // const [content, setContent] = useState('');
   // const [rating, setRating] = useState('');
 
-  const openModifyModal = () => {
-    setModifyModalOpen(true);
-  };
+  // const openModifyModal = () => {
+  //   setModifyModalOpen(true);
+  // };
 
   const closeModifyModal = () => {
     setModifyModalOpen(false);
   };
 
-  const openDeleteModal = () => {
-    setDeleteModalOpen(true);
-  };
+  // const openDeleteModal = () => {
+  //   setDeleteModalOpen(true);
+  // };
 
   const closeDeleteModal = () => {
     setDeleteModalOpen(false);

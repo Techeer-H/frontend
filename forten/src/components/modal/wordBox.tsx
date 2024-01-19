@@ -24,19 +24,19 @@ const WordBox = () => {
 
   const [text, setText] = useState('');
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(`http://3.37.41.244:8000/api/analysis/prompt/${16}/`);
-  //       console.log(response.data.response);
-  //       setText(response.data.response || '잠시만 기다려주세요');
-  //     } catch (error) {
-  //       console.log('학생 ai 요약 실패', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://3.37.41.244:8000/api/analysis/prompt/${16}/`);
+        console.log(response.data.response);
+        setText(response.data.response || '잠시만 기다려주세요');
+      } catch (error) {
+        console.log('학생 ai 요약 실패', error);
+      }
+    };
 
-  //   fetchData(); // useEffect 내에서 fetchData 호출
-  // }, []); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행
+    fetchData(); // useEffect 내에서 fetchData 호출
+  }, []); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행
 
   return (
     <Center>

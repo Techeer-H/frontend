@@ -1,7 +1,6 @@
-import React from 'react';
+
 import Warningsignid from '../../../assets/Warningsignid.svg';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
 
 type FailLoginProps = {
   setIsFailOpen: (isFailOpen: boolean) => void;
@@ -75,7 +74,6 @@ const Button = styled.div`
 `;
 
 const FailLoginModal = ({ setIsFailOpen }: FailLoginProps) => {
-  const navigate = useNavigate();
   const handleButtonClick = () => {
     setIsFailOpen(false);
   };

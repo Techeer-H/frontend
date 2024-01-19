@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import * as S from './styles';
 
 import Navbar from '../../../components/consultant/navBar';
@@ -11,7 +11,6 @@ import BookMarkList from '../../../components/consultant/bookMarkList';
 import RegisterModal from '../modal/registermodal';
 import axios from 'axios';
 
-interface Props {}
 
 export type UserType = {
   user_id: string;
@@ -23,29 +22,29 @@ export type UserType = {
   role: string;
 };
 
-const ConsultantMainPage = (props: Props) => {
+const ConsultantMainPage = () => {
   const [isModalOpened, setIsOpened] = useState<boolean>(false);
   const [studentInput, setStudentInput] = useState<string>('');
 
-  const [userData, setUserData] = useState<UserType>({
-    user_id: '',
-    email: '',
-    password: '',
-    name: '',
-    phone: '',
-    birth: '',
-    role: '',
-  });
-  const [studentlist, setStudentList] = useState<
-    {
-      id: number;
-      name: string;
-      school: string;
-      birth: string;
-      phone: string;
-      parent_phone: string;
-    }[]
-  >([]);
+  // const [userData, setUserData] = useState<UserType>({
+  //   user_id: '',
+  //   email: '',
+  //   password: '',
+  //   name: '',
+  //   phone: '',
+  //   birth: '',
+  //   role: '',
+  // });
+  // const [studentlist, setStudentList] = useState<
+  //   {
+  //     id: number;
+  //     name: string;
+  //     school: string;
+  //     birth: string;
+  //     phone: string;
+  //     parent_phone: string;
+  //   }[]
+  // >([]);
 
   const handleClick = () => {
     setIsOpened((prev) => !prev); // setIsOpened(!isModalOpened);
@@ -78,7 +77,7 @@ const ConsultantMainPage = (props: Props) => {
       .then((response) => {
         // 로그인 성공 시 처리
         const userData: { result: UserType } = response.data.id;
-        setUserData(userData.result);
+        // setUserData(userData.result);
         console.error('성공', userData);
       })
       .catch((error) => {

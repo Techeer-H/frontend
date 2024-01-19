@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CommentList from '../../../components/teacher/commentList';
 import * as S from './styles';
 import axios from 'axios';
@@ -13,7 +13,7 @@ const teacherevaluate = () => {
 
   const [content, setContent] = useState('');
   const [rating, setRating] = useState('');
-  const [feedback, setFeedBack] = useState('');
+  // const [feedback, setFeedBack] = useState('');
   const openModal = () => {
     setModalOpen(true);
   };

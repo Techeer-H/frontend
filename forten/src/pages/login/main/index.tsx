@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../../assets/logo.svg';
-import LoginImg from '../../../assets/LoginImg.svg';
 import * as S from './styles';
-import { useNavigate } from 'react-router-dom';
 import SuccessModal from '../modal/successLoginModal';
 import FailModal from '../modal/failLoginModal';
-interface Props {}
 
-const LoginPage = (props: Props) => {
-  const navigate = useNavigate();
+
+const LoginPage = () => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const [isLogin, setIsLogin] = useState(false); //로그인 유무확인
   //버튼활성화
   const [emailValid, setEmailValid] = useState<boolean>(false);
   const [passwordValid, setPassWordValid] = useState<boolean>(false);

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { abs } from '../../../../node_modules/@types/stylis/index.d';
 
 export const background = styled.div`
   justify-content: center;

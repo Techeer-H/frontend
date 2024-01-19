@@ -23,7 +23,7 @@ const Explan = styled.p`
 
 // 학생 평가 도넛 그래프 컴포넌트
 function StudentAvergy() {
-    const [labels, setLabels] = useState([]);
+    // const [labels, setLabels] = useState([]);
     const [series, setSeries] = useState([]);
 
 
@@ -33,7 +33,7 @@ function StudentAvergy() {
             width: '400',
             height: '200',
         },
-        labels: labels || [],
+        // labels: labels || [],
         series: series || [],
         dataLabels: {
             enabled: false,
@@ -56,6 +56,7 @@ function StudentAvergy() {
                 setSeries(studentRating);
                 // setLabels(newDataLabels);
                 // setSeries(newSeriesData);
+
             } catch (error) {
                 console.error('[강사] 학생 평가 파이차트', error);
             }
