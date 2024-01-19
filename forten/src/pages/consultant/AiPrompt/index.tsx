@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import Navbar from '../../../components/consultant/navBar';
 import * as S from './styles';
 import StudentTable from '../../../components/modal/studentTable';
@@ -8,13 +7,29 @@ import WriteButton from '../../../components/modal/writeButton';
 import StudentAvergy from '../../../components/modal/studentAvergy';
 import SchoolGrades from '../../../components/modal/schoolGrades'; // 내신 성적
 import SchoolMock from '../../../components/modal/schoolMock'; // 모의고사 성적
-import ColseBtn from '../../../assets/closeBtn.png';
+import ConsultantRatingPage from '../modal/consultantrating';
+import { useState } from 'react';
 
 // const FlexWrapper = styled.div``;
 
 const AiPromptPage = () => {
+
+  // 상담 완료 후 모달 껐다 켰다 하는 부분, 모달은 ConsultantRatingPage임
+  const [isModal, setIsModal] = useState(false);
+
+  const modalOpen = () => {
+    setIsModal(!isModal);
+  }
+  const closeModal = () => {
+    setIsModal(!isModal);
+  }
+
   return (
     <S.background>
+      {isModal && (
+        <ConsultantRatingPage
+          close={closeModal} />
+      )}
       <Navbar />
       <S.fullcontainer>
         <S.LeftFullContainer>
@@ -34,7 +49,7 @@ const AiPromptPage = () => {
             </S.Container>
           </S.FlexContainer>
           <WordBox />
-          <WriteButton />
+          <WriteButton onConfirm={modalOpen} />
         </div>
       </S.fullcontainer>
     </S.background>

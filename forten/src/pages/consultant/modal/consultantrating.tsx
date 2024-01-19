@@ -44,7 +44,7 @@ const Button = styled.button`
   flex-direction: row;
 `;
 
-const ConsultantRatingPage = () => {
+const ConsultantRatingPage = (props) => {
   return (
     <FullContainer>
       <Container>
@@ -57,7 +57,7 @@ const ConsultantRatingPage = () => {
       <Container>
         <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
         <Rating />
-        <Button>
+        <Button onClick={props.close}>
           <img src={SubmitIcon} alt="제출" />
         </Button>
       </Container>
