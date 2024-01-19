@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import UserIcon from '../../assets/PersonIcon.svg';
 
@@ -44,17 +46,45 @@ const PhoneNumber = styled.p`
 
 // 학생 정보 컴포넌트
 function StudentTable() {
+  const [studentInfo, setStudentInfo] = useState({
+    name: '',
+    school: '',
+    grade: '',
+    phone: ''
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 강사, 학생id
+        const response = await axios.get(`http://3.37.41.244:8000/api/student?id=${1}&student_id=${16}&search=`);
+        const studentData = response.data.result[0];  // 응답 데이터 확인, stu_id가 들어가면 됨(인덱스)
+        setStudentInfo({
+          name: studentData.name || '',
+          school: studentData.school || '',
+          grade: studentData.grade || '',
+          phone: studentData.phone || ''
+        });
+        console.log('학생 정보 불러오기 성공');
+      } catch (error) {
+        console.error('학생 정보 불러오기 실패', error);
+      }
+    };
+
+    fetchData();
+  }, []);  // 빈 배열을 넣어 한 번만 실행되도록 설정
+
   return (
     <ColumnContainer>
       <UserBox>
         <div>
           <img src={UserIcon} alt="유저아이콘" />
         </div>
-        <UserName>이현진</UserName>
+        <UserName>{studentInfo.name}</UserName>
       </UserBox>
-      <School>목일중학교</School>
-      <Grade>중3</Grade>
-      <PhoneNumber>010-1111-1111</PhoneNumber>
+      <School>{studentInfo.school}</School>
+      <Grade>{studentInfo.grade}</Grade>
+      <PhoneNumber>{studentInfo.phone}</PhoneNumber>
     </ColumnContainer>
   );
 }

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
@@ -6,10 +7,10 @@ import { ApexOptions } from 'apexcharts';
 const Wrapper = styled.div`
   width: 26rem;
   height: 16rem;
-  /* border: 1px solid #717171; */
+  border: 1px solid #717171;
   border-radius: 10px;
   margin-bottom: 1rem;
-  background-color: #d1baba;
+  background-color: #fff;
   padding: 0.5rem;
 `;
 
@@ -31,52 +32,160 @@ const RadioContaioner = styled.div`
   font-size: 0.85rem;
 `;
 
-// gradesData 객체에 대한 타입 정의
-interface GradesData {
-  korean: {
-    series: { name: string; data: number[] }[];
-    xaxisCategories: string[];
-  };
-  english: {
-    series: { name: string; data: number[] }[];
-    xaxisCategories: string[];
-  };
-  math: {
-    series: { name: string; data: number[] }[];
-    xaxisCategories: string[];
-  };
+interface ScoreDataItem {
+  id: number;
+  grade: string; // 예를 들어, 등급이 문자열이라고 가정
+  score: number; // 예를 들어, 점수가 숫자라고 가정
+  exam: string; // 예를 들어, 시험이 문자열이라고 가정
 }
 
 // 내신 그래프 컴포넌트
 function SchoolGrades() {
   const [selectedSubject, setSelectedSubject] = useState<'korean' | 'english' | 'math'>('korean');
+  const [korean1, setKorean1] = useState<number[]>([]);
+  const [korean2, setKorean2] = useState<number[]>([]);
+  const [korean3, setKorean3] = useState<number[]>([]);
+  const [english1, setEnglish1] = useState<number[]>([]);
+  const [english2, setEnglish2] = useState<number[]>([]);
+  const [english3, setEnglish3] = useState<number[]>([]);
+  const [math1, setMath1] = useState<number[]>([]);
+  const [math2, setMath2] = useState<number[]>([]);
+  const [math3, setMath3] = useState<number[]>([]);
 
   const inputRadioHandler = (subject: 'korean' | 'english' | 'math') => {
     setSelectedSubject(subject);
   };
 
-  console.log('내신' + selectedSubject);
+  const getSubjectId = (subject: 'korean' | 'english' | 'math'): number => {
+    switch (subject) {
+      case 'korean':
+        return 1;
+      case 'english':
+        return 2;
+      case 'math':
+        return 3;
+      default:
+        return 1;
+    }
+  };
 
-  // 가상의 성적 데이터
-  const gradesData: GradesData = {
+  const semesterInfo: { [key: string]: string } = {
+    '1': '1-1학기 중간',
+    '2': '1-2학기 기말',
+    '3': '2-1학기 중간',
+    '4': '2-2학기 기말',
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://3.37.41.244:8000/api/student/${16}/score/?subject_id=${getSubjectId(selectedSubject)}`);
+
+        if (response.data.result[0].subject_id === 1) {
+          console.log('국어 데이터');
+          const scoresData: ScoreDataItem[] = response.data.result.map((item: any) => ({
+            id: item.id,
+            grade: item.grade,
+            score: item.score,
+            exam: semesterInfo[item.exam_id],
+          }));
+
+          const grade1Data = scoresData.filter(item => item.grade === '고1');
+          const sortedGrade1Data = sortDataBySemester(grade1Data);
+          setKorean1(sortedGrade1Data);
+
+          const grade2Data = scoresData.filter(item => item.grade === '고2');
+          const sortedGrade2Data = sortDataBySemester(grade2Data);
+          setKorean2(sortedGrade2Data);
+
+          const grade3Data = scoresData.filter(item => item.grade === '고3');
+          const sortedGrade3Data = sortDataBySemester(grade3Data);
+          setKorean3(sortedGrade3Data);
+        } else if (response.data.result[0].subject_id === 2) {
+          console.log('영어 데이터');
+          const scoresData = response.data.result.map((item: any) => ({
+            id: item.id,
+            grade: item.grade,
+            score: item.score,
+            exam: semesterInfo[item.exam_id],
+          }));
+
+          const grade1Data = scoresData.filter((item: any) => item.grade === '고1');
+          const sortedGrade1Data = sortDataBySemester(grade1Data);
+          setEnglish1(sortedGrade1Data);
+
+          const grade2Data = scoresData.filter((item: any) => item.grade === '고2');
+          const sortedGrade2Data = sortDataBySemester(grade2Data);
+          setEnglish2(sortedGrade2Data);
+
+          const grade3Data = scoresData.filter((item: any) => item.grade === '고3');
+          const sortedGrade3Data = sortDataBySemester(grade3Data);
+          setEnglish3(sortedGrade3Data);
+        } else {
+
+          console.log('수학 데이터');
+          const scoresData = response.data.result.map((item: any) => ({
+            id: item.id,
+            grade: item.grade,
+            score: item.score,
+            exam: semesterInfo[item.exam_id],
+          }));
+          const grade1Data = scoresData.filter((item: any) => item.grade === '고1');
+          const sortedGrade1Data = sortDataBySemester(grade1Data);
+          setMath1(sortedGrade1Data);
+
+          const grade2Data = scoresData.filter((item: any) => item.grade === '고2');
+          const sortedGrade2Data = sortDataBySemester(grade2Data);
+          setMath2(sortedGrade2Data);
+
+          const grade3Data = scoresData.filter((item: any) => item.grade === '고3');
+          const sortedGrade3Data = sortDataBySemester(grade3Data);
+          setMath3(sortedGrade3Data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [selectedSubject]);
+
+  const sortDataBySemester = (data: ScoreDataItem[]): number[] | [] => {
+    const semesterOrder = ['1-1학기 중간', '1-2학기 기말', '2-1학기 중간', '2-2학기 기말'];
+
+    const result = semesterOrder.map((semester) => {
+      const matchingData = data.find((item) => item.exam === semester);
+      return matchingData ? matchingData.score : 0;
+    });
+
+    // 모든 값이 0인 경우에는 빈 배열 반환
+    return result.some(score => score !== 0) ? result : [];
+  };
+
+  const gradesData = {
     korean: {
       series: [
-        { name: '1학년', data: [4, 4, 2, 1, 2, 1] },
-        { name: '2학년', data: [2, 2, 4, 1] },
-        { name: '3학년', data: [3, 3, 3, 1, 1, 2, 1] },
+        { name: '1학년', data: korean1 },
+        { name: '2학년', data: korean2 },
+        { name: '3학년', data: korean3 },
       ],
-      xaxisCategories: ['1-1', '1-2', '2-1', '2-2', '3-1', '3-2'],
+      xaxisCategories: ['1학기 중간', '1학기 기말', '2학기 중간', '2학기 기말'],
     },
     english: {
       series: [
-        { name: '1학년', data: [2, 3, 4, 5] },
-        { name: '2학년', data: [6, 7, 8, 9] },
+        { name: '1학년', data: english1 },
+        { name: '2학년', data: english2 },
+        { name: '3학년', data: english3 },
       ],
-      xaxisCategories: ['1-1', '1-2', '2-1', '2-2'],
+      xaxisCategories: ['1학기 중간', '1학기 기말', '2학기 중간', '2학기 기말'],
     },
     math: {
-      series: [],
-      xaxisCategories: [],
+      series: [
+        { name: '1학년', data: math1 },
+        { name: '2학년', data: math2 },
+        { name: '3학년', data: math3 },
+      ],
+      xaxisCategories: ['1학기 중간', '1학기 기말', '2학기 중간', '2학기 기말'],
     },
   };
 

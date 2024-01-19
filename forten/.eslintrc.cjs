@@ -17,6 +17,6 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-explicit-any': 'off', //any가 안나오게 만들어줌
   },
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import * as S from './styles';
 
 import Navbar from '../../../components/consultant/navBar';
@@ -9,13 +9,85 @@ import star from '../../../assets/star.svg';
 import StudentInfo from '../../../components/consultant/studentInfo';
 import BookMarkList from '../../../components/consultant/bookMarkList';
 import RegisterModal from '../modal/registermodal';
-interface Props { }
+import axios from 'axios';
+
+interface Props {}
+
+export type UserType = {
+  user_id: string;
+  email: string;
+  password: string;
+  name: string;
+  phone: string;
+  birth: string;
+  role: string;
+};
 
 const ConsultantMainPage = (props: Props) => {
   const [isModalOpened, setIsOpened] = useState<boolean>(false);
+  const [studentInput, setStudentInput] = useState<string>('');
+
+  const [userData, setUserData] = useState<UserType>({
+    user_id: '',
+    email: '',
+    password: '',
+    name: '',
+    phone: '',
+    birth: '',
+    role: '',
+  });
+  const [studentlist, setStudentList] = useState<
+    {
+      id: number;
+      name: string;
+      school: string;
+      birth: string;
+      phone: string;
+      parent_phone: string;
+    }[]
+  >([]);
+
   const handleClick = () => {
     setIsOpened((prev) => !prev); // setIsOpened(!isModalOpened);
   };
+
+  //검색 기능 구현
+  const getSearchData = (e: ChangeEvent<HTMLInputElement>) => {
+    setStudentInput(e.target.value.toLowerCase());
+  };
+
+  //화면에 학생리스트를 위해 만들어보았다가 일단 실패 담에 한번 해보세요!
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         'http://3.37.41.244:8000/api/student/?id=1&student_id=&search=',
+  //       );
+  //       setStudentList(response.data.result);
+  //     } catch (error) {
+  //       console.error('Error fetching student data:', error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
+
+  useEffect(() => {
+    const user_id = localStorage.getItem('user_id');
+    axios
+      .get(`http://3.37.41.244:8000/api/student/?id=${user_id}/`)
+      .then((response) => {
+        // 로그인 성공 시 처리
+        const userData: { result: UserType } = response.data.id;
+        setUserData(userData.result);
+        console.error('성공', userData);
+      })
+      .catch((error) => {
+        // 로그인 실패 시 처리
+        console.error('유저 정보 불러오기 실패', error);
+        // 예: 에러 메시지 표시 등
+      });
+  }, []);
+
   return (
     // 전체화면
 
@@ -46,8 +118,15 @@ const ConsultantMainPage = (props: Props) => {
               </S.RegisterStudentButton>
 
               <S.StudentSearchContainer>
-                <S.StyledInput type="text" placeholder="학생조회" />
-                <S.SearchIcon src={search} alt="Search Icon" />
+                <S.StyledInput
+                  onChange={getSearchData}
+                  value={studentInput}
+                  type="text"
+                  placeholder="학생조회"
+                />
+                <S.SearchIcon>
+                  <img src={search} alt="Search Icon" />
+                </S.SearchIcon>
               </S.StudentSearchContainer>
 
               <S.DropDownContainer>
@@ -59,8 +138,11 @@ const ConsultantMainPage = (props: Props) => {
                 </S.StyledSelect>
               </S.DropDownContainer>
             </S.FlexContainer>
+
             <GrayBox />
-            <StudentInfo />
+            {/*  ConsultantMainPage 컴포넌트에서 StudentInfo 컴포넌트 사용 부분
+ StudentInfo 컴포넌트에 studentlist를 props로 전달하고, 검색 결과에 따라 이를 업데이트할 수 있도록 함 */}
+            <StudentInfo studentInput={studentInput} />
           </S.SearchContainer>
 
           <Memo />
