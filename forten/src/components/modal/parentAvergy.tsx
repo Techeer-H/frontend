@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import axios from 'axios';
 import SmileEmoji from '../../assets/smileEmoji.png';

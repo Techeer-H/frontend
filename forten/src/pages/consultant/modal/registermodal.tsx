@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Xicon from '../../../assets/Xicon.svg';
 import styled from 'styled-components';
-import axios, { AxiosResponse } from "axios";
-import { AxiosError} from 'axios';
+import axios from "axios";
 interface RegisterModalProps {
   isOpen: boolean;
   handleClick: () => void;
@@ -161,16 +160,16 @@ const Button = styled.button`
     color: #292929;
   }
 `;
-const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
-    const [name, setName] = useState('');
-    const [school, setSchool] = useState('');
-    const [phone, setPhone] = useState('');
-    const [parent_name, setParentName] = useState('');
-    const [parent_phone, setParentPhone] = useState('');
-    const [grade, setGrade] = useState('');
-    const [birth, setBirth] = useState('');
-    const birthDayEl = useRef<HTMLSelectElement>(null);
-    const isDayOptionExisted = useRef(false);
+const RegisterModal = ({ handleClick }: RegisterModalProps) => {
+  const [name, setName] = useState('');
+  const [school, setSchool] = useState('');
+  const [phone, setPhone] = useState('');
+  const [parent_name, setParentName] = useState('');
+  const [parent_phone, setParentPhone] = useState('');
+  const [grade, setGrade] = useState('');
+  const [birth, setBirth] = useState('');
+  const birthDayEl = useRef<HTMLSelectElement>(null);
+  const isDayOptionExisted = useRef(false);
   useEffect(() => {
     const handleFocus = (
       ref: React.RefObject<HTMLSelectElement>,
@@ -203,20 +202,20 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       }
     };
   }, []);
-const createStudent : React.MouseEventHandler<HTMLButtonElement> = async (e) => {
+  const createStudent: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault();
     try {
       // 필요한 상태들이 모두 정의되었는지 확인
       if (name && school && phone && parent_name && parent_phone && grade) {
         const data = {
-            academy_id: 1,
-            name: name,
-            school: school,
-            phone: phone,
-            parent_name: parent_name,
-            parent_phone: parent_phone,
-            grade: grade,
-            birth: birth,
+          academy_id: 1,
+          name: name,
+          school: school,
+          phone: phone,
+          parent_name: parent_name,
+          parent_phone: parent_phone,
+          grade: grade,
+          birth: birth,
         };
         console.log(data);
         const response = await axios.post(
@@ -239,7 +238,7 @@ const createStudent : React.MouseEventHandler<HTMLButtonElement> = async (e) => 
       console.error("createStudent에서 오류:", error);
     }
   };
- const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     setName(e.target.value);
     // setStudent(e.target.value); // student 상태 업데이트 추가
@@ -270,30 +269,31 @@ const createStudent : React.MouseEventHandler<HTMLButtonElement> = async (e) => 
       </TitleBar>
       <Ximg onClick={handleClick} />
       <div style={{ display: 'flex' }}>
-        <Student onChange = {studentName} value= {name} type="text" placeholder="학생의 이름을 입력하세요"></Student>
-        <Age onChange = {(e) =>{ const selectBirth=e.target.value;
-           console.log(selectBirth);
+        <Student onChange={studentName} value={name} type="text" placeholder="학생의 이름을 입력하세요"></Student>
+        <Age onChange={(e) => {
+          const selectBirth = e.target.value;
+          console.log(selectBirth);
           setBirth(e.target.value);
-        }}ref={birthDayEl}>
-         <option> 출생년도 </option>
-          </Age>
+        }} ref={birthDayEl}>
+          <option> 출생년도 </option>
+        </Age>
       </div>
       <div style={{ display: 'flex' }}>
-        <School onChange = {schoolName} value= { school } type="text" placeholder="학교명을 입력하세요"></School>
+        <School onChange={schoolName} value={school} type="text" placeholder="학교명을 입력하세요"></School>
         <Select onChange={(e) => {
-  // e.target.value를 통해 선택된 값에 접근
-  const selectedValue = e.target.value;
-  console.log(selectedValue);
-            setGrade(e.target.value);
-}}>
-  <option> 학년 선택 </option>
-  <option value="중1">중1</option>
-  <option value="중2">중2</option>
-  <option value="중3">중3</option>
-  <option value="고1">고1</option>
-  <option value="고2">고2</option>
-  <option value="고3">고3</option>
-</Select>
+          // e.target.value를 통해 선택된 값에 접근
+          const selectedValue = e.target.value;
+          console.log(selectedValue);
+          setGrade(e.target.value);
+        }}>
+          <option> 학년 선택 </option>
+          <option value="중1">중1</option>
+          <option value="중2">중2</option>
+          <option value="중3">중3</option>
+          <option value="고1">고1</option>
+          <option value="고2">고2</option>
+          <option value="고3">고3</option>
+        </Select>
       </div>
       <StudentNum
         onChange={studentPhone}
@@ -307,7 +307,7 @@ const createStudent : React.MouseEventHandler<HTMLButtonElement> = async (e) => 
         type="text"
         placeholder="학부모명을 입력하세요"
       ></Parent>
-     <ParentNum
+      <ParentNum
         onChange={parentPhone}
         value={parent_phone}
         type="tel"

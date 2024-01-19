@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Memo = () => {
   return (
@@ -23,7 +23,7 @@ const Memo = () => {
         }}
         placeholder="기억해야할 것들을 적어주세요"
 
-        //flexDirection: 'column',
+      //flexDirection: 'column',
       ></textarea>
 
       {/* 

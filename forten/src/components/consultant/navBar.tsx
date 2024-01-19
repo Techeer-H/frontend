@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Profile from '../../assets/profile.svg';
 import Logo from '../../assets/logo.svg';
 

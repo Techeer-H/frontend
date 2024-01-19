@@ -1,20 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+
 import 'tailwindcss/tailwind.css';
 import * as S from './styles';
 
 import TbookMarkList from '../../../components/teacher/TbookMarkList';
 import Tmemo from '../../../components/teacher/Tmemo';
 import Tnavbar from '../../../components/teacher/Tnavbar';
-import TgrayBox from '../../../components/teacher/Tgraybox copy';
+import TgrayBox from '../../../components/teacher/Tgraybox';
 import TstudentInfo from '../../../components/teacher/TstudentInfo';
 
 import star from '../../../assets/star.svg';
 import search from '../../../assets/searchIcon.svg';
 
-interface Props {}
 
-const TeacherPage = (props: Props) => {
+const TeacherPage = () => {
   return (
     <div
       className="background"

@@ -4,8 +4,7 @@ import ChooseSchoolMock from '../../../components/consultant/chooseSchoolMock';
 import GradeSelect from '../../../components/consultant/gradeSelect';
 import SubjectLine from '../../../components/consultant/subjectLine';
 import EnterGrades from '../../../components/consultant/enterGrades';
-import React, { useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 // const MemoizedEnterGrades = React.memo(EnterGrades);
 

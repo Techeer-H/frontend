@@ -4,7 +4,7 @@ import ChooseSchoolMock from '../../../components/consultant/chooseSchoolMock';
 import GradeSelect from '../../../components/consultant/gradeSelect';
 import SubjectLine from '../../../components/consultant/subjectLine';
 import EnterGrades from '../../../components/consultant/enterGrades';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // mocktest와 schooltest를 어떻게 라우터화 할 지 고민해봐야됨
 

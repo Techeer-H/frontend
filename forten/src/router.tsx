@@ -7,21 +7,16 @@ import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
 import StartPage from './pages/onboard/firstpage';
 import TeacherPage from './pages/teacher/main/index';
-import SuccessSignUpModal from './pages/signup/modal/successSignUpModal';
 import WarningSignModal from './pages/signup/modal/warningsign';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';
 import StudentDetail from './pages/teacher/modal/studentDetail';
-import TeacherRatingPage from './pages/teacher/modal/teacherrating';
 
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
 import OnBoardingPage from './pages/onboard/thirdpage/index';
 
 import AiPromptPage from './pages/consultant/AiPrompt';
-
-import RegisterStudent from './pages/consultant/modal/registerstudent';
-import RegisterModal from './pages/consultant/modal/registermodal';
 
 import MockGrade from './pages/consultant/graderegister/mockTest';
 import SchoolGrade from './pages/consultant/graderegister/schoolTest';
@@ -84,10 +79,6 @@ const routers = createBrowserRouter([
 
   // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다)
   {
-    path: '/successmodal',
-    element: <SuccessSignUpModal />,
-  },
-  {
     path: '/warningsignmodal',
     element: <WarningSignModal />,
   },
@@ -101,11 +92,6 @@ const routers = createBrowserRouter([
     element: <StudentDetail />,
   },
   {
-    path: '/teacherrating',
-    element: <TeacherRatingPage />,
-  },
-
-  {
     path: '/evaluate',
     element: <Evaluationstudent />,
   },
@@ -113,10 +99,6 @@ const routers = createBrowserRouter([
   {
     path: '/onboarding',
     element: <OnBoardingPage />,
-  },
-  {
-    path: '/registermodal',
-    element: <RegisterModal />,
   },
 ]);
 

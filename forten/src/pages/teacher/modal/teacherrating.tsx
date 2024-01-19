@@ -12,7 +12,7 @@ const TeacherRatingPage: React.FC<{
   MyRatingComponent?: string;
   onModify?: (feedbackId: string) => void; // 추가: 수정 콜백
   onDelete?: (feedbackId: string) => void; // 추가: 삭제 콜백
-}> = ({ closeModal, feedbackId, onDelete, onModify }) => {
+}> = ({ closeModal, feedbackId }) => {
   const [comment, setComment] = useState('');
   const [studentrating, setStudentRating] = useState(0);
 

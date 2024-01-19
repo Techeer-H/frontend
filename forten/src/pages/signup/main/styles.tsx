@@ -1,6 +1,5 @@
-import React from 'react';
+
 import styled from 'styled-components';
-import LoginImg from '../../assets/LoginImg.svg';
 import LoginImg2 from '../../../assets/loginimg2.svg';
 import { Link } from 'react-router-dom';
 

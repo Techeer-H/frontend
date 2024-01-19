@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Warningsign from '../../../assets/Warningsign.svg';
 import styled from 'styled-components';
 
