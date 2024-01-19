@@ -3,7 +3,6 @@ import Xicon from '../../../assets/Xicon.svg';
 import styled from 'styled-components';
 import axios, { AxiosResponse } from "axios";
 import { AxiosError} from 'axios';
-
 interface RegisterModalProps {
   isOpen: boolean;
   handleClick: () => void;
@@ -162,43 +161,16 @@ const Button = styled.button`
     color: #292929;
   }
 `;
-
 const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
-  
-  const [name, setName] = useState("");
-  const [school,setSchool] = useState("");
-  const [number,setNumber] = useState("");
-  const [parent, setParent] = useState("");
-  const [figure, setFigure] = useState("");
-  const [student,setStudent] = useState("");
-  const [birth, setBirth] = useState("");
-  const birthDayEl = useRef<HTMLSelectElement>(null);
-  const isDayOptionExisted = useRef(false);
-
-  function sendDataToServer(): Promise<AxiosResponse> {
-    
-    const apiUrl = 'http://3.37.41.244:8000/api/student'
-    const data = {
-      name:name,
-      school:school,
-      phone:number,
-      parent_name:parent,
-      parent_phone:figure,
-      grade:student,
-    };
-
-    return axios.post(apiUrl, data);
-  }
-  const handleClicker = () => {
-    sendDataToServer()
-      .then((response: AxiosResponse) => {
-        console.log("데이터 전송에 성공했습니다!", response.data);
-        
-      })
-      .catch((error) => {
-        console.error("데이터 전송 실패", error);
-      });
-  };
+    const [name, setName] = useState('');
+    const [school, setSchool] = useState('');
+    const [phone, setPhone] = useState('');
+    const [parent_name, setParentName] = useState('');
+    const [parent_phone, setParentPhone] = useState('');
+    const [grade, setGrade] = useState('');
+    const [birth, setBirth] = useState('');
+    const birthDayEl = useRef<HTMLSelectElement>(null);
+    const isDayOptionExisted = useRef(false);
   useEffect(() => {
     const handleFocus = (
       ref: React.RefObject<HTMLSelectElement>,
@@ -231,88 +203,66 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       }
     };
   }, []);
-  class Json {
-    private data: Record<string, any>;
-  
-    constructor() {
-      this.data = {};
-    }
-  
-    // append 메소드 추가 또는 이미 존재한다면 해당 메소드 사용
-    append(key: string, value: any) {
-      this.data[key] = value;
-    }
-  
-    // 데이터를 가져오는 메소드 추가
-    getData() {
-      return this.data;
-    }
-  }
- 
-  const createStudent = async () => {
+const createStudent : React.MouseEventHandler<HTMLButtonElement> = async (e) => {
+    e.preventDefault();
     try {
       // 필요한 상태들이 모두 정의되었는지 확인
-      if (name && school && number && parent && figure && student ) {
+      if (name && school && phone && parent_name && parent_phone && grade) {
         const data = {
-          academy_id:1,
-          name:name,
-      school:school,
-      phone:number,
-      parent_name:parent,
-      parent_phone:figure,
-      grade:student,
-      birth:birth,
-
-    };
-  console.log(data)
-        const response = await axios.post("http://3.37.41.244:8000/api/student/",data, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-  
+            academy_id: 1,
+            name: name,
+            school: school,
+            phone: phone,
+            parent_name: parent_name,
+            parent_phone: parent_phone,
+            grade: grade,
+            birth: birth,
+        };
+        console.log(data);
+        const response = await axios.post(
+          "http://3.37.41.244:8000/api/student/",
+          data,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         console.log(response.data);
+        // 등록이 성공했을 때 모달을 닫음
+        handleClick();
       } else {
-        console.error("필요한 상태가 정의되지 않았거나 비어 있습니다");
+        // 필요한 정보가 비어있을 때 alert 표시
+        alert("모든 정보를 입력하세요");
       }
     } catch (error) {
       console.error("createStudent에서 오류:", error);
     }
   };
-
-  const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
+ const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     setName(e.target.value);
-    setStudent(e.target.value); // student 상태 업데이트 추가
-
-
+    // setStudent(e.target.value); // student 상태 업데이트 추가
   };
-
   const schoolName = (e: React.ChangeEvent<HTMLInputElement>) => {
-     console.log(e.target.value);
-     setSchool(e.target.value);
-     setStudent(e.target.value); // student 상태 업데이트 추가
-
+    console.log(e.target.value);
+    setSchool(e.target.value);
+    // setStudent(e.target.value); // student 상태 업데이트 추가
   };
   const studentPhone = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
-    setNumber(e.target.value);
-    
+    setPhone(e.target.value);
   };
   const parentName = (e: React.ChangeEvent<HTMLInputElement>) => {
-     console.log(e.target.value);
-     setParent(e.target.value);
-     setStudent(e.target.value); 
-
-  
+    console.log(e.target.value);
+    setParentName(e.target.value);
+    // setStudent(e.target.value);
   };
   const parentPhone = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
-    setFigure(e.target.value);
-    setStudent(e.target.value); 
-     
+    setParentPhone(e.target.value);
+    // setStudent(e.target.value);
   };
-  console.log(birth);
   return (
     <Modal>
       <TitleBar>
@@ -321,12 +271,12 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       <Ximg onClick={handleClick} />
       <div style={{ display: 'flex' }}>
         <Student onChange = {studentName} value= {name} type="text" placeholder="학생의 이름을 입력하세요"></Student>
-        <Age onChange = {(e) =>{
+        <Age onChange = {(e) =>{ const selectBirth=e.target.value;
+           console.log(selectBirth);
           setBirth(e.target.value);
-          
         }}ref={birthDayEl}>
-        
-</Age>
+         <option> 출생년도 </option>
+          </Age>
       </div>
       <div style={{ display: 'flex' }}>
         <School onChange = {schoolName} value= { school } type="text" placeholder="학교명을 입력하세요"></School>
@@ -334,21 +284,36 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
   // e.target.value를 통해 선택된 값에 접근
   const selectedValue = e.target.value;
   console.log(selectedValue);
-  setStudent(e.target.value);
+            setGrade(e.target.value);
 }}>
   <option> 학년 선택 </option>
-  <option value="1">중1</option>
-  <option value="2">중2</option>
-  <option value="3">중3</option>
-  <option value="4">고1</option>
-  <option value="5">고2</option>
-  <option value="6">고3</option>
+  <option value="중1">중1</option>
+  <option value="중2">중2</option>
+  <option value="중3">중3</option>
+  <option value="고1">고1</option>
+  <option value="고2">고2</option>
+  <option value="고3">고3</option>
 </Select>
       </div>
-      <StudentNum onChange={studentPhone} value={ number} type="tel" placeholder="학생의 전화번호를 입력하세요"></StudentNum>
-      <Parent onChange = {parentName} value = {parent} type="text" placeholder="학부모명을 입력하세요"></Parent>
-      <ParentNum onChange = {parentPhone} value={figure} type="tel" placeholder="학부모 전화번호를 입력하세요"></ParentNum>
-      <Button onClick={createStudent} >
+      <StudentNum
+        onChange={studentPhone}
+        value={phone}
+        type="tel"
+        placeholder="학생의 전화번호를 입력하세요"
+      ></StudentNum>
+      <Parent
+        onChange={parentName}
+        value={parent_name}
+        type="text"
+        placeholder="학부모명을 입력하세요"
+      ></Parent>
+     <ParentNum
+        onChange={parentPhone}
+        value={parent_phone}
+        type="tel"
+        placeholder="학부모 전화번호를 입력하세요"
+      ></ParentNum>
+      <Button type="submit" onClick={createStudent}>
         등록
       </Button>
     </Modal>
