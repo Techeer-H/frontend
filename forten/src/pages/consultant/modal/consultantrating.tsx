@@ -52,11 +52,11 @@ const ConsultantRatingPage = () => {
           <img src={LogoAndLetter} alt="로고" />
         </ImgBox>
         <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
-        <Rating />
+        {/* <Rating /> */}
       </Container>
       <Container>
         <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
-        <Rating />
+        {/* <Rating /> */}
         <Button>
           <img src={SubmitIcon} alt="제출" />
         </Button>
