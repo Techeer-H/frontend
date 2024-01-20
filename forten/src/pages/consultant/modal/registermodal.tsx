@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Xicon from '../../../assets/Xicon.svg';
 import styled from 'styled-components';
-import axios from "axios";
+import axios from 'axios';
 interface RegisterModalProps {
   isOpen: boolean;
   handleClick: () => void;
@@ -16,7 +16,7 @@ const Modal = styled.div`
   padding: 0 2rem;
   justify-content: space-between;
   border-radius: 3.125rem;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   background: #fff;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
   font-size: 0.8rem;
@@ -56,7 +56,7 @@ const Student = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -67,9 +67,9 @@ const Age = styled.select`
   width: 6.341rem;
   height: 2.4rem;
   border-radius: 0.5rem;
-  border-bottom: 2px solid #BCB1FF;
+  border-bottom: 2px solid #bcb1ff;
   background: #fff;
-  color: #A5A5A5;
+  color: #a5a5a5;
   text-align: center;
   font-size: 0.8rem; /* Adjust the font size as needed */
 `;
@@ -78,9 +78,9 @@ const Select = styled.select`
   width: 6.341rem;
   height: 2.4rem;
   border-radius: 0.5rem;
-  border-bottom: 2px solid #BCB1FF;
+  border-bottom: 2px solid #bcb1ff;
   background: #fff;
-  color: #A5A5A5;
+  color: #a5a5a5;
   text-align: center;
   font-size: 0.8rem; /* Adjust the font size as needed */
 `;
@@ -93,7 +93,7 @@ const School = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   margin-right: 4rem;
   background: #fff;
@@ -108,7 +108,7 @@ const StudentNum = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -122,7 +122,7 @@ const Parent = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -136,7 +136,7 @@ const ParentNum = styled.input`
   margin-bottom: 8rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -150,13 +150,13 @@ const Button = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  color: #FFFFFF;
+  color: #ffffff;
   bottom: 2.4rem;
   left: 6rem;
-  background: linear-gradient(91deg, #73A6FF 15.97%, #EFC2FF 85.11%);
+  background: linear-gradient(91deg, #73a6ff 15.97%, #efc2ff 85.11%);
   transition: background-color 0.5s ease;
   &:hover {
-    background: #E0BAFF;
+    background: #e0baff;
     color: #292929;
   }
 `;
@@ -170,6 +170,7 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
   const [birth, setBirth] = useState('');
   const birthDayEl = useRef<HTMLSelectElement>(null);
   const isDayOptionExisted = useRef(false);
+
   useEffect(() => {
     const handleFocus = (
       ref: React.RefObject<HTMLSelectElement>,
@@ -218,24 +219,20 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
           birth: birth,
         };
         console.log(data);
-        const response = await axios.post(
-          "http://3.37.41.244:8000/api/student/",
-          data,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await axios.post('http://3.37.41.244:8000/api/student/', data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
         console.log(response.data);
         // 등록이 성공했을 때 모달을 닫음
         handleClick();
       } else {
         // 필요한 정보가 비어있을 때 alert 표시
-        alert("모든 정보를 입력하세요");
+        alert('모든 정보를 입력하세요');
       }
     } catch (error) {
-      console.error("createStudent에서 오류:", error);
+      console.error('createStudent에서 오류:', error);
     }
   };
   const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -269,23 +266,38 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
       </TitleBar>
       <Ximg onClick={handleClick} />
       <div style={{ display: 'flex' }}>
-        <Student onChange={studentName} value={name} type="text" placeholder="학생의 이름을 입력하세요"></Student>
-        <Age onChange={(e) => {
-          const selectBirth = e.target.value;
-          console.log(selectBirth);
-          setBirth(e.target.value);
-        }} ref={birthDayEl}>
+        <Student
+          onChange={studentName}
+          value={name}
+          type="text"
+          placeholder="학생의 이름을 입력하세요"
+        ></Student>
+        <Age
+          onChange={(e) => {
+            const selectBirth = e.target.value;
+            console.log(selectBirth);
+            setBirth(e.target.value);
+          }}
+          ref={birthDayEl}
+        >
           <option> 출생년도 </option>
         </Age>
       </div>
       <div style={{ display: 'flex' }}>
-        <School onChange={schoolName} value={school} type="text" placeholder="학교명을 입력하세요"></School>
-        <Select onChange={(e) => {
-          // e.target.value를 통해 선택된 값에 접근
-          const selectedValue = e.target.value;
-          console.log(selectedValue);
-          setGrade(e.target.value);
-        }}>
+        <School
+          onChange={schoolName}
+          value={school}
+          type="text"
+          placeholder="학교명을 입력하세요"
+        ></School>
+        <Select
+          onChange={(e) => {
+            // e.target.value를 통해 선택된 값에 접근
+            const selectedValue = e.target.value;
+            console.log(selectedValue);
+            setGrade(e.target.value);
+          }}
+        >
           <option> 학년 선택 </option>
           <option value="중1">중1</option>
           <option value="중2">중2</option>

@@ -11,7 +11,6 @@ import BookMarkList from '../../../components/consultant/bookMarkList';
 import RegisterModal from '../modal/registermodal';
 import axios from 'axios';
 
-
 export type UserType = {
   user_id: string;
   email: string;

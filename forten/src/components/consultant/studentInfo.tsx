@@ -52,19 +52,21 @@ const StudentInfo = ({ studentInput }: Props) => {
   const getStudentList = async () => {
     let response;
 
+    const user_id = localStorage.getItem('user_id');
+
     if (studentInput === '') {
-      response = await axios.get(`http://3.37.41.244:8000/api/student/?id=1`);
+      response = await axios.get(`http://3.37.41.244:8000/api/student/?id=${user_id}`);
     } else {
       if (isNaN(Number(studentInput))) {
         // 숫자가 아닐때가
         console.log(studentInput);
         response = await axios.get(
-          `http://3.37.41.244:8000/api/student/?id=1&search=${studentInput}`,
+          `http://3.37.41.244:8000/api/student/?id=${user_id}&search=${studentInput}`,
         );
       } else {
         // 숫자일때
         response = await axios.get(
-          `http://3.37.41.244:8000/api/student/?id=1&student_id=${studentInput}`,
+          `http://3.37.41.244:8000/api/student/?id=${user_id}&student_id=${studentInput}`,
         );
       }
       setStudentList(response.data.result); //여기까지하면 처음페이지 불러올떄 있는 목록만 나옴
