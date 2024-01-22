@@ -1,27 +1,31 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import NavBar from '../../../components/consultant/navBar';
 import ChooseSchoolMock from '../../../components/consultant/chooseSchoolMock';
 import GradeSelect from '../../../components/consultant/gradeSelect';
 import SubjectLine from '../../../components/consultant/subjectLine';
 import EnterGrades from '../../../components/consultant/enterGrades';
-import React, { useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 
 // const MemoizedEnterGrades = React.memo(EnterGrades);
 
 // mocktest와 schooltest를 어떻게 라우터화 할 지 고민해봐야됨
 
 function SchoolTest() {
+  // 메인 페이지에서 학생 id가져오기
+  const location = useLocation();
+
   // 상태를 추가하고 해당 상태의 값을 가져오거나 업테이트
   //이게 setState인가?? 암튼 setState을
   //최종값 업데이트하는 값
   const [selectedGrade, setSelectedGrade] = useState('고1');
 
+  console.log('내신 등급 입력 컴포넌트', location.state.studentId);
   return (
     <Wrapper>
       <NavBar />
       <FlexWrapper>
-        <ChooseSchoolMock />
+        <ChooseSchoolMock studentId={location.state.studentId} />
         <MainContent>
           <Explan>내신 등급을 입력해주세요</Explan>
           <GradeSelect selectedGrade={selectedGrade} setSelectedGrade={setSelectedGrade} />
@@ -32,10 +36,10 @@ function SchoolTest() {
                * 여기 아래의 성적 입력 컴포넌트들을
                * props를 사용하여 구분하면 되지 않을까 하는 생각입니다
                */}
-              <EnterGrades examId="1" selectedGrade={selectedGrade} />
-              <EnterGrades examId="2" selectedGrade={selectedGrade} />
-              <EnterGrades examId="3" selectedGrade={selectedGrade} />
-              <EnterGrades examId="4" selectedGrade={selectedGrade} />
+              <EnterGrades examId="1" selectedGrade={selectedGrade} studentId={location.state.studentId} />
+              <EnterGrades examId="2" selectedGrade={selectedGrade} studentId={location.state.studentId} />
+              <EnterGrades examId="3" selectedGrade={selectedGrade} studentId={location.state.studentId} />
+              <EnterGrades examId="4" selectedGrade={selectedGrade} studentId={location.state.studentId} />
             </EnterGradeWrapper>
           </FormWrapper>
         </MainContent>

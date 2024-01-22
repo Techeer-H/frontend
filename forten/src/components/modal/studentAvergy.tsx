@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
@@ -21,6 +23,9 @@ const Explan = styled.p`
 
 // 학생 평가 도넛 그래프 컴포넌트
 function StudentAvergy() {
+    // const [labels, setLabels] = useState([]);
+    const [series, setSeries] = useState([]);
+
 
     let options: ApexOptions = {
         chart: {
@@ -28,18 +33,38 @@ function StudentAvergy() {
             width: '400',
             height: '200',
         },
-
-        labels: ['이현진', '하재민', '김준범', '상필진'],
-        series: [5, 10, 10, 3],
+        // labels: labels || [],
+        series: series || [],
         dataLabels: {
             enabled: false,
         }
-    }
+    };
 
-    // 평가를 아무도 진행하지 않았을 때, 비어있기 때문에 그땐 어떻게 보여줄지 아마 삼항연산자를 사용하면 될 것 같습니다.
-    // 일단 push로 배열에 데이터를 추가하고, 잘 나타나는 것을 확인 했습니다.
-    options.labels.push('조준영');
-    options.series.push(2);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // Axios를 사용하여 데이터를 가져오는 API 엔드포인트로 요청을 보냅니다.
+                const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${16}/`);
+
+                // 서버에서 받아온 데이터를 적절히 가공하여 labels와 series를 업데이트합니다.
+                console.log(response.data.result.student_rating);
+                // const newDataLabels = response.data.labels;
+                // const newSeriesData = response.data.series;
+
+                const studentRating = response.data.result.student_rating;
+
+                setSeries(studentRating);
+                // setLabels(newDataLabels);
+                // setSeries(newSeriesData);
+
+            } catch (error) {
+                console.error('[강사] 학생 평가 파이차트', error);
+            }
+        };
+
+        // 컴포넌트가 마운트될 때 데이터를 가져오기 위해 useEffect 내에서 fetchData를 호출합니다.
+        fetchData();
+    }, []); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행
 
 
     return (

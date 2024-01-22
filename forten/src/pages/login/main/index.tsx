@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../../assets/logo.svg';
-import LoginImg from '../../../assets/LoginImg.svg';
+
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
 import SuccessModal from '../modal/successLoginModal';
 import FailModal from '../modal/failLoginModal';
-interface Props {}
+import axios from 'axios';
 
-const LoginPage = (props: Props) => {
-  const navigate = useNavigate();
-
+const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const [isLogin, setIsLogin] = useState(false); //로그인 유무확인
   //버튼활성화
   const [emailValid, setEmailValid] = useState<boolean>(false);
   const [passwordValid, setPassWordValid] = useState<boolean>(false);
@@ -22,10 +19,12 @@ const LoginPage = (props: Props) => {
   const [isSuccessOpen, setIsSuccessOpen] = useState<boolean>(false);
   const [isFailOpen, setIsFailOpen] = useState<boolean>(false);
 
-  const User = {
-    email: 'penloo@naver.com',
-    password: 'shb931012580',
-  };
+  const navigate = useNavigate();
+
+  // const User = {
+  //   email: 'penloo@naver.com',
+  //   password: 'shb931012580',
+  // };
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
@@ -63,12 +62,41 @@ const LoginPage = (props: Props) => {
   //   setPassword(e.target.value);
   // };
 
+  //localStorage.setItem('userId', userId);
+  // localStorage.getItem('userId'); 써라
+
   const onSubmitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); //클릭 기본 방지
-    console.log(email + password);
-    if (email === User.email && password === User.password) {
-      setIsSuccessOpen(true);
-    } else setIsFailOpen(true);
+    axios
+      .post('http://3.37.41.244:8000/api/user/login/', {
+        email,
+        password,
+      })
+      .then((response) => {
+        console.log(response);
+        // 로그인 성공 시 처리
+        if ((response.status = 200)) {
+          console.log('로그인 성공!', response.data);
+          localStorage.setItem('user_Id', response.data.user_id);
+          localStorage.setItem('user_name', response.data.user_name);
+          localStorage.setItem('role', response.data.role);
+          if (response.data.role === 'T') {
+            setIsSuccessOpen(true);
+            return navigate('/teacher');
+          } else if (response.data.role === 'C') {
+            setIsSuccessOpen(true);
+            return navigate('/consultantMain');
+          }
+        }
+      })
+      .catch((err) => {
+        setIsFailOpen(true);
+        console.log(err);
+      });
+  };
+
+  const goToSign = () => {
+    navigate('/signup');
   };
 
   return (
@@ -122,7 +150,7 @@ const LoginPage = (props: Props) => {
           </S.Button>
           <S.TextSecondary style={{ textAlign: 'center' }}>
             아직 회원이 아니신가요?
-            <S.Link href="/signup" title="">
+            <S.Link onClick={goToSign} title="">
               <br /> <br />
               회원가입
             </S.Link>

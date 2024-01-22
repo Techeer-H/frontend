@@ -1,4 +1,8 @@
+import { useEffect, useState } from 'react';
 import styled from "styled-components";
+import axios from 'axios';
+import SmileEmoji from '../../assets/smileEmoji.png';
+import SadEmoji from '../../assets/sadEmoji.png';
 
 const Wrapper = styled.div`
   width: 18.75rem;
@@ -42,27 +46,49 @@ const AvgWrapper = styled.div`
 
 // 학부모 평가 컴포넌트
 function ParentAvergy() {
-    return (
-        <Wrapper>
-            <Explan>학부모 평가</Explan>
-            <FlexContainer>
-                <ImgWrapper>
-                    <div>
-                        div로 이미지 크기 조절
-                        <img />
-                    </div>
-                </ImgWrapper>
-                <AvgWrapper>
-                    <div>
-                        평균 점수
-                    </div>
-                    <div>
-                        8.4
-                    </div>
-                </AvgWrapper>
-            </FlexContainer>
-        </Wrapper>
-    )
+  const [parentAver, setParentAver] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${16}/`);
+
+        const parentRating = (response.data.result.parent_rating);
+
+        setParentAver(parentRating);
+
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // parentAver가 undefined 일 경우 0으로 기본값 설정
+  const defaultParentAver = parentAver || 0;
+  // 이미지 경로 설정
+  const emojiImage = defaultParentAver >= 1 ? SmileEmoji : SadEmoji;
+
+  return (
+    <Wrapper>
+      <Explan>학부모 평가</Explan>
+      <FlexContainer>
+        <ImgWrapper>
+          <div>
+            <img src={emojiImage} alt="이모지" />
+          </div>
+        </ImgWrapper>
+        <AvgWrapper>
+          <div>
+            평균 점수(-5 ~ 5)
+          </div>
+          <div>
+            {parentAver}
+          </div>
+        </AvgWrapper>
+      </FlexContainer>
+    </Wrapper>
+  )
 }
 
 

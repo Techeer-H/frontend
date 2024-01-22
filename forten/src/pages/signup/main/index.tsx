@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Logo from '../../../assets/logo.svg';
-import LoginImg from '../../../assets/LoginImg.svg';
+import React, { useEffect, useState } from 'react';
+
 import SignUpLogo from '../../../assets/siginuplogo.svg';
 import SuccessSignUp from '../modal/successSignUpModal';
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 interface SignUpForm {
   email: string;
@@ -24,6 +24,7 @@ const SignUpPage: React.FC = () => {
   const [phone, setPhone] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [birth, setBirth] = useState<string>('');
+
   const [role, setRole] = useState<Role>('T');
   const [notAllow, setNotAllow] = useState<boolean>(true);
 
@@ -42,10 +43,6 @@ const SignUpPage: React.FC = () => {
   const [passwordValid, setPassWordValid] = useState<boolean>(false);
   const [phoneValid, setPhoneValid] = useState<boolean>(false);
   const [birthValid, setBirthValid] = useState<boolean>(false);
-
-  const [idError, setIdError] = useState<string>('');
-  const [passWordError, setPassWordError] = useState<string>('');
-  const [confirmError, setConfirmError] = useState<string>('');
 
   const [isCheckedEamil, setIsCheckedEmail] = useState<boolean>(false); // 중복 검사를 했는지 안했는지
   const [isIdAvailable, setIsIdAvailable] = useState<boolean>(false); // 아이디 사용 가능한지 아닌지
@@ -118,9 +115,26 @@ const SignUpPage: React.FC = () => {
 
   const onSubmitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); //클릭 기본 방지
-    console.log(email + password);
+    axios
+      .post('http://3.37.41.244:8000/api/user/signup/', {
+        academy_id: 1,
+        email: email,
+        password: password,
+        name: name,
+        phone: phone,
+        birth: birth,
+        role: role,
+      })
 
-    setIsSuccessOpen(true);
+      .then((response) => {
+        console.log(response);
+        setIsSuccessOpen(true);
+        navigate('/login');
+      })
+      .catch((err) => {
+        alert('회원가입에 실패하였습니다.');
+        console.log(err);
+      });
   };
 
   return (

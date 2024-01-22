@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Xicon from '../../../assets/Xicon.svg';
 import styled from 'styled-components';
-import axios, { AxiosResponse } from "axios";
-import { AxiosError} from 'axios';
+import axios from 'axios';
 interface RegisterModalProps {
   isOpen: boolean;
   handleClick: () => void;
@@ -17,7 +16,7 @@ const Modal = styled.div`
   padding: 0 2rem;
   justify-content: space-between;
   border-radius: 3.125rem;
-  border: 1px solid #D8D8D8;
+  border: 1px solid #d8d8d8;
   background: #fff;
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
   font-size: 0.8rem;
@@ -57,7 +56,7 @@ const Student = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -68,9 +67,9 @@ const Age = styled.select`
   width: 6.341rem;
   height: 2.4rem;
   border-radius: 0.5rem;
-  border-bottom: 2px solid #BCB1FF;
+  border-bottom: 2px solid #bcb1ff;
   background: #fff;
-  color: #A5A5A5;
+  color: #a5a5a5;
   text-align: center;
   font-size: 0.8rem; /* Adjust the font size as needed */
 `;
@@ -79,9 +78,9 @@ const Select = styled.select`
   width: 6.341rem;
   height: 2.4rem;
   border-radius: 0.5rem;
-  border-bottom: 2px solid #BCB1FF;
+  border-bottom: 2px solid #bcb1ff;
   background: #fff;
-  color: #A5A5A5;
+  color: #a5a5a5;
   text-align: center;
   font-size: 0.8rem; /* Adjust the font size as needed */
 `;
@@ -94,7 +93,7 @@ const School = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   margin-right: 4rem;
   background: #fff;
@@ -109,7 +108,7 @@ const StudentNum = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -123,7 +122,7 @@ const Parent = styled.input`
   gap: 0.47556rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -137,7 +136,7 @@ const ParentNum = styled.input`
   margin-bottom: 8rem;
   background: #fff;
   border-radius: 0.5rem;
-  border: 1px solid #9483FF;
+  border: 1px solid #9483ff;
   opacity: 0.8;
   background: #fff;
   box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
@@ -151,16 +150,17 @@ const Button = styled.button`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  color: #FFFFFF;
+  color: #ffffff;
   bottom: 2.4rem;
   left: 6rem;
-  background: linear-gradient(91deg, #73A6FF 15.97%, #EFC2FF 85.11%);
+  background: linear-gradient(91deg, #73a6ff 15.97%, #efc2ff 85.11%);
   transition: background-color 0.5s ease;
   &:hover {
-    background: #E0BAFF;
+    background: #e0baff;
     color: #292929;
   }
 `;
+
 const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
     const [name, setName] = useState('');
     const [school, setSchool] = useState('');
@@ -173,6 +173,18 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
     const [error, setError] = useState<string | null>(null);
     const birthDayEl = useRef<HTMLSelectElement>(null);
     const isDayOptionExisted = useRef(false);
+=======
+const RegisterModal = ({ handleClick }: RegisterModalProps) => {
+  const [name, setName] = useState('');
+  const [school, setSchool] = useState('');
+  const [phone, setPhone] = useState('');
+  const [parent_name, setParentName] = useState('');
+  const [parent_phone, setParentPhone] = useState('');
+  const [grade, setGrade] = useState('');
+  const [birth, setBirth] = useState('');
+  const birthDayEl = useRef<HTMLSelectElement>(null);
+  const isDayOptionExisted = useRef(false);
+
   useEffect(() => {
     const handleFocus = (
       ref: React.RefObject<HTMLSelectElement>,
@@ -205,15 +217,19 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       }
     };
   }, []);
+
   const handleCloseModal = () => {
     // 모달을 닫는 로직을 추가합니다.
     handleClick(); // 모달을 닫는 함수를 호출합니다.
   };
   
+=======
+
   const createStudent: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault();
     try {
       // 필요한 상태들이 모두 정의되었는지 확인
+
       if (!name || !school || !phone || !parent_name || !parent_phone || !grade || !birth) {
         // 필요한 정보가 비어있을 때 alert 표시
         alert("모든 정보를 입력하세요");
@@ -230,6 +246,31 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       if (isNaN(parseInt(birth))) {
         alert("출생년도를 숫자로 입력하세요");
         return;
+=======
+      if (name && school && phone && parent_name && parent_phone && grade) {
+        const data = {
+          academy_id: 1,
+          name: name,
+          school: school,
+          phone: phone,
+          parent_name: parent_name,
+          parent_phone: parent_phone,
+          grade: grade,
+          birth: birth,
+        };
+        console.log(data);
+        const response = await axios.post('http://3.37.41.244:8000/api/student/', data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        console.log(response.data);
+        // 등록이 성공했을 때 모달을 닫음
+        handleClick();
+      } else {
+        // 필요한 정보가 비어있을 때 alert 표시
+        alert('모든 정보를 입력하세요');
+
       }
   
       // 출생년도 유효성 검사
@@ -266,12 +307,16 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       // 등록이 성공했을 때 모달을 닫음
       handleCloseModal(); // 모달을 닫는 함수 호출
     } catch (error) {
+
       console.error("createStudent에서 오류:", error);
       // 모달에 오류 메시지 표시
       setError("등록 중 오류가 발생했습니다. 다시 시도해주세요.");
+=======
+      console.error('createStudent에서 오류:', error);
+
     }
   };
- const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     setName(e.target.value);
     // setStudent(e.target.value); // student 상태 업데이트 추가
@@ -305,6 +350,7 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
       <TitleBar>
         <Title> 학생등록 </Title>
       </TitleBar>
+
       <Ximg onClick={handleCloseModal} />
     <div style={{ display: 'flex' }}>
       <Student onChange={studentName} value={name} type="text" placeholder="학생의 이름을 입력하세요"></Student>
@@ -314,23 +360,50 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
         }}ref={birthDayEl}>
          <option> 출생년도 </option>
           </Age>
+=======
+      <Ximg onClick={handleClick} />
+      <div style={{ display: 'flex' }}>
+        <Student
+          onChange={studentName}
+          value={name}
+          type="text"
+          placeholder="학생의 이름을 입력하세요"
+        ></Student>
+        <Age
+          onChange={(e) => {
+            const selectBirth = e.target.value;
+            console.log(selectBirth);
+            setBirth(e.target.value);
+          }}
+          ref={birthDayEl}
+        >
+          <option> 출생년도 </option>
+        </Age>
+
       </div>
       <div style={{ display: 'flex' }}>
-        <School onChange = {schoolName} value= { school } type="text" placeholder="학교명을 입력하세요"></School>
-        <Select onChange={(e) => {
-  // e.target.value를 통해 선택된 값에 접근
-  const selectedValue = e.target.value;
-  console.log(selectedValue);
+        <School
+          onChange={schoolName}
+          value={school}
+          type="text"
+          placeholder="학교명을 입력하세요"
+        ></School>
+        <Select
+          onChange={(e) => {
+            // e.target.value를 통해 선택된 값에 접근
+            const selectedValue = e.target.value;
+            console.log(selectedValue);
             setGrade(e.target.value);
-}}>
-  <option> 학년 선택 </option>
-  <option value="중1">중1</option>
-  <option value="중2">중2</option>
-  <option value="중3">중3</option>
-  <option value="고1">고1</option>
-  <option value="고2">고2</option>
-  <option value="고3">고3</option>
-</Select>
+          }}
+        >
+          <option> 학년 선택 </option>
+          <option value="중1">중1</option>
+          <option value="중2">중2</option>
+          <option value="중3">중3</option>
+          <option value="고1">고1</option>
+          <option value="고2">고2</option>
+          <option value="고3">고3</option>
+        </Select>
       </div>
       <StudentNum
         onChange={studentPhone}
@@ -344,7 +417,7 @@ const RegisterModal = ({ isOpen, handleClick }: RegisterModalProps) => {
         type="text"
         placeholder="학부모명을 입력하세요"
       ></Parent>
-     <ParentNum
+      <ParentNum
         onChange={parentPhone}
         value={parent_phone}
         type="tel"

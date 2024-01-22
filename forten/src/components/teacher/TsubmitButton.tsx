@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../../animation/submitButton.json';
-import { Container } from '../modal/rating';
+
 import styled from 'styled-components';
-import { background } from '../../pages/consultant/consultantmain/styles';
+
 
 const TsubmitButton = () => {
   const [animationPlayed, setAnimationPlayed] = useState(false); // State to track if the animation has been played

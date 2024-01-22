@@ -1,6 +1,8 @@
-import React from 'react';
+
 import Profile from '../../assets/profile.svg';
 import Logo from '../../assets/logo.svg';
+
+const user_name = localStorage.getItem('user_name');
 
 const Navbar = () => {
   return (
@@ -60,7 +62,7 @@ const Navbar = () => {
             flexShrink: '0',
           }}
         >
-          이현진 강사
+          {user_name}강사
         </p>
       </div>
     </div>

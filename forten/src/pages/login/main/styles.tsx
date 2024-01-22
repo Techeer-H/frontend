@@ -1,7 +1,7 @@
-import React from 'react';
+
 import styled from 'styled-components';
 import LoginImg from '../../../assets/LoginImg.svg';
-import LoginImg2 from '../../../assets/loginimg2.svg';
+
 
 export const Section = styled.section`
   background: linear-gradient(118deg, #f1e1ff -10.93%, #eefffa 77.48%);

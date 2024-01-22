@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { abs } from '../../../../node_modules/@types/stylis/index.d';
 
 export const background = styled.div`
   justify-content: center;
@@ -127,10 +126,18 @@ export const StyledInput = styled.input`
   outline: none;
 `;
 
-export const SearchIcon = styled.img`
+export const SearchIcon = styled.button`
   margin-right: 0.5rem;
   position: absolute;
-  right: 0;
+  right: 0rem;
+  background-color: #efefef;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out;
+  &:hover {
+    scale: 1.2;
+    background-color: #f6c7ff;
+  }
 `;
 
 export const DropDownContainer = styled.div`

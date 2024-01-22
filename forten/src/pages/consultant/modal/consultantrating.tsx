@@ -1,4 +1,4 @@
-import React from 'react';
+
 import styled from 'styled-components';
 import SubmitIcon from '../../../assets/checkIcon_gradient.svg';
 import Rating from '../../../components/modal/rating';
@@ -44,7 +44,7 @@ const Button = styled.button`
   flex-direction: row;
 `;
 
-const ConsultantRatingPage = () => {
+const ConsultantRatingPage = (props: any) => {
   return (
     <FullContainer>
       <Container>
@@ -52,12 +52,14 @@ const ConsultantRatingPage = () => {
           <img src={LogoAndLetter} alt="로고" />
         </ImgBox>
         <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
-        <Rating />
+        {/* <Rating /> */}
       </Container>
       <Container>
         <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
-        <Rating />
-        <Button>
+        {/* <Rating /> */}
+
+        <Rating onSliderChange={props.handleSliderChange} />
+        <Button onClick={props.close}>
           <img src={SubmitIcon} alt="제출" />
         </Button>
       </Container>

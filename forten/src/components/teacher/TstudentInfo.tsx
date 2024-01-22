@@ -1,10 +1,9 @@
 // 학생리스트
 
-import React from 'react';
 import styled from 'styled-components';
-import aiPrompt from '../../assets/AIPrompt.svg';
+
 import inquireStudent from '../../assets/inquireStudent.svg';
-import registerGrade from '../../assets/registerGrade.svg';
+
 const Wrapper = styled.div`
   margin: -2rem 4rem 1.6rem 1.24rem;
   width: 47.75rem;

@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import SchoolTest from '../../pages/consultant/graderegister/schoolTest';
-import MockTest from '../../pages/consultant/graderegister/mockTest';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 11rem;
@@ -43,17 +41,30 @@ const SelectTest = styled.div`
   border-radius: 30px;
 `;
 
-function ChooseSchoolMock() {
+interface studentId {
+  studentId: string
+}
+
+function ChooseSchoolMock({ studentId }: studentId) {
+  const navigate = useNavigate();
+
+
+  console.log('내신, 모의고사 선택 컴포넌트', studentId);
+
+  const moveSchoolTestHandler = () => {
+    navigate('/schooltest', { state: { studentId } });
+  };
+
+  const moveMockTestHandler = () => {
+    navigate('/mocktest', { state: { studentId } });
+  };
+
   return (
     <Wrapper>
       <SubBox>
         <StudentName>학생명</StudentName>
-        <Link to="/SchoolTest">
-          <SelectTest>내신</SelectTest>
-        </Link>
-        <Link to="/MockTest">
-          <SelectTest>모의고사</SelectTest>
-        </Link>
+        <SelectTest onClick={moveSchoolTestHandler}>내신</SelectTest>
+        <SelectTest onClick={moveMockTestHandler}>모의고사</SelectTest>
       </SubBox>
     </Wrapper>
   );

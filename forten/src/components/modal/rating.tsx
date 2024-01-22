@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-
-
 // slider코드
 
 export const SliderParent = styled.div`
@@ -42,16 +40,17 @@ export const Bubble = styled.div<BubbleProps>`
   /* left: ${(props) => `${Number(props.value / 4)}px`}; */
 `;
 
-export default function App() {
-  // 기본값
+interface AppProps {
+  onSliderChange: (value: number) => void;
+}
+
+const Rating: React.FC<AppProps> = ({ onSliderChange }) => {
   const [value, onChange] = useState(0);
 
   useEffect(() => {
-    const ele = document.querySelector('.buble') as HTMLDivElement;
-    if (ele) {
-      //글자 같이 움직이는 효과
-    }
-  }, [value]);
+    onSliderChange(value); // 부모로 선택한 값을 전달
+    // console.log('Slider Value:', value);
+  }, [onSliderChange, value]);
 
   return (
     <SliderParent style={{ textAlign: 'center' }}>
@@ -64,9 +63,10 @@ export default function App() {
           onChange(Number(radius));
         }}
       />
-      <Bubble value={value} className="buble">
+      <Bubble value={value} className="bubble">
         {value}
       </Bubble>
     </SliderParent>
   );
-}
+};
+export default Rating;
