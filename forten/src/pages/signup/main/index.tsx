@@ -128,7 +128,6 @@ const SignUpPage: React.FC = () => {
       .then((response) => {
         setIsSuccessOpen(true);
         console.log(response);
-        navigate('/login');
       })
       .catch((err) => {
         alert('회원가입에 실패하였습니다.');

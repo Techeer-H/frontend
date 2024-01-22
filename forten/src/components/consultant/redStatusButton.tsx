@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 const Button = styled.div`
@@ -6,7 +5,6 @@ const Button = styled.div`
   height: 1.2rem;
   background-color: #ff3d50;
   border-radius: 1.22rem;
-  margin-right: 0.4rem;
   align-items: center; /* 수직 가운데 정렬 */
   font-size: 0.5rem;
   padding-left: 0.84rem;

@@ -6,7 +6,7 @@ import GrayBox from '../../../components/consultant/grayBox';
 import Memo from '../../../components/consultant/memo';
 import search from '../../../assets/searchIcon.svg';
 import star from '../../../assets/star.svg';
-import StudentInfo from '../../../components/consultant/studentInfo';
+import StudentInfo, { StudentType } from '../../../components/consultant/studentInfo';
 import BookMarkList from '../../../components/consultant/bookMarkList';
 import RegisterModal from '../modal/registermodal';
 import axios from 'axios';
@@ -25,6 +25,7 @@ const ConsultantMainPage = () => {
   const [isModalOpened, setIsOpened] = useState<boolean>(false);
   const [studentInput, setStudentInput] = useState<string>('');
   const [stateSelect, setStateSelect] = useState('1');
+  const [studentlist, setStudentList] = useState<StudentType[]>([]);
 
   // const [userData, setUserData] = useState<UserType>({
   //   user_id: '',
@@ -116,7 +117,11 @@ const ConsultantMainPage = () => {
               <S.RegisterStudentButton>
                 <S.ModalWrapper isOpen={isModalOpened}>
                   {isModalOpened && (
-                    <RegisterModal isOpen={isModalOpened} handleClick={handleClick} />
+                    <RegisterModal
+                      studentlist={studentlist}
+                      setstudentList={setStudentList}
+                      handleClick={handleClick}
+                    />
                   )}
                 </S.ModalWrapper>
 
@@ -136,7 +141,11 @@ const ConsultantMainPage = () => {
               </S.StudentSearchContainer>
 
               <S.DropDownContainer>
-                <S.StyledSelect className="text-gray-700" onChange={stateSelectHandler} value={stateSelect}>
+                <S.StyledSelect
+                  className="text-gray-700"
+                  onChange={stateSelectHandler}
+                  value={stateSelect}
+                >
                   <option value="1">전체</option>
                   <option value="2">완료</option>
                   <option value="3">미완료</option>
@@ -147,7 +156,12 @@ const ConsultantMainPage = () => {
             <GrayBox />
             {/*  ConsultantMainPage 컴포넌트에서 StudentInfo 컴포넌트 사용 부분
  StudentInfo 컴포넌트에 studentlist를 props로 전달하고, 검색 결과에 따라 이를 업데이트할 수 있도록 함 */}
-            <StudentInfo studentInput={studentInput} selectedStatus={stateSelect} />
+            <StudentInfo
+              studentlist={studentlist}
+              setStudentList={setStudentList}
+              studentInput={studentInput}
+              selectedStatus={stateSelect}
+            />
           </S.SearchContainer>
 
           <Memo />
