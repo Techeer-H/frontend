@@ -39,8 +39,12 @@ interface ScoreDataItem {
   exam: string; // 예를 들어, 시험이 문자열이라고 가정
 }
 
+interface SchoolMockProps {
+  studentId: number;
+}
+
 // 모의고사 그래프 컴포넌트
-function SchoolMock() {
+function SchoolMock(props: SchoolMockProps) {
   const [selectedSubject, setSelectedSubject] = useState<'korean' | 'english' | 'math'>('korean');
 
   const [korean1, setKorean1] = useState<number[]>([]);
@@ -82,7 +86,7 @@ function SchoolMock() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://3.37.41.244:8000/api/student/${16}/score/?subject_id=${getSubjectId(selectedSubject)}`);
+        const response = await axios.get(`http://3.37.41.244:8000/api/student/${props.studentId}/score/?subject_id=${getSubjectId(selectedSubject)}`);
 
         if (response.data.result[0].subject_id === 1) {
           console.log('국어 데이터');

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import axios from 'axios';
 import SmileEmoji from '../../assets/smileEmoji.png';
@@ -44,14 +44,17 @@ const AvgWrapper = styled.div`
   justify-content: center;
 `
 
+interface ParentAvergyProps {
+  studentId: number;
+}
 // 학부모 평가 컴포넌트
-function ParentAvergy() {
+function ParentAvergy(props: ParentAvergyProps) {
   const [parentAver, setParentAver] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${16}/`);
+        const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${props.studentId}/`);
 
         const parentRating = (response.data.result.parent_rating);
 
