@@ -104,6 +104,7 @@ export const StyledButton = styled.input`
 
 export const StudentSearchContainer = styled.div`
   position: relative;
+
   background: white;
   width: 17.16081rem;
   height: 2.52506rem;

@@ -66,7 +66,7 @@ const Navbar = () => {
             flexShrink: '0',
           }}
         >
-          {user_name}강사
+          {user_name}&nbsp;컨설턴트
         </p>
       </div>
       <button onClick={DeleteBtn}> 아웃</button>
