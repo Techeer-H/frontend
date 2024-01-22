@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -17,17 +17,20 @@ const TextArea = styled.div`
   font-size: 0.875rem;
 `;
 
+interface WordBoxProps {
+  studentId: number;
+}
 
 
 // 작성한 글 보여주는 컴포넌트
-const WordBox = () => {
+function WordBox(props: WordBoxProps) {
 
   const [text, setText] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://3.37.41.244:8000/api/analysis/prompt/${16}/`);
+        const response = await axios.get(`http://3.37.41.244:8000/api/analysis/prompt/${props.studentId}/`);
         console.log(response.data.response);
         setText(response.data.response || '잠시만 기다려주세요');
       } catch (error) {

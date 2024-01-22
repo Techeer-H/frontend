@@ -21,8 +21,12 @@ const Explan = styled.p`
   font-weight: 900;
 `
 
+interface StudentAvergyProps {
+    studentId: number;
+}
+
 // 학생 평가 도넛 그래프 컴포넌트
-function StudentAvergy() {
+function StudentAvergy(props: StudentAvergyProps) {
     // const [labels, setLabels] = useState([]);
     const [series, setSeries] = useState([]);
 
@@ -44,7 +48,7 @@ function StudentAvergy() {
         const fetchData = async () => {
             try {
                 // Axios를 사용하여 데이터를 가져오는 API 엔드포인트로 요청을 보냅니다.
-                const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${16}/`);
+                const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${props.studentId}/`);
 
                 // 서버에서 받아온 데이터를 적절히 가공하여 labels와 series를 업데이트합니다.
                 console.log(response.data.result.student_rating);

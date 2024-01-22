@@ -44,8 +44,14 @@ const PhoneNumber = styled.p`
   margin-top: 0.5rem;
 `;
 
+interface StudentTableProps {
+  studentId: number;
+};
+
+const user_Id = localStorage.getItem('user_Id');
+
 // 학생 정보 컴포넌트
-function StudentTable() {
+function StudentTable(props: StudentTableProps) {
   const [studentInfo, setStudentInfo] = useState({
     name: '',
     school: '',
@@ -57,7 +63,7 @@ function StudentTable() {
     const fetchData = async () => {
       try {
         // 강사, 학생id
-        const response = await axios.get(`http://3.37.41.244:8000/api/student?id=${1}&student_id=${16}&search=`);
+        const response = await axios.get(`http://3.37.41.244:8000/api/student?id=${user_Id}&student_id=${props.studentId}&search=`);
         const studentData = response.data.result[0];  // 응답 데이터 확인, stu_id가 들어가면 됨(인덱스)
         setStudentInfo({
           name: studentData.name || '',

@@ -57,7 +57,7 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://3.37.41.244:8000/api/student/2/score/', data);
+      const response = await axios.post(`http://3.37.41.244:8000/api/student/${student}/score/`, data);
       console.log('성공적으로 저장되었습니다', response.data);
     } catch (error) {
       console.error('등급 저장 중 오류 발생', error);

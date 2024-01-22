@@ -19,6 +19,7 @@ const AiPromptPage = () => {
   // 학생 아이디 가져오기 성공
   // 통신하는 자식 컴포넌트에게 props 값을 넘겨주면 됨.
   console.log('ai 프롬트 학생 아이디 가져오기', location.state.studentId);
+  const studentId = location.state.studentId;
 
   // 상담 완료 후 모달 껐다 켰다 하는 부분, 모달은 ConsultantRatingPage임
   const [isModal, setIsModal] = useState(false);
@@ -39,22 +40,22 @@ const AiPromptPage = () => {
       <Navbar />
       <S.fullcontainer>
         <S.LeftFullContainer>
-          <StudentTable />
+          <StudentTable studentId={studentId} />
         </S.LeftFullContainer>
         <div>
           <S.FlexContainer>
             <S.FlexBox>
               {/* 학생 성적(내신, 모의고사) */}
-              <SchoolGrades />
-              <SchoolMock />
+              <SchoolGrades studentId={studentId} />
+              <SchoolMock studentId={studentId} />
             </S.FlexBox>
             <S.Container>
               {/* 강사가 평가한 학생 평균, 부모님 평가 */}
-              <StudentAvergy />
-              <ParentAvergy />
+              <StudentAvergy studentId={studentId} />
+              <ParentAvergy studentId={studentId} />
             </S.Container>
           </S.FlexContainer>
-          <WordBox />
+          <WordBox studentId={studentId} />
           <WriteButton onConfirm={modalOpen} />
         </div>
       </S.fullcontainer>
