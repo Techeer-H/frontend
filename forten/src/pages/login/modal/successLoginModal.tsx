@@ -1,10 +1,10 @@
-
+import React from 'react';
 import Checkicon from '../../../assets/Checkicon.svg';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 type SuccessLoginProps = {
-  setIsOpen: (isOpen: boolean) => void;
+  setIsSuccessOpen: (isSucessOpen: boolean) => void;
 };
 
 const Container = styled.div`
@@ -72,11 +72,11 @@ const Button = styled.div`
   }
 `;
 //구조분해할당
-const successLoginModal = ({ setIsOpen }: SuccessLoginProps) => {
+const successLoginModal = ({ setIsSuccessOpen }: SuccessLoginProps) => {
   const navigate = useNavigate();
   const handleButtonClick = () => {
-    setIsOpen(false);
-    navigate('/signup');
+    setIsSuccessOpen(false);
+    navigate('/consultantmain');
   };
 
   return (

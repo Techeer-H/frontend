@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Logo from '../../../assets/logo.svg';
-
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
 import SuccessModal from '../modal/successLoginModal';
@@ -82,10 +81,8 @@ const LoginPage: React.FC = () => {
           localStorage.setItem('role', response.data.role);
           if (response.data.role === 'T') {
             setIsSuccessOpen(true);
-            return navigate('/teacher');
           } else if (response.data.role === 'C') {
             setIsSuccessOpen(true);
-            return navigate('/consultantMain');
           }
         }
       })
@@ -135,7 +132,7 @@ const LoginPage: React.FC = () => {
             </S.InputWrapper>
           </div>
 
-          {isSuccessOpen ? <SuccessModal setIsOpen={setIsSuccessOpen} /> : null}
+          {isSuccessOpen ? <SuccessModal setIsSuccessOpen={setIsSuccessOpen} /> : null}
           {isFailOpen ? <FailModal setIsFailOpen={setIsFailOpen} /> : null}
 
           <S.Button>

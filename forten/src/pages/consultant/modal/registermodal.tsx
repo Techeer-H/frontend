@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Xicon from '../../../assets/Xicon.svg';
 import styled from 'styled-components';
 import axios from 'axios';
+
 interface RegisterModalProps {
   isOpen: boolean;
   handleClick: () => void;
@@ -168,9 +169,9 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
   const [parent_phone, setParentPhone] = useState('');
   const [grade, setGrade] = useState('');
   const [birth, setBirth] = useState('');
+  const [error, setError] = useState<string | null>(null);
   const birthDayEl = useRef<HTMLSelectElement>(null);
   const isDayOptionExisted = useRef(false);
-
   useEffect(() => {
     const handleFocus = (
       ref: React.RefObject<HTMLSelectElement>,
@@ -203,36 +204,57 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
       }
     };
   }, []);
+  const handleCloseModal = () => {
+    // 모달을 닫는 로직을 추가합니다.
+    handleClick(); // 모달을 닫는 함수를 호출합니다.
+  };
   const createStudent: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault();
     try {
       // 필요한 상태들이 모두 정의되었는지 확인
-      if (name && school && phone && parent_name && parent_phone && grade) {
-        const data = {
-          academy_id: 1,
-          name: name,
-          school: school,
-          phone: phone,
-          parent_name: parent_name,
-          parent_phone: parent_phone,
-          grade: grade,
-          birth: birth,
-        };
-        console.log(data);
-        const response = await axios.post('http://3.37.41.244:8000/api/student/', data, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        console.log(response.data);
-        // 등록이 성공했을 때 모달을 닫음
-        handleClick();
-      } else {
+      if (!name || !school || !phone || !parent_name || !parent_phone || !grade || !birth) {
         // 필요한 정보가 비어있을 때 alert 표시
         alert('모든 정보를 입력하세요');
+        return;
       }
+      // 유효성 검사: 학년 및 출생년도
+      if (!['중1', '중2', '중3', '고1', '고2', '고3'].includes(grade) || birth === '출생년도') {
+        alert('올바른 학년을 선택하세요 (중1부터 고3까지) 또는 출생년도를 선택하세요');
+        return;
+      }
+      // 출생년도가 숫자로 입력되었는지 확인
+      if (isNaN(parseInt(birth))) {
+        alert('출생년도를 숫자로 입력하세요');
+        return;
+      }
+      // 출생년도 유효성 검사
+      if (parseInt(birth) < 2001 || parseInt(birth) > 2017) {
+        alert('출생년도를 2001부터 2017까지 선택하세요');
+        return;
+      }
+      const data = {
+        academy_id: 1,
+        name,
+        school,
+        phone,
+        parent_name,
+        parent_phone,
+        grade,
+        birth,
+      };
+      console.log(data);
+      const response = await axios.post('http://3.37.41.244:8000/api/student/', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(response.data);
+      // 등록이 성공했을 때 모달을 닫음
+      handleCloseModal(); // 모달을 닫는 함수 호출
     } catch (error) {
       console.error('createStudent에서 오류:', error);
+      // 모달에 오류 메시지 표시
+      setError('등록 중 오류가 발생했습니다. 다시 시도해주세요.');
     }
   };
   const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -261,11 +283,13 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
   };
   return (
     <Modal>
+      {error && <div style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</div>}
       <TitleBar>
         <Title> 학생등록 </Title>
       </TitleBar>
-      <Ximg onClick={handleClick} />
+      <Ximg onClick={handleCloseModal} />
       <div style={{ display: 'flex' }}>
+        <Ximg onClick={handleClick} />
         <Student
           onChange={studentName}
           value={name}
