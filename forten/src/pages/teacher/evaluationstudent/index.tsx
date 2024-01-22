@@ -14,11 +14,8 @@ interface Evaluate {
 
 const teacherevaluate = () => {
   const [ModalOpen, setModalOpen] = useState(false);
-  // const [isModifyModalOpen, setModifyModalOpen] = useState(false);
-  // const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
 
   const [evaluateList, setEvaluateList] = useState<Evaluate[]>([]);
-  // const [feedback, setFeedBack] = useState('');
   const openModal = () => {
     setModalOpen(true);
   };
@@ -34,6 +31,7 @@ const teacherevaluate = () => {
         .then(function (res) {
           console.log(res);
           console.log(res.data.result);
+          console.log('res.data', res.data);
 
           setEvaluateList(res.data.result);
         })
@@ -77,7 +75,14 @@ const teacherevaluate = () => {
           </S.BtnContainer>
         </S.CommentBox>
       </S.Fullcontainer>
-      {ModalOpen && <TeacherRatingPage closeModal={closeModal} />}
+      {ModalOpen && (
+        <TeacherRatingPage
+          closeModal={closeModal}
+          feedbackId={null}
+          comment={null}
+          studentRating={null}
+        />
+      )}
     </div>
   );
 };

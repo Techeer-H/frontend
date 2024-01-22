@@ -12,25 +12,18 @@ interface CommentListProps {
 }
 const CommentList: React.FC<CommentListProps> = (props) => {
   const [isModifyModalOpen, setModifyModalOpen] = useState(false);
-  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
-  // const [content, setContent] = useState('');
-  // const [rating, setRating] = useState('');
-
-  // const openModifyModal = () => {
-  //   setModifyModalOpen(true);
-  // };
+  const [modalFeedbackId, setModalFeedbackId] = useState<number | null>(null); // modalFeedbackId 추가
 
   const closeModifyModal = () => {
     setModifyModalOpen(false);
   };
 
-  // const openDeleteModal = () => {
-  //   setDeleteModalOpen(true);
-  // };
-
-  const closeDeleteModal = () => {
-    setDeleteModalOpen(false);
+  const modifyHandler = (feedbackId: number) => {
+    setModalFeedbackId(feedbackId);
+    setModifyModalOpen(true);
   };
+
+  console.log(modalFeedbackId);
   const removeHandler = (feedbackId: number) => {
     axios.delete(`http://3.37.41.244:8000/api/feedback/2/${feedbackId}`);
   };
@@ -62,7 +55,7 @@ const CommentList: React.FC<CommentListProps> = (props) => {
       <ActionContainer>
         <div>
           수정
-          <ModifyBtn>
+          <ModifyBtn onClick={() => modifyHandler(props.feedbackId)}>
             <div>
               <img src={Modify} alt="수정" style={{ height: '100%' }}></img>
             </div>
@@ -78,9 +71,16 @@ const CommentList: React.FC<CommentListProps> = (props) => {
         </div>
       </ActionContainer>
 
-      {isModifyModalOpen && <TeacherRatingPage closeModal={closeModifyModal} feedbackId="2" />}
+      {isModifyModalOpen && (
+        <TeacherRatingPage
+          closeModal={closeModifyModal}
+          feedbackId={modalFeedbackId}
+          comment={props.content}
+          studentRating={props.rating}
+        />
+      )}
 
-      {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />}
+      {/* {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />} */}
     </FlexComment>
   );
 };
