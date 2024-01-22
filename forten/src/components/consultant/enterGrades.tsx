@@ -7,13 +7,19 @@ import axios from 'axios';
 interface EnterGradesProps {
   examId: string;
   selectedGrade: string;
+  studentId: number;
 }
 
-function EnterGrades({ examId, selectedGrade }: EnterGradesProps) {
+function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
   // 각 과목에 대한 등급을 상태로 관리(값이 학년, 학기별로 변하므로)
   const [koreanGrade, setKoreanGrade] = useState('');
   const [mathGrade, setMathGrade] = useState('');
   const [englishGrade, setEnglishGrade] = useState('');
+
+  // 학생 id를 받아옴, 이 student 값을 통신할 때 보내면
+  // 해당 학생에 대한 성적을 입력할 수 있음
+  const student = studentId
+  console.log(student);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     // 폼 제출할 때 실행되는 함수-등급을 서버에 저장하는 로직 ㅇ

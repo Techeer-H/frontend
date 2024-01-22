@@ -243,6 +243,7 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
         birth,
       };
       console.log(data);
+
       const response = await axios.post('http://3.37.41.244:8000/api/student/', data, {
         headers: {
           'Content-Type': 'application/json',
@@ -250,14 +251,20 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
       });
       alert('학생이 등록되었습니다.');
       console.log(response.data);
+
       // 등록이 성공했을 때 모달을 닫음
       handleCloseModal(); // 모달을 닫는 함수 호출
     } catch (error) {
       console.error('createStudent에서 오류:', error);
       // 모달에 오류 메시지 표시
       setError('등록 중 오류가 발생했습니다. 다시 시도해주세요.');
+
+      console.error('createStudent에서 오류:', error);
     }
   };
+
+
+  
   const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     setName(e.target.value);

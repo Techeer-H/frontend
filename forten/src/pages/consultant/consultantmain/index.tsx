@@ -24,6 +24,7 @@ export type UserType = {
 const ConsultantMainPage = () => {
   const [isModalOpened, setIsOpened] = useState<boolean>(false);
   const [studentInput, setStudentInput] = useState<string>('');
+  const [stateSelect, setStateSelect] = useState('1');
 
   // const [userData, setUserData] = useState<UserType>({
   //   user_id: '',
@@ -70,9 +71,9 @@ const ConsultantMainPage = () => {
   // }, []);
 
   useEffect(() => {
-    const user_id = localStorage.getItem('user_id');
+    const user_Id = localStorage.getItem('user_Id');
     axios
-      .get(`http://3.37.41.244:8000/api/student/?id=${user_id}/`)
+      .get(`http://3.37.41.244:8000/api/student/?id=${user_Id}/`)
       .then((response) => {
         // 로그인 성공 시 처리
         const userData: { result: UserType } = response.data.id;
@@ -85,6 +86,13 @@ const ConsultantMainPage = () => {
         // 예: 에러 메시지 표시 등
       });
   }, []);
+
+  const stateSelectHandler = (event) => {
+    const selectOption = event.target.value;
+    setStateSelect(selectOption);
+  };
+
+  console.log(stateSelect);
 
   return (
     // 전체화면
@@ -128,8 +136,7 @@ const ConsultantMainPage = () => {
               </S.StudentSearchContainer>
 
               <S.DropDownContainer>
-                <S.StyledSelect className="text-gray-700">
-                  <option>선택 </option>
+                <S.StyledSelect className="text-gray-700" onChange={stateSelectHandler} value={stateSelect}>
                   <option value="1">전체</option>
                   <option value="2">완료</option>
                   <option value="3">미완료</option>
@@ -140,7 +147,7 @@ const ConsultantMainPage = () => {
             <GrayBox />
             {/*  ConsultantMainPage 컴포넌트에서 StudentInfo 컴포넌트 사용 부분
  StudentInfo 컴포넌트에 studentlist를 props로 전달하고, 검색 결과에 따라 이를 업데이트할 수 있도록 함 */}
-            <StudentInfo studentInput={studentInput} />
+            <StudentInfo studentInput={studentInput} selectedStatus={stateSelect} />
           </S.SearchContainer>
 
           <Memo />

@@ -1,11 +1,12 @@
 // 학생리스트
-
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
 import registerGrade from '../../assets/registerGrade.svg';
 import axios from 'axios';
 import RedStatusButton from './redStatusButton';
+import GreenStatusButton from './greenStatusButton';
 
 //1차 샘플데이터
 // const studentInfo = () => {
@@ -40,33 +41,37 @@ interface Student {
   birth: string;
   phone: string;
   parent_phone: string;
+  isFeedback: boolean;
 }
 
 interface Props {
   studentInput: string;
+  selectedStatus: string
 }
 
-const StudentInfo = ({ studentInput }: Props) => {
+const user_Id = localStorage.getItem('user_Id');
+
+const StudentInfo = ({ studentInput, selectedStatus }: Props) => {
   const [studentlist, setStudentList] = useState<Student[]>([]);
+  const navigate = useNavigate();
 
   const getStudentList = async () => {
     let response;
-
-    const user_id = localStorage.getItem('user_Id');
+    console.log(user_Id);
 
     if (studentInput === '') {
-      response = await axios.get(`http://3.37.41.244:8000/api/student/?id=${user_id}`);
+      response = await axios.get(`http://3.37.41.244:8000/api/student/?id=${user_Id}`);
     } else {
       if (isNaN(Number(studentInput))) {
         // 숫자가 아닐때가
         console.log(studentInput);
         response = await axios.get(
-          `http://3.37.41.244:8000/api/student/?id=1&search=${studentInput}`,
+          `http://3.37.41.244:8000/api/student/?id=${user_Id}&search=${studentInput}`,
         );
       } else {
         // 숫자일때
         response = await axios.get(
-          `http://3.37.41.244:8000/api/student/?id=1&student_id=${studentInput}`,
+          `http://3.37.41.244:8000/api/student/?id=${user_Id}&student_id=${studentInput}`,
         );
       }
       setStudentList(response.data.result); //여기까지하면 처음페이지 불러올떄 있는 목록만 나옴
@@ -79,29 +84,49 @@ const StudentInfo = ({ studentInput }: Props) => {
     getStudentList();
   }, [studentInput]);
 
+  const gradeRegisterHandler = (studentId: number) => {
+    navigate('/schooltest', { state: { studentId } })
+  }
+
+  const aiPromptHandler = (studentId: number) => {
+    navigate('/aiprompt', { state: { studentId } })
+  }
+
   return (
     <Wrapper>
       <Ul>
-        {studentlist.map((student) => (
-          <Li key={student.id}>
-            <Text>{student.name}</Text>
-            <Text>{student.school}</Text>
-            <Text>{student.birth}</Text>
-            <Text>{student.phone}</Text>
-            <Text>{student.parent_phone}</Text>
-            <ImgContainer>
-              <ImgBox>
-                <img src={registerGrade} alt="성적등록하기" />
-              </ImgBox>
-              <ImgBox2>
-                <img src={aiPrompt} alt="프롬트제작페이지" />
-              </ImgBox2>
-            </ImgContainer>
+        {studentlist.map((student) => {
+          if (
+            (selectedStatus === '1' && (student.isFeedback || !student.isFeedback)) ||
+            (selectedStatus === '2' && student.isFeedback) ||
+            (selectedStatus === '3' && !student.isFeedback)
+          ) {
+            return (
+              <Li key={student.id}>
+                <Text>{student.name}</Text>
+                <Text>{student.school}</Text>
+                <Text>{student.birth}</Text>
+                <Text>{student.phone}</Text>
+                <Text>{student.parent_phone}</Text>
+                <ImgContainer>
+                  <ImgBox onClick={() => gradeRegisterHandler(student.id)}>
+                    <img src={registerGrade} alt="성적등록하기" />
+                  </ImgBox>
+                  <ImgBox2 onClick={() => aiPromptHandler(student.id)}>
+                    <img src={aiPrompt} alt="프롬트제작페이지" />
+                  </ImgBox2>
+                </ImgContainer>
 
-            {/* <GreenStatusButton /> */}
-            <RedStatusButton />
-          </Li>
-        ))}
+                {/* 평가 여부에 따른 상태 (완료, 미완료) 나타내기 */}
+                {selectedStatus === '1' && (student.isFeedback ? <GreenStatusButton /> : <RedStatusButton />)}
+                {selectedStatus === '2' && student.isFeedback && <GreenStatusButton />}
+                {selectedStatus === '3' && !student.isFeedback && <RedStatusButton />}
+              </Li>
+            );
+          }
+          // 해당 조건에 맞지 않으면 null을 반환하여 렌더링되지 않도록 함
+          return null;
+        })}
       </Ul>
     </Wrapper>
   );
