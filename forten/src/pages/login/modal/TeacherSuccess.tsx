@@ -3,8 +3,8 @@ import Checkicon from '../../../assets/Checkicon.svg';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-type SuccessLoginProps = {
-  setIsSuccessOpen: (isSucessOpen: boolean) => void;
+type TeacherSuccessLoginProps = {
+  setTeacherOpen: (teacherSucessOpen: boolean) => void;
 };
 
 const Container = styled.div`
@@ -71,12 +71,16 @@ const Button = styled.div`
     color: #7c7c7c;
   }
 `;
+
 //구조분해할당
-const successLoginModal = ({ setIsSuccessOpen }: SuccessLoginProps) => {
+const T_successLoginModal = ({ setTeacherOpen }: TeacherSuccessLoginProps) => {
+  const user_name = localStorage.getItem('user_name');
+
   const navigate = useNavigate();
+
   const handleButtonClick = () => {
-    setIsSuccessOpen(false);
-    navigate('/consultantmain');
+    setTeacherOpen(false);
+    navigate('/teacher');
   };
 
   return (
@@ -84,11 +88,15 @@ const successLoginModal = ({ setIsSuccessOpen }: SuccessLoginProps) => {
       <Img>
         <img src={Checkicon} alt="Checkicon" />
       </Img>
-      <Text>로그인 성공 !</Text>
+      <Text>
+        {' '}
+        어서오세요! <br />
+        {user_name}&nbsp; 강사님
+      </Text>
       <Button onClick={handleButtonClick}>확인</Button>
       {/* onClick={() => setIsOpen(false) */}
     </Container>
   );
 };
 
-export default successLoginModal;
+export default T_successLoginModal;

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../../../assets/logo.svg';
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
-import SuccessModal from '../modal/successLoginModal';
+import TeacherModal from '../modal/TeacherSuccess';
+import ConsultantModal from '../modal/ConsultantSuccessModal';
 import FailModal from '../modal/failLoginModal';
 import axios from 'axios';
 
@@ -15,7 +16,8 @@ const LoginPage: React.FC = () => {
   const [passwordValid, setPassWordValid] = useState<boolean>(false);
   const [notAllow, setNotAllow] = useState<boolean>(true);
 
-  const [isSuccessOpen, setIsSuccessOpen] = useState<boolean>(false);
+  const [TeacherOpen, setTeacherOpen] = useState<boolean>(false);
+  const [ConsultantOpen, setConsultantOpen] = useState<boolean>(false);
   const [isFailOpen, setIsFailOpen] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -80,9 +82,9 @@ const LoginPage: React.FC = () => {
           localStorage.setItem('user_name', response.data.user_name);
           localStorage.setItem('role', response.data.role);
           if (response.data.role === 'T') {
-            setIsSuccessOpen(true);
+            setTeacherOpen(true);
           } else if (response.data.role === 'C') {
-            setIsSuccessOpen(true);
+            setConsultantOpen(true);
           }
         }
       })
@@ -132,7 +134,8 @@ const LoginPage: React.FC = () => {
             </S.InputWrapper>
           </div>
 
-          {isSuccessOpen ? <SuccessModal setIsSuccessOpen={setIsSuccessOpen} /> : null}
+          {ConsultantOpen ? <ConsultantModal setConsultantOpen={setConsultantOpen} /> : null}
+          {TeacherOpen ? <TeacherModal setTeacherOpen={setTeacherOpen} /> : null}
           {isFailOpen ? <FailModal setIsFailOpen={setIsFailOpen} /> : null}
 
           <S.Button>

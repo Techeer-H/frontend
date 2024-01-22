@@ -248,6 +248,7 @@ const RegisterModal = ({ handleClick }: RegisterModalProps) => {
           'Content-Type': 'application/json',
         },
       });
+      alert('학생이 등록되었습니다.');
       console.log(response.data);
       // 등록이 성공했을 때 모달을 닫음
       handleCloseModal(); // 모달을 닫는 함수 호출

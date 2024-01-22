@@ -1,9 +1,8 @@
 import Profile from '../../assets/profile.svg';
 import Logo from '../../assets/logo.svg';
 
-const user_name = localStorage.getItem('user_name');
-
 const Navbar = () => {
+  const user_name = localStorage.getItem('user_name');
   const DeleteBtn = () => {
     localStorage.clear();
     alert('로그아웃 되었습니다.');
