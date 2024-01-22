@@ -48,6 +48,7 @@ interface Props {
   studentInput: string;
   selectedStatus: string
 }
+
 const user_Id = localStorage.getItem('user_Id');
 
 const StudentInfo = ({ studentInput, selectedStatus }: Props) => {
@@ -56,8 +57,6 @@ const StudentInfo = ({ studentInput, selectedStatus }: Props) => {
 
   const getStudentList = async () => {
     let response;
-
-
     console.log(user_Id);
 
     if (studentInput === '') {

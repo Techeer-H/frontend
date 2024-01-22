@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import SignUpLogo from '../../../assets/siginuplogo.svg';
 import SuccessSignUp from '../modal/successSignUpModal';
 import * as S from './styles';
@@ -127,8 +126,8 @@ const SignUpPage: React.FC = () => {
       })
 
       .then((response) => {
-        console.log(response);
         setIsSuccessOpen(true);
+        console.log(response);
         navigate('/login');
       })
       .catch((err) => {

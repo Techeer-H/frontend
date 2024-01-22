@@ -1,10 +1,14 @@
-
 import Profile from '../../assets/profile.svg';
 import Logo from '../../assets/logo.svg';
 
-const user_name = localStorage.getItem('user_name');
-
 const Navbar = () => {
+  const user_name = localStorage.getItem('user_name');
+  const DeleteBtn = () => {
+    localStorage.clear();
+    alert('로그아웃 되었습니다.');
+    window.location.href = '/login';
+  };
+
   return (
     <div
       id="Navbar"
@@ -27,7 +31,7 @@ const Navbar = () => {
           position: 'relative',
           width: '9.25rem',
           height: '2.25rem',
-          margin: '0.8rem 52rem 0.9rem 1.4rem',
+          margin: '0.8rem 49rem 0.9rem 0rem',
         }}
         loading="lazy"
         src={Logo}
@@ -42,7 +46,7 @@ const Navbar = () => {
           position: 'relative',
           alignItems: 'center',
           display: 'flex',
-          margin: '1rem 0.78rem 1rem  -8rem',
+          margin: '1rem 1rem 1rem  -8rem',
           padding: '0 0.5rem',
         }}
       >
@@ -50,7 +54,7 @@ const Navbar = () => {
           id="Profileimg"
           className="w-6 h-7"
           alt="profile"
-          style={{ margin: '0.11rem 0.91rem 0.11rem 0.35rem ' }}
+          style={{ margin: '0.11rem 0.91rem 0.11rem 0rem ' }}
           loading="lazy"
           src={Profile}
         />
@@ -65,6 +69,7 @@ const Navbar = () => {
           {user_name}강사
         </p>
       </div>
+      <button onClick={DeleteBtn}> 아웃</button>
     </div>
   );
 };
