@@ -103,36 +103,34 @@ export const Explan = styled.div`
   margin-top: 7rem;
   font-size: 1.25rem;
   font-weight: 900;
-`
-export const CommentWrapper = styled.div`
+`;
+export const CommentWrapper = styled.ul`
   width: 100%;
   height: 30rem;
   margin-top: 2%;
   padding: 1%;
-  border: solid 1px #6F99FA;
+  border: solid 1px #6f99fa;
   border-radius: 20px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 export const BtnContainer = styled.div`
   width: 8.125rem;
   height: 2.5rem;
   margin: 4% auto 0 auto;
-  background: linear-gradient(to right, #73A6FF, #EFC2FF);
+  background: linear-gradient(to right, #73a6ff, #efc2ff);
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const WriteBtn = styled.button`
   width: 100%;
   height: 100%;
   color: #fff;
-  font-size: 1rem
-  
-`
-
+  font-size: 1rem;
+`;

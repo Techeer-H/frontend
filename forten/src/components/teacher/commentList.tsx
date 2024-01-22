@@ -1,35 +1,31 @@
 import styled from 'styled-components';
 import Delete from '../../assets/delete.svg';
 import Modify from '../../assets/modify.svg';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TeacherRatingPage from '../../pages/teacher/modal/teacherrating';
-
+import axios from 'axios';
 
 interface CommentListProps {
   content: string;
-  rating: string;
-  feedbackId: string;
+  rating: number;
+  feedbackId: number;
 }
 const CommentList: React.FC<CommentListProps> = (props) => {
   const [isModifyModalOpen, setModifyModalOpen] = useState(false);
-  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
-  // const [content, setContent] = useState('');
-  // const [rating, setRating] = useState('');
-
-  // const openModifyModal = () => {
-  //   setModifyModalOpen(true);
-  // };
+  const [modalFeedbackId, setModalFeedbackId] = useState<number | null>(null); // modalFeedbackId 추가
 
   const closeModifyModal = () => {
     setModifyModalOpen(false);
   };
 
-  // const openDeleteModal = () => {
-  //   setDeleteModalOpen(true);
-  // };
+  const modifyHandler = (feedbackId: number) => {
+    setModalFeedbackId(feedbackId);
+    setModifyModalOpen(true);
+  };
 
-  const closeDeleteModal = () => {
-    setDeleteModalOpen(false);
+  console.log(modalFeedbackId);
+  const removeHandler = (feedbackId: number) => {
+    axios.delete(`http://3.37.41.244:8000/api/feedback/2/${feedbackId}`);
   };
 
   // useEffect(() => {
@@ -51,15 +47,15 @@ const CommentList: React.FC<CommentListProps> = (props) => {
   // }, []);
   return (
     <FlexComment>
-      <Text>학생 평가 내용 {props.content}</Text>
+      <Text>{props.content}</Text>
       <Rating>
         <div>학생 점수</div>
-        <div>4.6 {props.rating}</div>
+        <div>{props.rating}</div>
       </Rating>
       <ActionContainer>
         <div>
           수정
-          <ModifyBtn type="button">
+          <ModifyBtn onClick={() => modifyHandler(props.feedbackId)}>
             <div>
               <img src={Modify} alt="수정" style={{ height: '100%' }}></img>
             </div>
@@ -67,7 +63,7 @@ const CommentList: React.FC<CommentListProps> = (props) => {
         </div>
         <div>
           삭제
-          <DeleteBtn type="button">
+          <DeleteBtn onClick={() => removeHandler(props.feedbackId)}>
             <div>
               <img src={Delete} alt="삭제" style={{ height: '100%' }}></img>
             </div>
@@ -75,14 +71,21 @@ const CommentList: React.FC<CommentListProps> = (props) => {
         </div>
       </ActionContainer>
 
-      {isModifyModalOpen && <TeacherRatingPage closeModal={closeModifyModal} feedbackId="2" />}
+      {isModifyModalOpen && (
+        <TeacherRatingPage
+          closeModal={closeModifyModal}
+          feedbackId={modalFeedbackId}
+          comment={props.content}
+          studentRating={props.rating}
+        />
+      )}
 
-      {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />}
+      {/* {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />} */}
     </FlexComment>
   );
 };
 
-const FlexComment = styled.div`
+const FlexComment = styled.li`
   width: 98%;
   min-height: 6rem;
   display: flex;

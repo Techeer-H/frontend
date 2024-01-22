@@ -6,14 +6,16 @@ import axios from 'axios';
 import EvaluateImg from '../../../assets/evaluateImg.svg';
 import TeacherRatingPage from '../modal/teacherrating';
 
+interface Evaluate {
+  id: number;
+  student_rating: number;
+  content: string;
+}
+
 const teacherevaluate = () => {
   const [ModalOpen, setModalOpen] = useState(false);
-  // const [isModifyModalOpen, setModifyModalOpen] = useState(false);
-  // const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
 
-  const [content, setContent] = useState('');
-  const [rating, setRating] = useState('');
-  // const [feedback, setFeedBack] = useState('');
+  const [evaluateList, setEvaluateList] = useState<Evaluate[]>([]);
   const openModal = () => {
     setModalOpen(true);
   };
@@ -29,8 +31,9 @@ const teacherevaluate = () => {
         .then(function (res) {
           console.log(res);
           console.log(res.data.result);
-          setContent(res.data.result[0].content);
-          setRating(res.data.result[0].student_rating);
+          console.log('res.data', res.data);
+
+          setEvaluateList(res.data.result);
         })
         .catch(function (err) {
           console.log(err);
@@ -58,17 +61,28 @@ const teacherevaluate = () => {
           <S.TitleBar></S.TitleBar>
 
           <S.CommentWrapper>
-            <CommentList feedbackId="1" content={content} rating={rating} />
-            <CommentList feedbackId="2" content={content} rating={rating} />
-            <CommentList feedbackId="3" content="3" rating={rating} />
-            <CommentList feedbackId="4" content="4" rating={rating} />
+            {evaluateList.map((evaluate) => (
+              <CommentList
+                key={evaluate.id}
+                feedbackId={evaluate.id}
+                content={evaluate.content}
+                rating={evaluate.student_rating}
+              />
+            ))}
           </S.CommentWrapper>
           <S.BtnContainer>
             <S.WriteBtn onClick={openModal}>평가 작성하기</S.WriteBtn>
           </S.BtnContainer>
         </S.CommentBox>
       </S.Fullcontainer>
-      {ModalOpen && <TeacherRatingPage closeModal={closeModal} />}
+      {ModalOpen && (
+        <TeacherRatingPage
+          closeModal={closeModal}
+          feedbackId={null}
+          comment={null}
+          studentRating={null}
+        />
+      )}
     </div>
   );
 };

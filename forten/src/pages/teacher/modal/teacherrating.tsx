@@ -1,72 +1,50 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import MyRatingComponent from '../../../components/modal/rating';
+import Rating from '../../../components/modal/rating';
 import LogoAndLetter from '../../../assets/LogoAndLetter.svg';
 import ColseBtn from '../../../assets/closeBtn.png';
 import axios from 'axios';
 // 평가 모달
 const TeacherRatingPage: React.FC<{
   closeModal: React.MouseEventHandler;
-  feedbackId?: string;
-  InputText?: string;
-  MyRatingComponent?: string;
-  onModify?: (feedbackId: string) => void; // 추가: 수정 콜백
-  onDelete?: (feedbackId: string) => void; // 추가: 삭제 콜백
-}> = ({ closeModal, feedbackId }) => {
-  const [comment, setComment] = useState('');
-  const [studentrating, setStudentRating] = useState(0);
+  feedbackId?: number | null;
+  comment?: string | null;
+  studentRating?: number | null;
+}> = ({ closeModal, feedbackId, comment, studentRating }) => {
+  const [content, setContent] = useState<string | undefined>(undefined);
+  const [rating, setRating] = useState(0);
+
+  console.log(feedbackId, comment, studentRating);
+  console.log(content, rating);
 
   const handleSliderChange = (value: number) => {
-    setStudentRating(value);
+    setRating(value);
   };
+
+  useEffect(() => {
+    if (comment !== null && studentRating !== null) {
+      setContent(comment);
+      setRating(studentRating);
+    }
+  }, []);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const data = {
       student_id: '2',
-      student_rating: studentrating,
-      content: comment,
+      student_rating: rating,
+      content: content,
     };
 
-    // 출력만 확인
-
-    //student_id :1
-    //student_rating:
-    //content: ""
-
-    // const handleModify = async () => {
-    //   // 수정 기능 추가
-    //   try {
-    //     console.log('Updating feedback:', feedbackId);
-    //     const response = await axios.put(`http://3.37.41.244:8000/api/feedback/${feedbackId}/`, {
-    //       student_id: '2',
-    //       student_rating: studentrating,
-    //       content: comment,
-    //     });
-    //     console.log('Successfully updated:', response.data);
-    //     onModify?.(feedbackId); // 수정 완료 후 부모 컴포넌트에서 새로고침할 수 있도록 onModify 콜백 호출
-    //     closeModal(); // 모달 닫기
-    //   } catch (error) {
-    //     console.error('Error while updating feedback', error);
-    //   }
-    // };
-    // const handleDelete = async () => {
-    //   // 삭제 기능 추가
-    //   try {
-    //     console.log('Deleting feedback with ID:', feedbackId);
-    //     const response = await axios.delete(`http://3.37.41.244:8000/api/feedback/${feedbackId}/`);
-    //     console.log('Successfully deleted:', response.data);
-    //     onDelete?.(feedbackId); // 삭제 완료 후 부모 컴포넌트에서 새로고침할 수 있도록 onDelete 콜백 호출
-    //     closeModal(); // 모달 닫기
-    //   } catch (error) {
-    //     console.error('Error while deleting feedback', error);
-    //   }
-    // };
     try {
       if (feedbackId) {
         //이미 있는 글일 경우(수정)
         console.log('Updating feedback:', data);
-        const response = await axios.put('http://3.37.41.244:8000/api/feedback/2/', data);
+        const response = await axios.put(
+          `http://3.37.41.244:8000/api/feedback/2/${feedbackId}/`,
+          data,
+        );
         console.log('Successfully updated:', response.data);
       } else {
         // 새로 작성하는 글일 경우(등록)
@@ -91,8 +69,8 @@ const TeacherRatingPage: React.FC<{
         <Form>
           <InputText
             placeholder="학생의 평가를 작성해주세요"
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           />
           {/* 위에 inputText를 props.text로 전달하게 하면 inputType이 수정에서도 input가능할 수 ㅇ */}
           <FullContainer>
@@ -101,7 +79,7 @@ const TeacherRatingPage: React.FC<{
                 <img src={LogoAndLetter} alt="로고" />
               </ImgBox>
               <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
-              <MyRatingComponent onSliderChange={handleSliderChange} />
+              <Rating onSliderChange={handleSliderChange} rating={studentRating} />
             </Container>
             <BtnContainer>
               <Button type="submit">저장하기</Button>

@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import SubmitIcon from '../../../assets/checkIcon_gradient.svg';
 import Rating from '../../../components/modal/rating';

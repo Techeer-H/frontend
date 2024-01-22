@@ -40,17 +40,28 @@ export const Bubble = styled.div<BubbleProps>`
   /* left: ${(props) => `${Number(props.value / 4)}px`}; */
 `;
 
-interface AppProps {
+interface RatingProps {
   onSliderChange: (value: number) => void;
+  rating: number | null;
 }
 
-const Rating: React.FC<AppProps> = ({ onSliderChange }) => {
-  const [value, onChange] = useState(0);
+const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
+  const [value, onChange] = useState(rating !== null ? rating : 0);
 
   useEffect(() => {
     onSliderChange(value); // 부모로 선택한 값을 전달
     // console.log('Slider Value:', value);
+    if (rating == null) {
+      onSliderChange(value);
+    }
+
+    // else {
+    //   onChange(rating);
+    // }
   }, [onSliderChange, value]);
+
+  console.log(value);
+  console.log('rating:', rating);
 
   return (
     <SliderParent style={{ textAlign: 'center' }}>
