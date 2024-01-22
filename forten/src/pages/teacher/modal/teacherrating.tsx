@@ -12,7 +12,7 @@ const TeacherRatingPage: React.FC<{
   studentRating?: number | null;
 }> = ({ closeModal, feedbackId, comment, studentRating }) => {
   const [content, setContent] = useState<string | undefined>(undefined);
-  const [rating, setRating] = useState<number | undefined>(undefined);
+  const [rating, setRating] = useState(0);
 
   console.log(feedbackId, comment, studentRating);
   console.log(content, rating);
@@ -79,7 +79,7 @@ const TeacherRatingPage: React.FC<{
                 <img src={LogoAndLetter} alt="로고" />
               </ImgBox>
               <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
-              <Rating onSliderChange={handleSliderChange} />
+              <Rating onSliderChange={handleSliderChange} rating={studentRating} />
             </Container>
             <BtnContainer>
               <Button type="submit">저장하기</Button>
