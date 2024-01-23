@@ -27,9 +27,10 @@ interface StudentAvergyProps {
 
 // 학생 평가 도넛 그래프 컴포넌트
 function StudentAvergy(props: StudentAvergyProps) {
-    // const [labels, setLabels] = useState([]);
+    // useState의 labels에 api에서 이름을 받아오면 될 것 같음
+    // api에서 오는 데이터가 추가 되면 
+    const [labels, setLabels] = useState([]);
     const [series, setSeries] = useState([]);
-
 
     let options: ApexOptions = {
         chart: {
@@ -39,6 +40,7 @@ function StudentAvergy(props: StudentAvergyProps) {
         },
         // labels: labels || [],
         series: series || [],
+        labels: labels || [],
         dataLabels: {
             enabled: false,
         }
