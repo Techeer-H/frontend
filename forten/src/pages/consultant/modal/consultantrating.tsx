@@ -62,14 +62,9 @@ const Button = styled.button`
   flex-direction: row;
 `;
 
-interface ConsultantRatingPageProps {
-  studentId: number;
-  close: () => void;
-};
-
 const user_Id = localStorage.getItem('user_Id');
 
-function ConsultantRatingPage(props: ConsultantRatingPageProps) {
+function ConsultantRatingPage(props: any) {
   const [studentRating, setStudentRating] = useState(0);
   const [parentRating, setParentRating] = useState(0);
 
@@ -114,13 +109,13 @@ function ConsultantRatingPage(props: ConsultantRatingPageProps) {
             <img src={LogoAndLetter} alt="로고" />
           </ImgBox>
           <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
-          <Rating onSliderChange={studentSliderHandler} rating={null} />
+          <Rating onSliderChange={studentSliderHandler} rating={undefined} />
         </Container>
         <Container>
           <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
           {/* <Rating /> */}
 
-          <Rating onSliderChange={parentSliderHandler} rating={null} />
+          <Rating onSliderChange={parentSliderHandler} rating={undefined} />
           <Button onClick={submitHandler}>
             <img src={SubmitIcon} alt="제출" />
           </Button>

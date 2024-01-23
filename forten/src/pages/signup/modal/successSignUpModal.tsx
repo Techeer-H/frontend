@@ -1,4 +1,3 @@
-import React from 'react';
 import Checkicon from '../../../assets/Checkicon.svg';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';

@@ -11,7 +11,6 @@ import WarningSignModal from './pages/signup/modal/warningsign';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';
-import StudentDetail from './pages/teacher/modal/studentDetail';
 
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
 import OnBoardingPage from './pages/onboard/thirdpage/index';
@@ -76,7 +75,6 @@ const routers = createBrowserRouter([
     path: '/teacher',
     element: <TeacherPage />,
   },
-
   // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다)
   {
     path: '/warningsignmodal',
@@ -86,10 +84,6 @@ const routers = createBrowserRouter([
   {
     path: '/consultantrating',
     element: <ConsultantRating />,
-  },
-  {
-    path: '/studentdetail',
-    element: <StudentDetail />,
   },
   {
     path: '/evaluate',

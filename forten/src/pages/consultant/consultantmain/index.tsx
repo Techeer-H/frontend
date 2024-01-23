@@ -88,7 +88,7 @@ const ConsultantMainPage = () => {
       });
   }, []);
 
-  const stateSelectHandler = (event) => {
+  const stateSelectHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectOption = event.target.value;
     setStateSelect(selectOption);
   };
