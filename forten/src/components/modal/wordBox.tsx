@@ -15,6 +15,7 @@ const TextArea = styled.div`
   border-radius: 10px;
   padding: 0.25rem;
   font-size: 0.875rem;
+  overflow: auto;
 `;
 
 interface WordBoxProps {

@@ -1,13 +1,32 @@
 import styled from 'styled-components';
-import SubmitIcon from '../../../assets/checkIcon_gradient.svg';
+import SubmitIcon from '../../../assets/Checkicon_gradient.svg';
 import Rating from '../../../components/modal/rating';
 import LogoAndLetter from '../../../assets/LogoAndLetter.svg';
+import { useState } from 'react';
+import axios from 'axios';
+
+const Backdrop = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.45);
+`
+
+
 const FullContainer = styled.div`
   width: 25rem;
   height: 20rem;
   border-radius: 1.5rem;
   border: 0.1rem solid #85a1ff;
   background: #ffffff;
+  position: fixed;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const Container = styled.div`
@@ -43,26 +62,71 @@ const Button = styled.button`
   flex-direction: row;
 `;
 
-const ConsultantRatingPage = (props: any) => {
-  return (
-    <FullContainer>
-      <Container>
-        <ImgBox>
-          <img src={LogoAndLetter} alt="로고" />
-        </ImgBox>
-        <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
-        {/* <Rating /> */}
-      </Container>
-      <Container>
-        <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
-        {/* <Rating /> */}
+interface ConsultantRatingPageProps {
+  studentId: number;
+  close: () => void;
+};
 
-        <Rating onSliderChange={props.handleSliderChange} />
-        <Button onClick={props.close}>
-          <img src={SubmitIcon} alt="제출" />
-        </Button>
-      </Container>
-    </FullContainer>
+const user_Id = localStorage.getItem('user_Id');
+
+function ConsultantRatingPage(props: ConsultantRatingPageProps) {
+  const [studentRating, setStudentRating] = useState(0);
+  const [parentRating, setParentRating] = useState(0);
+
+  const studentSliderHandler = (value: number) => {
+    setStudentRating(value);
+  }
+
+  const parentSliderHandler = (value: number) => {
+    setParentRating(value);
+  }
+
+  console.log('컨설턴트 레이팅 모달, 학생 점수: ', studentRating);
+  console.log('컨설턴트 레이팅 모달, 부모 점수:', parentRating);
+
+  const submitHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    const data = {
+      sutdent_id: props.studentId,
+      student_rating: studentRating,
+      parent_rating: parentRating,
+    };
+
+    axios.post(`http://3.37.41.244:8000/api/feedback/${user_Id}`, data)
+      .then((response) => {
+        console.log(response);
+        props.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+
+  return (
+    <>
+      <Backdrop />
+
+      <FullContainer>
+        <Container>
+          <ImgBox>
+            <img src={LogoAndLetter} alt="로고" />
+          </ImgBox>
+          <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
+          <Rating onSliderChange={studentSliderHandler} rating={null} />
+        </Container>
+        <Container>
+          <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
+          {/* <Rating /> */}
+
+          <Rating onSliderChange={parentSliderHandler} rating={null} />
+          <Button onClick={submitHandler}>
+            <img src={SubmitIcon} alt="제출" />
+          </Button>
+        </Container>
+      </FullContainer>
+    </>
   );
 };
 
