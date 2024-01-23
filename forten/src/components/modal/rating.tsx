@@ -46,7 +46,7 @@ interface RatingProps {
 }
 
 const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
-  const [value, onChange] = useState(rating !== undefined ? rating : 0);
+  const [value, onChange] = useState(rating !== undefined ? rating : 1);
 
   useEffect(() => {
     onSliderChange(value); // 부모로 선택한 값을 전달
@@ -67,8 +67,8 @@ const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
     <SliderParent style={{ textAlign: 'center' }}>
       <CustomSlider
         type="range"
-        min="-5"
-        max="5"
+        min="1"
+        max="10"
         value={value}
         onChange={({ target: { value: radius } }) => {
           onChange(Number(radius));

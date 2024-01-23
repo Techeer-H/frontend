@@ -83,12 +83,12 @@ function ConsultantRatingPage(props: any) {
     event.preventDefault();
 
     const data = {
-      sutdent_id: props.studentId,
+      student_id: props.studentId,
       student_rating: studentRating,
       parent_rating: parentRating,
     };
 
-    axios.post(`http://3.37.41.244:8000/api/feedback/${user_Id}`, data)
+    axios.post(`http://3.37.41.244:8000/api/feedback/${user_Id}/`, data)
       .then((response) => {
         console.log(response);
         props.close();
