@@ -29,7 +29,7 @@ interface StudentAvergyProps {
 function StudentAvergy(props: StudentAvergyProps) {
     // useState의 labels에 api에서 이름을 받아오면 될 것 같음
     // api에서 오는 데이터가 추가 되면 
-    // const [labels, setLabels] = useState([]);
+    const [labels, setLabels] = useState([]);
     const [series, setSeries] = useState([]);
 
     let options: ApexOptions = {
@@ -38,9 +38,8 @@ function StudentAvergy(props: StudentAvergyProps) {
             width: '400',
             height: '200',
         },
-        // labels: labels || [],
+        labels: labels || [],
         series: series || [],
-        //  labels: labels || [],
         dataLabels: {
             enabled: false,
         }
@@ -53,15 +52,12 @@ function StudentAvergy(props: StudentAvergyProps) {
                 const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${props.studentId}/`);
 
                 // 서버에서 받아온 데이터를 적절히 가공하여 labels와 series를 업데이트합니다.
-                console.log(response.data.result.student_rating);
-                // const newDataLabels = response.data.labels;
-                // const newSeriesData = response.data.series;
 
                 const studentRating = response.data.result.student_rating;
+                const ratingName = response.data.result.feedback_user_name;
 
+                setLabels(ratingName);
                 setSeries(studentRating);
-                // setLabels(newDataLabels);
-                // setSeries(newSeriesData);
 
             } catch (error) {
                 console.error('[강사] 학생 평가 파이차트', error);

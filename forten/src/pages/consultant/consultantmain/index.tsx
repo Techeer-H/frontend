@@ -1,6 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import * as S from './styles';
-
 import Navbar from '../../../components/consultant/navBar';
 import GrayBox from '../../../components/consultant/grayBox';
 import Memo from '../../../components/consultant/memo';
@@ -74,12 +73,13 @@ const ConsultantMainPage = () => {
   useEffect(() => {
     const user_Id = localStorage.getItem('user_Id');
     axios
-      .get(`http://3.37.41.244:8000/api/student/?id=${user_Id}/`)
+      .get(`http://3.37.41.244:8000/api/student/?id=${user_Id}`)
       .then((response) => {
         // 로그인 성공 시 처리
-        const userData: { result: UserType } = response.data.id;
+        const userData: { result: UserType } = response.data.result;
         // setUserData(userData.result);
-        console.error('성공', userData);
+        console.log('성공', userData);
+        setStudentList(userData);
       })
       .catch((error) => {
         // 로그인 실패 시 처리
@@ -97,10 +97,8 @@ const ConsultantMainPage = () => {
 
   return (
     // 전체화면
-
     <S.background>
       <Navbar />
-
       <S.fullcontainer>
         <S.LeftFullContainer>
           <S.purpleCircle>
@@ -124,10 +122,8 @@ const ConsultantMainPage = () => {
                     />
                   )}
                 </S.ModalWrapper>
-
                 <S.StyledButton type="button" value="학생 등록" onClick={handleClick} />
               </S.RegisterStudentButton>
-
               <S.StudentSearchContainer>
                 <S.StyledInput
                   onChange={getSearchData}
@@ -139,7 +135,6 @@ const ConsultantMainPage = () => {
                   <img src={search} alt="Search Icon" />
                 </S.SearchIcon>
               </S.StudentSearchContainer>
-
               <S.DropDownContainer>
                 <S.StyledSelect
                   className="text-gray-700"
@@ -152,7 +147,6 @@ const ConsultantMainPage = () => {
                 </S.StyledSelect>
               </S.DropDownContainer>
             </S.FlexContainer>
-
             <GrayBox />
             {/*  ConsultantMainPage 컴포넌트에서 StudentInfo 컴포넌트 사용 부분
  StudentInfo 컴포넌트에 studentlist를 props로 전달하고, 검색 결과에 따라 이를 업데이트할 수 있도록 함 */}
@@ -163,7 +157,6 @@ const ConsultantMainPage = () => {
               selectedStatus={stateSelect}
             />
           </S.SearchContainer>
-
           <Memo />
         </S.RightFullContainer>
       </S.fullcontainer>
