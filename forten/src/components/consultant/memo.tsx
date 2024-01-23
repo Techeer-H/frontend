@@ -1,25 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import axios from 'axios';
 
-export type MemoType = {
-  user_id: string;
-  email: string;
-  password: string;
-  name: string;
-  phone: string;
-  birth: string;
-  role: string;
-};
-
-type MemoProps = {
-  value: string;
-  onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  setConsultantOpen: () => void;
-  onConsultantOpenChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  memoInput: string; // 추가
-};
-
-const Memo: React.FC<MemoProps> = ({ memoInput, setConsultantOpen, onConsultantOpenChange }) => {
+const Memo: React.FC = () => {
   const [memoContent, setMemoContent] = useState<string>('');
 
   useEffect(() => {
@@ -28,55 +9,13 @@ const Memo: React.FC<MemoProps> = ({ memoInput, setConsultantOpen, onConsultantO
       setMemoContent(storedMemo);
     }
   }, []);
-  
+
   const handleMemoChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newMemoContent = event.target.value;
     setMemoContent(newMemoContent);
-    onConsultantOpenChange && onConsultantOpenChange(event);  
     localStorage.setItem('memo', newMemoContent);
-    
-    
-     
   };
 
-
-  const updateMemo = async () => {
-    try {
-      const data ={
-        user_id: 1,
-        memo:memoContent,
-        
-        
-      };
-      await axios.put(
-        'http://3.37.41.244:8000/api/user/memo', data)
-        
-     
-      
-      alert('메모가 업데이트되었습니다.');
-      // 업데이트가 성공했을 때 모달을 닫음
-      setConsultantOpen();
-    } catch (error) {
-      // 오류 처리
-      console.error('메모 업데이트 오류:', error);
-    }
-  };
-    
-
-  
-  const data = localStorage.getItem('data');
-  const [memo, setMemo] = useState<MemoType[]>([]);
-
- 
-    const getMemo = async () => {
-      let response;
-      
-    }
-      
-    useEffect(() => {
-      getMemo();
-    }, [memoInput]);
-    
   return (
     <div>
       <textarea

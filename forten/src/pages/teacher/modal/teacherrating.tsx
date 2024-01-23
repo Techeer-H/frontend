@@ -7,12 +7,12 @@ import axios from 'axios';
 // 평가 모달
 const TeacherRatingPage: React.FC<{
   closeModal: React.MouseEventHandler;
-  feedbackId?: number | null;
-  comment?: string | null;
-  studentRating?: number | null;
+  feedbackId?: number | undefined;
+  comment?: string | undefined;
+  studentRating?: number | undefined;
 }> = ({ closeModal, feedbackId, comment, studentRating }) => {
   const [content, setContent] = useState<string | undefined>(undefined);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState<number | undefined>(undefined);
 
   console.log(feedbackId, comment, studentRating);
   console.log(content, rating);
@@ -22,7 +22,7 @@ const TeacherRatingPage: React.FC<{
   };
 
   useEffect(() => {
-    if (comment !== null && studentRating !== null) {
+    if (comment !== undefined && studentRating !== undefined) {
       setContent(comment);
       setRating(studentRating);
     }
