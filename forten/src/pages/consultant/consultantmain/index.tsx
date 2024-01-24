@@ -25,6 +25,10 @@ const ConsultantMainPage = () => {
   const [studentInput, setStudentInput] = useState<string>('');
   const [stateSelect, setStateSelect] = useState('1');
   const [studentlist, setStudentList] = useState<StudentType[]>([]);
+  const [bookmarkedStudents, setBookmarkedStudents] = useState<string[]>(() => {
+    const storedBookmarks = localStorage.getItem('bookmarkedStudents');
+    return storedBookmarks ? JSON.parse(storedBookmarks) : [];
+  });
 
   // const [userData, setUserData] = useState<UserType>({
   //   user_id: '',
@@ -107,7 +111,10 @@ const ConsultantMainPage = () => {
             </div>
             <p>즐겨찾기</p>
           </S.purpleCircle>
-          <BookMarkList />
+          <BookMarkList
+            bookmarkedStudents={bookmarkedStudents}
+            setBookmarkedStudents={setBookmarkedStudents}
+          />
         </S.LeftFullContainer>
         <S.RightFullContainer>
           <S.SearchContainer>
@@ -155,6 +162,8 @@ const ConsultantMainPage = () => {
               setStudentList={setStudentList}
               studentInput={studentInput}
               selectedStatus={stateSelect}
+              bookmarkedStudents={bookmarkedStudents}
+              setBookmarkedStudents={setBookmarkedStudents}
             />
           </S.SearchContainer>
           <Memo />
