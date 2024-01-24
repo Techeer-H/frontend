@@ -9,7 +9,6 @@ import StudentInfo, { StudentType } from '../../../components/consultant/student
 import BookMarkList from '../../../components/consultant/bookMarkList';
 import RegisterModal from '../modal/registermodal';
 import axios from 'axios';
-
 export type UserType = {
   user_id: string;
   email: string;
@@ -19,13 +18,15 @@ export type UserType = {
   birth: string;
   role: string;
 };
-
 const ConsultantMainPage = () => {
   const [isModalOpened, setIsOpened] = useState<boolean>(false);
   const [studentInput, setStudentInput] = useState<string>('');
   const [stateSelect, setStateSelect] = useState('1');
   const [studentlist, setStudentList] = useState<StudentType[]>([]);
-
+  const [bookmarkedStudents, setBookmarkedStudents] = useState<string[]>(() => {
+    const storedBookmarks = localStorage.getItem('bookmarkedStudents');
+    return storedBookmarks ? JSON.parse(storedBookmarks) : [];
+  });
   // const [userData, setUserData] = useState<UserType>({
   //   user_id: '',
   //   email: '',
@@ -45,16 +46,13 @@ const ConsultantMainPage = () => {
   //     parent_phone: string;
   //   }[]
   // >([]);
-
   const handleClick = () => {
     setIsOpened((prev) => !prev); // setIsOpened(!isModalOpened);
   };
-
   //검색 기능 구현
   const getSearchData = (e: ChangeEvent<HTMLInputElement>) => {
     setStudentInput(e.target.value.toLowerCase());
   };
-
   //화면에 학생리스트를 위해 만들어보았다가 일단 실패 담에 한번 해보세요!
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -69,7 +67,6 @@ const ConsultantMainPage = () => {
   //   };
   //   fetchData();
   // }, []);
-
   useEffect(() => {
     const user_Id = localStorage.getItem('user_Id');
     axios
@@ -92,9 +89,7 @@ const ConsultantMainPage = () => {
     const selectOption = event.target.value;
     setStateSelect(selectOption);
   };
-
   console.log(stateSelect);
-
   return (
     // 전체화면
     <S.background>
@@ -107,7 +102,10 @@ const ConsultantMainPage = () => {
             </div>
             <p>즐겨찾기</p>
           </S.purpleCircle>
-          <BookMarkList />
+          <BookMarkList
+            bookmarkedStudents={bookmarkedStudents}
+            setBookmarkedStudents={setBookmarkedStudents}
+          />
         </S.LeftFullContainer>
         <S.RightFullContainer>
           <S.SearchContainer>
@@ -155,6 +153,9 @@ const ConsultantMainPage = () => {
               setStudentList={setStudentList}
               studentInput={studentInput}
               selectedStatus={stateSelect}
+              //즐겨찾기
+              bookmarkedStudents={bookmarkedStudents}
+              setBookmarkedStudents={setBookmarkedStudents}
             />
           </S.SearchContainer>
           <Memo />
@@ -163,5 +164,4 @@ const ConsultantMainPage = () => {
     </S.background>
   );
 };
-
 export default ConsultantMainPage;
