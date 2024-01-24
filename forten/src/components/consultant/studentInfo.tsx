@@ -1,5 +1,5 @@
 // 학생리스트
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
@@ -7,6 +7,8 @@ import registerGrade from '../../assets/registerGrade.svg';
 import axios from 'axios';
 import RedStatusButton from './redStatusButton';
 import GreenStatusButton from './greenStatusButton';
+import Mark from '../../assets/Mark.svg';
+import NoMark from '../../assets/NoMark.svg';
 
 //1차 샘플데이터
 // const studentInfo = () => {
@@ -35,30 +37,42 @@ import GreenStatusButton from './greenStatusButton';
 //   }, []);
 
 export interface StudentType {
+  academy_id: number;
+
   id: number;
   name: string;
   school: string;
   birth: string;
   phone: string;
+  parent_name: string;
   parent_phone: string;
   isFeedback: boolean;
+  grade: string;
 }
 
 interface Props {
   studentInput: string;
   selectedStatus: string;
   studentlist: StudentType[];
-  setStudentList: (studentlist: StudentType[]) => void;
+  bookmarkedStudents: string[];
+  setStudentList: React.Dispatch<React.SetStateAction<StudentType[]>>;
+  setBookmarkedStudents: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const user_Id = localStorage.getItem('user_Id');
 
-const StudentInfo = ({ studentInput, selectedStatus, studentlist, setStudentList }: Props) => {
+const StudentInfo = ({
+  studentInput,
+  selectedStatus,
+  studentlist,
+  setStudentList,
+  bookmarkedStudents,
+  setBookmarkedStudents,
+}: Props) => {
   const navigate = useNavigate();
 
   const getStudentList = async () => {
     let response;
-    console.log(user_Id);
 
     if (studentInput === '') {
       response = await axios.get(`http://3.37.41.244:8000/api/student/?id=${user_Id}`);
@@ -75,8 +89,9 @@ const StudentInfo = ({ studentInput, selectedStatus, studentlist, setStudentList
           `http://3.37.41.244:8000/api/student/?id=${user_Id}&student_id=${studentInput}`,
         );
       }
+      console.log('res검색  처음 응답 받을 때', response.data.result);
       setStudentList(response.data.result); //여기까지하면 처음페이지 불러올떄 있는 목록만 나옴
-      console.log(response.data.result);
+
       // setStudentList((prev) => [...prev, response.data]); // api 명세서 보면 response 안에 result , studentList
     }
   };
@@ -85,6 +100,17 @@ const StudentInfo = ({ studentInput, selectedStatus, studentlist, setStudentList
     getStudentList();
   }, [studentInput]);
 
+  const handleBookmark = (studentName: string) => {
+    if (bookmarkedStudents.includes(studentName)) {
+      const updatedBookmarks = bookmarkedStudents.filter((name) => name !== studentName);
+      setBookmarkedStudents(updatedBookmarks);
+      localStorage.setItem('bookmarkedStudents', JSON.stringify(updatedBookmarks));
+    } else {
+      const updatedBookmarks = [...bookmarkedStudents, studentName];
+      setBookmarkedStudents(updatedBookmarks);
+      localStorage.setItem('bookmarkedStudents', JSON.stringify(updatedBookmarks));
+    }
+  };
   const gradeRegisterHandler = (studentId: number) => {
     navigate('/schooltest', { state: { studentId } });
   };
@@ -109,12 +135,18 @@ const StudentInfo = ({ studentInput, selectedStatus, studentlist, setStudentList
               <Phone>{student.phone}</Phone>
               <ParentPhone>{student.parent_phone}</ParentPhone>
               <Action>
+                <ImgBox onClick={() => handleBookmark(student.name)}>
+                  <img
+                    src={bookmarkedStudents.includes(student.name) ? Mark : NoMark}
+                    alt="북마크"
+                  />
+                </ImgBox>
                 <ImgBox onClick={() => gradeRegisterHandler(student.id)}>
                   <img src={registerGrade} alt="성적등록하기" />
                 </ImgBox>
-                <ImgBox2 onClick={() => aiPromptHandler(student.id)}>
+                <ImgBox onClick={() => aiPromptHandler(student.id)}>
                   <img src={aiPrompt} alt="프롬트제작페이지" />
-                </ImgBox2>
+                </ImgBox>
               </Action>
               <Status>
                 {/* 평가 여부에 따른 상태 (완료, 미완료) 나타내기 */}
@@ -145,6 +177,9 @@ const Li = styled.li`
   margin-bottom: 1rem;
   justify-content: space-evenly;
   align-items: center;
+  &:hover {
+    scale: 1.04;
+  }
 `;
 const Student = styled.div`
   text-align: center;
@@ -176,14 +211,13 @@ const ParentPhone = styled.div`
 const Action = styled.div`
   text-align: center;
   width: 4rem;
+  display: flex;
+  justify-content: space-evenly;
   border-radius: 0.6rem;
   border: 0.1px solid rgb(171, 172, 247);
 `;
 
 const ImgBox = styled.button``;
-const ImgBox2 = styled.button`
-  margin-left: 0.4rem;
-`;
 
 const Status = styled.div`
   display: flex;
