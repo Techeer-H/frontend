@@ -6,7 +6,7 @@ import { StudentType } from '../../../components/consultant/studentInfo';
 
 interface RegisterModalProps {
   handleClick: () => void;
-  setstudentList: (studentList: StudentType[]) => void;
+  setstudentList: React.Dispatch<React.SetStateAction<StudentType[]>>;
   studentlist: StudentType[];
 }
 
@@ -19,10 +19,8 @@ const RegisterModal = ({ handleClick, setstudentList, studentlist }: RegisterMod
   const [grade, setGrade] = useState('');
   const [birth, setBirth] = useState('');
   const [error, setError] = useState<string | null>(null);
-
   const birthDayEl = useRef<HTMLSelectElement>(null);
   const isDayOptionExisted = useRef(false);
-
   useEffect(() => {
     const handleFocus = (
       ref: React.RefObject<HTMLSelectElement>,
@@ -94,15 +92,14 @@ const RegisterModal = ({ handleClick, setstudentList, studentlist }: RegisterMod
         birth,
       };
       console.log(data);
-
       const response = await axios.post('http://3.37.41.244:8000/api/student/', data, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
+      console.log('모달창에서 학생 생성하고 응답 받은 값', response.data.result);
       // 등록이 성공했을 때 모달을 닫음
-      setstudentList([...studentlist, response.data]); // 등록된 학생 목록에 추가
+      setstudentList((pre) => [...pre, response.data.result]); // 등록된 학생 목록에 추가
       handleCloseModal(); // 모달을 닫는 함수 호출
     } catch (error) {
       console.error('createStudent에서 오류:', error);
@@ -110,7 +107,6 @@ const RegisterModal = ({ handleClick, setstudentList, studentlist }: RegisterMod
       setError('등록 중 오류가 발생했습니다. 다시 시도해주세요.');
     }
   };
-
   const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
     setName(e.target.value);
@@ -209,7 +205,6 @@ const RegisterModal = ({ handleClick, setstudentList, studentlist }: RegisterMod
     </Modal>
   );
 };
-
 const Modal = styled.div`
   position: absolute;
   border: 1px solid #000;
