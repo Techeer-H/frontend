@@ -28,7 +28,7 @@ const LoginPage: React.FC = () => {
   // };
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(e.target.value);
+    console.log(e.target.value);
     setEmail(e.target.value);
 
     const regex =
@@ -41,7 +41,7 @@ const LoginPage: React.FC = () => {
   };
 
   const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // console.log(e.target.value);
+    console.log(e.target.value);
     setPassword(e.target.value);
     const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/; //정규식
     if (regex.test(password)) {

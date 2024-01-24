@@ -6,7 +6,7 @@ import { StudentType } from '../../../components/consultant/studentInfo';
 
 interface RegisterModalProps {
   handleClick: () => void;
-  setstudentList: React.Dispatch<React.SetStateAction<StudentType[]>>;
+  setstudentList: (studentList: StudentType[]) => void;
   studentlist: StudentType[];
 }
 
@@ -100,9 +100,9 @@ const RegisterModal = ({ handleClick, setstudentList, studentlist }: RegisterMod
           'Content-Type': 'application/json',
         },
       });
-      console.log('모달창에서 학생 생성하고 응답 받은 값', response.data.result);
+      console.log(response.data);
       // 등록이 성공했을 때 모달을 닫음
-      setstudentList((pre) => [...pre, response.data.result]); // 등록된 학생 목록에 추가
+      setstudentList([...studentlist, response.data]); // 등록된 학생 목록에 추가
       handleCloseModal(); // 모달을 닫는 함수 호출
     } catch (error) {
       console.error('createStudent에서 오류:', error);
