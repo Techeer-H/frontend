@@ -35,7 +35,8 @@ const AiPromptPage = () => {
     <S.background>
       {isModal && (
         <ConsultantRatingPage
-          close={closeModal} />
+          close={closeModal}
+          studentId={studentId} />
       )}
       <Navbar />
       <S.fullcontainer>

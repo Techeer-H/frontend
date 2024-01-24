@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -15,6 +15,7 @@ const TextArea = styled.div`
   border-radius: 10px;
   padding: 0.25rem;
   font-size: 0.875rem;
+  overflow: auto;
 `;
 
 interface WordBoxProps {

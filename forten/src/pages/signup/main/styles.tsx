@@ -1,6 +1,6 @@
 
 import styled from 'styled-components';
-import LoginImg2 from '../../../assets/loginimg2.svg';
+import LoginImg2 from '../../../assets/LoginImg2.svg';
 import { Link } from 'react-router-dom';
 
 export const Section = styled.section`

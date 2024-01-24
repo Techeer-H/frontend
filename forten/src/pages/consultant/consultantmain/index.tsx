@@ -84,6 +84,7 @@ const ConsultantMainPage = () => {
         // 예: 에러 메시지 표시 등
       });
   }, []);
+
   const stateSelectHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectOption = event.target.value;
     setStateSelect(selectOption);

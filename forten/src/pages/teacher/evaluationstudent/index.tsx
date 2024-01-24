@@ -78,9 +78,9 @@ const teacherevaluate = () => {
       {ModalOpen && (
         <TeacherRatingPage
           closeModal={closeModal}
-          feedbackId={null}
-          comment={null}
-          studentRating={null}
+          feedbackId={undefined}
+          comment={undefined}
+          studentRating={undefined}
         />
       )}
     </div>

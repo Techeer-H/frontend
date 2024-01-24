@@ -42,16 +42,16 @@ export const Bubble = styled.div<BubbleProps>`
 
 interface RatingProps {
   onSliderChange: (value: number) => void;
-  rating: number | null;
+  rating: number | undefined;
 }
 
 const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
-  const [value, onChange] = useState(rating !== null ? rating : 0);
+  const [value, onChange] = useState(rating !== undefined ? rating : 1);
 
   useEffect(() => {
     onSliderChange(value); // 부모로 선택한 값을 전달
     // console.log('Slider Value:', value);
-    if (rating == null) {
+    if (rating == undefined) {
       onSliderChange(value);
     }
 
@@ -67,8 +67,8 @@ const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
     <SliderParent style={{ textAlign: 'center' }}>
       <CustomSlider
         type="range"
-        min="-5"
-        max="5"
+        min="1"
+        max="10"
         value={value}
         onChange={({ target: { value: radius } }) => {
           onChange(Number(radius));

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { background } from '../../pages/consultant/AiPrompt/styles';
 
 const GrayBoxContainer = styled.div`
   background-color: #f9f9f9;

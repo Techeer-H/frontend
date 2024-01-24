@@ -1,5 +1,5 @@
 // 학생리스트
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
@@ -7,7 +7,6 @@ import registerGrade from '../../assets/registerGrade.svg';
 import axios from 'axios';
 import RedStatusButton from './redStatusButton';
 import GreenStatusButton from './greenStatusButton';
-import { background } from '../../pages/consultant/AiPrompt/styles';
 
 //1차 샘플데이터
 // const studentInfo = () => {
@@ -103,7 +102,7 @@ const StudentInfo = ({ studentInput, selectedStatus, studentlist, setStudentList
           (selectedStatus === '3' && !student.isFeedback)
         ) {
           return (
-            <Li  key={student.id}>
+            <Li key={student.id}>
               <Student>{student.name}</Student>
               <School>{student.school}</School>
               <Age>{student.birth}</Age>

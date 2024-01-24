@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from "styled-components";
 import axios from 'axios';
 import SmileEmoji from '../../assets/smileEmoji.png';
@@ -68,9 +68,9 @@ function ParentAvergy(props: ParentAvergyProps) {
   }, []);
 
   // parentAver가 undefined 일 경우 0으로 기본값 설정
-  const defaultParentAver = parentAver || 0;
+  const defaultParentAver = parentAver || 1;
   // 이미지 경로 설정
-  const emojiImage = defaultParentAver >= 1 ? SmileEmoji : SadEmoji;
+  const emojiImage = defaultParentAver >= 5 ? SmileEmoji : SadEmoji;
 
   return (
     <Wrapper>

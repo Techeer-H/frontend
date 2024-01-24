@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Delete from '../../assets/delete.svg';
 import Modify from '../../assets/modify.svg';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import TeacherRatingPage from '../../pages/teacher/modal/teacherrating';
 import axios from 'axios';
 
@@ -12,7 +12,7 @@ interface CommentListProps {
 }
 const CommentList: React.FC<CommentListProps> = (props) => {
   const [isModifyModalOpen, setModifyModalOpen] = useState(false);
-  const [modalFeedbackId, setModalFeedbackId] = useState<number | null>(null); // modalFeedbackId 추가
+  const [modalFeedbackId, setModalFeedbackId] = useState<number | undefined>(undefined); // modalFeedbackId 추가
 
   const closeModifyModal = () => {
     setModifyModalOpen(false);
