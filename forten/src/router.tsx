@@ -20,7 +20,6 @@ import AiPromptPage from './pages/consultant/AiPrompt';
 import MockGrade from './pages/consultant/graderegister/mockTest';
 import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 
-
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -74,11 +73,6 @@ const routers = createBrowserRouter([
   {
     path: '/teacher',
     element: <TeacherPage />,
-  },
-  // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다)
-  {
-    path: '/warningsignmodal',
-    element: <WarningSignModal />,
   },
 
   {

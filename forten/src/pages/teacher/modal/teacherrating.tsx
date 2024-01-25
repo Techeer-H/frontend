@@ -4,6 +4,7 @@ import Rating from '../../../components/modal/rating';
 import LogoAndLetter from '../../../assets/LogoAndLetter.svg';
 import ColseBtn from '../../../assets/closeBtn.png';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 // 평가 모달
 const TeacherRatingPage: React.FC<{
   closeModal: React.MouseEventHandler;
@@ -15,7 +16,6 @@ const TeacherRatingPage: React.FC<{
   const [rating, setRating] = useState<number | undefined>(undefined);
 
   console.log(feedbackId, comment, studentRating);
-  console.log(content, rating);
 
   const handleSliderChange = (value: number) => {
     setRating(value);
@@ -28,21 +28,29 @@ const TeacherRatingPage: React.FC<{
     }
   }, []);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const user_id = localStorage.getItem('user_Id');
+
+  const location = useLocation();
+  const student_id = location.state.studentId;
+  console.log(location.state.studentId);
+
+  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = async (event) => {
     event.preventDefault();
 
     const data = {
-      student_id: '2',
+      student_id: student_id,
       student_rating: rating,
       content: content,
     };
+
+    console.log(data);
 
     try {
       if (feedbackId) {
         //이미 있는 글일 경우(수정)
         console.log('Updating feedback:', data);
         const response = await axios.put(
-          `http://3.37.41.244:8000/api/feedback/2/${feedbackId}/`,
+          `http://3.37.41.244:8000/api/feedback/${user_id}/${feedbackId}/`,
           data,
         );
         console.log('Successfully updated:', response.data);
@@ -50,16 +58,17 @@ const TeacherRatingPage: React.FC<{
         // 새로 작성하는 글일 경우(등록)
         console.log('Creating new feedback:', data);
 
-        const response = await axios.post('http://3.37.41.244:8000/api/feedback/2/', data);
+        const response = await axios.post(`http://3.37.41.244:8000/api/feedback/${user_id}/`, data);
         console.log('성공적으로 저장되었습니다', response.data);
       }
+      closeModal(event);
     } catch (error) {
       console.error('평가 저장 중 오류 발생', error);
     }
   };
 
   return (
-    <Full onSubmit={handleSubmit}>
+    <Full>
       <Backdrop />
 
       <Modal>
@@ -82,7 +91,9 @@ const TeacherRatingPage: React.FC<{
               <Rating onSliderChange={handleSliderChange} rating={studentRating} />
             </Container>
             <BtnContainer>
-              <Button type="submit">저장하기</Button>
+              <Button type="submit" onClick={handleSubmit}>
+                저장하기
+              </Button>
             </BtnContainer>
           </FullContainer>
         </Form>

@@ -38,7 +38,6 @@ import NoMark from '../../assets/NoMark.svg';
 
 export interface StudentType {
   academy_id: number;
-
   id: number;
   name: string;
   school: string;
