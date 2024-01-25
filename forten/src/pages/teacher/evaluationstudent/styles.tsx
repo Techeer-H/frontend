@@ -1,13 +1,7 @@
 import styled from 'styled-components';
 
 export const Fullcontainer = styled.div`
-width: 90rem;
-height: 64rem;
-
-background: linear-gradient(237deg, #709D77 34.05%, #D9C9C9 100%);
-color:#A7BA9E;
-
-
+  background: white;
 `;
 export const Container = styled.div`
   height: 8.125rem;
