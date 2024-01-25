@@ -1,15 +1,14 @@
-
 import styled from 'styled-components';
 import LoginImg2 from '../../../assets/LoginImg2.svg';
 import { Link } from 'react-router-dom';
 
 export const Section = styled.section`
-  background: linear-gradient(118deg, #f1e1ff -10.93%, #eefffa 77.48%);
   display: flex;
-  width: 80rem;
-  height: 52rem;
-
-  /* background: black; */
+  background: linear-gradient(237deg, #709d77 34.05%, #d9c9c9 100%);
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const LeftColumn = styled.div`
@@ -20,13 +19,10 @@ export const LeftColumn = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 15rem;
-  margin-top: 9.75rem;
   position: relative;
-  gap: 2.4rem;
   border-radius: 1rem;
   background: #fff;
-  border-bottom: 2px solid #bcb1ff;
+  border-bottom: 2px solid #347914;
   /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
   /* 
   @media (min-width: 640px) {
@@ -36,20 +32,19 @@ export const LeftColumn = styled.div`
     padding: 6rem 2rem 10rem;
   } */
 `;
-
-export const LogoImage = styled.img`
-  width: 24rem;
-  height: 2.5rem;
-  margin-bottom: 1rem;
-`;
-
 export const Form = styled.form`
   margin: 4rem 3.98rem 2.78rem 3.98rem;
   display: flex;
   flex-direction: column;
 `;
+export const LogoImage = styled.img`
+  width: 20rem;
+  height: 1.6rem;
+  margin-bottom: 0.8rem;
+`;
 
-export const InputForm = styled.form`
+export const InputWrapper = styled.div`
+  height: 4rem;
   .errorMessageWrap {
     margin-left: 0.5rem;
     color: #ef0000;
@@ -71,28 +66,33 @@ export const Input = styled.input`
   margin-top: 1rem;
   &:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    border-color: #1eb550;
+    box-shadow: 0 0 0 3px rgba(26, 179, 67, 0.3);
   }
+`;
+
+export const RoleContainer = styled.div`
+  margin: 0.8rem 0 0.8rem 0;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Button = styled.div`
   .bottomButton {
     width: 16rem;
     height: 2.4rem;
-    margin-top: 2rem;
+
     border-radius: 1.2em;
     border: none;
-    background: linear-gradient(105deg, #b6feff 15.97%, #efc2ff 85.11%);
+    background: #78978c;
     color: #ffffff;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.9s ease;
+    transition: background-color 0.3s ease;
     &:hover {
-      background: #7df6ff;
-      color: #c6c6c6;
-      border: 1px solid #671845;
+      background: #89ffac;
+      color: #9a9a9a;
     }
   }
 
@@ -106,10 +106,7 @@ export const RightColumn = styled.div`
   width: 25rem;
   height: 32.5rem;
   border-radius: 1rem;
-  margin-top: 9.75rem;
-  margin-right: 15rem;
-
-  /* box-shadow: 0px px 4px 0px rgba(0, 0, 0, 0.25); */
+  position: relative;
   background-image: url(${LoginImg2});
 `;
 
@@ -147,26 +144,36 @@ export const Title2 = styled.p`
   position: absolute;
   left: 2.8rem;
   top: 28rem;
+  color: #f35626;
+  background-image: -webkit-linear-gradient(92deg, #d2a6ff, #bbf4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 3s infinite linear;
+
+  @-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(15deg);
+    }
+    to {
+      -webkit-filter: hue-rotate(200deg);
+    }
+  }
 `;
 
 export const StyledLink = styled(Link)`
   position: absolute;
-  color: #ffffff;
+  color: #0d673b;
   top: 1rem;
   left: 1rem;
-  width: 3.6rem;
-  height: 2rem;
-  font-size: 01rem;
-  font-style: normal;
+
+  font-size: 1rem;
   font-weight: 600;
-  line-height: normal;
-  background: #c9c2ff;
-  padding: 0.36rem 0rem 0rem 0.9em;
-  border-radius: 2rem;
+  cursor: pointer;
   transition: background-color 0.3s ease;
 
   &:hover {
-    background: #5fd9e2;
+    color: #62cee8;
+    text-decoration: underline;
   }
 `;
 export const InfoBirthContainer = styled.div`

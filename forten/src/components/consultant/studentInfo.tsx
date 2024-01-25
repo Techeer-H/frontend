@@ -1,5 +1,5 @@
 // 학생리스트
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
@@ -38,7 +38,6 @@ import NoMark from '../../assets/NoMark.svg';
 
 export interface StudentType {
   academy_id: number;
-
   id: number;
   name: string;
   school: string;

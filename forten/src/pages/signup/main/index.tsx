@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import SignUpLogo from '../../../assets/siginuplogo.svg';
+import SignUpLogo from '../../../assets/SignUpLogo.svg';
 import SuccessSignUp from '../modal/successSignUpModal';
 import * as S from './styles';
 import axios from 'axios';
-
-
 
 type Role = 'T' | 'C';
 
@@ -130,9 +128,8 @@ const SignUpPage: React.FC = () => {
       <S.LeftColumn>
         <S.Form action="#" method="POST">
           <S.LogoImage src={SignUpLogo} alt="" />
-          <S.InputForm>
+          <S.InputWrapper>
             <S.Input
-              // value={signupInfo.email}
               value={email}
               onChange={emailChangeHandler}
               type="email"
@@ -143,7 +140,8 @@ const SignUpPage: React.FC = () => {
             <div className="errorMessageWrap">
               {!emailValid && email.length > 0 && <div>올바른 이메일을 입력해주세요.</div>}
             </div>
-
+          </S.InputWrapper>
+          <S.InputWrapper>
             <S.Input
               onChange={passwordChangeHandler}
               value={password}
@@ -156,7 +154,8 @@ const SignUpPage: React.FC = () => {
                 <div>영문,숫자 포함 8글자이상 입력해주세요.</div>
               )}
             </div>
-
+          </S.InputWrapper>
+          <S.InputWrapper>
             <S.Input
               onChange={phoneChangeHandler}
               value={phone}
@@ -167,7 +166,8 @@ const SignUpPage: React.FC = () => {
             <div className="errorMessageWrap">
               {!phoneValid && phone.length > 0 && <div>ex) 01012345678 으로 작성해주세요</div>}
             </div>
-
+          </S.InputWrapper>
+          <S.InputWrapper>
             <S.Input
               onChange={nameChangeHandler}
               value={name}
@@ -176,7 +176,8 @@ const SignUpPage: React.FC = () => {
               id=""
               placeholder="이름"
             />
-
+          </S.InputWrapper>
+          <S.InputWrapper>
             <S.Input
               onChange={birthChangeHandler}
               type="year"
@@ -190,8 +191,9 @@ const SignUpPage: React.FC = () => {
             <div className="errorMessageWrap">
               {!birthValid && birth.length > 0 && <div>ex)1999 으로 작성해주세요</div>}
             </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginTop: '2rem' }}>
+          </S.InputWrapper>
+          <S.RoleContainer>
+            <div>
               <input
                 id="T"
                 type="radio"
@@ -199,7 +201,9 @@ const SignUpPage: React.FC = () => {
                 checked={role === 'T'}
                 onChange={(e) => setRole(e.target.value as Role)}
               />
-              <label htmlFor="T">강사</label>
+              <label style={{ marginLeft: '0.6rem', marginRight: '1rem' }} htmlFor="T">
+                강사
+              </label>
               <input
                 id="C"
                 type="radio"
@@ -207,9 +211,11 @@ const SignUpPage: React.FC = () => {
                 checked={role === 'C'}
                 onChange={(e) => setRole(e.target.value as Role)}
               />
-              <label htmlFor="C">컨설턴트</label>
+              <label style={{ marginLeft: '0.6rem' }} htmlFor="C">
+                컨설턴트
+              </label>
             </div>
-          </S.InputForm>
+          </S.RoleContainer>
 
           {/* successmodal의 props에서 setisopen을 가져옴 아니라 하면 : null값으로 아무것도 안띄게 만듬 */}
           {isSuccessOpen ? <SuccessSignUp setIsOpen={setIsSuccessOpen} /> : null}
@@ -231,10 +237,10 @@ const SignUpPage: React.FC = () => {
       <S.RightColumn>
         <S.ImageOverlay />
         <S.TextContent>
-          <S.Title style={{ fontSize: '1.4rem' }}>
+          <S.Title id="box" className="gradient-border" style={{ fontSize: '1.4rem' }}>
             학생들의 관리를 <br />
           </S.Title>
-          <S.Title2 style={{ fontSize: '3.6rem' }}>For:ten</S.Title2>
+          <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2>
         </S.TextContent>
       </S.RightColumn>
     </S.Section>
