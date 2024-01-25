@@ -1,9 +1,8 @@
 // 학생리스트
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
-import registerGrade from '../../assets/registerGrade.svg';
 import axios from 'axios';
 import RedStatusButton from '../consultant/redStatusButton';
 import GreenStatusButton from '../consultant/greenStatusButton';

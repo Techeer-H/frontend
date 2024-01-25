@@ -86,9 +86,10 @@ const ConsultantMainPage = () => {
       .get(`http://3.37.41.244:8000/api/student/?id=${user_Id}`)
       .then((response) => {
         // 로그인 성공 시 처리
-        const userData: { result: UserType } = response.data.result;
-        // setUserData(userData.result);
+        const userData = response.data.result;
+        // setUserData(userData.result);  // 이렇게 하면 안됨
         console.log('성공', userData);
+
         setStudentList(userData);
       })
       .catch((error) => {
