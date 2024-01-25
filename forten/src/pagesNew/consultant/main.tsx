@@ -3,6 +3,9 @@ import Navbar from '../../components/consultant/navBar';
 import GrayBox from '../../components/consultant/grayBox';
 import Memo from '../../components/consultant/memo'
 
+import Search from '../../assets/searchIcon.png';
+import Filter from '../../assets/filterIcon.png';
+
 
 const Background = styled.div`
   width: 100%;
@@ -38,7 +41,7 @@ const MarkHeader = styled.div`
   border-top-left-radius: 20px;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #fff;
+  color: #E0E0E0;
 `;
 
 const MarkList = styled.div`
@@ -78,6 +81,44 @@ const StudentListHeader = styled.div`
   display: flex;
   align-items: center;
 `
+
+const StudentListExplan = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #E0E0E0;
+`
+
+const StudentSearchContainer = styled.div`
+  width: 14rem;
+  height: 2.6rem;
+  background-color: rgba(99, 97, 113, 0.46);
+  border-radius: 35px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+`
+
+const StudentInput = styled.input`
+  width: 65%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;  
+  color: #fff;
+
+  &::placeholder{
+    color: #fff;
+  }
+`
+
+const SearchWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  left: 3%;
+`
+
 
 const StudentList = styled.div`
   width: 100%;
@@ -121,7 +162,30 @@ function Main() {
           {/* 여기도 아마 어떻게 가져올 것 같습니다
                       * 검색, 필터, 학생 등록 이야기 해보고 가져오면
                       * 배치는 가져 왔을 때 css 조정하겠습니다 */}
-          <StudentListHeader>studnetList 검색, 필터, 학생 등록</StudentListHeader>
+          <StudentListHeader>
+            <StudentListExplan>StudnetList</StudentListExplan>
+
+            <StudentSearchContainer>
+              <StudentInput type='text' placeholder='Student Search' />
+              <SearchWrapper>
+                <img src={Search} alt='검색' />
+              </SearchWrapper>
+            </StudentSearchContainer>
+
+            <div>
+              <div>
+                <img src={Filter} alt='필터' />
+              </div>
+
+              <div>
+                <div>전체</div>
+                <div>완료</div>
+                <div>미완료</div>
+              </div>
+            </div>
+
+            필터, 학생 등록
+          </StudentListHeader>
 
           <StudentList>
             <GrayBox />

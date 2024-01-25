@@ -24,7 +24,6 @@ import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 import NewConsultantMain from './pagesNew/consultant/main';
 import NewAiPrompt from './pagesNew/consultant/aiPrompt';
 import NewSchoolTestGrades from './pagesNew/consultant/schoolTestGrades';
-import NewMockTestGrades from './pagesNew/consultant/mockTestGrades';
 
 
 const routers = createBrowserRouter([
@@ -113,10 +112,6 @@ const routers = createBrowserRouter([
     path: '/newschooltestgrades',
     element: <NewSchoolTestGrades />
   },
-  {
-    path: '/newmocktestgrades',
-    element: <NewMockTestGrades />
-  }
 ]);
 
 export default routers;

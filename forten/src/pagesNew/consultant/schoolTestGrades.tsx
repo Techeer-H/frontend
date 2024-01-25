@@ -85,7 +85,7 @@ const FullWrapper = styled.div`
 
 const EnterGradesContainer = styled.div`
   width: 100%;
-  margin-top: 2%;
+  margin-top: 1.5%;
   display: flex;
   justify-content: space-evenly;
 `
