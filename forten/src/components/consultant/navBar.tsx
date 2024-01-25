@@ -42,7 +42,6 @@ const Navbar = () => {
         style={{
           borderRadius: '2.795rem',
           border: '0.5rem solid #92929',
-          flexShrink: '0',
           position: 'relative',
           alignItems: 'center',
           display: 'flex',

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import remove from '../../assets/remove.svg';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const Wrapper = styled.div`
   display: flex;
