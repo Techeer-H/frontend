@@ -24,6 +24,7 @@ export type UserType = {
   role: string;
 };
 
+
 const TeacherPage = () => {
   //검색 변수 , 필터링 변수
   const [studentInput, setStudentInput] = useState<string>('');

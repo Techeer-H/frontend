@@ -3,7 +3,7 @@ import CommentList from '../../../components/teacher/commentList';
 import * as S from './styles';
 import axios from 'axios';
 
-import EvaluateImg from '../../../assets/evaluateImg.svg';
+
 import TeacherRatingPage from '../modal/teacherrating';
 import { useLocation } from 'react-router-dom';
 
@@ -13,12 +13,17 @@ interface Evaluate {
   content: string;
 }
 
+
+const teacherevayarnluate = () => {
+  const [ModalOpen, setModalOpen] = useState(false);
+
 interface StudentInfoType {
   studentId: number;
   studentName: string;
   school: string;
   birth: string;
 }
+
 
 const Teacherevaluate = () => {
   const [ModalOpen, setModalOpen] = useState(false);
@@ -66,7 +71,7 @@ const Teacherevaluate = () => {
         <S.Container>
           <S.TextContainer>
             <S.NameBox>
-              <S.NameImg src={EvaluateImg} />
+             
               <S.NamesContainer>
                 <S.Name>{studentInfo.studentName}</S.Name>
                 <S.Name>
@@ -106,4 +111,6 @@ const Teacherevaluate = () => {
     </div>
   );
 };
-export default Teacherevaluate;
+
+export default teacherevayarnluate;
+
