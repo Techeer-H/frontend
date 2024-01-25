@@ -3,7 +3,7 @@ import CommentList from '../../../components/teacher/commentList';
 import * as S from './styles';
 import axios from 'axios';
 
-import EvaluateImg from '../../../assets/evaluateImg.svg';
+
 import TeacherRatingPage from '../modal/teacherrating';
 
 interface Evaluate {
@@ -12,7 +12,7 @@ interface Evaluate {
   content: string;
 }
 
-const teacherevaluate = () => {
+const teacherevayarnluate = () => {
   const [ModalOpen, setModalOpen] = useState(false);
 
   const [evaluateList, setEvaluateList] = useState<Evaluate[]>([]);
@@ -48,7 +48,7 @@ const teacherevaluate = () => {
         <S.Container>
           <S.TextContainer>
             <S.NameBox>
-              <S.NameImg src={EvaluateImg} />
+             
               <S.NamesContainer>
                 <S.Name>하재민</S.Name>
                 <S.Name>양명고/19</S.Name>
@@ -86,4 +86,4 @@ const teacherevaluate = () => {
     </div>
   );
 };
-export default teacherevaluate;
+export default teacherevayarnluate;

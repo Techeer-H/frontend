@@ -12,6 +12,7 @@ import star from '../../../assets/star.svg';
 import search from '../../../assets/searchIcon.svg';
 
 
+
 const TeacherPage = () => {
   return (
     <div
