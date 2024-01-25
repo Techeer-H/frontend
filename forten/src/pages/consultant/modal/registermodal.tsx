@@ -132,116 +132,127 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
     // setStudent(e.target.value);
   };
   return (
-    <Modal>
-      {error && <div style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</div>}
+    <Maincontainer>
       <TitleBar>
         <Title> 학생등록 </Title>
+        <Ximg onClick={handleCloseModal} />
       </TitleBar>
-      <Ximg onClick={handleCloseModal} />
-      <div style={{ display: 'flex' }}>
-        <Ximg onClick={handleClick} />
-        <Students
-          onChange={studentName}
-          value={name}
+
+      <Modal>
+        {error && (
+          <div style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</div>
+        )}
+        <div style={{ display: 'flex', marginTop: '1rem' }}>
+          <Students
+            onChange={studentName}
+            value={name}
+            type="text"
+            placeholder="학생의 이름을 입력하세요"
+          ></Students>
+          <Age
+            onChange={(e) => {
+              const selectBirth = e.target.value;
+              console.log(selectBirth);
+              setBirth(e.target.value);
+            }}
+            ref={birthDayEl}
+          >
+            <option> 출생년도 </option>
+          </Age>
+        </div>
+        <div style={{ display: 'flex' }}>
+          <School
+            onChange={schoolName}
+            value={school}
+            type="text"
+            placeholder="학교명을 입력하세요"
+          ></School>
+          <Grade
+            onChange={(e) => {
+              // e.target.value를 통해 선택된 값에 접근
+              const selectedValue = e.target.value;
+              console.log(selectedValue);
+              setGrade(e.target.value);
+            }}
+          >
+            <option> 학년 선택 </option>
+            <option value="중1">중1</option>
+            <option value="중2">중2</option>
+            <option value="중3">중3</option>
+            <option value="고1">고1</option>
+            <option value="고2">고2</option>
+            <option value="고3">고3</option>
+          </Grade>
+        </div>
+        <StudentNum
+          onChange={studentPhone}
+          value={phone}
+          type="tel"
+          placeholder="학생의 전화번호를 입력하세요"
+        ></StudentNum>
+        <Parent
+          onChange={parentName}
+          value={parent_name}
           type="text"
-          placeholder="학생의 이름을 입력하세요"
-        ></Students>
-        <Age
-          onChange={(e) => {
-            const selectBirth = e.target.value;
-            console.log(selectBirth);
-            setBirth(e.target.value);
-          }}
-          ref={birthDayEl}
-        >
-          <option> 출생년도 </option>
-        </Age>
-      </div>
-      <div style={{ display: 'flex' }}>
-        <School
-          onChange={schoolName}
-          value={school}
-          type="text"
-          placeholder="학교명을 입력하세요"
-        ></School>
-        <Select
-          onChange={(e) => {
-            // e.target.value를 통해 선택된 값에 접근
-            const selectedValue = e.target.value;
-            console.log(selectedValue);
-            setGrade(e.target.value);
-          }}
-        >
-          <option> 학년 선택 </option>
-          <option value="중1">중1</option>
-          <option value="중2">중2</option>
-          <option value="중3">중3</option>
-          <option value="고1">고1</option>
-          <option value="고2">고2</option>
-          <option value="고3">고3</option>
-        </Select>
-      </div>
-      <StudentNum
-        onChange={studentPhone}
-        value={phone}
-        type="tel"
-        placeholder="학생의 전화번호를 입력하세요"
-      ></StudentNum>
-      <Parent
-        onChange={parentName}
-        value={parent_name}
-        type="text"
-        placeholder="학부모명을 입력하세요"
-      ></Parent>
-      <ParentNum
-        onChange={parentPhone}
-        value={parent_phone}
-        type="tel"
-        placeholder="학부모 전화번호를 입력하세요"
-      ></ParentNum>
-      <Button type="submit" onClick={createStudent}>
-        등록
-      </Button>
-    </Modal>
+          placeholder="학부모명을 입력하세요"
+        ></Parent>
+        <ParentNum
+          onChange={parentPhone}
+          value={parent_phone}
+          type="tel"
+          placeholder="학부모 전화번호를 입력하세요"
+        ></ParentNum>
+        <Button type="submit" onClick={createStudent}>
+          학생등록
+        </Button>
+      </Modal>
+    </Maincontainer>
   );
 };
-const Modal = styled.div`
+
+const Maincontainer = styled.div`
   position: absolute;
-  border: 1px solid #000;
+  z-index: 4;
+`;
+
+const TitleBar = styled.div`
+  display: flex;
   width: 27.5rem;
-  height: 36.25rem;
+  height: 3.5625rem;
+  border-radius: 1.25rem 0rem 0rem 0rem;
+  background: #302b51;
+`;
+const Modal = styled.div`
+  width: 27.5rem;
+  height: 32.6rem;
   display: flex;
   flex-direction: column;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
   justify-content: space-between;
-  border-radius: 3.125rem;
   border: 1px solid #d8d8d8;
   background: #fff;
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
   font-size: 0.8rem;
 `;
-const TitleBar = styled.div`
-  flex-direction: column;
-  padding-top: 2rem;
-`;
+
 const Title = styled.div`
-  margin-right: 17.15rem;
-  width: 5.8125rem;
-  height: 1.25rem;
-  font-size: 1.4rem;
+  color: #d2d2d2;
+  text-align: center;
+  width: 6rem;
+  height: 1rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  margin-top: 0.7rem;
 `;
 const Ximg = styled.button`
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1rem;
+  right: 1rem;
   width: 1.5rem;
   height: 1.45rem;
   background-image: url(${Xicon});
   &:hover {
-    box-shadow: 0 0 0 3px rgba(0, 128, 255, 0.3);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
     border-radius: 2rem;
   }
 `;
@@ -250,109 +261,104 @@ const Students = styled.input`
   margin-right: 4rem;
   width: 12rem;
   height: 2.4rem;
-  padding: 0.61825rem 0.8085rem;
+  padding: 0.6rem 0.8rem;
   align-items: center;
-  gap: 0.47556rem;
-  background: #fff;
-  border-radius: 0.5rem;
-  border: 1px solid #9483ff;
+  gap: 0.4rem;
+
+  border-radius: 0.2rem;
+  border: 1px solid #242059;
   opacity: 0.8;
   background: #fff;
-  box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 const Age = styled.select`
   display: flex;
   padding-left: 0.4rem;
-  width: 6.341rem;
+  width: 6.3rem;
   height: 2.4rem;
-  border-radius: 0.5rem;
-  border-bottom: 2px solid #bcb1ff;
+  border-radius: 0.3rem;
+  border-bottom: 2px solid #86839e;
   background: #fff;
   color: #a5a5a5;
   text-align: center;
-  font-size: 0.8rem; /* Adjust the font size as needed */
+  font-size: 0.8rem;
 `;
-const Select = styled.select`
+const Grade = styled.select`
   display: flex;
-  width: 6.341rem;
+  padding-left: 0.4rem;
+  width: 6.3rem;
   height: 2.4rem;
-  border-radius: 0.5rem;
-  border-bottom: 2px solid #bcb1ff;
+  border-radius: 0.3rem;
+  border-bottom: 2px solid #86839e;
   background: #fff;
   color: #a5a5a5;
   text-align: center;
-  font-size: 0.8rem; /* Adjust the font size as needed */
+  font-size: 0.8rem;
 `;
 const School = styled.input`
   display: flex;
+  margin-right: 4rem;
   width: 12rem;
   height: 2.4rem;
-  padding: 0.61825rem 0.8085rem;
+  padding: 0.6rem 0.8rem;
   align-items: center;
-  gap: 0.47556rem;
-  background: #fff;
-  border-radius: 0.5rem;
-  border: 1px solid #9483ff;
+  gap: 0.4rem;
+
+  border-radius: 0.2rem;
+  border: 1px solid #242059;
   opacity: 0.8;
-  margin-right: 4rem;
   background: #fff;
-  box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 const StudentNum = styled.input`
   display: flex;
   width: 20rem;
-  height: 2.3125rem;
-  padding: 0.61825rem 0.8085rem;
+  height: 2.4rem;
+  padding: 0.6rem 0.8rem;
   align-items: center;
-  gap: 0.47556rem;
-  background: #fff;
-  border-radius: 0.5rem;
-  border: 1px solid #9483ff;
+  gap: 0.4rem;
+
+  border-radius: 0.2rem;
+  border: 1px solid #242059;
   opacity: 0.8;
   background: #fff;
-  box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 const Parent = styled.input`
   display: flex;
+  margin-right: 4rem;
   width: 12rem;
   height: 2.4rem;
-  padding: 0.61825rem 0.8085rem;
+  padding: 0.6rem 0.8rem;
   align-items: center;
-  gap: 0.47556rem;
-  background: #fff;
-  border-radius: 0.5rem;
-  border: 1px solid #9483ff;
+  gap: 0.4rem;
+
+  border-radius: 0.2rem;
+  border: 1px solid #242059;
   opacity: 0.8;
   background: #fff;
-  box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 const ParentNum = styled.input`
   display: flex;
   width: 20rem;
   height: 2.4rem;
-  padding: 0.61825rem 0.8085rem;
+  padding: 0.6rem 0.8rem;
   align-items: center;
-  margin-bottom: 8rem;
-  background: #fff;
-  border-radius: 0.5rem;
-  border: 1px solid #9483ff;
+  margin-bottom: 7rem;
+  border-radius: 0.2rem;
+  border: 1px solid #242059;
   opacity: 0.8;
   background: #fff;
-  box-shadow: 1px 3px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 const Button = styled.button`
   position: absolute;
   width: 15rem;
   height: 3.25rem;
-  border-radius: 1.2rem;
+  border-radius: 0.4rem;
   font-size: 1.25rem;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-weight: 500;
   color: #ffffff;
   bottom: 2.4rem;
   left: 6rem;
-  background: linear-gradient(91deg, #73a6ff 15.97%, #efc2ff 85.11%);
+  background: linear-gradient(83deg, #ccbfc6 -23.46%, #8d8ab4 45.89%);
   transition: background-color 0.5s ease;
   &:hover {
     background: #e0baff;

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Logo from '../../../assets/logo.svg';
+import Logo from '../../../assets/FOR;TEN.svg';
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
 import TeacherModal from '../modal/TeacherSuccess';
 import ConsultantModal from '../modal/ConsultantSuccessModal';
 import FailModal from '../modal/failLoginModal';
 import axios from 'axios';
+import { background } from '../../consultant/AiPrompt/styles';
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -21,11 +22,6 @@ const LoginPage: React.FC = () => {
   const [isFailOpen, setIsFailOpen] = useState<boolean>(false);
 
   const navigate = useNavigate();
-
-  // const User = {
-  //   email: 'penloo@naver.com',
-  //   password: 'shb931012580',
-  // };
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
@@ -58,13 +54,6 @@ const LoginPage: React.FC = () => {
     }
     setNotAllow(true);
   }, [emailValid, passwordValid]);
-
-  // const passwordChangeHandler = (e) => {
-  //   setPassword(e.target.value);
-  // };
-
-  //localStorage.setItem('userId', userId);
-  // localStorage.getItem('userId'); 써라
 
   const onSubmitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault(); //클릭 기본 방지
@@ -160,61 +149,8 @@ const LoginPage: React.FC = () => {
       <S.RightColumn>
         <S.ImageOverlay />
         <S.TextContent>
-          <S.Title style={{ fontSize: '1.4rem' }}>
-            10대의 잠재력을 <br />
-          </S.Title>
-          <S.Title2 style={{ fontSize: '3.6rem' }}>For:ten</S.Title2>
-
-          {/* <S.List>
-            <S.ListItem>
-              <S.IconWrapper color="#8b5cf6">
-                <S.Icon viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </S.Icon>
-              </S.IconWrapper>
-              <S.Text>당신의 학생들만 평가</S.Text>
-            </S.ListItem>
-            <S.ListItem>
-              <S.IconWrapper color="#3b82f6">
-                <S.Icon viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </S.Icon>
-              </S.IconWrapper>
-              <S.Text>컨설턴트의 관리</S.Text>
-            </S.ListItem>
-            <S.ListItem>
-              <S.IconWrapper color="#3b82f6">
-                <S.Icon viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </S.Icon>
-              </S.IconWrapper>
-              <S.Text>여려명의 학생을 한눈에</S.Text>
-            </S.ListItem>
-            <S.ListItem>
-              <S.IconWrapper color="#3b82f6">
-                <S.Icon viewBox="0 0 20 20" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                    clipRule="evenodd"
-                  />
-                </S.Icon>
-              </S.IconWrapper>
-              <S.Text>시각화로 한번에</S.Text>
-            </S.ListItem>
-          </S.List> */}
+          <S.Title style={{ fontSize: '1.4rem' }}>10대의 잠재력을</S.Title>
+          <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2>
         </S.TextContent>
       </S.RightColumn>
     </S.Section>
