@@ -23,6 +23,8 @@ import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 // 변경된 페이지들
 import NewConsultantMain from './pagesNew/consultant/main';
 import NewAiPrompt from './pagesNew/consultant/aiPrompt';
+import NewSchoolTestGrades from './pagesNew/consultant/schoolTestGrades';
+import NewMockTestGrades from './pagesNew/consultant/mockTestGrades';
 
 
 const routers = createBrowserRouter([
@@ -106,6 +108,14 @@ const routers = createBrowserRouter([
   {
     path: '/newaiprompt',
     element: <NewAiPrompt />
+  },
+  {
+    path: '/newschooltestgrades',
+    element: <NewSchoolTestGrades />
+  },
+  {
+    path: '/newmocktestgrades',
+    element: <NewMockTestGrades />
   }
 ]);
 
