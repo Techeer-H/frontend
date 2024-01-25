@@ -10,7 +10,7 @@ interface RegisterModalProps {
   studentlist: StudentType[];
 }
 
-const RegisterModal = ({ handleClick, setstudentList, studentlist }: RegisterModalProps) => {
+const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
   const [name, setName] = useState('');
   const [school, setSchool] = useState('');
   const [phone, setPhone] = useState('');

@@ -1,19 +1,34 @@
 import styled from 'styled-components';
 
-export const textContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-`;
-
-export const searchbar = styled.div`
-  width: 12rem;
-  height: 2.5rem;
-  display: flex;
+export const background = styled.div`
   justify-content: center;
   align-items: center;
+  background: linear-gradient(106deg, #f0eae3 -4.89%, #e2fcff 105.97%);
+  height: 100vh;
+  width: 100%;
+  display: block;
+  overflow: auto;
 `;
-export const smallSpacing = styled.div``;
+
+export const fullcontainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  // marginRight: '8.75rem',
+  // marginLeft: '8.75rem',
+
+  width: 62.5rem;
+  height: 43rem;
+  border-radius: 1.78569rem;
+  justify-content: center;
+  margin: 2rem auto 1.63rem auto;
+  background: linear-gradient(90deg, #e6fdff 4.39%, #ffedf1 32.89%);
+`;
+
+export const LeftFullContainer = styled.div`
+  position: relative;
+  width: 12rem;
+  height: 43rem;
+`;
 
 export const purpleCircle = styled.div`
   background-color: #f1e4ff;
@@ -29,7 +44,109 @@ export const purpleCircle = styled.div`
   font-size: 0.5rem;
 `;
 
-export const SearchInput = styled.input`
-  font-size: 0.5rem;
+export const RightFullContainer = styled.div`
+  position: relative;
+  width: 50rem;
+  height: 43rem;
+`;
+
+export const SearchContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 50rem;
+  height: 30rem;
+  margin: 0.2rem 0 1.5rem 0;
+  background: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  z-index: 1;
+`;
+
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.9rem 0;
+`;
+
+export const ModalWrapper = styled.div<{ isOpen: boolean }>`
+  display: ${(props) => (props.isOpen ? 'block' : 'none')};
+  position: absolute;
+  top: -1rem; /* Adjust as needed */
+  left: 8rem; /* Adjust as needed */
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+`;
+
+export const StyledButton = styled.input`
+  font-size: 0.4rem;
+  color: #5c5c5c;
+  width: 5.6rem;
+  text-align: center;
+  height: 1.6rem;
+
+  /* Add any other styles or overrides here */
+`;
+
+export const StudentSearchContainer = styled.div`
+  position: relative;
+
+  background: white;
+  width: 17.16081rem;
+  height: 2.52506rem;
+  border: 0.05rem solid #cdcfd4;
+  border-radius: 1.73688rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 9rem;
+  margin-left: 9rem;
+`;
+
+export const StyledInput = styled.input`
+  width: 70%;
+  height: 100%;
+  border: none;
+  font-size: 0.6rem;
+  background: transparent;
+  text-align: center;
   outline: none;
+`;
+
+export const SearchIcon = styled.button`
+  margin-right: 0.5rem;
+  position: absolute;
+  right: 0rem;
+  background-color: #efefef;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: scale 0.3s ease-in-out;
+  &:hover {
+    scale: 1.2;
+    background-color: #f6c7ff;
+  }
+`;
+
+export const DropDownContainer = styled.div`
+  background: #ffffff;
+  border: 0.05rem solid #cdcfd4;
+  width: 5rem;
+  height: 2rem;
+  display: grid;
+  grid-template-columns: auto; /* Set the column layout as needed */
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.44rem;
+`;
+
+export const StyledSelect = styled.select`
+  font-size: 0.37rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.7rem;
+  background: #ffffff;
+  justify-content: center;
+  align-items: center;
 `;

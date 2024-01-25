@@ -7,7 +7,6 @@ import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
 import StartPage from './pages/onboard/firstpage';
 import TeacherPage from './pages/teacher/main/index';
-import WarningSignModal from './pages/signup/modal/warningsign';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';
@@ -20,10 +19,12 @@ import AiPromptPage from './pages/consultant/AiPrompt';
 import MockGrade from './pages/consultant/graderegister/mockTest';
 import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 
+
 // 변경된 페이지들
 import NewConsultantMain from './pagesNew/consultant/main';
 import NewAiPrompt from './pagesNew/consultant/aiPrompt';
 import NewSchoolTestGrades from './pagesNew/consultant/schoolTestGrades';
+
 
 
 const routers = createBrowserRouter([
@@ -79,11 +80,6 @@ const routers = createBrowserRouter([
   {
     path: '/teacher',
     element: <TeacherPage />,
-  },
-  // 모달창들 확인용 (실제로는 모달창은 라우터가 주어지지 않습니다)
-  {
-    path: '/warningsignmodal',
-    element: <WarningSignModal />,
   },
 
   {

@@ -1,12 +1,16 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import * as S from './styles';
+
 import Navbar from '../../../components/consultant/navBar';
 import GrayBox from '../../../components/consultant/grayBox';
+import BookMarkList from '../../../components/consultant/bookMarkList';
 import Memo from '../../../components/consultant/memo';
+
+import StudentInfo, { StudentType } from '../../../components/consultant/studentInfo';
+
 import search from '../../../assets/searchIcon.svg';
 import star from '../../../assets/star.svg';
-import StudentInfo, { StudentType } from '../../../components/consultant/studentInfo';
-import BookMarkList from '../../../components/consultant/bookMarkList';
+
 import RegisterModal from '../modal/registermodal';
 import axios from 'axios';
 
@@ -25,6 +29,8 @@ const ConsultantMainPage = () => {
   const [studentInput, setStudentInput] = useState<string>('');
   const [stateSelect, setStateSelect] = useState('1');
   const [studentlist, setStudentList] = useState<StudentType[]>([]);
+
+  //즐겨찾기 변수
   const [bookmarkedStudents, setBookmarkedStudents] = useState<string[]>(() => {
     const storedBookmarks = localStorage.getItem('bookmarkedStudents');
     return storedBookmarks ? JSON.parse(storedBookmarks) : [];
@@ -81,8 +87,9 @@ const ConsultantMainPage = () => {
       .then((response) => {
         // 로그인 성공 시 처리
         const userData = response.data.result;
-        // setUserData(userData.result);
+
         console.log('성공', userData);
+
         setStudentList(userData);
       })
       .catch((error) => {

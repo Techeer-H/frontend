@@ -55,9 +55,11 @@ const Navbar = () => {
     <Wrapper>
       <MainLogo src={Logo} alt='Logo' />
 
+
       <MemberContainer>
         <img src={Profile} alt='profile' />
         <Name>
+
           {user_name}&nbsp;컨설턴트
         </Name>
 
