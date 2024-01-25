@@ -94,26 +94,26 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
       <Explan>{getSemesterName(examId)}</Explan>
       <Input
         type="text"
-        placeholder="국어 등급 입력"
+        placeholder="Korean"
         value={koreanGrade}
         onChange={(e) => setKoreanGrade(e.target.value)}
       />
       <Input
         type="text"
-        placeholder="수학 등급 입력"
+        placeholder="Math"
         value={mathGrade}
         onChange={(e) => setMathGrade(e.target.value)}
       />
       <Input
         type="text"
-        placeholder="영어 등급 입력"
+        placeholder="English"
         value={englishGrade}
         onChange={(e) => setEnglishGrade(e.target.value)}
       />
 
       <BtnWrapper>
         <SummitBtn type="submit">
-          저장하기
+          저장
           <div>
             <img src={send} alt="전송 아이콘" />
           </div>
@@ -124,30 +124,39 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
 }
 
 const Form = styled.form`
-  width: 8.25rem;
-  height: 15.25rem;
-  background-color: rgba(252, 246, 255, 0.5);
-  border: 1px solid #c1c7ff;
-  border-radius: 5px;
+  width: 13.75rem;
+  height: 16rem;
+  background-color: #fff;
+  border: 2px solid #222A77;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 const Explan = styled.div`
+  width: 100%;
+  padding: 3%;
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 600;
 `;
 
 const Input = styled.input`
-  width: 100%;
+  width: 12rem;
   height: 3rem;
+  padding: 2%;
   background-color: transparent;
+  border-bottom: 1px solid #3D4450;
 `;
 
 const BtnWrapper = styled.div`
-  width: 100%;
-  background-color: #c1c7ff;
+  width: 12rem;
+  height: 2rem;
+  border-radius: 3px;
+  background-color: #3D4450;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
   display: flex;
   justify-content: center;
 `;

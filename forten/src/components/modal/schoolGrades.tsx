@@ -12,12 +12,15 @@ const Wrapper = styled.div`
   margin-bottom: 1rem;
   background-color: #fff;
   padding: 0.5rem;
+    background-color: #22283E;
+    color: #fff;
 `;
 
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 0.5rem;
+
 `;
 
 const Explan = styled.p`
@@ -122,6 +125,10 @@ function SchoolGrades(props: SchoolGradesProps) {
   const chartOptions: ApexOptions = {
     chart: {
       type: 'line',
+      background: '#22283E',
+    },
+    theme: {
+      mode: 'dark', // 또는 'dark'
     },
     series: gradesData[selectedSubject].series,
     xaxis: {

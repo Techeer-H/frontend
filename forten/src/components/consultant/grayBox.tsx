@@ -1,18 +1,16 @@
 import styled from 'styled-components';
 
 const GrayBoxContainer = styled.div`
-  background-color: #f9f9f9;
-  margin: 1.42rem 0 0.6rem 0;
-  border-radius: 1.25rem;
-  border: 0.695px solid rgb(171, 172, 247);
-  width: 47.75rem;
-  height: 2.4rem;
+  background-color: rgba(115, 123, 123, 0.24);
+  width: 56rem;
+  height: 3.7rem;
   display: flex; /* Flexbox를 활성화합니다. */
   align-items: center;
   justify-content: space-evenly; /* 수직 가운데 정렬 */
-  font-size: 0.5rem;
+  font-size: 1rem;
   position: sticky;
-  color: #737b7b;
+  color: #737B7B;
+  margin-top: 2%;
 `;
 
 const Student = styled.div`
@@ -45,22 +43,20 @@ const Status = styled.div`
   width: 5rem;
 `;
 
-const grayBox = () => {
+const GrayBox = () => {
   return (
-    <div id="grayBox">
-      <GrayBoxContainer id="grayBox">
-        <Student>학생명</Student>
-        <School>학교명</School>
-        <Age>나이</Age>
-        <Phone>학생 전화번호</Phone>
-        <ParentPhone>학부모 전화번호</ParentPhone>
-        <Action>Action</Action>
-        <Status>Status</Status>
+    <GrayBoxContainer>
+      <div>학생명</div>
+      <div>학교명</div>
+      <div>나이</div>
+      <div>학생 전화번호</div>
+      <div>학부모 전화번호</div>
+      <div>Action</div>
+      <div>Status</div>
 
-        {/* 내용 추가 가능 */}
-      </GrayBoxContainer>
-    </div>
+      {/* 내용 추가 가능 */}
+    </GrayBoxContainer>
   );
 };
 
-export default grayBox;
+export default GrayBox;

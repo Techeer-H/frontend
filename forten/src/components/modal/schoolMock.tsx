@@ -11,7 +11,8 @@ const Wrapper = styled.div`
   border-radius: 10px;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background-color: #fff;
+  background-color: #22283E;
+  color: #fff;
 `;
 
 const FlexContainer = styled.div`
@@ -205,6 +206,10 @@ function SchoolMock(props: SchoolMockProps) {
     chartOptions = {
       chart: {
         type: 'line',
+        background: '#22283E',
+      },
+      theme: {
+        mode: 'dark', // 또는 'dark'
       },
       series: selectedSubjectData.series,
       xaxis: {
