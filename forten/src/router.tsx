@@ -19,10 +19,6 @@ import AiPromptPage from './pages/consultant/AiPrompt';
 import MockGrade from './pages/consultant/graderegister/mockTest';
 import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 
-import NewTeacher from './pagesNew/teacher';
-
-
-
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -91,10 +87,6 @@ const routers = createBrowserRouter([
     path: '/onboarding',
     element: <OnBoardingPage />,
   },
-  {
-    path: '/newteacher',
-    element: <NewTeacher />,
-  }
 ]);
 
 export default routers;
