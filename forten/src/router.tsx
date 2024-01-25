@@ -7,7 +7,6 @@ import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
 import StartPage from './pages/onboard/firstpage';
 import TeacherPage from './pages/teacher/main/index';
-import WarningSignModal from './pages/signup/modal/warningsign';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';

@@ -1,5 +1,5 @@
 // 학생리스트
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
