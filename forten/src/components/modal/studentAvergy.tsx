@@ -7,19 +7,21 @@ import { ApexOptions } from 'apexcharts';
 const Wrapper = styled.div`
   width: 18.75rem;
   height: 16rem;
-  margin-bottom: 1rem;
-`
+  padding-top: 5%;
+  margin: 3% auto;
+  background-color: rgba(100, 100, 100, 0.3);
+`;
 
 const CenterContainer = styled.div`
   display: flex;
   align-items: center;
-
-`
+`;
 
 const Explan = styled.p`
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 900;
-`
+  padding-left: 2%;
+`;
 
 interface StudentAvergyProps {
     studentId: number;
@@ -29,8 +31,8 @@ interface StudentAvergyProps {
 function StudentAvergy(props: StudentAvergyProps) {
     // useState의 labels에 api에서 이름을 받아오면 될 것 같음
     // api에서 오는 데이터가 추가 되면 
-    const [labels, setLabels] = useState([]);
-    const [series, setSeries] = useState([]);
+    const [labels, setLabels] = useState(['정보 없음']);
+    const [series, setSeries] = useState([1]);
 
     let options: ApexOptions = {
         chart: {

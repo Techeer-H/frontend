@@ -4,7 +4,7 @@ import Logo from '../../assets/logo.svg';
 import signOut from '../../assets/signOut.png';
 
 const Wrapper = styled.div`
-  width: 80%;
+  width: 80.405rem;
   margin: auto;
   display: flex;
   align-items: center;

@@ -22,6 +22,7 @@ import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 
 // 변경된 페이지들
 import NewConsultantMain from './pagesNew/consultant/main';
+import NewAiPrompt from './pagesNew/consultant/aiPrompt';
 
 
 const routers = createBrowserRouter([
@@ -101,6 +102,10 @@ const routers = createBrowserRouter([
   {
     path: '/newconsultantmain',
     element: <NewConsultantMain />
+  },
+  {
+    path: '/newaiprompt',
+    element: <NewAiPrompt />
   }
 ]);
 

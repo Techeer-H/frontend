@@ -31,7 +31,7 @@ const MarkContainer = styled.div`
 const MarkHeader = styled.div`
   width: 100%;
   height: 5.375rem;
-  background-color: rgba(100, 100, 100, 0.3);
+  background-color: rgba(100, 100, 100, 0.2);
   display: flex;
   align-items: center;
   padding-left: 3%;
@@ -73,7 +73,7 @@ const StudentListContainer = styled.div`
 const StudentListHeader = styled.div`
   width: 100%;
   height: 5.375rem;
-  background-color: rgba(100, 100, 100, 0.3);
+  background-color: rgba(100, 100, 100, 0.2);
   border-top-right-radius: 20px;
   display: flex;
   align-items: center;
@@ -89,56 +89,56 @@ const StudentList = styled.div`
 `
 
 function Main() {
-    return (
-        <Background>
-            {/*
+  return (
+    <Background>
+      {/*
               * 여기에 학생 등록 모달이 들어갑니다
               * */}
 
-            <Navbar />
-            <FullContainer>
+      <Navbar />
+      <FullContainer>
 
-                <LeftContainer>
+        <LeftContainer>
 
-                    <MarkContainer>
-                        <MarkHeader>MARK</MarkHeader>
-                        <MarkList>
-                            {/* 여기서 통신? 할 것 같습니다 */}
-                            <p>이현진 -</p>
-                            <p>하재민 -</p>
-                        </MarkList>
-                    </MarkContainer>
+          <MarkContainer>
+            <MarkHeader>MARK</MarkHeader>
+            <MarkList>
+              {/* 여기서 통신? 할 것 같습니다 */}
+              <p>이현진 -</p>
+              <p>하재민 -</p>
+            </MarkList>
+          </MarkContainer>
 
-                    <TextareaContainer>
-                        <TextareaHeader>MEMO</TextareaHeader>
-                        <Memo />
-                    </TextareaContainer>
+          <TextareaContainer>
+            <TextareaHeader>MEMO</TextareaHeader>
+            <Memo />
+          </TextareaContainer>
 
-                </LeftContainer>
+        </LeftContainer>
 
-                <StudentListContainer>
+        <StudentListContainer>
 
-                    {/* 여기도 아마 어떻게 가져올 것 같습니다
+          {/* 여기도 아마 어떻게 가져올 것 같습니다
                       * 검색, 필터, 학생 등록 이야기 해보고 가져오면
                       * 배치는 가져 왔을 때 css 조정하겠습니다 */}
-                    <StudentListHeader>studnetList 검색, 필터, 학생 등록</StudentListHeader>
+          <StudentListHeader>studnetList 검색, 필터, 학생 등록</StudentListHeader>
 
-                    <StudentList>
-                        <GrayBox />
+          <StudentList>
+            <GrayBox />
 
-                        <ul>
-                            <li>
-                                {/* studentInfo에서 css 수정해서 가져오면 될 것 같습니다 */}
-                                <div>학생 이름</div>
-                                <div>학생 정보</div>
+            <ul>
+              <li>
+                {/* studentInfo에서 css 수정해서 가져오면 될 것 같습니다 */}
+                <div>학생 이름</div>
+                <div>학생 정보</div>
 
-                            </li>
-                        </ul>
-                    </StudentList>
-                </StudentListContainer>
-            </FullContainer>
-        </Background>
-    )
+              </li>
+            </ul>
+          </StudentList>
+        </StudentListContainer>
+      </FullContainer>
+    </Background>
+  )
 };
 
 export default Main;
