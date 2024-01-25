@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const Fullcontainer = styled.div`
-width: 90rem;
-height: 64rem;
-margin:5rem 0 0 0 ;
+width: 100%;
+height: 100vh;
+
 background: linear-gradient(237deg, #709D77 34.05%, #D9C9C9 100%);
 `;
 export const Container = styled.div`
@@ -17,7 +17,8 @@ export const ConsultantBox = styled.div`
 display: flex;
 align-item; flex-end;
 justify-content:space-between;
-margin-left: 50rem;
+margin-left: 65rem;
+margin-top: 3rem;
 width: 13.71338rem;
 height: 3.57981rem;
 flex-shrink: 0;
@@ -25,27 +26,73 @@ border-radius: 0.3125rem;
 background: rgba(99, 98, 101, 0.42);
 `;
 
+export const TeacherBox = styled.div`
+
+width: 7.85069rem;
+height: 1.415rem;
+transform: rotate(-0.392deg);
+flex-shrink: 0;
+color: #FFF;
+font-family: Inter;
+font-size: 1.02281rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-top:1rem;
+margin-right:1rem;
+`;
 
 export const NameBox = styled.div`
 
 display: flex;
 justify-content:space-between;
 margin-left:10rem;
+
 height: 0.1875rem;
 width: 15.85rem;
 height: 4rem;
 flex-shrink: 0;
 color: #FFF;
 font-family: Inter;
-font-size: 3.34481rem;
+font-size: 8rem;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
 `;
 
-export const SnowImg = styled.img``;
+export const SnowImg = styled.img`
+  position: absolute;
+  top: 10rem;
+  transform: translateX(1rem); 
+  
 
-export const NameImg = styled.img``;
+`;
+export const LogoImg = styled.img`
+position: absolute;
+top: 0;
+left: 0;
+`;
+export const NameImg = styled.div`
+  position: SpeechRecognitionAlternative;
+  width: 100%;
+  height: 100%;
+
+`;
+
+export const AccountImg = styled.img`
+width: 3rem; /* 원하는 너비로 조절하세요. */
+height: 3rem;
+margin-top: 0.2rem;
+margin-left: 0.5rem;
+`;
+
+export const LogoutImg = styled.img`
+margin-left: -3rem;
+margin-top: 0.7rem;
+
+width: 2rem; /* 원하는 너비로 조절하세요. */
+height: 2rem;
+`;
 
 export const Img = styled.div`
   color: black;
@@ -69,6 +116,7 @@ border-radius: 1.25rem 0rem 0rem 0rem;
 background: rgba(100, 100, 100, 0.20);
 margin-left:10rem;
 margin-top:5rem;
+padding:1.5rem;
 
 `;
 
@@ -77,8 +125,8 @@ export const CommentBox = styled.div`
 width: 67.0625rem;
 height: 43.4375rem;
 flex-shrink: 0;
-margin-left:12.5rem;
-margin-top: -4.5rem;
+margin-left:11rem;
+margin-top: -6rem;
 border-radius: 0rem 1.25rem 0rem 0rem;
 background: #FFF;
 `;
@@ -154,10 +202,10 @@ export const TitleBar = styled.div`
 display:flex;
 align-items: center;
 width: 63.5rem;
-height: 6rem;
+height: 4rem;
 flex-shrink: 0;
 background: #F0F0F0;
-margin: 0rem auto 1.5rem 1rem;
+margin: 2rem auto 1.5rem 1rem;
 border-radius: 1.5rem;
 `;
 
@@ -259,7 +307,7 @@ export const NamesContainer = styled.div`
 `;
 
 export const Name = styled.div`
-width: 10.25rem;
+width: 105rem;
 height: 2.25rem;
 flex-shrink: 0;
 color: #FFF;
@@ -268,6 +316,8 @@ font-size: 1.5rem;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
+margin-left: 1rem;
+
 `;
 
 
@@ -285,7 +335,11 @@ export const Explan = styled.div`
 width: 7.625rem;
 height: 2.5625rem;
 flex-shrink: 0;
-margin-left:1rem;
+margin-left: 1rem; /* 왼쪽으로 이동시키는 값은 필요에 따라 조절하세요. */
+  /* 위쪽으로 이동시키는 값은 필요에 따라 조절하세요. */
+  margin-right: 8rem; /* 오른쪽 여백은 필요에 따라 조절하세요. */
+  margin-bottom: 1rem;
+  padding:1.5rem;
 color: #97B3A1;
 
 font-family: Inter;
@@ -298,12 +352,14 @@ line-height: normal;
 export const BtnContainer = styled.div`
   width: 8.125rem;
   height: 2.5rem;
-  margin: 32rem 0 0rem auto;
+  margin: 25rem 0 0rem auto;
   margin-bottom: 3rem;
   background: linear-gradient(237deg, #709D77 34.05%, #D9C9C9 100%) ;
   color: #42424247;
+  border:2px solid #000000;
+  fill:#000000;
   border-radius: 15px;
-  border: black;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -313,7 +369,8 @@ export const BtnContainer = styled.div`
 export const WriteBtn = styled.button`
   width: 100%;
   height: 100%;
-  color:white ;
+  color: white ;
   font-size: 1rem;
-  
+  margin: 0rem 0 0rem auto;
+
 `;

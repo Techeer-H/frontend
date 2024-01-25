@@ -7,6 +7,9 @@ import NewLogo from '../../assets/NewLogo.svg';
 import Boxpencil from '../../assets/Boxpencil.svg';
 import MinusLogo from '../../assets/MinusLogo.svg';
 import Snow from '../../assets/Snow.svg';
+import Account from '../../assets/Account.svg';
+import Logout from '../../assets/Logout.svg';
+
 interface Evaluate {
   id: number;
   student_rating: number;
@@ -49,9 +52,15 @@ const teacherevayarnluate = () => {
         <S.Container>
           <S.TextContainer>
             <S.NameBox>
-            <S.NameImg src={NewLogo} alt="New Logo" />
-            
-            <S.ConsultantBox></S.ConsultantBox>
+            <S.NameImg>
+      <S.SnowImg src={Snow} alt="Snow" />
+      <S.SnowImg src={NewLogo} alt="New Logo" />
+    </S.NameImg>
+    <S.ConsultantBox>
+      <S.AccountImg src={Account} alt="Account" />
+      <S.TeacherBox> 조준영 강사 </S.TeacherBox>
+      <S.LogoutImg src={Logout} alt="Logout" />
+    </S.ConsultantBox>
               <S.NamesContainer>
               
               </S.NamesContainer>
