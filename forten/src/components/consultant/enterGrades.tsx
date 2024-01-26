@@ -15,6 +15,8 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
   const [koreanGrade, setKoreanGrade] = useState('');
   const [mathGrade, setMathGrade] = useState('');
   const [englishGrade, setEnglishGrade] = useState('');
+  const [scienceGrade, setScienceGrade] = useState('');
+  const [socialGrade, setSocialGrade] = useState('');
 
   // 학생 id를 받아옴, 이 student 값을 통신할 때 보내면
   // 해당 학생에 대한 성적을 입력할 수 있음
@@ -30,23 +32,38 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
         {
           exam_id: examId,
           subject_id: '1',
-          type: '상대',
+          type: '절대',
           grade: selectedGrade,
           score: koreanGrade,
         },
         {
           exam_id: examId,
           subject_id: '2',
-          type: '상대',
+          type: '절대',
           grade: selectedGrade,
           score: mathGrade,
         },
         {
           exam_id: examId,
           subject_id: '3',
-          type: '상대',
+          type: '절대',
           grade: selectedGrade,
           score: englishGrade,
+        },
+        // 새로운 데이터 추가
+        {
+          exam_id: examId,
+          subject_id: '4',
+          type: '절대',
+          grade: selectedGrade,
+          score: scienceGrade,
+        },
+        {
+          exam_id: examId,
+          subject_id: '5',
+          type: '절대',
+          grade: selectedGrade,
+          score: socialGrade,
         },
       ],
     };
@@ -59,8 +76,10 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
     try {
       const response = await axios.post(`http://3.37.41.244:8000/api/student/${student}/score/`, data);
       console.log('성공적으로 저장되었습니다', response.data);
+      alert('성공적으로 저장되었습니다');
     } catch (error) {
       console.error('등급 저장 중 오류 발생', error);
+      alert('저장 오류! 다시 입력해주세요');
     }
   };
 
@@ -109,6 +128,18 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
         placeholder="English"
         value={englishGrade}
         onChange={(e) => setEnglishGrade(e.target.value)}
+      />
+      <Input
+        type='text'
+        placeholder='Science'
+        value={scienceGrade}
+        onChange={(e) => setScienceGrade(e.target.value)}
+      />
+      <Input
+        type='text'
+        placeholder='social'
+        value={socialGrade}
+        onChange={(e) => setSocialGrade(e.target.value)}
       />
 
       <BtnWrapper>
