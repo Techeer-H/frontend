@@ -24,6 +24,10 @@ import NewConsultantMain from './pagesNew/consultant/main';
 import NewAiPrompt from './pagesNew/consultant/aiPrompt';
 import NewSchoolTestGrades from './pagesNew/consultant/schoolTestGrades';
 
+import NewTeacher from './pagesNew/teacher';
+
+
+
 const routers = createBrowserRouter([
   {
     path: '/',
@@ -104,6 +108,10 @@ const routers = createBrowserRouter([
   {
     path: '/newschooltestgrades',
     element: <NewSchoolTestGrades />,
+  },
+  {
+    path: '/newteacher',
+    element: <NewTeacher />
   },
 ]);
 
