@@ -6,13 +6,13 @@ import SadEmoji from '../../assets/sadEmoji.png';
 
 const Wrapper = styled.div`
   width: 18.75rem;
-  height: 16rem;
   margin-bottom: 1rem;
 `
 
 const Explan = styled.p`
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 900;
+  padding-left: 2%;
 `
 
 const FlexContainer = styled.div`
@@ -23,7 +23,7 @@ const FlexContainer = styled.div`
 
 const ImgWrapper = styled.div`
   width: 7.6rem;
-  height: 4.125rem;
+  height: 7.75rem;
   border: 0.56px solid #000;
   border-radius: 10px;
   display: flex;
@@ -33,16 +33,17 @@ const ImgWrapper = styled.div`
 
 const AvgWrapper = styled.div`
   width: 7.6rem;
-  height: 4.125rem;
+  height: 7.75rem;
   background-color: #B59FF2;
   border-radius: 10px;
   color: #fff;
-  font-size:0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`
+`;
 
 interface ParentAvergyProps {
   studentId: number;
@@ -83,7 +84,7 @@ function ParentAvergy(props: ParentAvergyProps) {
         </ImgWrapper>
         <AvgWrapper>
           <div>
-            평균 점수(-5 ~ 5)
+            평균 점수(1 ~ 10)
           </div>
           <div>
             {parentAver}

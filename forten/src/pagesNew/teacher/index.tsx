@@ -58,7 +58,7 @@ const teacherevayarnluate = () => {
     </S.NameImg>
     <S.ConsultantBox>
       <S.AccountImg src={Account} alt="Account" />
-      <S.TeacherBox> 조준영 강사 </S.TeacherBox>
+      <S.TeacherBox>조준영 강사</S.TeacherBox>
       <S.LogoutImg src={Logout} alt="Logout" />
     </S.ConsultantBox>
               <S.NamesContainer>

@@ -19,7 +19,11 @@ import AiPromptPage from './pages/consultant/AiPrompt';
 import MockGrade from './pages/consultant/graderegister/mockTest';
 import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 
-import NewTeacher from './pagesNew/teacher';
+
+// 변경된 페이지들
+import NewConsultantMain from './pagesNew/consultant/main';
+import NewAiPrompt from './pagesNew/consultant/aiPrompt';
+import NewSchoolTestGrades from './pagesNew/consultant/schoolTestGrades';
 
 
 
@@ -91,10 +95,19 @@ const routers = createBrowserRouter([
     path: '/onboarding',
     element: <OnBoardingPage />,
   },
+  // 변경된 페이지들 주소
   {
-    path: '/newteacher',
-    element: <NewTeacher />,
-  }
+    path: '/newconsultantmain',
+    element: <NewConsultantMain />
+  },
+  {
+    path: '/newaiprompt',
+    element: <NewAiPrompt />
+  },
+  {
+    path: '/newschooltestgrades',
+    element: <NewSchoolTestGrades />
+  },
 ]);
 
 export default routers;
