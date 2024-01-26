@@ -11,7 +11,7 @@ import Tmemo from '../../../components/teacher/Tmemo';
 import TstudentInfo, { StudentType } from '../../../components/teacher/TstudentInfo';
 
 import search from '../../../assets/searchIcon.svg';
-import star from '../../../assets/star.svg';
+
 import axios from 'axios';
 
 export type UserType = {
