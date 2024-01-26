@@ -106,7 +106,7 @@ function AiPrompt() {
 
           <GraphContainer>
             <SchoolGrades studentId={1} />
-            {/* <SchoolMock studentId={1} /> */}
+            <SchoolMock studentId={1} />
           </GraphContainer>
 
           <div>
