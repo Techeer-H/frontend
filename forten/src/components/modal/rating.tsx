@@ -10,9 +10,9 @@ export const SliderParent = styled.div`
 export const CustomSlider = styled.input`
   height: 10px;
   background: linear-gradient(
-    93deg,
-    #46a6ff -11.56%,
-    rgba(251, 70, 255, 0.21) 70.52%
+    270deg,
+    #8d8ab4 8.55%,
+    #a6bca5 92.27%
   ); /* 원하는 배경색으로 지정하세요 */
   border-radius: 5px;
   outline: none;
@@ -46,7 +46,7 @@ interface RatingProps {
 }
 
 const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
-  const [value, onChange] = useState(rating !== undefined ? rating : 1);
+  const [value, onChange] = useState(rating !== undefined ? rating : 5);
 
   useEffect(() => {
     onSliderChange(value); // 부모로 선택한 값을 전달
