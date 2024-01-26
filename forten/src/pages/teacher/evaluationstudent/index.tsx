@@ -3,9 +3,8 @@ import CommentList from '../../../components/teacher/commentList';
 import * as S from './styles';
 import axios from 'axios';
 
-import EvaluateImg from '../../../assets/evaluateImg.svg';
+
 import TeacherRatingPage from '../modal/teacherrating';
-import { useLocation } from 'react-router-dom';
 
 interface Evaluate {
   id: number;
@@ -13,28 +12,10 @@ interface Evaluate {
   content: string;
 }
 
-interface StudentInfoType {
-  studentId: number;
-  studentName: string;
-  school: string;
-  birth: string;
-}
-
-const Teacherevaluate = () => {
+const teacherevayarnluate = () => {
   const [ModalOpen, setModalOpen] = useState(false);
+
   const [evaluateList, setEvaluateList] = useState<Evaluate[]>([]);
-
-  //location 인자를 받아온것 -> studentInfo가져옴
-  const location = useLocation();
-  const [studentInfo] = useState<StudentInfoType>({
-    studentId: location.state.studentId,
-    studentName: location.state.studentName,
-    school: location.state.school,
-    birth: location.state.birth,
-  });
-
-  const user_id = localStorage.getItem('user_Id');
-
   const openModal = () => {
     setModalOpen(true);
   };
@@ -46,10 +27,11 @@ const Teacherevaluate = () => {
   useEffect(() => {
     const dataApi = () => {
       axios
-
-        .get(`http://3.37.41.244:8000/api/feedback/${user_id}/${studentInfo.studentId}/info`)
+        .get('http://3.37.41.244:8000/api/feedback/2/2/info')
         .then(function (res) {
-          console.log('res', res);
+          console.log(res);
+          console.log(res.data.result);
+          console.log('res.data', res.data);
 
           setEvaluateList(res.data.result);
         })
@@ -66,12 +48,10 @@ const Teacherevaluate = () => {
         <S.Container>
           <S.TextContainer>
             <S.NameBox>
-              <S.NameImg src={EvaluateImg} />
+             
               <S.NamesContainer>
-                <S.Name>{studentInfo.studentName}</S.Name>
-                <S.Name>
-                  {studentInfo.school}/{studentInfo.birth}
-                </S.Name>
+                <S.Name>하재민</S.Name>
+                <S.Name>양명고/19</S.Name>
               </S.NamesContainer>
             </S.NameBox>
           </S.TextContainer>
@@ -106,4 +86,4 @@ const Teacherevaluate = () => {
     </div>
   );
 };
-export default Teacherevaluate;
+export default teacherevayarnluate;
