@@ -30,7 +30,7 @@ const Explan = styled.p`
 `;
 
 const RadioContaioner = styled.div`
-  width: 9rem;
+  width: 20rem;
   display: flex;
   justify-content: space-evenly;
   font-size: 0.85rem;
@@ -53,18 +53,21 @@ interface GradesData {
 }
 
 function SchoolGrades(props: SchoolGradesProps) {
-  const [selectedSubject, setSelectedSubject] = useState<'korean' | 'english' | 'math'>('korean');
-  const [gradesData, setGradesData] = useState<Record<'korean' | 'english' | 'math', GradesData>>({
+  const [selectedSubject, setSelectedSubject] = useState<'korean' | 'english' | 'math' | 'test1' | 'test2'>('korean');
+  const [gradesData, setGradesData] = useState<Record<'korean' | 'english' | 'math' | 'test1' | 'test2', GradesData>>({
     korean: { series: [], xaxisCategories: [] },
     english: { series: [], xaxisCategories: [] },
     math: { series: [], xaxisCategories: [] },
+    test1: { series: [], xaxisCategories: [] },
+    test2: { series: [], xaxisCategories: [] },
   });
 
-  const inputRadioHandler = (subject: 'korean' | 'english' | 'math') => {
+  const inputRadioHandler = (subject: 'korean' | 'english' | 'math' | 'test1' | 'test2') => {
     setSelectedSubject(subject);
   };
 
-  const getSubjectId = (subject: 'korean' | 'english' | 'math'): number => {
+  // 백엔드에서 subject object에서 test1과 test2 에대한 값을 넣어놔야 할듯
+  const getSubjectId = (subject: 'korean' | 'english' | 'math' | 'test1' | 'test2'): number => {
     switch (subject) {
       case 'korean':
         return 1;
@@ -72,6 +75,10 @@ function SchoolGrades(props: SchoolGradesProps) {
         return 2;
       case 'math':
         return 3;
+      case 'test1':
+        return 4;
+      case 'test2':
+        return 5;
       default:
         return 1;
     }
@@ -150,7 +157,7 @@ function SchoolGrades(props: SchoolGradesProps) {
         text: '등급',
       },
       min: 0,
-      max: 9,
+      max: 100,
     },
   };
 
@@ -192,14 +199,38 @@ function SchoolGrades(props: SchoolGradesProps) {
             />
             수학
           </label>
+
+          <label>
+            <input
+              type="radio"
+              id="test1"
+              name="school"
+              value="test1"
+              checked={selectedSubject === 'test1'}
+              onChange={() => inputRadioHandler('test1')}
+            />
+            test1
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              id="test2"
+              name="school"
+              value="test2"
+              checked={selectedSubject === 'test2'}
+              onChange={() => inputRadioHandler('test2')}
+            />
+            test2
+          </label>
         </RadioContaioner>
       </FlexContainer>
       <Chart
         options={chartOptions}
         series={chartOptions.series}
         type="line"
-        height={200}
-        width={400}
+        height={500}
+        width={600}
       />
     </Wrapper>
   );

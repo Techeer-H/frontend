@@ -71,10 +71,13 @@ const GraphContainer = styled.div`
   width: 100%;
   margin-top: 1%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 `;
 
 function AiPrompt() {
+  // locaton 이용해서 컨설턴트 메인에서 studentOd를 가져와서 api에 연결
+
   return (
     <Background>
       <Navbar />
@@ -100,8 +103,7 @@ function AiPrompt() {
           </ButtonContainer>
 
           <GraphContainer>
-            {/* 그래프 배경 색
-             * 어두운 색으로 바꾸기 */}
+
             <SchoolGrades studentId={1} />
             <SchoolMock studentId={1} />
           </GraphContainer>
