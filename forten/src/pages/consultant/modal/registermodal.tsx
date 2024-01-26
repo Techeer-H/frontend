@@ -132,84 +132,95 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
     // setStudent(e.target.value);
   };
   return (
-    <Maincontainer>
-      <TitleBar>
-        <Title> 학생등록 </Title>
-        <Ximg onClick={handleCloseModal} />
-      </TitleBar>
+    <>
+      <Background />
 
-      <Modal>
-        {error && (
-          <div style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</div>
-        )}
-        <div style={{ display: 'flex', marginTop: '1rem' }}>
-          <Students
-            onChange={studentName}
-            value={name}
+      <Maincontainer>
+        <TitleBar>
+          <Title> 학생등록 </Title>
+          <Ximg onClick={handleCloseModal} />
+        </TitleBar>
+
+        <Modal>
+          {error && (
+            <div style={{ color: 'red', marginTop: '1rem', textAlign: 'center' }}>{error}</div>
+          )}
+          <div style={{ display: 'flex', marginTop: '1rem' }}>
+            <Students
+              onChange={studentName}
+              value={name}
+              type="text"
+              placeholder="학생의 이름을 입력하세요"
+            ></Students>
+            <Age
+              onChange={(e) => {
+                const selectBirth = e.target.value;
+                console.log(selectBirth);
+                setBirth(e.target.value);
+              }}
+              ref={birthDayEl}
+            >
+              <option> 출생년도 </option>
+            </Age>
+          </div>
+          <div style={{ display: 'flex' }}>
+            <School
+              onChange={schoolName}
+              value={school}
+              type="text"
+              placeholder="학교명을 입력하세요"
+            ></School>
+            <Grade
+              onChange={(e) => {
+                // e.target.value를 통해 선택된 값에 접근
+                const selectedValue = e.target.value;
+                console.log(selectedValue);
+                setGrade(e.target.value);
+              }}
+            >
+              <option> 학년 선택 </option>
+              <option value="중1">중1</option>
+              <option value="중2">중2</option>
+              <option value="중3">중3</option>
+              <option value="고1">고1</option>
+              <option value="고2">고2</option>
+              <option value="고3">고3</option>
+            </Grade>
+          </div>
+          <StudentNum
+            onChange={studentPhone}
+            value={phone}
+            type="tel"
+            placeholder="학생의 전화번호를 입력하세요"
+          ></StudentNum>
+          <Parent
+            onChange={parentName}
+            value={parent_name}
             type="text"
-            placeholder="학생의 이름을 입력하세요"
-          ></Students>
-          <Age
-            onChange={(e) => {
-              const selectBirth = e.target.value;
-              console.log(selectBirth);
-              setBirth(e.target.value);
-            }}
-            ref={birthDayEl}
-          >
-            <option> 출생년도 </option>
-          </Age>
-        </div>
-        <div style={{ display: 'flex' }}>
-          <School
-            onChange={schoolName}
-            value={school}
-            type="text"
-            placeholder="학교명을 입력하세요"
-          ></School>
-          <Grade
-            onChange={(e) => {
-              // e.target.value를 통해 선택된 값에 접근
-              const selectedValue = e.target.value;
-              console.log(selectedValue);
-              setGrade(e.target.value);
-            }}
-          >
-            <option> 학년 선택 </option>
-            <option value="중1">중1</option>
-            <option value="중2">중2</option>
-            <option value="중3">중3</option>
-            <option value="고1">고1</option>
-            <option value="고2">고2</option>
-            <option value="고3">고3</option>
-          </Grade>
-        </div>
-        <StudentNum
-          onChange={studentPhone}
-          value={phone}
-          type="tel"
-          placeholder="학생의 전화번호를 입력하세요"
-        ></StudentNum>
-        <Parent
-          onChange={parentName}
-          value={parent_name}
-          type="text"
-          placeholder="학부모명을 입력하세요"
-        ></Parent>
-        <ParentNum
-          onChange={parentPhone}
-          value={parent_phone}
-          type="tel"
-          placeholder="학부모 전화번호를 입력하세요"
-        ></ParentNum>
-        <Button type="submit" onClick={createStudent}>
-          학생등록
-        </Button>
-      </Modal>
-    </Maincontainer>
+            placeholder="학부모명을 입력하세요"
+          ></Parent>
+          <ParentNum
+            onChange={parentPhone}
+            value={parent_phone}
+            type="tel"
+            placeholder="학부모 전화번호를 입력하세요"
+          ></ParentNum>
+          <Button type="submit" onClick={createStudent}>
+            학생등록
+          </Button>
+        </Modal>
+      </Maincontainer>
+    </>
   );
 };
 
+const Background = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.45);
+`;
 const Maincontainer = styled.div`
   position: absolute;
   z-index: 4;

@@ -238,9 +238,13 @@ const SignUpPage: React.FC = () => {
         <S.ImageOverlay />
         <S.TextContent>
           <S.Title id="box" className="gradient-border" style={{ fontSize: '1.4rem' }}>
+            Best ENgilsh <br />
+          </S.Title>
+          <S.Title2 style={{ fontSize: '3.6rem' }}>BLEND</S.Title2>
+          {/* <S.Title id="box" className="gradient-border" style={{ fontSize: '1.4rem' }}>
             학생들의 관리를 <br />
           </S.Title>
-          <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2>
+          <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2> */}
         </S.TextContent>
       </S.RightColumn>
     </S.Section>

@@ -2,51 +2,37 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import UserIcon from '../../assets/PersonIcon.svg';
+import { border } from '../../../node_modules/@mui/system/index.d';
 
-const ColumnContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 11rem;
-  height: 100%;
-  border-right: 1px solid #979797;
-  padding-top: 2.5rem;
-`;
-const UserBox = styled.div`
-  width: 7.7rem;
-  height: 1.875rem;
-  background-color: #b59ff2;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-evenly;
-  text-align: center;
-  align-items: center;
-`;
+const ColumnContainer = styled.div``;
 
 const UserName = styled.p`
-  font-size: 1rem;
+  font-size: 2rem;
   color: #f1f1f1;
 `;
 
 const School = styled.p`
-  font-size: 1rem;
-  color: #737b7b;
-  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-top: 0.7rem;
+  margin-left: 0.5rem;
 `;
 
 const Grade = styled.p`
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   margin-top: 0.5rem;
+
+  margin-left: 0.5rem;
 `;
 
-const PhoneNumber = styled.p`
-  font-size: 0.75rem;
-  margin-top: 0.5rem;
-`;
+// const PhoneNumber = styled.p`
+//   font-size: 0.75rem;
+//   margin-top: 0.5rem;
+// `;
 
 interface StudentTableProps {
   studentId: number;
-};
+}
 
 const user_Id = localStorage.getItem('user_Id');
 
@@ -56,20 +42,22 @@ function StudentTable(props: StudentTableProps) {
     name: '',
     school: '',
     grade: '',
-    phone: ''
+    phone: '',
   });
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // 강사, 학생id
-        const response = await axios.get(`http://3.37.41.244:8000/api/student?id=${user_Id}&student_id=${props.studentId}&search=`);
-        const studentData = response.data.result[0];  // 응답 데이터 확인, stu_id가 들어가면 됨(인덱스)
+        const response = await axios.get(
+          `http://3.37.41.244:8000/api/student?id=${user_Id}&student_id=${props.studentId}&search=`,
+        );
+        const studentData = response.data.result[0]; // 응답 데이터 확인, stu_id가 들어가면 됨(인덱스)
         setStudentInfo({
           name: studentData.name || '',
           school: studentData.school || '',
           grade: studentData.grade || '',
-          phone: studentData.phone || ''
+          phone: studentData.phone || '',
         });
         console.log('학생 정보 불러오기 성공');
       } catch (error) {
@@ -78,19 +66,18 @@ function StudentTable(props: StudentTableProps) {
     };
 
     fetchData();
-  }, []);  // 빈 배열을 넣어 한 번만 실행되도록 설정
+  }, []); // 빈 배열을 넣어 한 번만 실행되도록 설정
 
   return (
     <ColumnContainer>
-      <UserBox>
-        <div>
-          <img src={UserIcon} alt="유저아이콘" />
-        </div>
+      <div style={{ display: 'flex', margin: '0.5rem 0 0 0.5rem' }}>
+        <img style={{ margin: '0 0.4rem 0 0' }} src={UserIcon} alt="유저아이콘" />
         <UserName>{studentInfo.name}</UserName>
-      </UserBox>
+      </div>
+
       <School>{studentInfo.school}</School>
       <Grade>{studentInfo.grade}</Grade>
-      <PhoneNumber>{studentInfo.phone}</PhoneNumber>
+      {/* <PhoneNumber>{studentInfo.phone}</PhoneNumber> */}
     </ColumnContainer>
   );
 }

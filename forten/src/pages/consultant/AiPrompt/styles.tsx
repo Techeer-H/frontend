@@ -1,38 +1,27 @@
 import styled from 'styled-components';
 
 export const background = styled.div`
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(107deg, #fff7f8 7.23%, #e5e4fe 99.24%);
-  height: 100vh;
   width: 100%;
-  display: block;
-  overflow: auto;
+  height: 100vh;
+  padding-top: 2%;
+  background: linear-gradient(to bottom left, #8d8ab4, #d9c9c9);
 `;
 
 export const fullcontainer = styled.div`
+  margin-top: 2%;
   display: flex;
-  flex-direction: row;
-  // marginRight: '8.75rem',
-  // marginLeft: '8.75rem',
-  width: 62.5rem;
-  height: 45rem;
-  border-radius: 1.78569rem;
   justify-content: center;
-  margin: 2rem auto 1.63rem auto;
-  background: linear-gradient(90deg, #e7e6ff 4.39%, #ffeded 32.89%);
 `;
 
 export const FlexContainer = styled.div`
-  display: flex;
   justify-content: space-evenly;
+  display: flex;
   width: 49rem;
-  padding-top: 2.5rem;
+  padding-top: 2rem;
 `;
 
 export const FlexBox = styled.div`
   display: flex;
-  flex-direction: column;
 `;
 
 export const Container = styled.div`
@@ -42,9 +31,24 @@ export const Container = styled.div`
 `;
 
 export const LeftFullContainer = styled.div`
-  position: relative;
-  width: 12rem;
-  height: 45rem;
+  width: 21.25rem;
+  height: 43.375rem;
+  background-color: rgba(100, 100, 100, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  border-top-left-radius: 20px;
+  color: #fff;
+`;
+
+export const RightFullContainer = styled.div`
+  width: 59.155rem;
+  height: 43.375rem;
+  background-color: #ffffff;
+  border-top-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export const PurpleCircle = styled.div`

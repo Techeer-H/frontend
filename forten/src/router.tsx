@@ -19,20 +19,21 @@ import AiPromptPage from './pages/consultant/AiPrompt';
 import MockGrade from './pages/consultant/graderegister/mockTest';
 import SchoolGrade from './pages/consultant/graderegister/schoolTest';
 
-
 // 변경된 페이지들
 import NewConsultantMain from './pagesNew/consultant/main';
 import NewAiPrompt from './pagesNew/consultant/aiPrompt';
 import NewSchoolTestGrades from './pagesNew/consultant/schoolTestGrades';
+
 import NewTeacher from './pagesNew/teacher';
+
 
 
 const routers = createBrowserRouter([
   {
     path: '/',
-    element: <AuthCheckedLayout />,
+    // element: <AuthCheckedLayout />,
     children: [
-      { index: true, element: <StartPage /> },
+      { index: true, element: <LoginPage /> },
       // { path: '알아서 적으세요', element: <알아서페이지 />  만드시면됩니다},
     ],
   },
@@ -98,15 +99,15 @@ const routers = createBrowserRouter([
   // 변경된 페이지들 주소
   {
     path: '/newconsultantmain',
-    element: <NewConsultantMain />
+    element: <NewConsultantMain />,
   },
   {
     path: '/newaiprompt',
-    element: <NewAiPrompt />
+    element: <NewAiPrompt />,
   },
   {
     path: '/newschooltestgrades',
-    element: <NewSchoolTestGrades />
+    element: <NewSchoolTestGrades />,
   },
   {
     path: '/newteacher',

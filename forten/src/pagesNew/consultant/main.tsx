@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 import Navbar from '../../components/consultant/navBar';
 import GrayBox from '../../components/consultant/grayBox';
-import Memo from '../../components/consultant/memo'
+import Memo from '../../components/consultant/memo';
 
 import Search from '../../assets/searchIcon.png';
 import Filter from '../../assets/filterIcon.png';
-
 
 const Background = styled.div`
   width: 100%;
   height: 100vh;
   padding-top: 2%;
-  background: linear-gradient(to bottom left, #8D8AB4, #D9C9C9);
+  background: linear-gradient(to bottom left, #8d8ab4, #d9c9c9);
 `;
 
 const FullContainer = styled.div`
@@ -41,7 +40,7 @@ const MarkHeader = styled.div`
   border-top-left-radius: 20px;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #E0E0E0;
+  color: #e0e0e0;
 `;
 
 const MarkList = styled.div`
@@ -65,13 +64,13 @@ const TextareaContainer = styled.div`
 const TextareaHeader = styled.div`
   font-size: 1.25rem;
   font-weight: 600;
-  color: #B4B4B4;
+  color: #b4b4b4;
 `;
 
 const StudentListContainer = styled.div`
   width: 59.125rem;
   margin-left: 1%;
-`
+`;
 
 const StudentListHeader = styled.div`
   width: 100%;
@@ -80,13 +79,13 @@ const StudentListHeader = styled.div`
   border-top-right-radius: 20px;
   display: flex;
   align-items: center;
-`
+`;
 
 const StudentListExplan = styled.div`
   font-size: 1.5rem;
   font-weight: 600;
-  color: #E0E0E0;
-`
+  color: #e0e0e0;
+`;
 
 const StudentSearchContainer = styled.div`
   width: 14rem;
@@ -96,20 +95,20 @@ const StudentSearchContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-`
+`;
 
 const StudentInput = styled.input`
   width: 65%;
   height: 100%;
   border: none;
   outline: none;
-  background-color: transparent;  
+  background-color: transparent;
   color: #fff;
 
-  &::placeholder{
+  &::placeholder {
     color: #fff;
   }
-`
+`;
 
 const SearchWrapper = styled.div`
   position: absolute;
@@ -117,8 +116,7 @@ const SearchWrapper = styled.div`
   transform: translateY(-50%);
   cursor: pointer;
   left: 3%;
-`
-
+`;
 
 const StudentList = styled.div`
   width: 100%;
@@ -127,20 +125,18 @@ const StudentList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 function Main() {
   return (
     <Background>
       {/*
-              * 여기에 학생 등록 모달이 들어갑니다
-              * */}
+       * 여기에 학생 등록 모달이 들어갑니다
+       * */}
 
       <Navbar />
       <FullContainer>
-
         <LeftContainer>
-
           <MarkContainer>
             <MarkHeader>MARK</MarkHeader>
             <MarkList>
@@ -154,27 +150,23 @@ function Main() {
             <TextareaHeader>MEMO</TextareaHeader>
             <Memo />
           </TextareaContainer>
-
         </LeftContainer>
 
         <StudentListContainer>
-
           {/* 여기도 아마 어떻게 가져올 것 같습니다
-                      * 검색, 필터, 학생 등록 이야기 해보고 가져오면
-                      * 배치는 가져 왔을 때 css 조정하겠습니다 */}
+           * 검색, 필터, 학생 등록 이야기 해보고 가져오면
+           * 배치는 가져 왔을 때 css 조정하겠습니다 */}
           <StudentListHeader>
             <StudentListExplan>StudnetList</StudentListExplan>
-
             <StudentSearchContainer>
-              <StudentInput type='text' placeholder='Student Search' />
+              <StudentInput type="text" placeholder="Student Search" />
               <SearchWrapper>
-                <img src={Search} alt='검색' />
+                <img src={Search} alt="검색" />
               </SearchWrapper>
             </StudentSearchContainer>
-
             <div>
               <div>
-                <img src={Filter} alt='필터' />
+                <img src={Filter} alt="필터" />
               </div>
 
               <div>
@@ -183,7 +175,6 @@ function Main() {
                 <div>미완료</div>
               </div>
             </div>
-
             필터, 학생 등록
           </StudentListHeader>
 
@@ -195,14 +186,13 @@ function Main() {
                 {/* studentInfo에서 css 수정해서 가져오면 될 것 같습니다 */}
                 <div>학생 이름</div>
                 <div>학생 정보</div>
-
               </li>
             </ul>
           </StudentList>
         </StudentListContainer>
       </FullContainer>
     </Background>
-  )
-};
+  );
+}
 
 export default Main;
