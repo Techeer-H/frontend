@@ -26,39 +26,36 @@ const AiPromptPage = () => {
 
   const modalOpen = () => {
     setIsModal(!isModal);
-  }
+  };
   const closeModal = () => {
     setIsModal(!isModal);
-  }
+  };
 
   return (
     <S.background>
-      {isModal && (
-        <ConsultantRatingPage
-          close={closeModal}
-          studentId={studentId} />
-      )}
+      {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
       <Navbar />
       <S.fullcontainer>
         <S.LeftFullContainer>
           <StudentTable studentId={studentId} />
+          <S.Container>
+            {/* 강사가 평가한 학생 평균, 부모님 평가 */}
+            <StudentAvergy studentId={studentId} />
+            <ParentAvergy studentId={studentId} />
+          </S.Container>
         </S.LeftFullContainer>
-        <div>
+
+        <S.RightFullContainer>
+          <WriteButton onConfirm={modalOpen} />
           <S.FlexContainer>
             <S.FlexBox>
               {/* 학생 성적(내신, 모의고사) */}
               <SchoolGrades studentId={studentId} />
               <SchoolMock studentId={studentId} />
             </S.FlexBox>
-            <S.Container>
-              {/* 강사가 평가한 학생 평균, 부모님 평가 */}
-              <StudentAvergy studentId={studentId} />
-              <ParentAvergy studentId={studentId} />
-            </S.Container>
           </S.FlexContainer>
           <WordBox studentId={studentId} />
-          <WriteButton onConfirm={modalOpen} />
-        </div>
+        </S.RightFullContainer>
       </S.fullcontainer>
     </S.background>
   );

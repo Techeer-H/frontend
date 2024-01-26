@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Logo from '../../../assets/FOR;TEN.svg';
+import Logo from '../../../assets/BlendLogo.png';
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
 import TeacherModal from '../modal/TeacherSuccess';
 import ConsultantModal from '../modal/ConsultantSuccessModal';
 import FailModal from '../modal/failLoginModal';
 import axios from 'axios';
-import { background } from '../../consultant/AiPrompt/styles';
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -149,8 +148,10 @@ const LoginPage: React.FC = () => {
       <S.RightColumn>
         <S.ImageOverlay />
         <S.TextContent>
-          <S.Title style={{ fontSize: '1.4rem' }}>10대의 잠재력을</S.Title>
-          <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2>
+          <S.Title style={{ fontSize: '1.4rem' }}>Every English</S.Title>
+          <S.Title2 style={{ fontSize: '3.6rem' }}>BLEND</S.Title2>
+          {/* <S.Title style={{ fontSize: '1.4rem' }}>10대의 잠재력을</S.Title> */}
+          {/* <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2> */}
         </S.TextContent>
       </S.RightColumn>
     </S.Section>

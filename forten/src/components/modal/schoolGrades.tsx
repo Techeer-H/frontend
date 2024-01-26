@@ -12,15 +12,14 @@ const Wrapper = styled.div`
   margin-bottom: 1rem;
   background-color: #fff;
   padding: 0.5rem;
-    background-color: #22283E;
-    color: #fff;
+  background-color: #22283e;
+  color: #fff;
 `;
 
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-bottom: 0.5rem;
-
 `;
 
 const Explan = styled.p`
@@ -85,7 +84,9 @@ function SchoolGrades(props: SchoolGradesProps) {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://3.37.41.244:8000/api/student/${props.studentId}/score/?subject_id=${getSubjectId(selectedSubject)}`);
+      const response = await axios.get(
+        `http://3.37.41.244:8000/api/student/${props.studentId}/score/?subject_id=${getSubjectId(selectedSubject)}`,
+      );
       const dataKey = selectedSubject;
 
       const scoresData: ScoreDataItem[] = response.data.result.map((item: any) => ({
@@ -102,7 +103,12 @@ function SchoolGrades(props: SchoolGradesProps) {
         return { name: `${grade}학년`, data: sortedGradeData };
       });
 
-      gradesDataCopy[dataKey].xaxisCategories = ['1학기 중간', '1학기 기말', '2학기 중간', '2학기 기말'];
+      gradesDataCopy[dataKey].xaxisCategories = [
+        '1학기 중간',
+        '1학기 기말',
+        '2학기 중간',
+        '2학기 기말',
+      ];
       setGradesData(gradesDataCopy);
     } catch (error) {
       console.error(error);
@@ -119,7 +125,7 @@ function SchoolGrades(props: SchoolGradesProps) {
       const matchingData = data.find((item) => item.exam === semester);
       return matchingData ? matchingData.score : 0;
     });
-    return result.some(score => score !== 0) ? result : [];
+    return result.some((score) => score !== 0) ? result : [];
   };
 
   const chartOptions: ApexOptions = {

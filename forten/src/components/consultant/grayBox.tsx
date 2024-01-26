@@ -2,15 +2,16 @@ import styled from 'styled-components';
 
 const GrayBoxContainer = styled.div`
   background-color: rgba(115, 123, 123, 0.24);
-  width: 56rem;
+  width: 57rem;
   height: 3.7rem;
   display: flex; /* Flexbox를 활성화합니다. */
   align-items: center;
-  justify-content: space-evenly; /* 수직 가운데 정렬 */
-  font-size: 1rem;
+  justify-content: space-between; /* 수직 가운데 정렬 */
+  font-size: 0.9rem;
+  font-weight: 800;
   position: sticky;
-  color: #737B7B;
-  margin-top: 2%;
+  color: #616b6b;
+  margin-bottom: 1.5rem;
 `;
 
 const Student = styled.div`
@@ -28,11 +29,11 @@ const Age = styled.div`
 `;
 const Phone = styled.div`
   text-align: center;
-  width: 5rem;
+  width: 7rem;
 `;
 const ParentPhone = styled.div`
   text-align: center;
-  width: 5rem;
+  width: 7rem;
 `;
 const Action = styled.div`
   text-align: center;
@@ -46,13 +47,13 @@ const Status = styled.div`
 const GrayBox = () => {
   return (
     <GrayBoxContainer>
-      <div>학생명</div>
-      <div>학교명</div>
-      <div>나이</div>
-      <div>학생 전화번호</div>
-      <div>학부모 전화번호</div>
-      <div>Action</div>
-      <div>Status</div>
+      <Student>학생명</Student>
+      <School>학교명</School>
+      <Age>나이</Age>
+      <Phone>학생 전화번호</Phone>
+      <ParentPhone>학부모 전화번호</ParentPhone>
+      <Action>Action</Action>
+      <Status>Status</Status>
 
       {/* 내용 추가 가능 */}
     </GrayBoxContainer>

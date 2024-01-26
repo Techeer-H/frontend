@@ -35,10 +35,9 @@ export const Form = styled.form`
 `;
 
 export const LogoImage = styled.img`
-  width: 9rem;
-  height: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  width: 12rem;
+  height: 5rem;
+  margin-top: 1rem;
 `;
 
 export const TitleSecondary = styled.h2`
@@ -167,11 +166,11 @@ export const Title2 = styled.p`
   position: absolute;
   left: 2.8rem;
   top: 28rem;
-  color: #f35626;
-  background-image: -webkit-linear-gradient(92deg, #8000ff, #7ee9ff);
+  color: #dee58b;
+  background-image: -webkit-linear-gradient(92deg, #a3a365, #f6ffbb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: hue 5s infinite linear;
+  -webkit-animation: hue 8s infinite linear;
 
   @-webkit-keyframes hue {
     from {
