@@ -150,17 +150,19 @@ const TstudentInfo = ({
 };
 
 const Ul = styled.ul`
-  width: 47.75rem;
-  font-size: 0.5rem;
+  width: 57rem;
+  font-size: 0.7rem;
   color: #737b7b;
   overflow: auto;
 `;
 
 const Li = styled.li`
+  padding-bottom: 1rem;
   display: flex;
   margin-bottom: 1rem;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #dddfdf;
   &:hover {
     scale: 1.04;
   }
@@ -183,14 +185,14 @@ const Phone = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 5rem;
+  width: 7rem;
 `;
 const ParentPhone = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 5rem;
+  width: 7rem;
 `;
 const Action = styled.div`
   text-align: center;
@@ -208,5 +210,4 @@ const Status = styled.div`
   justify-content: center;
   width: 5rem;
 `;
-
 export default TstudentInfo;

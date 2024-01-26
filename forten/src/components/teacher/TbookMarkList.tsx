@@ -1,19 +1,7 @@
 import styled from 'styled-components';
 import remove from '../../assets/remove.svg';
+import Profile from '../../assets/profile.svg';
 import { useEffect } from 'react';
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 8.25rem;
-  justify-content: space-evenly;
-  text-align: center;
-  align-items: center;
-  margin: 0.25rem auto;
-`;
-const Name = styled.p`
-  font-size: 0.65rem;
-  color: #5f6868;
-`;
 
 interface bookmarkedProps {
   bookmarkedStudents: string[];
@@ -35,17 +23,37 @@ const TBookMarkList = ({ bookmarkedStudents, setBookmarkedStudents }: bookmarked
   };
 
   return (
-    <>
+    <div style={{ overflow: 'auto' }}>
       {bookmarkedStudents.map((studentName) => (
-        <Wrapper key={studentName}>
-          <Name>{studentName}</Name>
-          <button onClick={() => removeBookmark(studentName)}>
-            <img src={remove} alt="Remove Bookmark" />
-          </button>
-        </Wrapper>
+        <Box>
+          <Wrapper key={studentName}>
+            <img style={{ width: '2rem' }} src={Profile}></img>
+            <Name>{studentName}</Name>
+            <button onClick={() => removeBookmark(studentName)}>
+              <img style={{ width: '1.2rem' }} src={remove} alt="Remove Bookmark" />
+            </button>
+          </Wrapper>
+        </Box>
       ))}
-    </>
+    </div>
   );
 };
+
+const Box = styled.div`
+  width: 20rem;
+  height: 4rem;
+`;
+const Wrapper = styled.div`
+  display: flex;
+  text-align: center;
+  align-items: center;
+`;
+const Name = styled.p`
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8e8e8e;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+`;
 
 export default TBookMarkList;

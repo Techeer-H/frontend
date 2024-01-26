@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Profile from '../../assets/profile.svg';
-import Logo from '../../assets/logo.svg';
+import Logo from '../../assets/BlendLogoWhite.png';
 import signOut from '../../assets/signOut.png';
+import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 80.405rem;
@@ -9,16 +10,16 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`
+`;
 
-const MainLogo = styled.img`
-  width: 9.25rem;
-  height: 2.25rem;
+const MainLogo = styled.button`
+  width: 10.5rem;
+  height: 4.5rem;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
-`
+`;
 
 const MemberContainer = styled.div`
   width: 15.526rem;
@@ -28,22 +29,22 @@ const MemberContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-`
+`;
 
 const Name = styled.p`
   font-size: 1rem;
   font-weight: 900;
   color: #fff;
-`
+`;
 
 const Logout = styled.img`
-  
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
-`
+`;
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const user_name = localStorage.getItem('user_name');
   const DeleteBtn = () => {
     localStorage.clear();
@@ -51,20 +52,21 @@ const Navbar = () => {
     window.location.href = '/login';
   };
 
+  const goMain = () => {
+    navigate('/consultantmain');
+  };
+
   return (
     <Wrapper>
-      <MainLogo src={Logo} alt='Logo' />
-
+      <MainLogo onClick={goMain}>
+        <img src={Logo} alt="Logo" />
+      </MainLogo>
 
       <MemberContainer>
-        <img src={Profile} alt='profile' />
-        <Name>
+        <img src={Profile} alt="profile" />
+        <Name>{user_name}&nbsp;컨설턴트</Name>
 
-          {user_name}&nbsp;컨설턴트
-        </Name>
-
-        <Logout onClick={DeleteBtn} src={signOut} alt='로그아웃' />
-
+        <Logout onClick={DeleteBtn} src={signOut} alt="로그아웃" />
       </MemberContainer>
     </Wrapper>
   );

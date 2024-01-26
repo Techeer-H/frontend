@@ -144,18 +144,18 @@ export const Title2 = styled.p`
   position: absolute;
   left: 2.8rem;
   top: 28rem;
-  color: #f35626;
-  background-image: -webkit-linear-gradient(92deg, #d2a6ff, #bbf4ff);
+  color: #dee58b;
+  background-image: -webkit-linear-gradient(92deg, #a3a365, #f6ffbb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: hue 3s infinite linear;
+  -webkit-animation: hue 8s infinite linear;
 
   @-webkit-keyframes hue {
     from {
-      -webkit-filter: hue-rotate(15deg);
+      -webkit-filter: hue-rotate(120deg);
     }
     to {
-      -webkit-filter: hue-rotate(200deg);
+      -webkit-filter: hue-rotate(-360deg);
     }
   }
 `;

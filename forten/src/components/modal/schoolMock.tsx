@@ -7,11 +7,12 @@ import axios from 'axios';
 const Wrapper = styled.div`
   width: 26rem;
   height: 16rem;
-  border: 1px solid #717171; 
+  border: 1px solid #717171;
   border-radius: 10px;
+
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background-color: #22283E;
+  background-color: #22283e;
   color: #fff;
 `;
 
@@ -87,7 +88,9 @@ function SchoolMock(props: SchoolMockProps) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://3.37.41.244:8000/api/student/${props.studentId}/score/?subject_id=${getSubjectId(selectedSubject)}`);
+        const response = await axios.get(
+          `http://3.37.41.244:8000/api/student/${props.studentId}/score/?subject_id=${getSubjectId(selectedSubject)}`,
+        );
 
         if (response.data.result[0].subject_id === 1) {
           console.log('국어 데이터');
@@ -98,15 +101,15 @@ function SchoolMock(props: SchoolMockProps) {
             exam: semesterInfo[item.exam_id],
           }));
 
-          const grade1Data = scoresData.filter(item => item.grade === '고1');
+          const grade1Data = scoresData.filter((item) => item.grade === '고1');
           const sortedGrade1Data = sortDataBySemester(grade1Data);
           setKorean1(sortedGrade1Data);
 
-          const grade2Data = scoresData.filter(item => item.grade === '고2');
+          const grade2Data = scoresData.filter((item) => item.grade === '고2');
           const sortedGrade2Data = sortDataBySemester(grade2Data);
           setKorean2(sortedGrade2Data);
 
-          const grade3Data = scoresData.filter(item => item.grade === '고3');
+          const grade3Data = scoresData.filter((item) => item.grade === '고3');
           const sortedGrade3Data = sortDataBySemester(grade3Data);
           setKorean3(sortedGrade3Data);
         } else if (response.data.result[0].subject_id === 2) {
@@ -130,7 +133,6 @@ function SchoolMock(props: SchoolMockProps) {
           const sortedGrade3Data = sortDataBySemester(grade3Data);
           setEnglish3(sortedGrade3Data);
         } else {
-
           console.log('수학 데이터');
           const scoresData = response.data.result.map((item: any) => ({
             id: item.id,
@@ -167,9 +169,8 @@ function SchoolMock(props: SchoolMockProps) {
     });
 
     // 모든 값이 0인 경우에는 빈 배열 반환
-    return result.some(score => score !== 0) ? result : [];
+    return result.some((score) => score !== 0) ? result : [];
   };
-
 
   // 모의고사 임시 데이터
   const mocksData = {

@@ -1,53 +1,84 @@
 import styled from 'styled-components';
 
 export const background = styled.div`
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(107deg, #fff7f8 7.23%, #e5e4fe 99.24%);
-  height: 100vh;
   width: 100%;
-  display: block;
-  overflow: auto;
+  height: 100vh;
+  padding-top: 2%;
+  background: linear-gradient(to bottom left, #923230, #fffbe8);
 `;
 
 export const fullcontainer = styled.div`
+  margin-top: 4rem;
   display: flex;
-  flex-direction: row;
-  // marginRight: '8.75rem',
-  // marginLeft: '8.75rem',
-
-  width: 62.5rem;
-  height: 43rem;
-  border-radius: 1.78569rem;
   justify-content: center;
-  margin: 2rem auto 1.63rem auto;
-  background: linear-gradient(90deg, #e7e6ff 4.39%, #ffeded 32.89%);
 `;
 
 export const LeftFullContainer = styled.div`
-  position: relative;
-  width: 12rem;
-  height: 43rem;
+  width: 21.25rem;
+  display: flex;
+  flex-direction: column;
 `;
 
-export const purpleCircle = styled.div`
-  background-color: #f1e4ff;
-  width: 8.25rem;
-  height: 1.75rem;
-  flex-shrink: 0;
-  margin: 2.13rem 2.12rem 0 1.62rem;
+export const MarkContainer = styled.div`
   display: flex;
-  border-radius: 1rem;
-  text-align: center;
+  flex-direction: column;
+`;
+
+export const MarkHeader = styled.div`
+  width: 100%;
+  height: 5rem;
+  background-color: rgba(100, 100, 100, 0.2);
+  display: flex;
   align-items: center;
-  color: #5f6868;
-  font-size: 0.5rem;
+  padding-left: 3%;
+  border-top-left-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e0e0e0;
+`;
+export const MarkList = styled.div`
+  width: 100%;
+  height: 23rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3%;
+`;
+
+export const TextareaContainer = styled.div`
+  width: 100%;
+  height: 14rem;
+  background-color: #fff;
+  margin-top: 5%;
+  padding: 3%;
+`;
+
+export const TextareaHeader = styled.div`
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #b4b4b4;
 `;
 
 export const RightFullContainer = styled.div`
   position: relative;
-  width: 50rem;
-  height: 43rem;
+  width: 60rem;
+  margin-left: 1%;
+`;
+
+export const StudentListHeader = styled.div`
+  width: 60rem;
+  height: 5rem;
+  background-color: rgba(100, 100, 100, 0.2);
+  border-top-right-radius: 20px;
+  display: flex;
+  align-items: center;
+`;
+
+export const StudentListExplan = styled.div`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e0e0e0;
 `;
 
 export const SearchContainer = styled.div`
@@ -55,13 +86,9 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
-  width: 50rem;
-  height: 30rem;
-  margin: 0.2rem 0 1.5rem 0;
+  width: 60rem;
+  height: 38.1rem;
   background: #ffffff;
-  border: 1px solid #dadada;
-  border-radius: 40px;
   z-index: 1;
 `;
 
@@ -69,7 +96,7 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0.9rem 0;
+  margin: 0.4rem 0;
 `;
 
 export const RegisterStudentButton = styled.div`
@@ -94,70 +121,62 @@ export const ModalWrapper = styled.div<{ isOpen: boolean }>`
 
 export const StyledButton = styled.input`
   font-size: 0.4rem;
-  color: #5c5c5c;
-  width: 5.6rem;
-  text-align: center;
-  height: 1.6rem;
+  background: #ffe4f2;
+  transition: background-color 0.9s ease;
+  width: 5.75rem;
+  height: 1.75rem;
+  border-radius: 1.44rem;
+
+  &:hover {
+    background: #90b8ff;
+    cursor: pointer;
+  }
 
   /* Add any other styles or overrides here */
 `;
 
 export const StudentSearchContainer = styled.div`
-  position: relative;
-
-  background: white;
-  width: 17.16081rem;
-  height: 2.52506rem;
-  border: 0.05rem solid #cdcfd4;
-  border-radius: 1.73688rem;
+  border-radius: 2rem;
+  background: rgba(100, 100, 100, 0.4);
+  width: 14rem;
+  height: 2.4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 9rem;
   margin-left: 9rem;
-`;
-
-export const StyledInput = styled.input`
-  width: 70%;
-  height: 100%;
-  border: none;
-  font-size: 0.6rem;
-  background: transparent;
-  text-align: center;
-  outline: none;
-`;
-
-export const SearchIcon = styled.button`
-  margin-right: 0.5rem;
-  position: absolute;
-  right: 0rem;
-  background-color: #efefef;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: scale 0.3s ease-in-out;
-  &:hover {
-    scale: 1.2;
-    background-color: #f6c7ff;
+  &:focus {
+    border-color: #9590b6;
   }
 `;
 
-export const DropDownContainer = styled.div`
-  background: #ffffff;
-  border: 0.05rem solid #cdcfd4;
-  width: 5rem;
-  height: 2rem;
-  display: grid;
-  grid-template-columns: auto; /* Set the column layout as needed */
-  align-items: center;
-  justify-content: center;
-  border-radius: 1.44rem;
+export const StyledInput = styled.input`
+  width: 8rem;
+  height: 0.9rem;
+  color: #fff;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  background: transparent;
+  &::placeholder {
+    color: #fdfdfdab;
+  }
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const StyledSelect = styled.select`
-  font-size: 0.37rem;
+  font-size: 0.6rem;
   margin-top: 0.5rem;
   margin-bottom: 0.7rem;
   background: #ffffff;
   justify-content: center;
   align-items: center;
+  background: #ffffff;
+  border: 0.05rem solid #cdcfd4;
+  width: 4rem;
+  height: 2rem;
+  grid-template-columns: auto;
+  border-radius: 1.44rem;
 `;
