@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { Box, Tabs, Tab } from '@mui/material';
-import Navbar from "../../components/consultant/navBar";
-import EnterGrades from "../../components/consultant/enterGrades";
-import BlendEnterGrades from "../../components/blend/blendEnterGrades";
+import Navbar from '../../../components/consultant/navBar';
+import EnterGrades from '../../../components/consultant/enterGrades';
+import BlendEnterGrades from '../../../components/blend/blendEnterGrades';
 
 const Background = styled.div`
   width: 100%;
@@ -115,7 +115,7 @@ const CustomTabPanel = ({ value, index, children }: { value: number, index: numb
     );
 };
 
-function SchoolTestGrades() {
+function InputTest() {
     const [tabsValue, setTabsValue] = useState(0);
     // 학년 선택하는 상태인데, 이것만 나중에 api에 맞게 바꿔서 보내면 될듯
     const location = useLocation();
@@ -331,4 +331,4 @@ function SchoolTestGrades() {
     )
 };
 
-export default SchoolTestGrades;
+export default InputTest;

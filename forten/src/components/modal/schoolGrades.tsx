@@ -5,32 +5,19 @@ import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 
 const Wrapper = styled.div`
-  width: 26rem;
-  height: 16rem;
-  border: 1px solid #717171;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  background-color: #fff;
-  margin-left: 10rem;
-  margin-right: 2.4rem;
+  width: 80.405rem;
+  background-color: #DCDDEC;
   padding: 0.5rem;
-  background-color: #22283e;
-  color: #fff;
+  color: #000;
 `;
 
 const FlexContainer = styled.div`
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 0.5rem;
-`;
-
-const Explan = styled.p`
-  font-size: 1rem;
-  font-weight: 900;
+  justify-content: end;
 `;
 
 const RadioContaioner = styled.div`
-  width: 20rem;
+  width: 50rem;
   display: flex;
   justify-content: space-evenly;
   font-size: 0.85rem;
@@ -53,21 +40,25 @@ interface GradesData {
 }
 
 function SchoolGrades(props: SchoolGradesProps) {
-  const [selectedSubject, setSelectedSubject] = useState<'korean' | 'english' | 'math' | 'test1' | 'test2'>('korean');
-  const [gradesData, setGradesData] = useState<Record<'korean' | 'english' | 'math' | 'test1' | 'test2', GradesData>>({
+  const [selectedSubject, setSelectedSubject] = useState<'korean' | 'english' | 'math' | 'science' | 'social' | 'fluency' | 'pronunciation' | 'vocabulary' | 'syntax' | 'activeListening'>('korean');
+  const [gradesData, setGradesData] = useState<Record<'korean' | 'english' | 'math' | 'science' | 'social' | 'fluency' | 'pronunciation' | 'vocabulary' | 'syntax' | 'activeListening', GradesData>>({
     korean: { series: [], xaxisCategories: [] },
     english: { series: [], xaxisCategories: [] },
     math: { series: [], xaxisCategories: [] },
-    test1: { series: [], xaxisCategories: [] },
-    test2: { series: [], xaxisCategories: [] },
+    science: { series: [], xaxisCategories: [] },
+    social: { series: [], xaxisCategories: [] },
+    fluency: { series: [], xaxisCategories: [] },
+    pronunciation: { series: [], xaxisCategories: [] },
+    vocabulary: { series: [], xaxisCategories: [] },
+    syntax: { series: [], xaxisCategories: [] },
+    activeListening: { series: [], xaxisCategories: [] },
   });
 
-  const inputRadioHandler = (subject: 'korean' | 'english' | 'math' | 'test1' | 'test2') => {
+  const inputRadioHandler = (subject: 'korean' | 'english' | 'math' | 'science' | 'social' | 'fluency' | 'pronunciation' | 'vocabulary' | 'syntax' | 'activeListening') => {
     setSelectedSubject(subject);
   };
 
-  // 백엔드에서 subject object에서 test1과 test2 에대한 값을 넣어놔야 할듯
-  const getSubjectId = (subject: 'korean' | 'english' | 'math' | 'test1' | 'test2'): number => {
+  const getSubjectId = (subject: 'korean' | 'english' | 'math' | 'science' | 'social' | 'fluency' | 'pronunciation' | 'vocabulary' | 'syntax' | 'activeListening'): number => {
     switch (subject) {
       case 'korean':
         return 1;
@@ -75,10 +66,20 @@ function SchoolGrades(props: SchoolGradesProps) {
         return 2;
       case 'math':
         return 3;
-      case 'test1':
+      case 'science':
         return 4;
-      case 'test2':
+      case 'social':
         return 5;
+      case 'fluency':
+        return 6;
+      case 'pronunciation':
+        return 7;
+      case 'vocabulary':
+        return 8;
+      case 'syntax':
+        return 9;
+      case 'activeListening':
+        return 10;
       default:
         return 1;
     }
@@ -89,6 +90,16 @@ function SchoolGrades(props: SchoolGradesProps) {
     '2': '1-2학기 기말',
     '3': '2-1학기 중간',
     '4': '2-2학기 기말',
+    '5': '3',
+    '6': '5',
+    '7': '6',
+    '8': '7',
+    '9': '9',
+    '10': '10',
+    '11': '1-1학기 중간',
+    '12': '1-2학기 기말',
+    '13': '2-1학기 중간',
+    '14': '2-2학기 기말',
   };
 
   const fetchData = async () => {
@@ -106,17 +117,23 @@ function SchoolGrades(props: SchoolGradesProps) {
       }));
 
       const gradesDataCopy = { ...gradesData };
-      gradesDataCopy[dataKey].series = ['고1', '고2', '고3'].map((grade) => {
+      gradesDataCopy[dataKey].series = ['초1', '초2', '초3', '초4', '초5', '초6', '중1', '중2', '중3', '고1', '고2', '고3'].map((grade) => {
         const gradeData = scoresData.filter((item) => item.grade === grade);
         const sortedGradeData = sortDataBySemester(gradeData);
         return { name: `${grade}학년`, data: sortedGradeData };
       });
 
       gradesDataCopy[dataKey].xaxisCategories = [
-        '1학기 중간',
-        '1학기 기말',
-        '2학기 중간',
-        '2학기 기말',
+        '1학기 중간',  //1st Quarter'
+        '1학기 기말',  // 2st Quarter',
+        '2학기 중간',  // 3st Quarter',
+        '2학기 기말', // 4st Quarter',
+        '3',
+        '5',
+        '6',
+        '7',
+        '9',
+        '10',
       ];
       setGradesData(gradesDataCopy);
     } catch (error) {
@@ -129,7 +146,23 @@ function SchoolGrades(props: SchoolGradesProps) {
   }, [selectedSubject]);
 
   const sortDataBySemester = (data: ScoreDataItem[]): number[] | [] => {
-    const semesterOrder = ['1-1학기 중간', '1-2학기 기말', '2-1학기 중간', '2-2학기 기말'];
+    const semesterOrder = [
+      '1-1학기 중간',
+      '1-2학기 기말',
+      '2-1학기 중간',
+      '2-2학기 기말',
+      '3',
+      '5',
+      '6',
+      '7',
+      '9',
+      '10',
+
+      // '1st Quarter',
+      // '2st Quarter',
+      // '3st Quarter',
+      // '4st Quarter',
+    ];
     const result = semesterOrder.map((semester) => {
       const matchingData = data.find((item) => item.exam === semester);
       return matchingData ? matchingData.score : 0;
@@ -139,32 +172,46 @@ function SchoolGrades(props: SchoolGradesProps) {
 
   const chartOptions: ApexOptions = {
     chart: {
-      type: 'line',
-      background: '#22283E',
+      type: 'area',
+      background: '#DCDDEC',
     },
     theme: {
-      mode: 'dark', // 또는 'dark'
+      mode: 'light', // 'light' 또는 'dark'
     },
-    series: gradesData[selectedSubject].series,
+    series: gradesData[selectedSubject].series,  // 현재 선택된 과목에 대한 데이터를 표시
     xaxis: {
       categories: gradesData[selectedSubject].xaxisCategories,
       title: {
-        text: '학기',
+        text: '학기/모의고사',
+        style: {
+          fontSize: '1rem',
+        }
       },
     },
     yaxis: {
       title: {
-        text: '등급',
+        // text: '점수',
+        style: {
+          fontSize: '1rem',
+        }
       },
       min: 0,
-      max: 100,
+      max: 170,
+      labels: {
+        show: false, // y축의 값들을 숨깁니다.
+      },
+    },
+    fill: {
+      opacity: 0.5,
+      type: 'solid',
     },
   };
+
+
 
   return (
     <Wrapper>
       <FlexContainer>
-        <Explan>내신</Explan>
         <RadioContaioner>
           <label>
             <input
@@ -206,10 +253,10 @@ function SchoolGrades(props: SchoolGradesProps) {
               id="test1"
               name="school"
               value="test1"
-              checked={selectedSubject === 'test1'}
-              onChange={() => inputRadioHandler('test1')}
+              checked={selectedSubject === 'science'}
+              onChange={() => inputRadioHandler('science')}
             />
-            test1
+            과학
           </label>
 
           <label>
@@ -218,19 +265,79 @@ function SchoolGrades(props: SchoolGradesProps) {
               id="test2"
               name="school"
               value="test2"
-              checked={selectedSubject === 'test2'}
-              onChange={() => inputRadioHandler('test2')}
+              checked={selectedSubject === 'social'}
+              onChange={() => inputRadioHandler('social')}
             />
-            test2
+            사회
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              id="test2"
+              name="school"
+              value="test2"
+              checked={selectedSubject === 'fluency'}
+              onChange={() => inputRadioHandler('fluency')}
+            />
+            Fluency
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              id="test2"
+              name="school"
+              value="test2"
+              checked={selectedSubject === 'pronunciation'}
+              onChange={() => inputRadioHandler('pronunciation')}
+            />
+            Pronunciation
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              id="test2"
+              name="school"
+              value="test2"
+              checked={selectedSubject === 'vocabulary'}
+              onChange={() => inputRadioHandler('vocabulary')}
+            />
+            Vocabulary
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              id="test2"
+              name="school"
+              value="test2"
+              checked={selectedSubject === 'syntax'}
+              onChange={() => inputRadioHandler('syntax')}
+            />
+            Syntax
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              id="test2"
+              name="school"
+              value="test2"
+              checked={selectedSubject === 'activeListening'}
+              onChange={() => inputRadioHandler('activeListening')}
+            />
+            Active Listening
           </label>
         </RadioContaioner>
       </FlexContainer>
       <Chart
         options={chartOptions}
         series={chartOptions.series}
-        type="line"
-        height={500}
-        width={600}
+        type="area"
+        height={630}
+        width={1250}
       />
     </Wrapper>
   );

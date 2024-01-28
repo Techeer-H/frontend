@@ -55,14 +55,14 @@ function BlendEnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps
                     subject_id: '9',
                     type: '절대',
                     grade: selectedGrade,
-                    score: vocabulary,
+                    score: syntax,
                 },
                 {
                     exam_id: examId,
                     subject_id: '10',
                     type: '절대',
                     grade: selectedGrade,
-                    score: vocabulary,
+                    score: activeListening,
                 },
             ],
         };
