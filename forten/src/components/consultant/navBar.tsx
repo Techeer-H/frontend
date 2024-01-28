@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Profile from '../../assets/profile.svg';
-import Logo from '../../assets/BlendLogoWhite.png';
+import Logo from '../../assets/For-TEN.png';
 import signOut from '../../assets/signOut.png';
 import { useNavigate } from 'react-router-dom';
 

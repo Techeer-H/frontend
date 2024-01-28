@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Logo from '../../../assets/BlendLogo.png';
+import Logo from '../../../assets/For-TEN_black.png';
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
 import TeacherModal from '../modal/TeacherSuccess';
@@ -148,10 +148,10 @@ const LoginPage: React.FC = () => {
       <S.RightColumn>
         <S.ImageOverlay />
         <S.TextContent>
-          <S.Title style={{ fontSize: '1.4rem' }}>Every English</S.Title>
-          <S.Title2 style={{ fontSize: '3.6rem' }}>BLEND</S.Title2>
-          {/* <S.Title style={{ fontSize: '1.4rem' }}>10대의 잠재력을</S.Title> */}
-          {/* <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2> */}
+          {/* <S.Title style={{ fontSize: '1.4rem' }}>Every English</S.Title>
+          <S.Title2 style={{ fontSize: '3.6rem' }}>BLEND</S.Title2> */}
+          <S.Title style={{ fontSize: '1.4rem' }}>10대의 잠재력을</S.Title>
+          <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2>
         </S.TextContent>
       </S.RightColumn>
     </S.Section>
