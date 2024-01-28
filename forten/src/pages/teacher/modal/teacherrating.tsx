@@ -1,12 +1,13 @@
+import Rating from '../../../components/modal/rating';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Rating from '../../../components/modal/rating';
-import LogoAndLetter from '../../../assets/LogoAndLetter.svg';
-import ColseBtn from '../../../assets/closeBtn.png';
-import axios from 'axios';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import CheckIcon from '../../../assets/checkIconWhite.svg';
+import CloseWhite from '../../../assets/closeWhite.svg';
+import { border } from '../../../../node_modules/@mui/system/index.d';
 // 평가 모달
-const TeacherRatingPage: React.FC<{
+const NewTeacherRating: React.FC<{
   closeModal: React.MouseEventHandler;
   feedbackId?: number | undefined;
   comment?: string | undefined;
@@ -61,10 +62,10 @@ const TeacherRatingPage: React.FC<{
         const response = await axios.post(`http://3.37.41.244:8000/api/feedback/${user_id}/`, data);
         console.log('성공적으로 저장되었습니다', response.data);
       }
-      closeModal(event);
     } catch (error) {
       console.error('평가 저장 중 오류 발생', error);
     }
+    closeModal(event);
   };
 
   return (
@@ -72,9 +73,11 @@ const TeacherRatingPage: React.FC<{
       <Backdrop />
 
       <Modal>
-        <Close src={ColseBtn} alt="닫기" onClick={closeModal} />
-        <Explan>학생 평가</Explan>
-        <Line />
+        <Upper>
+          <Close src={CloseWhite} alt="닫기" onClick={closeModal} />
+          <Explan>학생평가</Explan>
+        </Upper>
+
         <Form>
           <InputText
             placeholder="학생의 평가를 작성해주세요"
@@ -84,15 +87,20 @@ const TeacherRatingPage: React.FC<{
           {/* 위에 inputText를 props.text로 전달하게 하면 inputType이 수정에서도 input가능할 수 ㅇ */}
           <FullContainer>
             <Container>
-              <ImgBox>
-                <img src={LogoAndLetter} alt="로고" />
-              </ImgBox>
+              <TextContainer
+                style={{ marginBottom: '3rem', fontSize: '1.2rem', fontWeight: '600' }}
+              >
+                만족도 등록
+              </TextContainer>
+
               <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
               <Rating onSliderChange={handleSliderChange} rating={studentRating} />
             </Container>
             <BtnContainer>
               <Button type="submit" onClick={handleSubmit}>
-                저장하기
+                <ImgBox>
+                  <img src={CheckIcon} alt="닫기" style={{ fill: '#fff' }} />
+                </ImgBox>
               </Button>
             </BtnContainer>
           </FullContainer>
@@ -114,19 +122,25 @@ const Full = styled.form``;
 
 const Modal = styled.div`
   position: fixed;
-  border: 1px solid #000000;
-  border-radius: 40px;
+  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
   z-index: 4;
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  background-color: #ffffff;
+  border: 0.1rem solid #cacaca;
   width: 62.5rem;
-  height: 45rem;
+  height: 40rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
 `;
-
+const Upper = styled.div`
+  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+  background: #637363;
+  width: 62.3125rem;
+  height: 5.8125rem;
+`;
 const Close = styled.img`
   margin-left: 95%;
   margin-top: 3%;
@@ -137,21 +151,17 @@ const Close = styled.img`
 `;
 
 const Explan = styled.div`
-  margin: 5% 0 3% 3%;
+  display: flex;
   width: 10rem;
-  height: 2.4rem;
+  height: 5.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #415fff;
-  border-radius: 10px;
   color: #fff;
-  font-size: 1.25rem;
-`;
-
-const Line = styled.div`
-  width: 100%;
-  border: solid 1px #6936f2;
+  font-size: 1.875rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.875rem;
 `;
 
 const Form = styled.div`
@@ -161,20 +171,21 @@ const Form = styled.div`
 `;
 
 const InputText = styled.textarea`
-  width: 32.875rem;
+  width: 34rem;
   height: 28.875rem;
-  padding: 2%;
-  border: 1px solid #6f99fa;
+  padding: 2.44rem;
+  border: 2px solid #305948;
   border-radius: 10px;
   outline: none;
 `;
 
 const FullContainer = styled.div`
-  width: 25rem;
+  width: 21rem;
   height: 20rem;
   border-radius: 0.4rem;
-  border: 0.1rem solid #85a1ff;
+  border: 0.1rem solid #d8d8d8;
   background: #ffffff;
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
 `;
 
 const Container = styled.div`
@@ -185,22 +196,19 @@ const Container = styled.div`
   justify-content: center;
   &:hover {
     outline: none;
-    border-color: #0800ff;
+    border-color: #305948;
     border: 0.5rem;
     box-shadow: 0 0 0 3px rgba(0, 21, 255, 0.3);
   }
 `;
 
 const TextContainer = styled.p`
-  color: #737b7b;
   font-size: 1rem;
   font-style: normal;
   text-align: center;
 `;
 
 const ImgBox = styled.div`
-  margin-top: 1.5rem;
-  margin-bottom: 3.36rem;
   display: flex;
   justify-content: center;
 `;
@@ -210,17 +218,16 @@ const BtnContainer = styled.div`
   justify-content: end;
 `;
 const Button = styled.button`
-  width: 6rem;
-  height: 1.75rem;
+  width: 10rem;
+  height: 2.5rem;
   display: flex;
-  margin-top: 4rem;
-  border: 0.1rem solid #85a1ff;
-  border-radius: 1rem; /* 원하는 값으로 조절 */
+  margin-top: 7rem;
+  border-radius: 0.4rem; /* 원하는 값으로 조절 */
   align-items: center;
   justify-content: center;
-
+  background: #7593757d;
   cursor: pointer;
   flex-direction: row;
 `;
 
-export default TeacherRatingPage;
+export default NewTeacherRating;

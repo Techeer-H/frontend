@@ -52,65 +52,63 @@ const teacherevayarnluate = () => {
         <S.Container>
           <S.TextContainer>
             <S.NameBox>
-            <S.NameImg>
-      <S.SnowImg src={Snow} alt="Snow" />
-      <S.SnowImg src={NewLogo} alt="New Logo" />
-    </S.NameImg>
-    <S.ConsultantBox>
-      <S.AccountImg src={Account} alt="Account" />
-      <S.TeacherBox>조준영 강사</S.TeacherBox>
-      <S.LogoutImg src={Logout} alt="Logout" />
-    </S.ConsultantBox>
-              <S.NamesContainer>
-              
-              </S.NamesContainer>
+              <S.NameImg>
+                <S.SnowImg src={Snow} alt="Snow" />
+                <S.SnowImg src={NewLogo} alt="New Logo" />
+              </S.NameImg>
+              <S.ConsultantBox>
+                <S.AccountImg src={Account} alt="Account" />
+                <S.TeacherBox>조준영 강사</S.TeacherBox>
+                <S.LogoutImg src={Logout} alt="Logout" />
+              </S.ConsultantBox>
+              <S.NamesContainer></S.NamesContainer>
             </S.NameBox>
           </S.TextContainer>
         </S.Container>
-      <S.ContentContainer>
-        <S.SchoolBox>
-          <S.Name>하재민(19)</S.Name>
-          <S.Name>대박고등학교</S.Name>
-          
-        <S.CommentBox>
-          
-          <S.Explan>List</S.Explan> 
-          
-          <S.TitleBar>
-          <S.LeftWrite>평가글</S.LeftWrite>
-          <S.MiddleWrite>Rating 점수</S.MiddleWrite>
-          <S.RightWrite>수정</S.RightWrite>
-          <S.EndWrite>삭제</S.EndWrite>
-         </S.TitleBar>
+        <S.ContentContainer>
+          <S.SchoolBox>
+            <S.Name>하재민(19)</S.Name>
+            <S.Name>대박고등학교</S.Name>
 
+            <S.CommentBox>
+              <S.Explan>List</S.Explan>
 
-         <S.Behavior> 학생이 어제부터 수업태도가 좋습니다
-         <S.Number>4</S.Number>
-         <S.Boxpencil src={Boxpencil} alt="Boxpencil" />
-         <S.MinusLogo src={MinusLogo} alt="MinusLogo" />
-         </S.Behavior>
-         <S.HorizontalLine />
+              <S.TitleBar>
+                <S.LeftWrite>평가글</S.LeftWrite>
+                <S.MiddleWrite>Rating 점수</S.MiddleWrite>
+                <S.RightWrite>수정</S.RightWrite>
+                <S.EndWrite>삭제</S.EndWrite>
+              </S.TitleBar>
 
-         <S.BehaviorSecond>요즘 매일 지각을 합니다
-        <S.BoxpencilSecond src={Boxpencil} alt="Boxpencil" />
-        <S.MinusLogoSecond src={MinusLogo} alt="MinusLogo" />
-        </S.BehaviorSecond>
-         <S.HorizontalLine />
+              <S.Behavior>
+                {' '}
+                학생이 어제부터 수업태도가 좋습니다
+                <S.Number>4</S.Number>
+                <S.Boxpencil src={Boxpencil} alt="Boxpencil" />
+                <S.MinusLogo src={MinusLogo} alt="MinusLogo" />
+              </S.Behavior>
+              <S.HorizontalLine />
 
-         <S.Behavior> 수학을 좋아하는 친구라 수업에 적극적으로 참여합니다
-         <S.BoxpencilThird src={Boxpencil} alt="Boxpencil" />
-         <S.MinusLogoThird src={MinusLogo} alt="MinusLogo" />
-         </S.Behavior>
-         <S.HorizontalLine />
+              <S.BehaviorSecond>
+                요즘 매일 지각을 합니다
+                <S.BoxpencilSecond src={Boxpencil} alt="Boxpencil" />
+                <S.MinusLogoSecond src={MinusLogo} alt="MinusLogo" />
+              </S.BehaviorSecond>
+              <S.HorizontalLine />
 
-        
-    
-            
-          <S.BtnContainer>
-            <S.WriteBtn onClick={openModal}>평가 작성하기</S.WriteBtn>
-          </S.BtnContainer>
-        </S.CommentBox>
-        </S.SchoolBox>
+              <S.Behavior>
+                {' '}
+                수학을 좋아하는 친구라 수업에 적극적으로 참여합니다
+                <S.BoxpencilThird src={Boxpencil} alt="Boxpencil" />
+                <S.MinusLogoThird src={MinusLogo} alt="MinusLogo" />
+              </S.Behavior>
+              <S.HorizontalLine />
+
+              <S.BtnContainer>
+                <S.WriteBtn onClick={openModal}>평가 작성하기</S.WriteBtn>
+              </S.BtnContainer>
+            </S.CommentBox>
+          </S.SchoolBox>
         </S.ContentContainer>
       </S.Fullcontainer>
       {ModalOpen && (

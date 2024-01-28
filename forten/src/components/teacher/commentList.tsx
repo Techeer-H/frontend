@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Delete from '../../assets/delete.svg';
-import Modify from '../../assets/modify.svg';
+import Delete from '../../assets/MinusLogo.svg';
+import Modify from '../../assets/Boxpencil.svg';
 import React, { useState } from 'react';
 import TeacherRatingPage from '../../pages/teacher/modal/teacherrating';
 import axios from 'axios';
@@ -48,27 +48,19 @@ const CommentList: React.FC<CommentListProps> = (props) => {
   return (
     <FlexComment>
       <Text>{props.content}</Text>
-      <Rating>
-        <div>학생 점수</div>
-        <div>{props.rating}</div>
-      </Rating>
+      <Rating>{props.rating}</Rating>
       <ActionContainer>
-        <div>
-          수정
-          <ModifyBtn onClick={() => modifyHandler(props.feedbackId)}>
-            <div>
-              <img src={Modify} alt="수정" style={{ height: '100%' }}></img>
-            </div>
-          </ModifyBtn>
-        </div>
-        <div>
-          삭제
-          <DeleteBtn onClick={() => removeHandler(props.feedbackId)}>
-            <div>
-              <img src={Delete} alt="삭제" style={{ height: '100%' }}></img>
-            </div>
-          </DeleteBtn>
-        </div>
+        <ModifyBtn onClick={() => modifyHandler(props.feedbackId)}>
+          <div>
+            <img src={Modify} alt="수정" style={{ height: '100%' }}></img>
+          </div>
+        </ModifyBtn>
+
+        <DeleteBtn onClick={() => removeHandler(props.feedbackId)}>
+          <div>
+            <img src={Delete} alt="삭제" style={{ height: '100%' }}></img>
+          </div>
+        </DeleteBtn>
       </ActionContainer>
 
       {isModifyModalOpen && (
@@ -86,38 +78,39 @@ const CommentList: React.FC<CommentListProps> = (props) => {
 };
 
 const FlexComment = styled.li`
-  width: 98%;
-  min-height: 6rem;
+  width: 62rem;
   display: flex;
-  justify-content: space-evenly;
-  margin: 1%;
+  justify-content: space-between;
+  margin: 0.4rem;
   padding: 1%;
-  border: solid 1px #5a5a5a;
-  border-radius: 10px;
+  padding-bottom: 1rem;
+
+  border-bottom: solid 0.1rem #eae8e8;
 `;
 
 const Text = styled.div`
-  width: 60%;
-  height: 100%;
+  width: 60rem;
 `;
 
 const Rating = styled.div`
-  width: 30%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  width: 15rem;
+  color: #a7ba9e;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
 
 const ActionContainer = styled.div`
-  width: 10%;
-  height: 100%;
+  width: 9.5rem;
   display: flex;
   justify-content: space-evenly;
 `;
 const ModifyBtn = styled.button`
   align-items: center;
+  margin-right: 1rem;
 `;
 const DeleteBtn = styled.button`
   align-items: center;

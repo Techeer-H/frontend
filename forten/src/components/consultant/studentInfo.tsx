@@ -178,9 +178,10 @@ const Li = styled.li`
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #dddfdf;
-  &:hover {
+  //가져다대면 크기가 커짐
+  /* &:hover {
     scale: 1.04;
-  }
+  } */
 `;
 const Student = styled.div`
   text-align: center;
