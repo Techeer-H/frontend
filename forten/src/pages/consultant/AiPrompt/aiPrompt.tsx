@@ -101,7 +101,7 @@ function AiPrompt() {
     };
     return (
         <Background>
-            {isModal && <ConsultantRatingPage close={closeModal} studentId={1} />}
+            {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
             <Navbar />
             <FullContainer>
 
