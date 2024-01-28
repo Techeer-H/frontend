@@ -1,28 +1,19 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import UserIcon from '../../assets/PersonIcon.svg';
-import { border } from '../../../node_modules/@mui/system/index.d';
 
 const ColumnContainer = styled.div``;
 
 const UserName = styled.p`
-  font-size: 2rem;
-  color: #f1f1f1;
+  font-size: 1.5rem;
 `;
 
 const School = styled.p`
-  font-size: 1.2rem;
-  color: #ffffff;
-  margin-top: 0.7rem;
-  margin-left: 0.5rem;
+  font-size: 1.25rem;
 `;
 
 const Grade = styled.p`
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-
-  margin-left: 0.5rem;
+  font-size: 1.25rem;
 `;
 
 // const PhoneNumber = styled.p`
@@ -40,6 +31,7 @@ const user_Id = localStorage.getItem('user_Id');
 function StudentTable(props: StudentTableProps) {
   const [studentInfo, setStudentInfo] = useState({
     name: '',
+    birth: '',
     school: '',
     grade: '',
     phone: '',
@@ -50,11 +42,14 @@ function StudentTable(props: StudentTableProps) {
       try {
         // 강사, 학생id
         const response = await axios.get(
-          `http://3.37.41.244:8000/api/student?id=${user_Id}&student_id=${props.studentId}&search=`,
+          `http://3.37.41.244:8000/api/student?id=${user_Id}&student_id=${props.studentId}`,
         );
+        console.log(response);
         const studentData = response.data.result[0]; // 응답 데이터 확인, stu_id가 들어가면 됨(인덱스)
+        console.log(studentData);
         setStudentInfo({
           name: studentData.name || '',
+          birth: studentData.birth || '',
           school: studentData.school || '',
           grade: studentData.grade || '',
           phone: studentData.phone || '',
@@ -70,13 +65,10 @@ function StudentTable(props: StudentTableProps) {
 
   return (
     <ColumnContainer>
-      <div style={{ display: 'flex', margin: '0.5rem 0 0 0.5rem' }}>
-        <img style={{ margin: '0 0.4rem 0 0' }} src={UserIcon} alt="유저아이콘" />
-        <UserName>{studentInfo.name}</UserName>
-      </div>
+      <UserName>{studentInfo.name}({studentInfo.birth}_{studentInfo.grade})</UserName>
 
-      <School>{studentInfo.school}</School>
-      <Grade>{studentInfo.grade}</Grade>
+      <School>{studentInfo.phone}</School>
+      <Grade>{studentInfo.school}</Grade>
       {/* <PhoneNumber>{studentInfo.phone}</PhoneNumber> */}
     </ColumnContainer>
   );

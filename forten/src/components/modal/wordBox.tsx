@@ -5,15 +5,14 @@ import axios from "axios";
 const Center = styled.div`
   display: flex;
   justify-content: center;
+
 `
 
 const TextArea = styled.div`
-  width: 54.5rem;
-  height: 18.4375rem;
-  border: 1px solid #717171;
+  width: 76.375rem;
+  height: 27.5rem;
   background-color: #fff;
-  border-radius: 10px;
-  padding: 0.5rem;
+  padding: 1%;
   font-size: 0.875rem;
   overflow: auto;
 `;

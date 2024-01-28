@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   height: 16rem;
   padding-top: 5%;
   margin: 3% auto;
-  background-color: rgba(100, 100, 100, 0.3);
+  background-color: transparent;
 `;
 
 const CenterContainer = styled.div`

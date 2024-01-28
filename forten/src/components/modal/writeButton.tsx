@@ -9,7 +9,7 @@ const FlexContainer = styled.button`
   border-radius: 0.6rem;
   justify-content: center;
   align-items: center;
-  margin-left: 48.6rem;
+
 `;
 
 // 작성하러가기 컴포넌트
