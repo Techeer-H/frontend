@@ -39,19 +39,19 @@
 
 [Swagger API Documentation](http://3.37.41.244:8000/swagger/ )
 
-## Monitoring
+## ![pepicons-pencil_monitor](https://github.com/Techeer-H/frontend/assets/154998592/b2cec25a-9d0b-41f4-ac03-44de4c84dfd8) Monitoring
 
 - **Prometheus, Grafana**
   
 ![grafana prometheus](https://github.com/Techeer-H/frontend/assets/154998592/c2c52003-1324-4eb5-907b-e7d293f0497e)
 
 
-## ![Directory](https://github.com/Techeer-H/frontend/assets/154998592/b13f8898-ebb5-4ff6-8cdf-5d733d248423) File Directory
+## ![directory](https://github.com/Techeer-H/frontend/assets/154998592/95e1c926-87ef-4cf5-8ca2-d2bd0d3a4305) File Directory
 
 
 
 
-## Installation
+## ![install](https://github.com/Techeer-H/frontend/assets/154998592/e2d7d867-e386-44a7-9ff7-a4f7d25559a4) Installation
 
 1. **Clone Repository**
    ```bash
