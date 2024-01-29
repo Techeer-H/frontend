@@ -32,7 +32,9 @@ interface BubbleProps {
 }
 
 export const Bubble = styled.div<BubbleProps>`
-  color: #fff;
+  color: #ededed;
+  font-weight: bold;
+  font-size: 1.5rem;
   position: relative;
   text-align: center;
   /* left: ${(props) => `${Number(props.value / 4)}px`}; */
@@ -72,9 +74,19 @@ const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
           onChange(Number(radius));
         }}
       />
-      <Bubble value={value} className="bubble">
-        {value}
-      </Bubble>
+      <div
+        style={{
+          marginTop: '1rem',
+          marginLeft: '4.1rem',
+          width: '2.8rem',
+          border: '3px solid  #ededed',
+          borderRadius: '3rem',
+        }}
+      >
+        <Bubble value={value} className="bubble">
+          {value}
+        </Bubble>
+      </div>
     </SliderParent>
   );
 };

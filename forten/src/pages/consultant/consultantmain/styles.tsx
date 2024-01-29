@@ -57,7 +57,7 @@ export const MarkContainer = styled.div`
 `;
 
 export const MarkHeader = styled.div`
-  color: rgba(113, 119, 144, 0.78);
+  color: rgba(203, 208, 228, 0.78);
   width: 5.1875rem;
   height: 1.8125rem;
   font-family: Inter;
@@ -85,7 +85,7 @@ export const TextareaContainer = styled.div`
 `;
 
 export const TextareaHeader = styled.div`
-  color: rgba(113, 119, 144, 0.78);
+  color: rgba(203, 208, 228, 0.78);
   width: 5.1875rem;
   height: 1.8125rem;
   font-family: Inter;

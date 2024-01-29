@@ -73,7 +73,10 @@ const Teacherevaluate = () => {
         <TNavbar />
         <S.TopFullContainer>
           <div style={{ marginLeft: '2rem' }}></div>
-          <div
+          <button
+            onClick={() => {
+              window.history.back();
+            }}
             style={{
               marginTop: '1rem',
               width: '15px',
@@ -83,7 +86,7 @@ const Teacherevaluate = () => {
               boxShadow: '24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65',
               marginRight: '13.1rem',
             }}
-          ></div>
+          ></button>
           <S.StudentListExplan>EvulateList</S.StudentListExplan>
           <S.BtnContainer>
             <S.WriteBtn onClick={openModal}>평가 작성하기</S.WriteBtn>

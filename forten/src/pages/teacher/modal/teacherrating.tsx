@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import CheckIcon from '../../../assets/checkIconWhite.svg';
 import CloseWhite from '../../../assets/closeWhite.svg';
-import { border } from '../../../../node_modules/@mui/system/index.d';
+
 // 평가 모달
 const NewTeacherRating: React.FC<{
   closeModal: React.MouseEventHandler;
@@ -70,12 +70,10 @@ const NewTeacherRating: React.FC<{
 
   return (
     <Full>
-      <Backdrop />
-
       <Modal>
         <Upper>
-          <Close src={CloseWhite} alt="닫기" onClick={closeModal} />
           <Explan>학생평가</Explan>
+          <Close src={CloseWhite} alt="닫기" onClick={closeModal} />
         </Upper>
 
         <Form>
@@ -88,7 +86,12 @@ const NewTeacherRating: React.FC<{
           <FullContainer>
             <Container>
               <TextContainer
-                style={{ marginBottom: '3rem', fontSize: '1.2rem', fontWeight: '600' }}
+                style={{
+                  marginBottom: '3rem',
+                  fontSize: '1.2rem',
+                  fontWeight: '600',
+                  color: '#ededed',
+                }}
               >
                 만족도 등록
               </TextContainer>
@@ -110,15 +113,9 @@ const NewTeacherRating: React.FC<{
   );
 };
 
-const Backdrop = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  z-index: 3;
-  background: rgba(0, 0, 0, 0.45);
+const Full = styled.form`
+  margin-left: 10rem;
 `;
-
-const Full = styled.form``;
 
 const Modal = styled.div`
   position: fixed;
@@ -126,7 +123,8 @@ const Modal = styled.div`
   z-index: 4;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff;
+  background: rgba(72, 76, 92, 0.8);
+  backdrop-filter: blur(20px);
   border: 0.1rem solid #cacaca;
   width: 62.5rem;
   height: 40rem;
@@ -137,31 +135,30 @@ const Modal = styled.div`
 `;
 const Upper = styled.div`
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
-  background: #637363;
+  background: rgba(16, 18, 27, 0.8);
   width: 62.3125rem;
-  height: 5.8125rem;
+  height: 4rem;
+  display: flex;
 `;
 const Close = styled.img`
-  margin-left: 95%;
-  margin-top: 3%;
+  margin-top: 1rem;
+  margin-left: 51rem;
   cursor: pointer;
-  width: 1.5rem;
-  height: 1.5rem;
-  position: absolute;
+  width: 2rem;
+  height: 2rem;
 `;
 
 const Explan = styled.div`
   display: flex;
-  width: 10rem;
-  height: 5.6rem;
+  width: 8rem;
+  height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 1.875rem;
   font-style: normal;
-  font-weight: 700;
-  font-size: 1.875rem;
+  font-weight: 500;
+  font-size: 1.4rem;
 `;
 
 const Form = styled.div`
@@ -174,9 +171,15 @@ const InputText = styled.textarea`
   width: 34rem;
   height: 28.875rem;
   padding: 2.44rem;
-  border: 2px solid #305948;
+  border: 1px solid #ededed;
   border-radius: 10px;
   outline: none;
+  background: transparent;
+  color: #ededed;
+  &:hover {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(91, 126, 255, 0.8);
+  }
 `;
 
 const FullContainer = styled.div`
@@ -184,8 +187,6 @@ const FullContainer = styled.div`
   height: 20rem;
   border-radius: 0.4rem;
   border: 0.1rem solid #d8d8d8;
-  background: #ffffff;
-  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
 `;
 
 const Container = styled.div`
@@ -196,9 +197,7 @@ const Container = styled.div`
   justify-content: center;
   &:hover {
     outline: none;
-    border-color: #305948;
-    border: 0.5rem;
-    box-shadow: 0 0 0 3px rgba(0, 21, 255, 0.3);
+    box-shadow: 0 0 0 3px rgba(0, 55, 255, 0.8);
   }
 `;
 
@@ -206,6 +205,7 @@ const TextContainer = styled.p`
   font-size: 1rem;
   font-style: normal;
   text-align: center;
+  color: #ededed;
 `;
 
 const ImgBox = styled.div`
@@ -225,9 +225,17 @@ const Button = styled.button`
   border-radius: 0.4rem; /* 원하는 값으로 조절 */
   align-items: center;
   justify-content: center;
-  background: #7593757d;
+  background: rgba(58, 61, 74, 0.8);
   cursor: pointer;
   flex-direction: row;
+
+  &:hover {
+    outline: none;
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(5, 5, 5, 0.847);
+    border: 0.5rem;
+    box-shadow: 0 0 0 3px rgba(68, 68, 73, 0.3);
+  }
 `;
 
 export default NewTeacherRating;
