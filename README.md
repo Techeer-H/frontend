@@ -36,7 +36,7 @@
 
 ## API
 
-![Swagger API](url/to/swagger-image)
+[Swagger API Documentation](http://3.37.41.244:8000/swagger/ )
 
 ## Monitoring
 
