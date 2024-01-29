@@ -34,7 +34,7 @@ const Textarea = styled.textarea`
   padding-top: 1rem;
   padding-left: 0.6rem;
   background: transparent;
-  color: #f9fafb;
+  color: #eff5ff;
 
   &:focus {
     outline: none;

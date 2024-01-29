@@ -15,10 +15,10 @@ const Backdrop = styled.div`
 
 const FullContainer = styled.div`
   width: 25rem;
-  height: 24rem;
+  height: 28rem;
   border-radius: 15px;
-  border: 1px solid #D8D8D8;
-  background: rgba(16, 18, 27, 0.80);
+  border: 1px solid #d8d8d8;
+  background: rgba(16, 18, 27, 0.8);
   box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
   position: fixed;
   z-index: 13;
@@ -39,7 +39,7 @@ const Container = styled.div`
 `;
 
 const TextContainer = styled.p`
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: 800;
   text-align: center;
@@ -47,10 +47,10 @@ const TextContainer = styled.p`
 
 const RatingExplan = styled.div`
   font-size: 1rem;
-  color: #66656A;
+  color: #66656a;
   font-weight: 600;
   text-align: center;
-`
+`;
 
 const ImgWrapper = styled.div`
   width: 24px;
@@ -61,15 +61,14 @@ const ImgWrapper = styled.div`
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
     border-radius: 2rem;
   }
-  
-`
+`;
 // 로고
 const Button = styled.button`
   width: 10rem;
   height: 2.5rem;
   display: flex;
   margin-top: 0.87rem;
-  border: 1px solid #8E8BB5;
+  border: 1px solid #8e8bb5;
   border-radius: 0.5rem; /* 원하는 값으로 조절 */
   align-items: center;
   justify-content: center;
@@ -77,8 +76,8 @@ const Button = styled.button`
   flex-direction: row;
   transition: background-color 0.3s ease;
 
-  &:hover{
-    background-color: #CCBFC6;
+  &:hover {
+    background-color: #ccbfc6;
   }
 `;
 
@@ -132,11 +131,9 @@ function ConsultantRatingPage(props: any) {
       <FullContainer>
         <Container>
           <Upper>
-            <TextContainer>
-              만족도 등록
-            </TextContainer>
+            <TextContainer>만족도 등록</TextContainer>
             <ImgWrapper onClick={props.close}>
-              <img src={CloseBtn} alt='닫기' />
+              <img src={CloseBtn} alt="닫기" />
             </ImgWrapper>
           </Upper>
         </Container>

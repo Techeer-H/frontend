@@ -54,7 +54,7 @@ const Navbar = () => {
   };
 
   const goMain = () => {
-    navigate('/consultantmain');
+    navigate('/teacher');
   };
 
   return (
