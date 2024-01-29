@@ -46,9 +46,10 @@
 ![grafana prometheus](https://github.com/Techeer-H/frontend/assets/154998592/c2c52003-1324-4eb5-907b-e7d293f0497e)
 
 
-## File Directory
+## ![Directory](https://github.com/Techeer-H/frontend/assets/154998592/b13f8898-ebb5-4ff6-8cdf-5d733d248423) File Directory
 
-![File Directory](url/to/file-directory-image)
+
+
 
 ## Installation
 
@@ -58,7 +59,7 @@
 
    
 
-![bi_people-fill](https://github.com/Techeer-H/frontend/assets/154998592/eff37fc6-54b6-4e17-bf6b-414d1023c042) Member
+## ![members](https://github.com/Techeer-H/frontend/assets/154998592/53911adc-8e1d-480c-8d69-726e6ac83988) Members
 
 
 | **Pictures**  | |  | |  |  |  |
