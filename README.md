@@ -55,3 +55,13 @@
 1. **Clone Repository**
    ```bash
    git clone https://github.com/your-username/your-repo.git
+
+## Member
+
+
+| **Pictures**  | |  | |  |  |  |
+|---------------|------------|------------|------------|------------|------------|------------|
+| **Name**      | 상필진     | 하재민     | 조준영     | 이현진     | 여민지     | 김준범     |
+| **Position**  | Leader,Backend   | Frontend    | Frontend   | Frontend   | Backend    | Frontend   |
+| **GitHub**    |            |           |             |            |            |            |
+
