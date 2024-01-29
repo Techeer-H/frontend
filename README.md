@@ -41,7 +41,7 @@
 ## Monitoring
 
 - **Prometheus, Grafana**
-
+- ![Grafana Prometheus](grafana_prometheus.png)
 ## File Directory
 
 ![File Directory](url/to/file-directory-image)
