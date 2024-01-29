@@ -11,7 +11,6 @@ const FlexContainer = styled.button`
   border-radius: 0.6rem;
   justify-content: space-around;
   align-items: center;
-
 `;
 
 // 작성하러가기 컴포넌트
@@ -19,7 +18,7 @@ function WriteButton(props: any) {
   return (
     // 모달 닫기 버튼도 있어야할 것 같네요
     <FlexContainer onClick={props.onConfirm}>
-      <div>만족도</div>
+      <div style={{ marginRight: '1rem' }}>만족도</div>
       <img src={SendImg} alt="보내기" />
     </FlexContainer>
   );

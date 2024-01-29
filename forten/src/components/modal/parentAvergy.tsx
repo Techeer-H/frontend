@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import axios from 'axios';
-import SmileEmoji from '../../assets/smileEmoji.png';
-import SadEmoji from '../../assets/sadEmoji.png';
+import SmileEmoji from '../../assets/smileEmoji.svg';
+import SadEmoji from '../../assets/sadEmoji.svg';
 
 const Wrapper = styled.div`
   width: 18.75rem;
-`
+`;
 
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-around;
-`
+`;
 
 const ImgWrapper = styled.div`
   width: 7.6rem;
@@ -19,16 +19,18 @@ const ImgWrapper = styled.div`
   border-radius: 10px;
   display: flex;
   justify-content: center;
-  align-items:center;
-  background-color: rgba(255, 255, 255, 0.61);
-`
+  align-items: center;
+  background-color: rgba(198, 198, 198, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(20px);
+`;
 
 const AvgWrapper = styled.div`
   width: 7.6rem;
   height: 7.75rem;
-  background-color: rgba(255, 255, 255, 0.61);
+  background-color: rgba(198, 198, 198, 0.1);
   border-radius: 10px;
-  color: #000;
+  backdrop-filter: blur(20px);
   font-size: 0.875rem;
   font-weight: 600;
   display: flex;
@@ -39,10 +41,14 @@ const AvgWrapper = styled.div`
 
 const ScoreExplan = styled.div`
   font-size: 1rem;
+  color: #f9fafb;
+  font-weight: 400;
 `;
 
 const Score = styled.div`
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #f9fafb;
 `;
 
 interface ParentAvergyProps {
@@ -55,12 +61,13 @@ function ParentAvergy(props: ParentAvergyProps) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://3.37.41.244:8000/api/analysis/${props.studentId}/`);
+        const response = await axios.get(
+          `http://3.37.41.244:8000/api/analysis/${props.studentId}/`,
+        );
 
-        const parentRating = (response.data.result.parent_rating);
+        const parentRating = response.data.result.parent_rating;
 
         setParentAver(parentRating);
-
       } catch (error) {
         console.log(error);
       }
@@ -82,17 +89,26 @@ function ParentAvergy(props: ParentAvergyProps) {
           </div>
         </ImgWrapper>
         <AvgWrapper>
-          <ScoreExplan>
-            평균 점수
-          </ScoreExplan>
+          <ScoreExplan>평균 점수</ScoreExplan>
           <Score>
-            {parentAver}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: '2rem',
+                width: '4rem',
+                height: '4rem',
+                border: '2px solid #f9fafb',
+              }}
+            >
+              {parentAver}
+            </div>
           </Score>
         </AvgWrapper>
       </FlexContainer>
     </Wrapper>
-  )
+  );
 }
-
 
 export default ParentAvergy;
