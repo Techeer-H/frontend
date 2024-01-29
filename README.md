@@ -18,6 +18,7 @@
    - 차트를 통해 종합적인 학생 성적 분석
 
 ## System Architecture
+![system architecture](https://github.com/Techeer-H/frontend/assets/154998592/be01c675-c7a3-4cd7-96cb-9cd9cc0cd067)
 
 ### Tech Stack
 | Frontend | Backend | Devops | DB | Others |
@@ -41,7 +42,10 @@
 ## Monitoring
 
 - **Prometheus, Grafana**
-- ![Grafana Prometheus](grafana_prometheus.png)
+  
+![grafana prometheus](https://github.com/Techeer-H/frontend/assets/154998592/c2c52003-1324-4eb5-907b-e7d293f0497e)
+
+
 ## File Directory
 
 ![File Directory](url/to/file-directory-image)
