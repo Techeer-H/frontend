@@ -63,7 +63,7 @@
 ## ![members](https://github.com/Techeer-H/frontend/assets/154998592/53911adc-8e1d-480c-8d69-726e6ac83988) Members
 
 
-| **Pictures**  | |  | |  |  |  |
+| **Pictures**  |[![상필진](link_to_image)](https://github.com/상필진) |  | |  |  |  |
 |---------------|------------|------------|------------|------------|------------|------------|
 | **Name**      | 상필진     | 하재민     | 조준영     | 이현진     | 여민지     | 김준범     |
 | **Position**  | Leader,Backend   | Frontend    | Frontend   | Frontend   | Backend    | Frontend   |
