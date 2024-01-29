@@ -157,8 +157,9 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
 const Form = styled.form`
   width: 13.75rem;
   height: 16rem;
-  background-color: #fff;
-  border: 2px solid #222A77;
+  background-color: rgba(146, 151, 179, 0.13);
+  border-radius: 15px;
+  border: 2px solid #707070;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -168,16 +169,18 @@ const Form = styled.form`
 const Explan = styled.div`
   width: 100%;
   padding: 3%;
+  color: #fff;
   font-size: 1rem;
   font-weight: 600;
 `;
 
 const Input = styled.input`
   width: 12rem;
-  height: 3rem;
+  height: 2rem;
   padding: 2%;
   background-color: transparent;
   border-bottom: 1px solid #3D4450;
+  color: #fff;
 `;
 
 const BtnWrapper = styled.div`
@@ -190,10 +193,13 @@ const BtnWrapper = styled.div`
   font-weight: 600;
   display: flex;
   justify-content: center;
+  align-items: center;
 `;
 
 const SummitBtn = styled.button`
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
 `;
 

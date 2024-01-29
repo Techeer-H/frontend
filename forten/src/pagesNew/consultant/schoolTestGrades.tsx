@@ -6,30 +6,74 @@ import Navbar from "../../components/consultant/navBar";
 import EnterGrades from "../../components/consultant/enterGrades";
 import BlendEnterGrades from "../../components/blend/blendEnterGrades";
 
+import BackgroundImg from '../../assets/backgroundImg.png'
+
 const Background = styled.div`
   width: 100%;
+  min-width: 1450px;
   height: 100vh;
+  min-height: 1050px;
   padding-top: 2%;
-  background: linear-gradient(to bottom left, #8D8AB4, #D9C9C9);
+  position: relative;
+`;
+
+const BackImg = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${BackgroundImg});
+  background-size: 100% 100%; /* 이미지 크기를 100%로 설정 */
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* 뿌옇게 필터 적용 (5px는 조절 가능) */
+  z-index: -1;
 `;
 
 const FullContainer = styled.div`
   margin-top: 2%;
   display: flex;
-  justify-content: center;
-`;
-
-const LeftContainer = styled.div`
-  width: 13.875rem;
-  height: 43.375rem;
-  padding-top: 3%;
-  border-top-left-radius: 20px;
-  background-color: rgba(100, 100, 100, 0.2);
-  display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const TopFullContainer = styled.div`
+  width: 84rem;
+  height: 4.25rem;
+  border-bottom: 1px solid rgba(213, 213, 213, 0.2);
+  border-radius: 20px 20px 0 0;
+  background-color: rgba(16, 18, 27, 0.4);
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1rem;
+`
+
+const TopExplant = styled.div`
+  width: 16rem;
+  padding: 1%;
+  font-size: 1.25rem;
+  color: #fff;
+  font-weight: 600;
+`
+
+const LeftContainer = styled.div`
+  width: 16rem;
+  height: 48rem;
+  padding: 1% 3% 1% 3%;
+
+  border-right: 1px solid rgba(213, 213, 213, 0.2);
+  background-color: rgba(16, 18, 27, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   color: #fff;
   font-weight: 900;
+`
+
+const BodyContainer = styled.div`
+  display: flex;
 `
 
 const StudentName = styled.div`
@@ -47,39 +91,56 @@ const GradeSelect = styled.div`
   flex-direction: column;
   font-size: 1.125rem;
   font-weight: 600;
-`
+`;
+
+const Title = styled.div`
+  width: 95%;
+  color: rgba(113, 119, 144, 0.78);  
+  font-size: 1.25rem;
+  font-weight: 600;
+  dispaly: felx;
+  justify-content: start;
+`;
 
 const Grade = styled.div`
   width: 100%;
-  height: 2.875rem;
+  height: 2.375rem;
   padding: 5%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: start;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-size: 1rem;
 
   &:hover {
-    background: linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.2) 97.97%);
+    background: rgba(16, 18, 27, 0.4);
   }
 `;
 
 const MainContainer = styled.div`
-  width: 66.375rem;
-  height: 43.375rem;
+  width: 68rem;
+  height: 48rem;
   padding-top: 2%;
-  border-top-right-radius: 20px;
-  background-color: #fff;
+  background-color: rgba(16, 18, 27, 0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
 const Explan = styled.div`
+  width: 95%;
+  height: 4.5rem;
+  padding: 1%;
   margin-bottom: 1%;
+  border-radius: 15px;
+  color: #fff;
   font-size: 1rem;
-  font-weight: 900;
-`
+  font-weight: 600;
+  background: linear-gradient(to left, rgba(250, 255, 0, 1) 0%, rgba(252, 167, 74, 1) 25%, rgba(253, 85, 143, 1) 50%, rgba(255, 0, 214, 1) 75%);
+  display: flex;
+  align-items: center;
+`;
 
 const FullWrapper = styled.div`
   width: 100%;
@@ -91,8 +152,6 @@ const EnterGradesContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
 `
-
-
 
 // 가정: a11yProps 함수는 탭 패널의 속성을 설정하는 함수
 const a11yProps = (index: number) => {
@@ -118,8 +177,6 @@ const CustomTabPanel = ({ value, index, children }: { value: number, index: numb
 function SchoolTestGrades() {
     const [tabsValue, setTabsValue] = useState(0);
     // 학년 선택하는 상태인데, 이것만 나중에 api에 맞게 바꿔서 보내면 될듯
-    const location = useLocation();
-    const studentId = location.state.studentId;
 
     // 고1, 고2, 고3에 해당하는 이름으로 바꾸기
     const [selectedOption, setSelectedOption] = useState('고1');
@@ -134,201 +191,229 @@ function SchoolTestGrades() {
 
     return (
         <Background>
+            <BackImg />
             <Navbar />
 
             <FullContainer>
-                <LeftContainer>
-                    <StudentName>하재민</StudentName>
-                    <StudentInfo>양명고등학교 고3</StudentInfo>
+                <TopFullContainer>
+                    <TopExplant>Register</TopExplant>
 
-                    <GradeSelect>
-                        <Grade
-                            onClick={() => optionClickHandler('초1')}
-                            style={{
-                                background:
-                                    selectedOption === '초1'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            초등학교 1학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('초2')}
-                            style={{
-                                background:
-                                    selectedOption === '초2'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            초등학교 2학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('초3')}
-                            style={{
-                                background:
-                                    selectedOption === '초3'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            초등학교 3학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('초4')}
-                            style={{
-                                background:
-                                    selectedOption === '초4'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            초등학교 4학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('초5')}
-                            style={{
-                                background:
-                                    selectedOption === '초5'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            초등학교 5학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('초6')}
-                            style={{
-                                background:
-                                    selectedOption === '초6'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            초등학교 6학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('중1')}
-                            style={{
-                                background:
-                                    selectedOption === '중1'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            중학교 1학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('중2')}
-                            style={{
-                                background:
-                                    selectedOption === '중2'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            중학교 2학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('중3')}
-                            style={{
-                                background:
-                                    selectedOption === '중3'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            중학교 3학년
-                        </Grade>
-                        <Grade
-                            onClick={() => optionClickHandler('고1')}
-                            style={{
-                                background:
-                                    selectedOption === '고1'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            고등학교 1학년
-                        </Grade>
 
-                        <Grade
-                            onClick={() => optionClickHandler('고2')}
-                            style={{
-                                background:
-                                    selectedOption === '고2'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
+                    <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                        <Tabs
+                            value={tabsValue}
+                            onChange={tabsChangeHandler}
+                            sx={{
+                                '& .MuiTabs-indicator': {
+                                    backgroundColor: '#fff', // 아래 선의 색상을 흰색으로 변경
+                                },
+                                '.css-dg6nys-MuiButtonBase-root-MuiTab-root.Mui-selected': {
+                                    color: '#fff !important', // 선택된 탭의 글씨 색상을 흰색으로 변경
+                                },
                             }}
                         >
-                            고등학교 2학년
-                        </Grade>
-
-                        <Grade
-                            onClick={() => optionClickHandler('고3')}
-                            style={{
-                                background:
-                                    selectedOption === '고3'
-                                        ? 'linear-gradient(270deg, #504B65 0%, rgba(80, 75, 101, 0.00) 97.97%)'
-                                        : '',
-                            }}
-                        >
-                            고등학교 3학년
-                        </Grade>
-                    </GradeSelect>
-                </LeftContainer>
-
-                <MainContainer>
-
-                    <Explan>성적을 입력해주세요</Explan>
-
-                    <Box>
-                        <Tabs value={tabsValue} onChange={tabsChangeHandler}>
-                            <Tab label='내신' {...a11yProps(0)} />
-                            <Tab label='모의고사' {...a11yProps(1)} />
-                            <Tab label='BLEND' {...a11yProps(2)} />
+                            <Tab label='내신' {...a11yProps(0)} sx={{ fontSize: '1rem' }} />
+                            <Tab label='모의고사' {...a11yProps(1)} sx={{ fontSize: '1rem' }} />
+                            <Tab label='BLEND' {...a11yProps(2)} sx={{ fontSize: '1rem' }} />
                         </Tabs>
                     </Box>
+                </TopFullContainer>
 
-                    <CustomTabPanel value={tabsValue} index={0}>
-                        <EnterGradesContainer>
-                            {/* examId 는 어떤 시험인지 구분
+
+                <BodyContainer>
+
+                    <LeftContainer>
+                        <StudentName>하재민</StudentName>
+                        <StudentInfo>양명고등학교 고3</StudentInfo>
+
+                        <GradeSelect>
+                            <Title>초등학교</Title>
+                            <Grade
+                                onClick={() => optionClickHandler('초1')}
+                                style={{
+                                    background:
+                                        selectedOption === '초1'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                1학년
+                            </Grade>
+                            <Grade
+                                onClick={() => optionClickHandler('초2')}
+                                style={{
+                                    background:
+                                        selectedOption === '초2'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                2학년
+                            </Grade>
+                            <Grade
+                                onClick={() => optionClickHandler('초3')}
+                                style={{
+                                    background:
+                                        selectedOption === '초3'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                3학년
+                            </Grade>
+                            <Grade
+                                onClick={() => optionClickHandler('초4')}
+                                style={{
+                                    background:
+                                        selectedOption === '초4'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                4학년
+                            </Grade>
+                            <Grade
+                                onClick={() => optionClickHandler('초5')}
+                                style={{
+                                    background:
+                                        selectedOption === '초5'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                5학년
+                            </Grade>
+                            <Grade
+                                onClick={() => optionClickHandler('초6')}
+                                style={{
+                                    background:
+                                        selectedOption === '초6'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                6학년
+                            </Grade>
+                            <Title>중학교</Title>
+                            <Grade
+                                onClick={() => optionClickHandler('중1')}
+                                style={{
+                                    background:
+                                        selectedOption === '중1'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                1학년
+                            </Grade>
+                            <Grade
+                                onClick={() => optionClickHandler('중2')}
+                                style={{
+                                    background:
+                                        selectedOption === '중2'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                2학년
+                            </Grade>
+                            <Grade
+                                onClick={() => optionClickHandler('중3')}
+                                style={{
+                                    background:
+                                        selectedOption === '중3'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                3학년
+                            </Grade>
+                            <Title>고등학교</Title>
+                            <Grade
+                                onClick={() => optionClickHandler('고1')}
+                                style={{
+                                    background:
+                                        selectedOption === '고1'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                1학년
+                            </Grade>
+
+                            <Grade
+                                onClick={() => optionClickHandler('고2')}
+                                style={{
+                                    background:
+                                        selectedOption === '고2'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                2학년
+                            </Grade>
+
+                            <Grade
+                                onClick={() => optionClickHandler('고3')}
+                                style={{
+                                    background:
+                                        selectedOption === '고3'
+                                            ? 'rgba(16, 18, 27, 0.4)'
+                                            : '',
+                                }}
+                            >
+                                3학년
+                            </Grade>
+                        </GradeSelect>
+                    </LeftContainer>
+
+                    <MainContainer>
+
+                        <Explan>성적을 등록하세요!</Explan>
+
+                        <Title>성적 등록</Title>
+                        <CustomTabPanel value={tabsValue} index={0}>
+                            <EnterGradesContainer>
+                                {/* examId 는 어떤 시험인지 구분
                               * selectedGrade는 현재 선택한 학년 구분
                               * studentId는 해당 학생 (동적으로 해줘야 함) */}
-                            <EnterGrades examId='1' selectedGrade={selectedOption} studentId={studentId} />
-                            <EnterGrades examId='2' selectedGrade={selectedOption} studentId={studentId} />
-                            <EnterGrades examId='3' selectedGrade={selectedOption} studentId={studentId} />
-                            <EnterGrades examId='4' selectedGrade={selectedOption} studentId={studentId} />
-                        </EnterGradesContainer>
-                    </CustomTabPanel>
+                                <EnterGrades examId='1' selectedGrade={selectedOption} studentId={1} />
+                                <EnterGrades examId='2' selectedGrade={selectedOption} studentId={1} />
+                                <EnterGrades examId='3' selectedGrade={selectedOption} studentId={1} />
+                                <EnterGrades examId='4' selectedGrade={selectedOption} studentId={1} />
+                            </EnterGradesContainer>
+                        </CustomTabPanel>
 
-                    <CustomTabPanel value={tabsValue} index={1}>
-                        <EnterGradesContainer>
-                            <EnterGrades examId='5' selectedGrade={selectedOption} studentId={studentId} />
-                            <EnterGrades examId='6' selectedGrade={selectedOption} studentId={studentId} />
-                            <EnterGrades examId='7' selectedGrade={selectedOption} studentId={studentId} />
-                        </EnterGradesContainer>
+                        <CustomTabPanel value={tabsValue} index={1}>
+                            <EnterGradesContainer>
+                                <EnterGrades examId='5' selectedGrade={selectedOption} studentId={1} />
+                                <EnterGrades examId='6' selectedGrade={selectedOption} studentId={1} />
+                                <EnterGrades examId='7' selectedGrade={selectedOption} studentId={1} />
+                            </EnterGradesContainer>
 
-                        <EnterGradesContainer>
-                            <EnterGrades examId='8' selectedGrade={selectedOption} studentId={studentId} />
-                            <EnterGrades examId='9' selectedGrade={selectedOption} studentId={studentId} />
-                            <EnterGrades examId='10' selectedGrade={selectedOption} studentId={studentId} />
-                        </EnterGradesContainer>
-                    </CustomTabPanel>
+                            <EnterGradesContainer>
+                                <EnterGrades examId='8' selectedGrade={selectedOption} studentId={1} />
+                                <EnterGrades examId='9' selectedGrade={selectedOption} studentId={1} />
+                                <EnterGrades examId='10' selectedGrade={selectedOption} studentId={1} />
+                            </EnterGradesContainer>
+                        </CustomTabPanel>
 
-                    <CustomTabPanel value={tabsValue} index={2}>
-                        <EnterGradesContainer>
-                            <BlendEnterGrades examId='11' selectedGrade={selectedOption} studentId={1} />
-                            <BlendEnterGrades examId='12' selectedGrade={selectedOption} studentId={1} />
-                            <BlendEnterGrades examId='13' selectedGrade={selectedOption} studentId={1} />
-                            <BlendEnterGrades examId='14' selectedGrade={selectedOption} studentId={1} />
-                        </EnterGradesContainer>
-                    </CustomTabPanel>
-                </MainContainer>
+                        <CustomTabPanel value={tabsValue} index={2}>
+                            <EnterGradesContainer>
+                                <BlendEnterGrades examId='11' selectedGrade={selectedOption} studentId={1} />
+                                <BlendEnterGrades examId='12' selectedGrade={selectedOption} studentId={1} />
+                                <BlendEnterGrades examId='13' selectedGrade={selectedOption} studentId={1} />
+                                <BlendEnterGrades examId='14' selectedGrade={selectedOption} studentId={1} />
+                            </EnterGradesContainer>
+                        </CustomTabPanel>
+                    </MainContainer>
+
+
+                </BodyContainer>
+
             </FullContainer>
         </Background>
     )
 };
 
-export default SchoolTestGrades;
+export default SchoolTestGrades; 
