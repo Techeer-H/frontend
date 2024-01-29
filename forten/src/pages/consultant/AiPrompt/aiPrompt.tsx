@@ -7,17 +7,19 @@ import ParentAvergy from '../../../components/modal/parentAvergy';
 import WriteButton from '../../../components/modal/writeButton';
 import SchoolGrades from '../../../components/modal/schoolGrades';
 import WordBox from '../../../components/modal/wordBox';
-import ConsultantRatingPage from '../../../pages/newpages/Consultant/newModal/consultantrating'
+import ConsultantRatingPage from '../../../pages/newpages/Consultant/newModal/consultantrating';
 import StudentTable from '../../../components/modal/studentTable';
-import SendImg from '../../../assets/send.png';
-import BackgroundImg from '../../../assets/backgroundImg.png'
+import BackGround from '../../../assets/BackGround2.jpeg';
+import Pdf from '../../../assets/PDF.svg';
 
 // canvas import
 import html2canvas from 'html2canvas';
 
 const Background = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  min-width: 1350px;
   height: 170vh;
   min-height: 1500px;
   padding-top: 2%;
@@ -25,20 +27,11 @@ const Background = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const BackImg = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(${BackgroundImg});
-  background-size: 100% 100%; /* 이미지 크기를 100%로 설정 */
+  min-height: 900px;
+  min-width: 1350px;
+  background: url(${BackGround}) no-repeat;
+  background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(5px); /* 뿌옇게 필터 적용 (5px는 조절 가능) */
-  z-index: -1;
 `;
 
 const FullContainer = styled.div`
@@ -63,7 +56,7 @@ const Header = styled.div`
 const Student = styled.div`
   display: flex;
   flex-direction: column;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 600;
 `;
 
@@ -71,11 +64,10 @@ const HeaderRight = styled.div`
   display: flex;
 `;
 
-
 const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 const ButtonPdf = styled.button`
@@ -88,18 +80,17 @@ const ButtonPdf = styled.button`
   border-radius: 0.6rem;
   justify-content: space-around;
   align-items: center;
-`
+`;
 
 const GraphContainer = styled.div`
   position: relative;
-  
-`
+`;
 
 const StudentAvergyWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 8rem;
-`
+`;
 
 const AiBox = styled.div`
   width: 84rem;
@@ -108,7 +99,7 @@ const AiBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 function AiPrompt() {
   // locaton 이용해서 컨설턴트 메인에서 studentId를 가져와서 api에 연결
@@ -117,7 +108,6 @@ function AiPrompt() {
   const graphContainerRef = useRef(null);
 
   const [isModal, setIsModal] = useState(false);
-
 
   const modalOpen = () => {
     setIsModal(!isModal);
@@ -157,10 +147,8 @@ function AiPrompt() {
     <>
       {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
       <Background>
-        <BackImg />
         <Navbar />
         <FullContainer>
-
           <Header>
             <Student>
               <StudentTable studentId={studentId} />
@@ -170,16 +158,13 @@ function AiPrompt() {
               <ParentAvergy studentId={studentId} />
 
               <ButtonWrapper>
-
-
                 <WriteButton onConfirm={modalOpen} />
 
-                <ButtonPdf onClick={saveChartImg} >
+                <ButtonPdf onClick={saveChartImg}>
                   <div>PDF 저장</div>
-                  <img src={SendImg} alt='저장' />
+                  <img style={{ width: '1.5rem', height: '1.5rem' }} src={Pdf} alt="저장" />
                 </ButtonPdf>
               </ButtonWrapper>
-
             </HeaderRight>
           </Header>
 
@@ -189,13 +174,11 @@ function AiPrompt() {
             <StudentAvergyWrapper>
               <StudentAvergy studentId={studentId} />
             </StudentAvergyWrapper>
-
           </GraphContainer>
 
           <AiBox>
             <WordBox studentId={studentId} />
           </AiBox>
-
         </FullContainer>
       </Background>
     </>

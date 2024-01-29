@@ -20,7 +20,7 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
 
   // 학생 id를 받아옴, 이 student 값을 통신할 때 보내면
   // 해당 학생에 대한 성적을 입력할 수 있음
-  const student = studentId
+  const student = studentId;
   console.log(student);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -74,7 +74,10 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
     event.preventDefault();
 
     try {
-      const response = await axios.post(`http://3.37.41.244:8000/api/student/${student}/score/`, data);
+      const response = await axios.post(
+        `http://3.37.41.244:8000/api/student/${student}/score/`,
+        data,
+      );
       console.log('성공적으로 저장되었습니다', response.data);
       alert('성공적으로 저장되었습니다');
     } catch (error) {
@@ -130,21 +133,20 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
         onChange={(e) => setEnglishGrade(e.target.value)}
       />
       <Input
-        type='text'
-        placeholder='Science'
+        type="text"
+        placeholder="Science"
         value={scienceGrade}
         onChange={(e) => setScienceGrade(e.target.value)}
       />
       <Input
-        type='text'
-        placeholder='social'
+        type="text"
+        placeholder="social"
         value={socialGrade}
         onChange={(e) => setSocialGrade(e.target.value)}
       />
 
       <BtnWrapper>
         <SummitBtn type="submit">
-          저장
           <div>
             <img src={send} alt="전송 아이콘" />
           </div>
@@ -155,15 +157,24 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
 }
 
 const Form = styled.form`
-  width: 13.75rem;
-  height: 16rem;
-  background-color: rgba(146, 151, 179, 0.13);
-  border-radius: 15px;
-  border: 2px solid #707070;
+  display: flex;
+  width: 17rem;
+  height: 17rem;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+  align-items: center;
+  background: rgba(146, 151, 179, 0.13);
+  border-radius: 0.875rem;
+  border: 0.5px solid #707070;
+
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
+  transition: 0.4s ease;
+
+  &:hover {
+    backdrop-filter: blur(20px);
+    scale: 1.05;
+  }
 `;
 
 const Explan = styled.div`
@@ -177,23 +188,29 @@ const Explan = styled.div`
 const Input = styled.input`
   width: 12rem;
   height: 2rem;
-  padding: 2%;
   background-color: transparent;
-  border-bottom: 1px solid #3D4450;
+  border-bottom: 1px solid #3d4450;
   color: #fff;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const BtnWrapper = styled.div`
-  width: 12rem;
+  width: 4rem;
   height: 2rem;
-  border-radius: 3px;
-  background-color: #3D4450;
-  color: #fff;
+  border-radius: 1.25rem;
+  background: #498bfa;
+  margin: 0.5rem 1.19rem 0.56rem 12.75rem;
   font-size: 0.875rem;
   font-weight: 600;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.1s ease;
+  &:hover {
+    background: #005eff;
+  }
 `;
 
 const SummitBtn = styled.button`
