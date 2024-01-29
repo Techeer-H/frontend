@@ -20,14 +20,9 @@
 ## System Architecture
 
 ### Tech Stack
-
-| Frontend                                                                                  | Backend                 | Devops                  | DB     | Others    |
-| ----------------------------------------------------------------------------------------- | ----------------------- | ----------------------- | ------ | --------- |
-| ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)        | Django                  | Docker                  | MySQL  | Swagger   |
-| CSS                                                                                       | Rest Framework          | Nginx                   | Redis  | Notion    |
-| Tailwind CSS                                                                              | Celery                  | Amazon EC2              |        | Slack     |
-| Typescript                                                                                | Gunicorn                | Prometheus              |        | Postman   |
-|                                                                                           |                         | Grafana                 |        |           |
+| Frontend | Backend | Devops | DB | Others |
+| --- | --- | --- | --- | --- |
+| ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) | ![Django Rest Framework](https://img.shields.io/badge/Django_Rest_Framework-092E20?style=for-the-badge&logo=django&logoColor=white) ![Celery](https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white) ![Gunicorn](https://img.shields.io/badge/Gunicorn-366B9E?style=for-the-badge&logo=gunicorn&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/Nginx-269539?style=for-the-badge&logo=nginx&logoColor=white) ![Amazon EC2](https://img.shields.io/badge/Amazon_EC2-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white) | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white) | ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black) ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) |
 
 ## Service
 
