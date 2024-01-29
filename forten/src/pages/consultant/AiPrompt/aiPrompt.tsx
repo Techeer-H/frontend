@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../../../components/consultant/navBar';
@@ -11,6 +11,9 @@ import ConsultantRatingPage from '../../../pages/newpages/Consultant/newModal/co
 import StudentTable from '../../../components/modal/studentTable';
 import SendImg from '../../../assets/send.png';
 import BackgroundImg from '../../../assets/backgroundImg.png'
+
+// canvas import
+import html2canvas from 'html2canvas';
 
 const Background = styled.div`
   width: 100%;
@@ -108,6 +111,7 @@ function AiPrompt() {
   // locaton 이용해서 컨설턴트 메인에서 studentId를 가져와서 api에 연결
   const location = useLocation();
   const studentId = location.state.studentId;
+  const graphContainerRef = useRef(null);
 
   const [isModal, setIsModal] = useState(false);
 
@@ -118,6 +122,34 @@ function AiPrompt() {
   const closeModal = () => {
     setIsModal(!isModal);
   };
+
+  const saveChartImg = async () => {
+    try {
+      // 그래프를 감싸고 있는 컨테이너 요소를 참조합니다.
+      const graphContainer = graphContainerRef.current;
+
+      // graphContainer가 존재하지 않으면 함수를 종료합니다.
+      if (!graphContainer) {
+        console.error('Graph container not found.');
+        return;
+      }
+
+      // html2canvas을 사용하여 컨테이너 내용을 이미지로 캡쳐합니다.
+      const canvas = await html2canvas(graphContainer);
+
+      // 이미지 데이터를 얻어옵니다.
+      const imageData = canvas.toDataURL('image/png');
+
+      // 이미지를 다운로드합니다.
+      const link = document.createElement('a');
+      link.href = imageData;
+      link.download = 'chart_image.png';
+      link.click();
+    } catch (error) {
+      console.error('Error saving chart image:', error);
+    }
+  };
+
   return (
     <>
       {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
@@ -139,7 +171,7 @@ function AiPrompt() {
 
                 <WriteButton onConfirm={modalOpen} />
 
-                <ButtonPdf>
+                <ButtonPdf onClick={saveChartImg} >
                   <div>PDF 저장</div>
                   <img src={SendImg} alt='저장' />
                 </ButtonPdf>
@@ -148,7 +180,7 @@ function AiPrompt() {
             </HeaderRight>
           </Header>
 
-          <GraphContainer>
+          <GraphContainer ref={graphContainerRef}>
             <SchoolGrades studentId={studentId} />
 
             <StudentAvergyWrapper>
