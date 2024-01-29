@@ -56,7 +56,9 @@
    ```bash
    git clone https://github.com/your-username/your-repo.git
 
-## Member
+   
+
+![bi_people-fill](https://github.com/Techeer-H/frontend/assets/154998592/eff37fc6-54b6-4e17-bf6b-414d1023c042) Member
 
 
 | **Pictures**  | |  | |  |  |  |
