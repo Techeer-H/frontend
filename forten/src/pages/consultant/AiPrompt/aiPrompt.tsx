@@ -156,7 +156,7 @@ function AiPrompt() {
 
                 <ButtonPdf onClick={saveChartImg}>
                   <div>PDF 저장</div>
-                  <img style={{ width: '1rem', height: '2rem' }} src={Pdf} alt="저장" />
+                  <img style={{ width: '1.5rem', height: '1.5rem' }} src={Pdf} alt="저장" />
                 </ButtonPdf>
               </ButtonWrapper>
             </HeaderRight>
