@@ -14,11 +14,6 @@ import ConsultantRating from './pages/consultant/modal/consultantrating';
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
 import OnBoardingPage from './pages/onboard/thirdpage/index';
 
-import AiPromptPage from './pages/consultant/AiPrompt';
-
-import MockGrade from './pages/consultant/graderegister/mockTest';
-import SchoolGrade from './pages/consultant/graderegister/schoolTest';
-
 // 변경된 페이지들
 import NewAiPrompt from './pages/consultant/AiPrompt/aiPrompt';
 import NewSchoolTest from './pages/consultant/graderegister/inputTest';
@@ -61,19 +56,6 @@ const routers = createBrowserRouter([
   {
     path: '/consultantMain',
     element: <ConsultantMainPage />,
-  },
-  {
-    path: '/schooltest',
-    element: <SchoolGrade />,
-  },
-
-  {
-    path: '/mocktest',
-    element: <MockGrade />,
-  },
-  {
-    path: '/aiprompt',
-    element: <AiPromptPage />,
   },
   {
     path: '/teacher',
