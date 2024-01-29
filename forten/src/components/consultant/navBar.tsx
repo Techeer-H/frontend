@@ -4,6 +4,8 @@ import Logo from '../../assets/For-TEN.png';
 import signOut from '../../assets/signOut.png';
 import { useNavigate } from 'react-router-dom';
 
+import BlendLogoWhite from '../../assets/BlendLogoWhite.png';
+
 const Wrapper = styled.div`
   width: 84rem;
   margin-bottom: 2rem;
@@ -59,7 +61,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <MainLogo onClick={goMain}>
-        <img src={Logo} alt="Logo" />
+        <img src={BlendLogoWhite} alt="Logo" />
       </MainLogo>
 
       <MemberContainer>
