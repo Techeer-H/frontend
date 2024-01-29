@@ -17,8 +17,8 @@
    - 한눈에 들어오는 UI/UX
    - 차트를 통해 종합적인 학생 성적 분석
 
-## System Architecture
-![system architecture](https://github.com/Techeer-H/frontend/assets/154998592/be01c675-c7a3-4cd7-96cb-9cd9cc0cd067)
+##  ![tdesign_architecture-hui-style](https://github.com/Techeer-H/frontend/assets/154998592/aee4f92b-c1bb-4558-9f2c-94071936006d) System Architecture
+
 
 ### Tech Stack
 | Frontend | Backend | Devops | DB | Others |
