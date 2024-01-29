@@ -76,9 +76,11 @@ const ButtonPdf = styled.button`
   width: 8rem;
   height: 2.5rem;
   background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  font-size: 1rem;
   display: flex;
   border-radius: 0.6rem;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 `
 
@@ -117,48 +119,51 @@ function AiPrompt() {
     setIsModal(!isModal);
   };
   return (
-    <Background>
-      <BackImg />
+    <>
       {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
-      <Navbar />
-      <FullContainer>
+      <Background>
+        <BackImg />
+        <Navbar />
+        <FullContainer>
 
-        <Header>
-          <Student>
-            <StudentTable studentId={studentId} />
-          </Student>
+          <Header>
+            <Student>
+              <StudentTable studentId={studentId} />
+            </Student>
 
-          <HeaderRight>
-            <ParentAvergy studentId={studentId} />
+            <HeaderRight>
+              <ParentAvergy studentId={studentId} />
 
-            <ButtonWrapper>
+              <ButtonWrapper>
 
 
-              <WriteButton onConfirm={modalOpen} />
+                <WriteButton onConfirm={modalOpen} />
 
-              <ButtonPdf>
-                <img src={SendImg} alt='pdf 저장' />
-              </ButtonPdf>
-            </ButtonWrapper>
+                <ButtonPdf>
+                  <div>PDF 저장</div>
+                  <img src={SendImg} alt='저장' />
+                </ButtonPdf>
+              </ButtonWrapper>
 
-          </HeaderRight>
-        </Header>
+            </HeaderRight>
+          </Header>
 
-        <GraphContainer>
-          <SchoolGrades studentId={studentId} />
+          <GraphContainer>
+            <SchoolGrades studentId={studentId} />
 
-          <StudentAvergyWrapper>
-            <StudentAvergy studentId={studentId} />
-          </StudentAvergyWrapper>
+            <StudentAvergyWrapper>
+              <StudentAvergy studentId={studentId} />
+            </StudentAvergyWrapper>
 
-        </GraphContainer>
+          </GraphContainer>
 
-        <AiBox>
-          <WordBox studentId={studentId} />
-        </AiBox>
+          <AiBox>
+            <WordBox studentId={studentId} />
+          </AiBox>
 
-      </FullContainer>
-    </Background>
+        </FullContainer>
+      </Background>
+    </>
   );
 }
 

@@ -40,6 +40,7 @@ function StudentAvergy(props: StudentAvergyProps) {
       type: 'donut',
       width: '400',
       height: '200',
+      background: 'transparent',
     },
     theme: {
       mode: 'dark',

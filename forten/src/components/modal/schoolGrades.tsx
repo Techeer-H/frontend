@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 `;
 
 const FlexContainer = styled.div`
+  padding: 1%;
   display: flex;
   justify-content: end;
 `;
@@ -340,7 +341,7 @@ function SchoolGrades(props: SchoolGradesProps) {
         series={chartOptions.series}
         type="area"
         height={630}
-        width={1250}
+        width={1300}
       />
     </Wrapper>
   );
