@@ -21,13 +21,13 @@
 
 ### Tech Stack
 
-| Frontend        | Backend                 | Devops                  | DB     | Others    |
-| --------------- | ----------------------- | ----------------------- | ------ | --------- |
-| React           | Django                  | Docker                  | MySQL  | Swagger   |
-| CSS             | Rest Framework          | Nginx                   | Redis  | Notion    |
-| Tailwind CSS    | Celery                  | Amazon EC2              |        | Slack     |
-| Typescript      | Gunicorn                | Prometheus              |        | Postman   |
-|                 |                         | Grafana                 |        |           |
+| Frontend                                                                                  | Backend                 | Devops                  | DB     | Others    |
+| ----------------------------------------------------------------------------------------- | ----------------------- | ----------------------- | ------ | --------- |
+| ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react)        | Django                  | Docker                  | MySQL  | Swagger   |
+| CSS                                                                                       | Rest Framework          | Nginx                   | Redis  | Notion    |
+| Tailwind CSS                                                                              | Celery                  | Amazon EC2              |        | Slack     |
+| Typescript                                                                                | Gunicorn                | Prometheus              |        | Postman   |
+|                                                                                           |                         | Grafana                 |        |           |
 
 ## Service
 
