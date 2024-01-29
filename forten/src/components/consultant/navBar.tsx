@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
   width: 84rem;
-  margin: auto;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

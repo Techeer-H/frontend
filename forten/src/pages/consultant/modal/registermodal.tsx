@@ -133,7 +133,7 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
   };
   return (
     <>
-      <Background />
+      <BackDrop />
 
       <Maincontainer>
         <TitleBar>
@@ -214,7 +214,7 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
   );
 };
 
-const Background = styled.div`
+const BackDrop = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -231,7 +231,8 @@ const TitleBar = styled.div`
   width: 27.5rem;
   height: 3.5625rem;
   border-radius: 1.25rem 0rem 0rem 0rem;
-  background: #302b51;
+  background: rgba(16, 18, 27, 0.4);
+  backdrop-filter: blur(20px);
 `;
 const Modal = styled.div`
   width: 27.5rem;
@@ -241,7 +242,8 @@ const Modal = styled.div`
   padding: 1rem 2rem;
   justify-content: space-between;
   border: 1px solid #d8d8d8;
-  background: #fff;
+  background: #fcffff;
+  border-radius: 0rem 0rem 0.625rem 0.625rem;
   font-size: 0.8rem;
 `;
 
@@ -369,11 +371,10 @@ const Button = styled.button`
   color: #ffffff;
   bottom: 2.4rem;
   left: 6rem;
-  background: linear-gradient(83deg, #ccbfc6 -23.46%, #8d8ab4 45.89%);
-  transition: background-color 0.5s ease;
+  background: rgba(64, 125, 255, 0.47);
+  transition: background-color 0.3s ease;
   &:hover {
-    background: #e0baff;
-    color: #292929;
+    background: #5866ff;
   }
 `;
 

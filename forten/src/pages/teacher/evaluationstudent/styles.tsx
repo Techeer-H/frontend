@@ -1,15 +1,30 @@
 import styled from 'styled-components';
+import BackGround from '../../../assets/BackGround.svg';
 
 export const Background = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
-  padding-top: 2%;
-
-  background: linear-gradient(237deg, #709d77 34.05%, #d9c9c9 100%);
+  min-height: 900px;
+  min-width: 1350px;
+  padding-top: 1rem;
+  background: url(${BackGround}) no-repeat;
+  background-size: cover; /* This will make the background image cover the entire div */
+  background-position: center;
 `;
 
+export const TopFullContainer = styled.div`
+  width: 84rem;
+  height: 4rem;
+  border-radius: 1.25rem 1.25rem 0rem 0rem;
+  border-bottom: 1px solid rgba(213, 213, 213, 0.2);
+  background: rgba(16, 18, 27, 0.4);
+  backdrop-filter: blur(20px);
+  display: flex;
+`;
 export const fullcontainer = styled.div`
-  margin-top: 2%;
   display: flex;
   justify-content: center;
 `;
@@ -28,24 +43,30 @@ export const Container = styled.div`
 `;
 
 export const LeftFullContainer = styled.div`
-  width: 13.875rem;
-  height: 44rem;
-  background-color: rgba(100, 100, 100, 0.2);
-  display: flex;
+  width: 16rem;
+  height: 48rem;
+  padding: 1.13rem 2.5rem 0rem 1.5rem;
   flex-direction: column;
-  padding: 1%;
-  border-top-left-radius: 20px;
-  color: #fff;
+  justify-content: flex-end;
+  margin: 0rem 0rem 4.62rem 2.81rem;
+  border-radius: 0rem 0rem 0rem 1.25rem;
+  border-right: 1px solid rgba(213, 213, 213, 0.2);
+  background: rgba(16, 18, 27, 0.4);
+  backdrop-filter: blur(20px);
 `;
 
 export const RightFullContainer = styled.div`
-  width: 67.375rem;
-  height: 44rem;
-  background-color: #ffffff;
-  border-top-right-radius: 20px;
+  width: 68rem;
+  height: 48rem;
   display: flex;
+  padding: 2.44rem 4.12rem 1rem 4.5rem;
   flex-direction: column;
-  justify-content: center;
+
+  border-radius: 0rem 0rem 1.25rem 0rem;
+  background: rgba(16, 18, 27, 0.7);
+  backdrop-filter: blur(20px);
+
+  margin: 0rem 2.81rem 4.62rem 0rem;
 `;
 
 export const NameBox = styled.div``;
@@ -61,8 +82,6 @@ export const CommentBox = styled.div`
 export const NamesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.9rem;
-  margin-top: 0.5rem;
 `;
 export const Name = styled.span`
   color: #000;
@@ -78,56 +97,55 @@ export const TextContainer = styled.div`
   flex-direction: column;
 `;
 
-export const Explan = styled.div`
-  width: 7rem;
-  height: 3rem;
-  color: #97b3a1;
-  font-family: Inter;
-  font-size: 1.375rem;
-  font-style: normal;
-  font-weight: 700;
-  margin: 2rem 0 0rem 2.8rem;
-`;
 export const CommentWrapper = styled.ul`
-  width: 64em;
-  height: 36rem;
-  margin: 0 0 2rem 1.6rem;
-
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 0.5rem;
+  width: 59rem;
+  height: 35rem;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #f9fafb;
+  overflow: auto;
+  border-radius: 0.875rem;
+  background: rgba(146, 151, 179, 0.13);
 `;
 
 export const TitleBar = styled.div`
-  display: flex;
-  align-items: center;
-  width: 64rem;
+  background-color: rgba(115, 123, 123, 0.24);
+  width: 59rem;
   height: 4rem;
-  background: #f0f0f0;
-  margin: 1.6rem 0 1rem 1.6rem;
-  border-radius: 1rem;
-  padding: 1%;
+  border-radius: 0.875rem;
+  background: rgba(146, 151, 179, 0.13);
+
+  display: flex; /* Flexbox를 활성화합니다. */
+  align-items: center;
+  justify-content: space-between; /* 수직 가운데 정렬 */
+  font-size: 0.9rem;
+  font-weight: 400;
+  position: sticky;
+  color: #ededed;
+  margin-bottom: 1.5rem;
 `;
 
 export const Write = styled.div`
   width: 23rem;
   display: flex;
   justify-content: center;
-  color: #737b7b;
+  color: #ededed;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
 `;
 export const Rating = styled.div`
   width: 31rem;
   padding-right: 2rem;
   display: flex;
   justify-content: end;
-  color: #737b7b;
+  color: #ededed;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
 `;
 export const IconContainer = styled.div`
   width: 8rem;
@@ -135,30 +153,56 @@ export const IconContainer = styled.div`
   justify-content: space-evenly;
 `;
 export const Upgrade = styled.div`
-  color: #737b7b;
+  color: #ededed;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
 `;
 export const Delete = styled.div`
-  color: #737b7b;
+  color: #ededed;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
+`;
+
+export const StudentListExplan = styled.div`
+  color: #f9fafb;
+  font-family: inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  display: flex;
+  width: 10.4375rem;
+  height: 4rem;
+  padding: 0.875rem 1.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-bottom: 2px solid #fff;
 `;
 
 export const BtnContainer = styled.div`
-  width: 9rem;
-  height: 2.5rem;
-  background: rgba(66, 66, 66, 0.28);
-  border-radius: 15px;
+  width: 9.3125rem;
+  height: 3.0625rem;
+  background: rgba(63, 63, 63, 0.6);
+  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2.06rem 0 0 78rem;
+  margin: 0.5rem 2.61rem 0.5rem 45.25rem;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background: rgba(30, 30, 30, 0.9);
+  }
 `;
-
 export const WriteBtn = styled.button`
+  width: 9rem;
+  height: 3rem;
   color: #fff;
   font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;

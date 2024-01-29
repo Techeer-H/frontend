@@ -124,7 +124,7 @@ const ConsultantMainPage = () => {
               marginRight: '13.1rem',
             }}
           ></div>
-          <S.StudentListExplan>StudnetList</S.StudentListExplan>
+          <S.StudentListExplan>StudentList</S.StudentListExplan>
 
           <S.StudentSearchContainer>
             <img
