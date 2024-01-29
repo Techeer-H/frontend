@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BackGround from '../../../assets/BackGround.svg';
+import BackGround from '../../../assets/BackGround2.jpeg';
 
 export const background = styled.div`
   align-items: center;
