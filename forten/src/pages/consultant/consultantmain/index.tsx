@@ -13,6 +13,8 @@ import search from '../../../assets/searchIcon.svg';
 import RegisterModal from '../modal/registermodal';
 import axios from 'axios';
 
+
+
 export type UserType = {
   user_id: string;
   email: string;

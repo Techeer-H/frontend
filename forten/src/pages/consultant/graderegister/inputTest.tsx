@@ -9,6 +9,7 @@ import BackgroundImg from '../../../assets/BackGround2.jpeg';
 import StudentTable from '../../../components/modal/studentTable';
 
 const Background = styled.div`
+    padding-top: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,7 +211,7 @@ function InputTest() {
     setSelectedOption(option);
   };
 
-  const tabsChangeHandler = ({}, newValue: number) => {
+  const tabsChangeHandler = ({ }, newValue: number) => {
     setTabsValue(newValue);
   };
 
@@ -251,17 +252,17 @@ function InputTest() {
               }}
             >
               <Tab
-                label="내신"
+                label="BLEND"
                 {...a11yProps(0)}
                 sx={{ color: '#F9FAFB', fontSize: '1rem', margin: '0.5rem 1rem' }}
               />
               <Tab
-                label="모의고사"
+                label="내신"
                 {...a11yProps(1)}
                 sx={{ color: '#F9FAFB', fontSize: '1rem', margin: '0.5rem 1rem' }}
               />
               <Tab
-                label="BLEND"
+                label="모의고사"
                 {...a11yProps(2)}
                 sx={{ color: '#F9FAFB', fontSize: '1rem', margin: '0.5rem 1rem' }}
               />
@@ -401,35 +402,6 @@ function InputTest() {
 
             <CustomTabPanel value={tabsValue} index={0}>
               <EnterGradesContainer>
-                {/* examId 는 어떤 시험인지 구분
-                 * selectedGrade는 현재 선택한 학년 구분
-                 * studentId는 해당 학생 (동적으로 해줘야 함) */}
-                <EnterGrades examId="1" selectedGrade={selectedOption} studentId={studentId} />
-                <EnterGrades examId="2" selectedGrade={selectedOption} studentId={studentId} />
-              </EnterGradesContainer>
-
-              <EnterGradesContainer>
-                <EnterGrades examId="3" selectedGrade={selectedOption} studentId={studentId} />
-                <EnterGrades examId="4" selectedGrade={selectedOption} studentId={studentId} />
-              </EnterGradesContainer>
-            </CustomTabPanel>
-
-            <CustomTabPanel value={tabsValue} index={1}>
-              <EnterGradesContainer>
-                <EnterGrades examId="5" selectedGrade={selectedOption} studentId={studentId} />
-                <EnterGrades examId="6" selectedGrade={selectedOption} studentId={studentId} />
-                <EnterGrades examId="7" selectedGrade={selectedOption} studentId={studentId} />
-              </EnterGradesContainer>
-
-              <EnterGradesContainer>
-                <EnterGrades examId="8" selectedGrade={selectedOption} studentId={studentId} />
-                <EnterGrades examId="9" selectedGrade={selectedOption} studentId={studentId} />
-                <EnterGrades examId="10" selectedGrade={selectedOption} studentId={studentId} />
-              </EnterGradesContainer>
-            </CustomTabPanel>
-
-            <CustomTabPanel value={tabsValue} index={2}>
-              <EnterGradesContainer>
                 <BlendEnterGrades
                   examId="11"
                   selectedGrade={selectedOption}
@@ -453,6 +425,40 @@ function InputTest() {
                   studentId={studentId}
                 />
               </EnterGradesContainer>
+            </CustomTabPanel>
+
+            <CustomTabPanel value={tabsValue} index={1}>
+              <EnterGradesContainer>
+                {/* examId 는 어떤 시험인지 구분
+                 * selectedGrade는 현재 선택한 학년 구분
+                 * studentId는 해당 학생 (동적으로 해줘야 함) */}
+                <EnterGrades examId="1" selectedGrade={selectedOption} studentId={studentId} />
+                <EnterGrades examId="2" selectedGrade={selectedOption} studentId={studentId} />
+              </EnterGradesContainer>
+
+              <EnterGradesContainer>
+                <EnterGrades examId="3" selectedGrade={selectedOption} studentId={studentId} />
+                <EnterGrades examId="4" selectedGrade={selectedOption} studentId={studentId} />
+              </EnterGradesContainer>
+
+
+            </CustomTabPanel>
+
+            <CustomTabPanel value={tabsValue} index={2}>
+
+              <EnterGradesContainer>
+                <EnterGrades examId="5" selectedGrade={selectedOption} studentId={studentId} />
+                <EnterGrades examId="6" selectedGrade={selectedOption} studentId={studentId} />
+                <EnterGrades examId="7" selectedGrade={selectedOption} studentId={studentId} />
+              </EnterGradesContainer>
+
+              <EnterGradesContainer>
+                <EnterGrades examId="8" selectedGrade={selectedOption} studentId={studentId} />
+                <EnterGrades examId="9" selectedGrade={selectedOption} studentId={studentId} />
+                <EnterGrades examId="10" selectedGrade={selectedOption} studentId={studentId} />
+              </EnterGradesContainer>
+
+
             </CustomTabPanel>
           </MainContainer>
         </BodyContainer>

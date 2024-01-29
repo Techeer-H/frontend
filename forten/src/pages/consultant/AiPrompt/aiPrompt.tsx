@@ -12,6 +12,8 @@ import StudentTable from '../../../components/modal/studentTable';
 import BackGround from '../../../assets/BackGround2.jpeg';
 import Pdf from '../../../assets/PDF.svg';
 
+import Example from '../../../assets/example.png';
+
 // canvas import
 import html2canvas from 'html2canvas';
 
@@ -135,7 +137,9 @@ function AiPrompt() {
 
       // 이미지를 다운로드합니다.
       const link = document.createElement('a');
-      link.href = imageData;
+
+      //       link.href = Example; -> imageData
+      link.href = Example;
       link.download = 'chart_image.png';
       link.click();
     } catch (error) {
