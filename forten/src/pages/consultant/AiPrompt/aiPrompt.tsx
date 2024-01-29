@@ -22,6 +22,9 @@ const Background = styled.div`
   min-height: 1500px;
   padding-top: 2%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const BackImg = styled.div`

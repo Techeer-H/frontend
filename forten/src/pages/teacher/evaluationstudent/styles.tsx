@@ -6,10 +6,10 @@ export const Background = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   min-height: 900px;
   min-width: 1350px;
-  padding-top: 1rem;
+  padding-top: 2%;
   background: url(${BackGround}) no-repeat;
   background-size: cover; /* This will make the background image cover the entire div */
   background-position: center;
@@ -115,6 +115,7 @@ export const TitleBar = styled.div`
   background-color: rgba(115, 123, 123, 0.24);
   width: 59rem;
   height: 4rem;
+  padding: 1rem;
   border-radius: 0.875rem;
   background: rgba(146, 151, 179, 0.13);
 

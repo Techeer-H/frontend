@@ -107,95 +107,92 @@ const ConsultantMainPage = () => {
 
   return (
     // 전체화면
+    <>
+      {isModalOpened && (
+        <RegisterModal
+          studentlist={studentlist}
+          setstudentList={setStudentList}
+          handleClick={handleClick}
+        />
+      )}
+      <S.background>
+        <Navbar />
+        <div style={{ justifyContent: 'center', display: 'flex' }}>
+          <S.TopFullContainer>
+            <div style={{ marginLeft: '2rem' }}></div>
+            <div
+              style={{
+                marginTop: '1rem',
+                width: '15px',
+                height: '15px',
+                backgroundColor: '#f96057',
+                borderRadius: '50%',
+                boxShadow: '24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65',
+                marginRight: '13.1rem',
+              }}
+            ></div>
+            <S.StudentListExplan>StudentList</S.StudentListExplan>
 
-    <S.background>
-      <Navbar />
-      <div style={{ justifyContent: 'center', display: 'flex' }}>
-        <S.TopFullContainer>
-          <div style={{ marginLeft: '2rem' }}></div>
-          <div
-            style={{
-              marginTop: '1rem',
-              width: '15px',
-              height: '15px',
-              backgroundColor: '#f96057',
-              borderRadius: '50%',
-              boxShadow: '24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65',
-              marginRight: '13.1rem',
-            }}
-          ></div>
-          <S.StudentListExplan>StudentList</S.StudentListExplan>
+            <S.StudentSearchContainer>
+              <img
+                src={search}
+                style={{ marginTop: '0.1rem', width: '1rem', height: '1rem' }}
+                alt="Search Icon"
+              />
+              <S.StyledInput
+                onChange={getSearchData}
+                value={studentInput}
+                type="text"
+                placeholder="Search"
+              />
+            </S.StudentSearchContainer>
+            <S.StyledButton type="button" onClick={handleClick} />
+            <S.StyledSelect onChange={stateSelectHandler} value={stateSelect}>
+              <option value="1">전체</option>
+              <option value="2">완료</option>
+              <option value="3">미완료</option>
+            </S.StyledSelect>
+          </S.TopFullContainer>
+        </div>
 
-          <S.StudentSearchContainer>
-            <img
-              src={search}
-              style={{ marginTop: '0.1rem', width: '1rem', height: '1rem' }}
-              alt="Search Icon"
-            />
-            <S.StyledInput
-              onChange={getSearchData}
-              value={studentInput}
-              type="text"
-              placeholder="Search"
-            />
-          </S.StudentSearchContainer>
-          <S.StyledButton type="button" onClick={handleClick} />
-          <S.StyledSelect onChange={stateSelectHandler} value={stateSelect}>
-            <option value="1">전체</option>
-            <option value="2">완료</option>
-            <option value="3">미완료</option>
-          </S.StyledSelect>
-        </S.TopFullContainer>
-      </div>
+        <S.fullcontainer>
+          <S.LeftFullContainer>
+            <S.MarkContainer>
+              <S.MarkHeader>MARK</S.MarkHeader>
+              <S.MarkList>
+                <BookMarkList
+                  bookmarkedStudents={bookmarkedStudents}
+                  setBookmarkedStudents={setBookmarkedStudents}
+                />
+              </S.MarkList>
+            </S.MarkContainer>
 
-      <S.fullcontainer>
-        <S.LeftFullContainer>
-          <S.MarkContainer>
-            <S.MarkHeader>MARK</S.MarkHeader>
-            <S.MarkList>
-              <BookMarkList
+            <S.TextareaContainer>
+              <S.TextareaHeader>MEMO</S.TextareaHeader>
+              <Memo />
+            </S.TextareaContainer>
+          </S.LeftFullContainer>
+
+          <S.RightFullContainer>
+            <S.SearchContainer>
+
+              <GrayBox />
+
+              {/*  ConsultantMainPage 컴포넌트에서 StudentInfo 컴포넌트 사용 부분
+ StudentInfo 컴포넌트에 studentlist를 props로 전달하고, 검색 결과에 따라 이를 업데이트할 수 있도록 함 */}
+              <StudentInfo
+                studentlist={studentlist}
+                setStudentList={setStudentList}
+                studentInput={studentInput}
+                selectedStatus={stateSelect}
                 bookmarkedStudents={bookmarkedStudents}
                 setBookmarkedStudents={setBookmarkedStudents}
               />
-            </S.MarkList>
-          </S.MarkContainer>
-
-          <S.TextareaContainer>
-            <S.TextareaHeader>MEMO</S.TextareaHeader>
-            <Memo />
-          </S.TextareaContainer>
-        </S.LeftFullContainer>
-
-        <S.RightFullContainer>
-          <S.SearchContainer>
-            <S.FlexContainer>
-              <S.ModalWrapper isOpen={isModalOpened}>
-                {isModalOpened && (
-                  <RegisterModal
-                    studentlist={studentlist}
-                    setstudentList={setStudentList}
-                    handleClick={handleClick}
-                  />
-                )}
-              </S.ModalWrapper>
-            </S.FlexContainer>
-
-            <GrayBox />
-
-            {/*  ConsultantMainPage 컴포넌트에서 StudentInfo 컴포넌트 사용 부분
- StudentInfo 컴포넌트에 studentlist를 props로 전달하고, 검색 결과에 따라 이를 업데이트할 수 있도록 함 */}
-            <StudentInfo
-              studentlist={studentlist}
-              setStudentList={setStudentList}
-              studentInput={studentInput}
-              selectedStatus={stateSelect}
-              bookmarkedStudents={bookmarkedStudents}
-              setBookmarkedStudents={setBookmarkedStudents}
-            />
-          </S.SearchContainer>
-        </S.RightFullContainer>
-      </S.fullcontainer>
-    </S.background>
+            </S.SearchContainer>
+          </S.RightFullContainer>
+        </S.fullcontainer>
+      </S.background>
+    </>
   );
 };
 

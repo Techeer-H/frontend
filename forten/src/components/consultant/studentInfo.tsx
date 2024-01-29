@@ -196,7 +196,7 @@ const Student = styled.div`
 
 const School = styled.div`
   text-align: center;
-  width: 5rem;
+  width: 6rem;
 `;
 const Age = styled.div`
   text-align: center;
