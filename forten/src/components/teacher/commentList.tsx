@@ -78,23 +78,26 @@ const CommentList: React.FC<CommentListProps> = (props) => {
 };
 
 const FlexComment = styled.li`
-  width: 62rem;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
-  margin: 0.4rem;
-  padding: 1%;
-  padding-bottom: 1rem;
-
-  border-bottom: solid 0.1rem #eae8e8;
+  align-items: center;
+  border-bottom: 2px solid rgba(113, 119, 144, 0.25);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background: rgba(16, 18, 27, 0.4);
+  }
 `;
 
 const Text = styled.div`
+  margin-left: 1rem;
   width: 60rem;
+  color: #f9fafb;
 `;
 
 const Rating = styled.div`
   width: 15rem;
-  color: #a7ba9e;
+  color: #f9fafb;
   text-align: center;
   font-family: Inter;
   font-size: 1.5rem;

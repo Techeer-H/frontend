@@ -2,11 +2,14 @@ import styled from 'styled-components';
 import BackGround from '../../../assets/BackGround.svg';
 
 export const background = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
-  min-height: 1100px;
+  min-height: 900px;
   min-width: 1350px;
-  padding-top: 4rem;
+  padding-top: 1rem;
   background: url(${BackGround}) no-repeat;
   background-size: cover; /* This will make the background image cover the entire div */
   background-position: center;
@@ -20,8 +23,6 @@ export const TopFullContainer = styled.div`
   background: rgba(16, 18, 27, 0.4);
   backdrop-filter: blur(20px);
   display: flex;
-
-  margin: 2.94rem 2.81rem 0rem 2.81rem;
 `;
 export const fullcontainer = styled.div`
   display: flex;
@@ -34,14 +35,10 @@ export const LeftFullContainer = styled.div`
   padding: 2rem 1.8125rem 1.125rem 2.1875rem;
   flex-direction: column;
   justify-content: flex-end;
-
   margin: 0rem 0rem 4.62rem 2.81rem;
-
   border-radius: 0rem 0rem 0rem 1.25rem;
   border-right: 1px solid rgba(213, 213, 213, 0.2);
-
   background: rgba(16, 18, 27, 0.4);
-
   backdrop-filter: blur(20px);
 `;
 

@@ -71,6 +71,24 @@ const Teacherevaluate = () => {
     <div>
       <S.Background>
         <TNavbar />
+        <S.TopFullContainer>
+          <div style={{ marginLeft: '2rem' }}></div>
+          <div
+            style={{
+              marginTop: '1rem',
+              width: '15px',
+              height: '15px',
+              backgroundColor: '#f96057',
+              borderRadius: '50%',
+              boxShadow: '24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65',
+              marginRight: '13.1rem',
+            }}
+          ></div>
+          <S.StudentListExplan>EvulateList</S.StudentListExplan>
+          <S.BtnContainer>
+            <S.WriteBtn onClick={openModal}>평가 작성하기</S.WriteBtn>
+          </S.BtnContainer>
+        </S.TopFullContainer>
 
         <S.fullcontainer>
           <S.LeftFullContainer>
@@ -88,8 +106,6 @@ const Teacherevaluate = () => {
           </S.LeftFullContainer>
 
           <S.RightFullContainer>
-            <S.Explan>내 평가 목록</S.Explan>
-
             <S.TitleBar>
               <S.Write>평가글</S.Write>
               <S.Rating>Rating 점수</S.Rating>
@@ -110,9 +126,6 @@ const Teacherevaluate = () => {
             </S.CommentWrapper>
           </S.RightFullContainer>
         </S.fullcontainer>
-        <S.BtnContainer>
-          <S.WriteBtn onClick={openModal}>평가 작성하기</S.WriteBtn>
-        </S.BtnContainer>
       </S.Background>
 
       {ModalOpen && (
