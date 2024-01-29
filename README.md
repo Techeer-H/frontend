@@ -3,7 +3,7 @@
 
 **Forten**은 학생 정보를 간편하게 등록하고 시각화하는 서비스입니다.
 
-## What is Forten?
+## ![question mark](https://github.com/Techeer-H/frontend/assets/154998592/b3e937fd-cb98-4400-be3b-3ca8542fe033) What is Forten?
 
 1. **AI 프롬프트로 상담내용 구현**
    - AI 프롬프트를 통해 양질의 컨설팅 내용 생성
