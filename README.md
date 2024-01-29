@@ -1,4 +1,4 @@
-![Forten 이미지](forten 이미지.png)
+![Forten 이미지](forten%20이미지.png)
 # Forten - 간편한 학생 정보 등록 서비스
 
 **Forten**은 학생 정보를 간편하게 등록하고 시각화하는 서비스입니다.
