@@ -5,8 +5,8 @@ import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 
 const Wrapper = styled.div`
-  width: 80.405rem;
-  background-color: #DCDDEC;
+  width: 84rem;
+  background-color: rgba(16, 18, 27, 0.7);
   padding: 0.5rem;
   color: #000;
 `;
@@ -20,6 +20,7 @@ const RadioContaioner = styled.div`
   width: 50rem;
   display: flex;
   justify-content: space-evenly;
+  color: #fff;
   font-size: 0.85rem;
 `;
 
@@ -173,10 +174,10 @@ function SchoolGrades(props: SchoolGradesProps) {
   const chartOptions: ApexOptions = {
     chart: {
       type: 'area',
-      background: '#DCDDEC',
+      background: 'rgba(16, 18, 27, 0.7);',
     },
     theme: {
-      mode: 'light', // 'light' 또는 'dark'
+      mode: 'dark', // 'light' 또는 'dark'
     },
     series: gradesData[selectedSubject].series,  // 현재 선택된 과목에 대한 데이터를 표시
     xaxis: {
@@ -185,7 +186,8 @@ function SchoolGrades(props: SchoolGradesProps) {
         text: '학기/모의고사',
         style: {
           fontSize: '1rem',
-        }
+          color: '#fff',
+        },
       },
     },
     yaxis: {
@@ -193,7 +195,8 @@ function SchoolGrades(props: SchoolGradesProps) {
         // text: '점수',
         style: {
           fontSize: '1rem',
-        }
+          color: '#fff',
+        },
       },
       min: 0,
       max: 170,

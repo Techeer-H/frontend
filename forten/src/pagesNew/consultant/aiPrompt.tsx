@@ -11,13 +11,29 @@ import ConsultantRatingPage from '../../pages/newpages/Consultant/newModal/consu
 import SendImg from '../../assets/send.png';
 import StudentTable from '../../components/modal/studentTable';
 
+import BackgroundImg from '../../assets/backgroundImg.png'
+
 const Background = styled.div`
   width: 100%;
   min-width: 1350px;
   height: 170vh;
   min-height: 1500px;
-  padding: 2% 0 2% 0;
-  background: linear-gradient(to bottom left, #8d8ab4, #d9c9c9);
+  padding-top: 2%;
+  position: relative;
+`;
+
+const BackImg = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${BackgroundImg});
+  background-size: 100% 100%; /* 이미지 크기를 100%로 설정 */
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* 뿌옇게 필터 적용 (5px는 조절 가능) */
+  z-index: -1;
 `;
 
 const FullContainer = styled.div`
@@ -27,12 +43,13 @@ const FullContainer = styled.div`
 `;
 
 const Header = styled.div`
-  width: 80.405rem;
+  width: 84rem;
   height: 9.25rem;
   padding: 1%;
   margin-top: 2%;
-  background-color: rgba(100, 100, 100, 0.8);
+  background-color: rgba(16, 18, 27, 0.4);
   border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,6 +85,7 @@ const ButtonPdf = styled.button`
 
 const GraphContainer = styled.div`
   position: relative;
+  
 `
 
 const StudentAvergyWrapper = styled.div`
@@ -77,9 +95,9 @@ const StudentAvergyWrapper = styled.div`
 `
 
 const AiBox = styled.div`
-  width: 80.405rem;
+  width: 84rem;
   height: 30rem;
-  background-color: rgba(100, 100, 100, 0.3);
+  background-color: rgba(16, 18, 27, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,7 +119,8 @@ function AiPrompt() {
   };
   return (
     <Background>
-      {isModal && <ConsultantRatingPage close={closeModal} studentId={1} />}
+      <BackImg />
+      {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
       <Navbar />
       <FullContainer>
 

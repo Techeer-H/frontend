@@ -10,14 +10,29 @@ import WordBox from '../../../components/modal/wordBox';
 import ConsultantRatingPage from '../../../pages/newpages/Consultant/newModal/consultantrating'
 import StudentTable from '../../../components/modal/studentTable';
 import SendImg from '../../../assets/send.png';
+import BackgroundImg from '../../../assets/backgroundImg.png'
 
 const Background = styled.div`
   width: 100%;
   min-width: 1350px;
   height: 170vh;
   min-height: 1500px;
-  padding: 2% 0 2% 0;
-  background: linear-gradient(to bottom left, #8d8ab4, #d9c9c9);
+  padding-top: 2%;
+  position: relative;
+`;
+
+const BackImg = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(${BackgroundImg});
+  background-size: 100% 100%; /* 이미지 크기를 100%로 설정 */
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* 뿌옇게 필터 적용 (5px는 조절 가능) */
+  z-index: -1;
 `;
 
 const FullContainer = styled.div`
@@ -27,12 +42,13 @@ const FullContainer = styled.div`
 `;
 
 const Header = styled.div`
-  width: 80.405rem;
+  width: 84rem;
   height: 9.25rem;
   padding: 1%;
   margin-top: 2%;
-  background-color: rgba(100, 100, 100, 0.8);
+  background-color: rgba(16, 18, 27, 0.4);
   border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,6 +84,7 @@ const ButtonPdf = styled.button`
 
 const GraphContainer = styled.div`
   position: relative;
+  
 `
 
 const StudentAvergyWrapper = styled.div`
@@ -77,71 +94,72 @@ const StudentAvergyWrapper = styled.div`
 `
 
 const AiBox = styled.div`
-  width: 80.405rem;
+  width: 84rem;
   height: 30rem;
-  background-color: rgba(100, 100, 100, 0.3);
+  background-color: rgba(16, 18, 27, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
 function AiPrompt() {
-    // locaton 이용해서 컨설턴트 메인에서 studentId를 가져와서 api에 연결
-    const location = useLocation();
-    const studentId = location.state.studentId;
+  // locaton 이용해서 컨설턴트 메인에서 studentId를 가져와서 api에 연결
+  const location = useLocation();
+  const studentId = location.state.studentId;
 
-    const [isModal, setIsModal] = useState(false);
-
-
-    const modalOpen = () => {
-        setIsModal(!isModal);
-    };
-    const closeModal = () => {
-        setIsModal(!isModal);
-    };
-    return (
-        <Background>
-            {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
-            <Navbar />
-            <FullContainer>
-
-                <Header>
-                    <Student>
-                        <StudentTable studentId={studentId} />
-                    </Student>
-
-                    <HeaderRight>
-                        <ParentAvergy studentId={studentId} />
-
-                        <ButtonWrapper>
+  const [isModal, setIsModal] = useState(false);
 
 
-                            <WriteButton onConfirm={modalOpen} />
+  const modalOpen = () => {
+    setIsModal(!isModal);
+  };
+  const closeModal = () => {
+    setIsModal(!isModal);
+  };
+  return (
+    <Background>
+      <BackImg />
+      {isModal && <ConsultantRatingPage close={closeModal} studentId={studentId} />}
+      <Navbar />
+      <FullContainer>
 
-                            <ButtonPdf>
-                                <img src={SendImg} alt='pdf 저장' />
-                            </ButtonPdf>
-                        </ButtonWrapper>
+        <Header>
+          <Student>
+            <StudentTable studentId={studentId} />
+          </Student>
 
-                    </HeaderRight>
-                </Header>
+          <HeaderRight>
+            <ParentAvergy studentId={studentId} />
 
-                <GraphContainer>
-                    <SchoolGrades studentId={studentId} />
+            <ButtonWrapper>
 
-                    <StudentAvergyWrapper>
-                        <StudentAvergy studentId={studentId} />
-                    </StudentAvergyWrapper>
 
-                </GraphContainer>
+              <WriteButton onConfirm={modalOpen} />
 
-                <AiBox>
-                    <WordBox studentId={studentId} />
-                </AiBox>
+              <ButtonPdf>
+                <img src={SendImg} alt='pdf 저장' />
+              </ButtonPdf>
+            </ButtonWrapper>
 
-            </FullContainer>
-        </Background>
-    );
+          </HeaderRight>
+        </Header>
+
+        <GraphContainer>
+          <SchoolGrades studentId={studentId} />
+
+          <StudentAvergyWrapper>
+            <StudentAvergy studentId={studentId} />
+          </StudentAvergyWrapper>
+
+        </GraphContainer>
+
+        <AiBox>
+          <WordBox studentId={studentId} />
+        </AiBox>
+
+      </FullContainer>
+    </Background>
+  );
 }
 
 export default AiPrompt;

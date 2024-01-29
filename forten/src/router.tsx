@@ -28,6 +28,7 @@ import NewTeacher from './pagesNew/teacher';
 
 // v3 
 import V3InputGrades from './pagesNew/consultant/schoolTestGrades';
+import V3AiPrompt from './pagesNew/consultant/aiPrompt';
 
 
 
@@ -120,6 +121,10 @@ const routers = createBrowserRouter([
   {
     path: '/v3inputgrades',
     element: <V3InputGrades />,
+  },
+  {
+    path: '/v3aiprompt',
+    element: <V3AiPrompt />,
   },
 ]);
 

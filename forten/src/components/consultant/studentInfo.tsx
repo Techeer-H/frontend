@@ -111,11 +111,11 @@ const StudentInfo = ({
     }
   };
   const gradeRegisterHandler = (studentId: number) => {
-    navigate('/schooltest', { state: { studentId } });
+    navigate('/newschooltest', { state: { studentId } });
   };
 
   const aiPromptHandler = (studentId: number) => {
-    navigate('/aiprompt', { state: { studentId } });
+    navigate('/newaiprompt', { state: { studentId } });
   };
 
   return (
