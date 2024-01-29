@@ -1,24 +1,32 @@
 import styled from 'styled-components';
 
 const Button = styled.div`
-  width: 2.5rem;
+  width: 5rem;
   height: 1.4rem;
-  background: #ffb8b8;
+
   align-items: center; /* 수직 가운데 정렬 */
   font-size: 0.5rem;
   display: flex;
   justify-content: center;
 `;
 
+const Circle = styled.div`
+  width: 6px;
+  height: 6px;
+  background-color: #f0398e;
+  border-radius: 50%;
+`;
 const TextContainer = styled.div`
-  color: #8d1f1f;
+  color: #ebfcff;
+  margin-left: 0.5rem;
 `;
 
 const RedStatusButton = () => {
   return (
     <div id="RedButton">
       <Button id="RedButton">
-        <TextContainer>미완료</TextContainer>
+        <Circle></Circle>
+        <TextContainer>업데이트 필요</TextContainer>
       </Button>
     </div>
   );

@@ -110,6 +110,44 @@ const ConsultantMainPage = () => {
 
     <S.background>
       <Navbar />
+      <div style={{ justifyContent: 'center', display: 'flex' }}>
+        <S.TopFullContainer>
+          <div style={{ marginLeft: '2rem' }}></div>
+          <div
+            style={{
+              marginTop: '1rem',
+              width: '15px',
+              height: '15px',
+              backgroundColor: '#f96057',
+              borderRadius: '50%',
+              boxShadow: '24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65',
+              marginRight: '13.1rem',
+            }}
+          ></div>
+          <S.StudentListExplan>StudnetList</S.StudentListExplan>
+
+          <S.StudentSearchContainer>
+            <img
+              src={search}
+              style={{ marginTop: '0.1rem', width: '1rem', height: '1rem' }}
+              alt="Search Icon"
+            />
+            <S.StyledInput
+              onChange={getSearchData}
+              value={studentInput}
+              type="text"
+              placeholder="Search"
+            />
+          </S.StudentSearchContainer>
+          <S.StyledButton type="button" onClick={handleClick} />
+          <S.StyledSelect onChange={stateSelectHandler} value={stateSelect}>
+            <option value="1">전체</option>
+            <option value="2">완료</option>
+            <option value="3">미완료</option>
+          </S.StyledSelect>
+        </S.TopFullContainer>
+      </div>
+
       <S.fullcontainer>
         <S.LeftFullContainer>
           <S.MarkContainer>
@@ -129,31 +167,6 @@ const ConsultantMainPage = () => {
         </S.LeftFullContainer>
 
         <S.RightFullContainer>
-          <S.StudentListHeader>
-            <S.StudentListExplan>StudnetList</S.StudentListExplan>
-
-            <S.StudentSearchContainer>
-              <img src={search} alt="Search Icon" />
-              <S.StyledInput
-                onChange={getSearchData}
-                value={studentInput}
-                type="text"
-                placeholder="Student Search"
-              />
-            </S.StudentSearchContainer>
-
-            <S.StyledSelect
-              className="text-gray-700"
-              onChange={stateSelectHandler}
-              value={stateSelect}
-            >
-              <option value="1">전체</option>
-              <option value="2">완료</option>
-              <option value="3">미완료</option>
-            </S.StyledSelect>
-            <S.StyledButton type="button" value="학생 등록" onClick={handleClick} />
-          </S.StudentListHeader>
-
           <S.SearchContainer>
             <S.FlexContainer>
               <S.ModalWrapper isOpen={isModalOpened}>
