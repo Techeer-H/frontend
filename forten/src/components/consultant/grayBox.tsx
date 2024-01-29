@@ -2,15 +2,18 @@ import styled from 'styled-components';
 
 const GrayBoxContainer = styled.div`
   background-color: rgba(115, 123, 123, 0.24);
-  width: 57rem;
-  height: 3.7rem;
+  width: 59rem;
+  height: 4rem;
+  border-radius: 0.875rem;
+  background: rgba(146, 151, 179, 0.13);
+
   display: flex; /* Flexbox를 활성화합니다. */
   align-items: center;
   justify-content: space-between; /* 수직 가운데 정렬 */
   font-size: 0.9rem;
-  font-weight: 800;
+  font-weight: 400;
   position: sticky;
-  color: #616b6b;
+  color: #ededed;
   margin-bottom: 1.5rem;
 `;
 

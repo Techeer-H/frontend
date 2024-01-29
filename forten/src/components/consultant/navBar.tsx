@@ -5,7 +5,7 @@ import signOut from '../../assets/signOut.png';
 import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  width: 80.405rem;
+  width: 84rem;
   margin: auto;
   display: flex;
   align-items: center;

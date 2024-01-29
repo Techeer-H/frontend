@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import Profile from '../../assets/profile.svg';
-import Logo from '../../assets/BlendLogoWhite.png';
+import Logo from '../../assets/For-TEN.png';
 import signOut from '../../assets/signOut.png';
 import { useNavigate } from 'react-router-dom';
 
 const Wrapper = styled.div`
-  width: 80.405rem;
+  width: 84rem;
   margin: auto;
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@ const Logout = styled.img`
   }
 `;
 
-const TNavbar = () => {
+const Navbar = () => {
   const navigate = useNavigate();
   const user_name = localStorage.getItem('user_name');
   const DeleteBtn = () => {
@@ -72,4 +72,4 @@ const TNavbar = () => {
   );
 };
 
-export default TNavbar;
+export default Navbar;

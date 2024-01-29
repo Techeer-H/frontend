@@ -72,6 +72,45 @@ const TeacherPage = () => {
   return (
     <S.background>
       <Tnavbar />
+
+      <div style={{ justifyContent: 'center', display: 'flex' }}>
+        <S.TopFullContainer>
+          <div style={{ marginLeft: '2rem' }}></div>
+          <div
+            style={{
+              marginTop: '1rem',
+              width: '15px',
+              height: '15px',
+              backgroundColor: '#f96057',
+              borderRadius: '50%',
+              boxShadow: '24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65',
+              marginRight: '13.1rem',
+            }}
+          ></div>
+          <S.StudentListExplan>StudnetList</S.StudentListExplan>
+
+          <S.StudentSearchContainer>
+            <img
+              src={search}
+              style={{ marginTop: '0.1rem', width: '1rem', height: '1rem' }}
+              alt="Search Icon"
+            />
+            <S.StyledInput
+              onChange={getSearchData}
+              value={studentInput}
+              type="text"
+              placeholder="Search"
+            />
+          </S.StudentSearchContainer>
+
+          <S.StyledSelect onChange={stateSelectHandler} value={stateSelect}>
+            <option value="1">전체</option>
+            <option value="2">완료</option>
+            <option value="3">미완료</option>
+          </S.StyledSelect>
+        </S.TopFullContainer>
+      </div>
+
       <S.fullcontainer>
         <S.LeftFullContainer>
           <S.MarkContainer>
@@ -83,6 +122,7 @@ const TeacherPage = () => {
               />
             </S.MarkList>
           </S.MarkContainer>
+
           <S.TextareaContainer>
             <S.TextareaHeader>MEMO</S.TextareaHeader>
             <Tmemo />
@@ -90,30 +130,6 @@ const TeacherPage = () => {
         </S.LeftFullContainer>
 
         <S.RightFullContainer>
-          <S.StudentListHeader>
-            <S.StudentListExplan>StudnetList</S.StudentListExplan>
-
-            <S.StudentSearchContainer>
-              <img src={search} alt="Search Icon" />
-              <S.StyledInput
-                onChange={getSearchData}
-                value={studentInput}
-                type="text"
-                placeholder="Student Search"
-              />
-            </S.StudentSearchContainer>
-
-            <S.StyledSelect
-              className="text-gray-700"
-              onChange={stateSelectHandler}
-              value={stateSelect}
-            >
-              <option value="1">전체</option>
-              <option value="2">완료</option>
-              <option value="3">미완료</option>
-            </S.StyledSelect>
-          </S.StudentListHeader>
-
           <S.SearchContainer>
             <TgrayBox />
             <TstudentInfo

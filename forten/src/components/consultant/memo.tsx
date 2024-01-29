@@ -2,11 +2,19 @@ import styled from 'styled-components';
 import React, { useState, useEffect, ChangeEvent } from 'react';
 
 const Textarea = styled.textarea`
-  width: 100%;
-  height: 90%;
+  width: 12.3125rem;
+  height: 16rem;
   font-size: 0.875rem;
   resize: none;
-`
+  padding-top: 1rem;
+  padding-left: 0.6rem;
+  background: transparent;
+  color: #f9fafb;
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 const Memo: React.FC = () => {
   const [memoContent, setMemoContent] = useState<string>('');
@@ -34,4 +42,3 @@ const Memo: React.FC = () => {
 };
 
 export default Memo;
-

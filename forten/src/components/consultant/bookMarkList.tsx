@@ -25,34 +25,36 @@ const BookMarkList = ({ bookmarkedStudents, setBookmarkedStudents }: bookmarkedP
   return (
     <div style={{ overflow: 'auto' }}>
       {bookmarkedStudents.map((studentName) => (
-        <Box>
-          <Wrapper key={studentName}>
-            <img style={{ width: '2rem' }} src={Profile}></img>
-            <Name>{studentName}</Name>
-            <button onClick={() => removeBookmark(studentName)}>
-              <img style={{ width: '1.2rem' }} src={remove} alt="Remove Bookmark" />
-            </button>
-          </Wrapper>
-        </Box>
+        <Wrapper key={studentName}>
+          <img style={{ width: '2rem', marginRight: '1.06rem' }} src={Profile}></img>
+          <Name>{studentName}</Name>
+          <button onClick={() => removeBookmark(studentName)}>
+            <img style={{ width: '1.2rem' }} src={remove} alt="Remove Bookmark" />
+          </button>
+        </Wrapper>
       ))}
     </div>
   );
 };
 const Box = styled.div`
-  width: 20rem;
-  height: 4rem;
+  width: 12rem;
 `;
 const Wrapper = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 0.8rem;
 `;
 const Name = styled.p`
-  font-size: 1rem;
+  color: #f9fafb;
+  font-family: Inter;
+  font-size: 0.9375rem;
+  font-style: normal;
   font-weight: 600;
-  color: #8e8e8e;
-  margin-bottom: 0.5rem;
-  overflow: hidden;
+  line-height: normal;
+  margin-right: 3.5rem;
 `;
 
 export default BookMarkList;

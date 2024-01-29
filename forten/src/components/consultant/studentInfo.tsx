@@ -165,23 +165,29 @@ const StudentInfo = ({
 };
 
 const Ul = styled.ul`
-  width: 57rem;
-  font-size: 0.7rem;
-  color: #737b7b;
+  margin-top: 0.5rem;
+  width: 59rem;
+  height: 35rem;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #f9fafb;
   overflow: auto;
+  border-radius: 0.875rem;
+  background: rgba(146, 151, 179, 0.13);
 `;
 
 const Li = styled.li`
-  padding-bottom: 1rem;
+  padding: 1rem;
   display: flex;
-  margin-bottom: 1rem;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #dddfdf;
-  //가져다대면 크기가 커짐
-  /* &:hover {
-    scale: 1.04;
-  } */
+  border-bottom: 2px solid rgba(113, 119, 144, 0.25);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background: rgba(16, 18, 27, 0.4);
+  }
 `;
 const Student = styled.div`
   text-align: center;
@@ -212,11 +218,9 @@ const ParentPhone = styled.div`
 `;
 const Action = styled.div`
   text-align: center;
-  width: 4rem;
+  width: 6rem;
   display: flex;
   justify-content: space-evenly;
-  border-radius: 0.6rem;
-  border: 0.1px solid rgb(171, 172, 247);
 `;
 
 const ImgBox = styled.button``;
