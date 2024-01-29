@@ -3,24 +3,25 @@ import SubmitIcon from '../../../../assets/checkIconPurple.svg';
 import Rating from '../../../../components/modal/rating';
 import { useState } from 'react';
 import axios from 'axios';
-import CloseWhite from '../../../../assets/closeWhite.svg';
+import CloseBtn from '../../../../assets/Xicon.svg';
 
 const Backdrop = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 3;
+  z-index: 12;
   background: rgba(0, 0, 0, 0.45);
 `;
 
 const FullContainer = styled.div`
   width: 25rem;
   height: 24rem;
-  border-radius: 1.5rem;
-  border: 0.1rem solid #85a1ff;
-  background: #ffffff;
+  border-radius: 15px;
+  border: 1px solid #D8D8D8;
+  background: rgba(16, 18, 27, 0.80);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.25);
   position: fixed;
-  z-index: 12;
+  z-index: 13;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,32 +35,57 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(20px);
 `;
 
 const TextContainer = styled.p`
-  color: #737b7b;
-  font-size: 1rem;
-  font-style: normal;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  font-weight: 800;
   text-align: center;
 `;
+
+const RatingExplan = styled.div`
+  font-size: 1rem;
+  color: #66656A;
+  font-weight: 600;
+  text-align: center;
+`
+
+const ImgWrapper = styled.div`
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    border-radius: 2rem;
+  }
+  
+`
 // 로고
 const Button = styled.button`
-  width: 9rem;
-  height: 2.25rem;
+  width: 10rem;
+  height: 2.5rem;
   display: flex;
   margin-top: 0.87rem;
-  border: 0.15rem solid #8e8bb5;
+  border: 1px solid #8E8BB5;
   border-radius: 0.5rem; /* 원하는 값으로 조절 */
   align-items: center;
   justify-content: center;
   cursor: pointer;
   flex-direction: row;
+  transition: background-color 0.3s ease;
+
+  &:hover{
+    background-color: #CCBFC6;
+  }
 `;
 
 const Upper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 85%;
   height: 5rem;
 `;
 const user_Id = localStorage.getItem('user_Id');
@@ -106,30 +132,20 @@ function ConsultantRatingPage(props: any) {
       <FullContainer>
         <Container>
           <Upper>
-            <TextContainer
-              style={{
-                color: '#242424',
-                fontSize: '1.2rem',
-                fontWeight: '600',
-                marginLeft: '1rem',
-              }}
-              className="title"
-            >
+            <TextContainer>
               만족도 등록
             </TextContainer>
-            <img
-              src={CloseWhite}
-              alt="닫기"
-              style={{ marginRight: '2rem', height: '1.5rem', width: '1.5rem' }}
-            />
+            <ImgWrapper onClick={props.close}>
+              <img src={CloseBtn} alt='닫기' />
+            </ImgWrapper>
           </Upper>
         </Container>
         <Container style={{ marginBottom: '1rem' }}>
-          <TextContainer>학생의 만족도는 어떤가요?</TextContainer>
+          <RatingExplan>학생의 만족도는 어떤가요?</RatingExplan>
           <Rating onSliderChange={studentSliderHandler} rating={undefined} />
         </Container>
         <Container style={{ marginBottom: '2rem' }}>
-          <TextContainer>학부모의 만족도는 어떤가요?</TextContainer>
+          <RatingExplan>학부모의 만족도는 어떤가요?</RatingExplan>
           {/* <Rating /> */}
 
           <Rating onSliderChange={parentSliderHandler} rating={undefined} />

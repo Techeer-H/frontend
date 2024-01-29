@@ -18,6 +18,7 @@ const CenterContainer = styled.div`
 `;
 
 const Explan = styled.p`
+  color: #fff;
   font-size: 1.25rem;
   font-weight: 900;
   padding-left: 2%;
@@ -39,6 +40,10 @@ function StudentAvergy(props: StudentAvergyProps) {
       type: 'donut',
       width: '400',
       height: '200',
+      background: 'transparent',
+    },
+    theme: {
+      mode: 'dark',
     },
     labels: labels || [],
     series: series || [],

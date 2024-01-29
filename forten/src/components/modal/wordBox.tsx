@@ -9,9 +9,11 @@ const Center = styled.div`
 `
 
 const TextArea = styled.div`
-  width: 76.375rem;
+  width: 82rem;
   height: 27.5rem;
-  background-color: #fff;
+  color: #fff;
+  background-color: rgba(146, 151, 179, 0.13);
+  border-radius: 15px;
   padding: 1%;
   font-size: 0.875rem;
   overflow: auto;

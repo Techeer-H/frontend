@@ -8,12 +8,9 @@ export const SliderParent = styled.div`
 `;
 
 export const CustomSlider = styled.input`
+  width: 11rem;
   height: 10px;
-  background: linear-gradient(
-    270deg,
-    #8d8ab4 8.55%,
-    #a6bca5 92.27%
-  ); /* 원하는 배경색으로 지정하세요 */
+  background: linear-gradient(to right, rgba(141, 138, 180, 1) 0%, rgba(204, 191, 198, 1) 100%);
   border-radius: 5px;
   outline: none;
 
@@ -35,6 +32,7 @@ interface BubbleProps {
 }
 
 export const Bubble = styled.div<BubbleProps>`
+  color: #fff;
   position: relative;
   text-align: center;
   /* left: ${(props) => `${Number(props.value / 4)}px`}; */
