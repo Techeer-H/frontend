@@ -18,6 +18,7 @@
    - 차트를 통해 종합적인 학생 성적 분석
 
 ##  ![tdesign_architecture-hui-style](https://github.com/Techeer-H/frontend/assets/154998592/aee4f92b-c1bb-4558-9f2c-94071936006d) System Architecture
+![system architecture](https://github.com/Techeer-H/frontend/assets/154998592/cd5dadf1-14b7-44a9-91ad-eabc9ee07b43)
 
 
 ### Tech Stack
