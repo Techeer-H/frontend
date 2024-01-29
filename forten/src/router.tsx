@@ -26,6 +26,9 @@ import NewSchoolTest from './pages/consultant/graderegister/inputTest';
 
 import NewTeacher from './pagesNew/teacher';
 
+// v3 
+import V3InputGrades from './pagesNew/consultant/schoolTestGrades';
+
 
 
 const routers = createBrowserRouter([
@@ -111,7 +114,12 @@ const routers = createBrowserRouter([
   },
   {
     path: '/newteacher',
-    element: <NewTeacher />
+    element: <NewTeacher />,
+  },
+  // v3
+  {
+    path: '/v3inputgrades',
+    element: <V3InputGrades />,
   },
 ]);
 
