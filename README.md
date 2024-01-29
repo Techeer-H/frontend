@@ -35,7 +35,7 @@
 - **강사 메인 페이지**
 - **강사 학생 평가 페이지**
 
-## API
+## ![Group](https://github.com/Techeer-H/frontend/assets/154998592/4aa7e8d5-099f-4bd0-9455-b127646b654d) API
 
 [Swagger API Documentation](http://3.37.41.244:8000/swagger/ )
 
