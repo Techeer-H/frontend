@@ -69,7 +69,8 @@ const NewTeacherRating: React.FC<{
   };
 
   return (
-    <Full>
+    <>
+      <BackDrop />
       <Modal>
         <Upper>
           <Explan>학생평가</Explan>
@@ -109,9 +110,17 @@ const NewTeacherRating: React.FC<{
           </FullContainer>
         </Form>
       </Modal>
-    </Full>
+    </>
   );
 };
+
+const BackDrop = styled.div`
+position: fixed;
+width: 100%;
+height: 100vh;
+z-index: 12;
+background: rgba(0, 0, 0, 0.45);
+`;
 
 const Full = styled.form`
   margin-left: 10rem;
@@ -120,7 +129,7 @@ const Full = styled.form`
 const Modal = styled.div`
   position: fixed;
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
-  z-index: 4;
+  z-index: 13;
   display: flex;
   flex-direction: column;
   background: rgba(72, 76, 92, 0.8);

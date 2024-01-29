@@ -67,8 +67,49 @@ const Teacherevaluate = () => {
 
     dataApi();
   }, []);
+
+  // 수정 모달 나타내기 ///
+  const [isModifyModalOpen, setModifyModalOpen] = useState(false);
+  const [modalFeedbackId, setModalFeedbackId] = useState<number | undefined>(undefined);
+  const [modalContent, setModalContent] = useState('');
+  const [modalRating, setModalRating] = useState(0);
+
+
+  const closeModifyModal = () => {
+    setModifyModalOpen(false);
+  };
+
+  const handleModifyClick = (feedbackId: number, content: string, rating: number) => {
+    // feedbackId를 사용하여 모달 열기 등의 동작 수행
+    setModalFeedbackId(feedbackId);
+    setModifyModalOpen(true);
+    setModalContent(content);
+    setModalRating(rating);
+  };
+
+
+
   return (
-    <div>
+    <>
+      {ModalOpen && (
+        <TeacherRatingPage
+          closeModal={closeModal}
+          feedbackId={undefined}
+          comment={undefined}
+          studentRating={undefined}
+        />
+      )}
+
+      {/* 코멘트 리스트 내부에 있는 모달 */}
+      {isModifyModalOpen && (
+        <TeacherRatingPage
+          closeModal={closeModifyModal}
+          feedbackId={modalFeedbackId}
+          comment={modalContent}
+          studentRating={modalRating}
+        />
+      )}
+
       <S.Background>
         <TNavbar />
         <S.TopFullContainer>
@@ -124,22 +165,14 @@ const Teacherevaluate = () => {
                   feedbackId={evaluate.id}
                   content={evaluate.content}
                   rating={evaluate.student_rating}
+                  onModifyClick={handleModifyClick} // 수정 버튼 클릭 시 호출될 함수 전달
                 />
               ))}
             </S.CommentWrapper>
           </S.RightFullContainer>
         </S.fullcontainer>
       </S.Background>
-
-      {ModalOpen && (
-        <TeacherRatingPage
-          closeModal={closeModal}
-          feedbackId={undefined}
-          comment={undefined}
-          studentRating={undefined}
-        />
-      )}
-    </div>
+    </>
   );
 };
 export default Teacherevaluate;

@@ -179,6 +179,12 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
               }}
             >
               <option> 학년 선택 </option>
+              <option value="초1">초1</option>
+              <option value="초2">초2</option>
+              <option value="초3">초3</option>
+              <option value="초4">초4</option>
+              <option value="초5">초5</option>
+              <option value="초6">초6</option>
               <option value="중1">중1</option>
               <option value="중2">중2</option>
               <option value="중3">중3</option>
@@ -218,12 +224,18 @@ const BackDrop = styled.div`
   position: fixed;
   width: 100%;
   height: 100vh;
-  z-index: 3;
+  z-index: 12;
   background: rgba(0, 0, 0, 0.45);
 `;
 const Maincontainer = styled.div`
-  position: absolute;
-  z-index: 4;
+position: fixed;
+z-index: 13;
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const TitleBar = styled.div`

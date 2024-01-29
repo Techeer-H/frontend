@@ -15,6 +15,7 @@ const GrayBoxContainer = styled.div`
   position: sticky;
   color: #ededed;
   margin-bottom: 1.5rem;
+  padding: 1rem;
 `;
 
 const Student = styled.div`

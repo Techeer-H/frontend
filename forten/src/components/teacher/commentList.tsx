@@ -9,23 +9,29 @@ interface CommentListProps {
   content: string;
   rating: number;
   feedbackId: number;
+  onModifyClick: any;
 }
 const CommentList: React.FC<CommentListProps> = (props) => {
-  const [isModifyModalOpen, setModifyModalOpen] = useState(false);
-  const [modalFeedbackId, setModalFeedbackId] = useState<number | undefined>(undefined); // modalFeedbackId 추가
 
-  const closeModifyModal = () => {
-    setModifyModalOpen(false);
-  };
+  const userId = localStorage.getItem('user_Id')
+  console.log('로컬 값' + userId);
+
+  const [modalFeedbackId, setModalFeedbackId] = useState<number | undefined>(undefined);
+
 
   const modifyHandler = (feedbackId: number) => {
     setModalFeedbackId(feedbackId);
-    setModifyModalOpen(true);
+
+
+    // 수정 버튼 클릭 시, 부모 컴포넌트로 전달받은 함수 호출
+    if (props.onModifyClick) {
+      props.onModifyClick(feedbackId, props.content, props.rating);
+    }
   };
 
   console.log(modalFeedbackId);
   const removeHandler = (feedbackId: number) => {
-    axios.delete(`http://3.37.41.244:8000/api/feedback/2/${feedbackId}`);
+    axios.delete(`http://3.37.41.244:8000/api/feedback/${userId}/${feedbackId}`);
   };
 
   // useEffect(() => {
@@ -46,34 +52,35 @@ const CommentList: React.FC<CommentListProps> = (props) => {
   //   dataApi();
   // }, []);
   return (
-    <FlexComment>
-      <Text>{props.content}</Text>
-      <Rating>{props.rating}</Rating>
-      <ActionContainer>
-        <ModifyBtn onClick={() => modifyHandler(props.feedbackId)}>
-          <div>
-            <img src={Modify} alt="수정" style={{ height: '100%' }}></img>
-          </div>
-        </ModifyBtn>
+    <div>
+      <FlexComment>
+        <Text>{props.content}</Text>
+        <Rating>{props.rating}</Rating>
+        <ActionContainer>
+          <ModifyBtn onClick={() => modifyHandler(props.feedbackId)}>
+            <ImgBox>
+              <img src={Modify} alt="수정" style={{ height: '100%' }}></img>
+            </ImgBox>
+          </ModifyBtn>
 
-        <DeleteBtn onClick={() => removeHandler(props.feedbackId)}>
-          <div>
-            <img src={Delete} alt="삭제" style={{ height: '100%' }}></img>
-          </div>
-        </DeleteBtn>
-      </ActionContainer>
+          <DeleteBtn onClick={() => removeHandler(props.feedbackId)}>
+            <ImgBox>
+              <img src={Delete} alt="삭제" style={{ height: '100%' }}></img>
+            </ImgBox>
+          </DeleteBtn>
+        </ActionContainer>
+        {/* {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />} */}
+      </FlexComment>
 
-      {isModifyModalOpen && (
+      {/* {isModifyModalOpen && (
         <TeacherRatingPage
           closeModal={closeModifyModal}
           feedbackId={modalFeedbackId}
           comment={props.content}
           studentRating={props.rating}
         />
-      )}
-
-      {/* {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />} */}
-    </FlexComment>
+      )} */}
+    </div>
   );
 };
 
@@ -115,6 +122,12 @@ const ModifyBtn = styled.button`
   align-items: center;
   margin-right: 1rem;
 `;
+
+const ImgBox = styled.div`
+  width: 24px;
+  height: 24px;
+`
+
 const DeleteBtn = styled.button`
   align-items: center;
 `;

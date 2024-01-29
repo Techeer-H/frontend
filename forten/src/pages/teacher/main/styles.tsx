@@ -6,10 +6,10 @@ export const background = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   min-height: 900px;
   min-width: 1350px;
-  padding-top: 1rem;
+  padding-top: 2%;
   background: url(${BackGround}) no-repeat;
   background-size: cover; /* This will make the background image cover the entire div */
   background-position: center;
@@ -171,7 +171,7 @@ export const StudentSearchContainer = styled.div`
   width: 26.875rem;
   margin: 0.7rem 1.9rem 0.9rem 3.4rem;
   padding: 0.56rem 18.9rem 0.56rem 0.9rem;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   border-radius: 0.4rem;
   border: 0.3px solid #5b5b5b;
@@ -202,13 +202,13 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledSelect = styled.select`
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   margin-top: 1rem;
   color: #cfcfcf;
   background: #3b2647;
   border: 0.1rem solid #b0b0b0;
-  width: 4rem;
+  width: 4.5rem;
   height: 2rem;
   border-radius: 0.44rem;
-  margin-left: 17rem;
+  margin-left: 16.5rem;
 `;

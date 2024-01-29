@@ -21,6 +21,12 @@ const Background = styled.div`
   flex-direction: column;
   width: 100%;
   height: 170vh;
+  min-height: 1500px;
+  padding-top: 2%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 900px;
   min-width: 1350px;
   background: url(${BackGround}) no-repeat;

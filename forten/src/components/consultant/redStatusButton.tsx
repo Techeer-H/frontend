@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 const Button = styled.div`
-  width: 5rem;
+  width: 6rem;
   height: 1.4rem;
 
   align-items: center; /* 수직 가운데 정렬 */
-  font-size: 0.5rem;
+  font-size: 0.875rem;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 `;
 
 const Circle = styled.div`
@@ -26,7 +26,7 @@ const RedStatusButton = () => {
     <div id="RedButton">
       <Button id="RedButton">
         <Circle></Circle>
-        <TextContainer>업데이트 필요</TextContainer>
+        <TextContainer>평가 미완료</TextContainer>
       </Button>
     </div>
   );
