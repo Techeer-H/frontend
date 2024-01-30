@@ -3,79 +3,19 @@
 import styled from 'styled-components';
 import logo from '../../../assets/LogoAndLetter.svg';
 
-export const Body = styled.div`
-  background-color: #0e0d0c;
-  font-family: 'Titan one', cursive;
-  color: linear-gradient(93deg, #46a6ff -11.56%, rgba(251, 70, 255, 0.21) 117.52%);
+export const ScrollToTopButton = styled.button`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 `;
 
-export const MainContent = styled.div`
-  width: 100%;
-  height: 500vh;
-  margin: 100vh 0;
-  border: 1px solid red;
-`;
-
-export const Sticky = styled.div`
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-`;
-
-export const CardFrame = styled.div`
-  position: absolute;
-  width: 95vw;
-  height: 30vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const Card = styled.div`
-  width: 24%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  text-align: center;
-  transform-style: preserve-3d;
-  position: relative;
-  transform: perspective(100vw) translateX(100vw) rotateY(180deg);
-  transition: transform 0.1s;
-`;
-
-export const Front = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 1vw;
-  overflow: hidden;
-  backface-visibility: hidden;
-  background: linear-gradient(to bottom, #9e9bf7 -50.35%, #ffeded 60.89%);
-  font-size: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-`;
-// #94c7f6 5%, rgba(251, 70, 255, 0.21) 117.52%
-export const Back = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 1vw;
-  overflow: hidden;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-  background:
-    linear-gradient(to bottom, #94c7f6 5%, rgba(251, 70, 255, 0.21) 117.52%),
-    url(${logo}) center/contain no-repeat;
-`;
+// 달 나오는 두 번째 페이지
 
 export const Logo = styled.img`
   background-image: url(${logo});
@@ -92,6 +32,8 @@ export const Bodysec = styled.div`
   width: 100%;
   background: linear-gradient(#2b1055, #7597de);
   overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
 `;
 
 export const Header = styled.div``;
@@ -103,16 +45,6 @@ export const Section = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 100px;
-    background: linear-gradient(to top, #1c0522, transparent);
-    z-index: 1000;
-  }
 `;
 
 export const SectionImg = styled.img`
@@ -141,24 +73,106 @@ export const Image = styled.img.attrs({ id: 'moon', mixBlendMode: 'screen' })`
 `;
 
 export const Button = styled.button`
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 3rem;
   border-radius: 3rem;
-  background: #fff;
-  color: #2b1055;
-  transform: translateY(100px);
+  background: #000000;
+  color: #fff;
+  /* transform: translateY(10rem); */
   display: inline-block;
-  position: fixed;
+  position: absolute;
+  margin-top: 2rem;
+  z-index: 11;
+  top: 30rem;
+  height: 3rem;
 `;
 
 export const ExplainText = styled.div`
-  font-size: 3vw;
+  font-size: 2.5vw;
   color: #fff;
   white-space: nowrap;
-  z-index: 9;
-  left: -200rem;
-  position: fixed;
+  z-index: 13;
+  position: absolute;
   width: 100%;
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  justify-content: center;
+  display: flex;
+  top: 25rem;
+  /* transform: translateY(5rem); */
+`;
+
+//=========================+++++++====================================++++++++++++=====================
+// 카드 flip
+
+export const Body = styled.div`
+  background-color: #0e0d0c;
+  color: linear-gradient(93deg, #46a6ff -11.56%, rgba(251, 70, 255, 0.21) 117.52%);
+`;
+
+export const MainContent = styled.div`
+  width: 100%;
+  height: 500vh;
+`;
+
+export const Sticky = styled.div`
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
+export const CardFrame = styled.div`
+  position: absolute;
+  width: 95vw;
+  height: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const Card = styled.div`
+  width: 24%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-align: center;
+  transform-style: preserve-3d;
+  position: relative;
+  transform: perspective(100vw) translateX(100vw) rotateY(180deg);
+  transition: transform 0.1s;
+`;
+
+export const Front = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1vw;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: linear-gradient(to bottom, #9e9bf7 -50.35%, #ffeded 60.89%);
+  font-size: 1.5rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+// #94c7f6 5%, rgba(251, 70, 255, 0.21) 117.52%
+export const Back = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1vw;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background:
+    linear-gradient(to bottom, #94c7f6 5%, rgba(251, 70, 255, 0.21) 117.52%),
+    url(${logo}) center/contain no-repeat;
 `;

@@ -1,12 +1,21 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import * as S from './styles';
 import stars from '../../../assets/stars.png';
-import logo from '../../../assets/LogoAndLetter.svg';
+import logo from '../../../assets/BlendLogo.png';
 import moon from '../../../assets/moon (2).png';
 import mountainFront from '../../../assets/mountains_front.png';
 import mountainBehind from '../../../assets/mountains_behind.png';
+import test from '../../../assets/Chart_graph.svg';
+import rating from '../../../assets/chart_rating.svg';
+import ai from '../../../assets/AI.svg';
+import pdf from '../../../assets/pdfPic.svg';
+
 import { Full } from './styles';
 const ThirdOnBoardingPage: React.FC = () => {
+  // ...
+
   useEffect(() => {
     const MainContent: HTMLElement | null = document.querySelector('.MainContent');
     const Sticky: HTMLElement | null = document.querySelector('.Sticky');
@@ -52,8 +61,6 @@ const ThirdOnBoardingPage: React.FC = () => {
       applyScrollEffect(logoRef, scrollValue);
       applyScrollEffect(btnRef, scrollValue);
 
-      // ...
-
       // 여러 Ref에 대한 특정 동작을 수행하는 함수
       function applyScrollEffect(ref: any, scrollValue: any) {
         if (starsRef.current) {
@@ -63,16 +70,16 @@ const ThirdOnBoardingPage: React.FC = () => {
           moonRef.current.style.transform = `translateY(${scrollValue * 1}px)`;
         }
         if (mountainBehindRef.current) {
-          mountainBehindRef.current.style.transform = `translateY(${scrollValue * 0.5}px)`;
+          // mountainBehindRef.current.style.transform = `translateY(${scrollValue * 0.5}px)`;
         }
         if (mountainFrontRef.current) {
           mountainFrontRef.current.style.transform = `translateY(${scrollValue * 0}px)`;
         }
         if (textRef.current) {
-          textRef.current.style.left = `${scrollValue * 4}px`;
+          textRef.current.style.transform = `translateY(${scrollValue * 4}px)`;
         }
         if (btnRef.current) {
-          btnRef.current.style.transform = `translateY${scrollValue * 1}px)`;
+          btnRef.current.style.transform = `translateY(${scrollValue * 1}px)`;
         }
       }
     };
@@ -90,7 +97,11 @@ const ThirdOnBoardingPage: React.FC = () => {
         <Full />
         <S.Bodysec>
           <S.Header>
-            <img src={logo} alt="logo" />
+            <img
+              src={logo}
+              alt="logo"
+              style={{ width: '15rem', marginTop: '1rem', transform: 'translateY(1rem)' }}
+            />
           </S.Header>
           <S.Section>
             <S.SectionImg ref={starsRef} src={stars} alt="stars" style={{ position: 'fixed' }} />
@@ -99,10 +110,10 @@ const ThirdOnBoardingPage: React.FC = () => {
 
             <S.SectionImg ref={mountainBehindRef} src={mountainBehind} alt="mountainBehind" />
 
-            <S.ExplainText ref={textRef} style={{ marginTop: '20rem' }}>
-              포텐은 학원생들 케어 서비스입니다
-            </S.ExplainText>
-            <S.Button ref={btnRef}>로그인하러가기</S.Button>
+            <S.ExplainText ref={textRef}>학원의 포텐을 For;ten과 함께 </S.ExplainText>
+            <Link to="/login" style={{ display: 'flex', justifyContent: 'center' }}>
+              <S.Button ref={btnRef}>서비스 시작하기</S.Button>
+            </Link>
 
             <S.SectionImg
               ref={mountainFrontRef}
@@ -113,29 +124,43 @@ const ThirdOnBoardingPage: React.FC = () => {
           </S.Section>
         </S.Bodysec>
       </div>
+      {/* ==========================thirdpage 카드================================ */}
+
       <S.MainContent className="MainContent">
         <S.Sticky className="Sticky">
           <S.CardFrame>
             <S.Card className="Card">
-              <S.Front>MainPage</S.Front>
+              <S.Front>
+                <img src={ai} alt="main" style={{ marginBottom: '5rem' }}></img>
+                AI 요약 서비스로 컨설팅을 <br /> 보다 쉽게 진행합니다
+              </S.Front>
               <S.Back>
                 <S.Logo />
               </S.Back>
             </S.Card>
             <S.Card className="Card">
-              <S.Front>AIPrompt</S.Front>
+              <S.Front>
+                <img src={test} alt="test" style={{ marginBottom: '5rem' }}></img>
+                학생 성적을 시각화 자료를 통해 <br /> 분석합니다
+              </S.Front>
               <S.Back>
                 <S.Logo />
               </S.Back>
             </S.Card>
             <S.Card className="Card">
-              <S.Front>Graph</S.Front>
+              <S.Front>
+                <img src={rating} alt="rating" style={{ marginBottom: '6rem' }}></img>
+                학생, 학부모 만족도 조사를 통해 <br /> 맞춤 수업 제공합니다
+              </S.Front>
               <S.Back>
                 <S.Logo />
               </S.Back>
             </S.Card>
             <S.Card className="Card">
-              <S.Front>Rating</S.Front>
+              <S.Front>
+                <img src={pdf} alt="pdf" style={{ marginBottom: '5rem' }}></img>
+                학생 정보를 pdf로 저장하여 <br /> 쉽게 관리합니다
+              </S.Front>
               <S.Back>
                 <S.Logo />
               </S.Back>

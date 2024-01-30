@@ -74,7 +74,6 @@ const Teacherevaluate = () => {
   const [modalContent, setModalContent] = useState('');
   const [modalRating, setModalRating] = useState(0);
 
-
   const closeModifyModal = () => {
     setModifyModalOpen(false);
   };
@@ -86,8 +85,6 @@ const Teacherevaluate = () => {
     setModalContent(content);
     setModalRating(rating);
   };
-
-
 
   return (
     <>
@@ -128,7 +125,7 @@ const Teacherevaluate = () => {
               marginRight: '13.1rem',
             }}
           ></button>
-          <S.StudentListExplan>EvulateList</S.StudentListExplan>
+          <S.StudentListExplan>EvaluateList</S.StudentListExplan>
           <S.BtnContainer>
             <S.WriteBtn onClick={openModal}>평가 작성하기</S.WriteBtn>
           </S.BtnContainer>
