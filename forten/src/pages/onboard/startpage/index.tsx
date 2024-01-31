@@ -265,6 +265,10 @@ const H1 = styled.h1`
   > .magic {
     display: inline-block;
     position: relative;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      scale: 1.1;
+    }
 
     > .magic-star {
       --size: clamp(20px, 1.5vw, 30px);

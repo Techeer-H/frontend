@@ -18,7 +18,7 @@ import OnBoardingPage from './pages/onboard/thirdpage/index';
 import NewAiPrompt from './pages/consultant/AiPrompt/aiPrompt';
 import NewSchoolTest from './pages/consultant/graderegister/inputTest';
 import Jaemin from './pages/onboard/jaeminpage/index';
-import Jaeminse from './pages/onboard/jaeminSecond/index';
+import Jaeminse from './pages/onboard/jaeminStartPage/index';
 
 const routers = createBrowserRouter([
   {
