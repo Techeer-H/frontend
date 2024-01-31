@@ -5,7 +5,7 @@ import OnBoardPage from './pages/onboard/firstpage';
 import AuthCheckedLayout from './layouts/AuthCheckedLayout';
 import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
-import StartPage from './pages/onboard/firstpage';
+import StartPage from './pages/onboard/startpage/index';
 import TeacherPage from './pages/teacher/main/index';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
@@ -17,8 +17,7 @@ import OnBoardingPage from './pages/onboard/thirdpage/index';
 // 변경된 페이지들
 import NewAiPrompt from './pages/consultant/AiPrompt/aiPrompt';
 import NewSchoolTest from './pages/consultant/graderegister/inputTest';
-
-
+import Jaemin from './pages/onboard/jaeminpage/index';
 
 const routers = createBrowserRouter([
   {
@@ -34,7 +33,7 @@ const routers = createBrowserRouter([
     element: <NotFoundPage />,
   },
   {
-    path: '/',
+    path: '/start',
     element: <StartPage />,
   },
 
@@ -75,6 +74,12 @@ const routers = createBrowserRouter([
     path: '/onboarding',
     element: <OnBoardingPage />,
   },
+
+  {
+    path: '/jaemin',
+    element: <Jaemin />,
+  },
+
   // 변경된 페이지들 주소
   {
     path: '/newaiprompt',
