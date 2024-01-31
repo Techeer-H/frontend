@@ -21,6 +21,7 @@
     "axios": "^1.6.5",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
+    "gasp": "^0.0.2",
     "html2canvas": "^1.4.1",
     "jquery": "^3.7.1",
     "lottie-react": "^2.4.0",

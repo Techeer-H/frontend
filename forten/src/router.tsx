@@ -18,6 +18,7 @@ import OnBoardingPage from './pages/onboard/thirdpage/index';
 import NewAiPrompt from './pages/consultant/AiPrompt/aiPrompt';
 import NewSchoolTest from './pages/consultant/graderegister/inputTest';
 import Jaemin from './pages/onboard/jaeminpage/index';
+import Jaeminse from './pages/onboard/jaeminSecond/index';
 
 const routers = createBrowserRouter([
   {
@@ -78,6 +79,11 @@ const routers = createBrowserRouter([
   {
     path: '/jaemin',
     element: <Jaemin />,
+  },
+
+  {
+    path: '/jaeminse',
+    element: <Jaeminse />,
   },
 
   // 변경된 페이지들 주소
