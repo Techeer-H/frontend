@@ -156,7 +156,7 @@ const WavesComponent: React.FC = () => {
           </div>
         </div>
       </div>
-      <Link to="/onboarding" className="project-name">
+      <Link to="/login" className="project-name">
         {/* <BtnShine>
   For:TEN <br /> start
 </BtnShine> */}
@@ -217,6 +217,10 @@ const Root = styled.div`
   --violet: rgb(103, 58, 183);
   --white: rgb(227, 181, 255);
   --pink: rgb(244, 143, 177);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 `;
 
 const backgroundPan = keyframes`
@@ -251,23 +255,29 @@ const rotate = keyframes`
 
 const H1 = styled.h1`
   color: white;
-  display: absolute;
-  transform: translate(1%, 950%);
+
+  position: relative;
+  /* 
+  transform: translate(43%, 1000%); */
   font-family: 'Rubik', sans-serif;
   font-size: clamp(2em, 2vw, 4em);
   font-weight: 600;
-
+  width: 100rem;
   text-align: center;
   letter-spacing: 25px;
-  /* text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  -webkit-text-stroke: 0.2px #868686; */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  -webkit-text-stroke: 0.2px #868686;
 
   > .magic {
     display: inline-block;
     position: relative;
     transition: 0.3s ease-in-out;
+    text-shadow: 0 0 10px rgba(161, 53, 255, 0.4);
+    -webkit-text-stroke: 0.2px #868686;
+
     &:hover {
-      scale: 1.1;
+      scale: 1.2;
+      text-shadow: none;
     }
 
     > .magic-star {
