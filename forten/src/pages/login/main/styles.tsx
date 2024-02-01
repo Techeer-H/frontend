@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import LoginImg from '../../../assets/LoginImg.svg';
+import { background } from '../../consultant/AiPrompt/styles';
 
 export const Section = styled.section`
   display: flex;
-  background: linear-gradient(238deg, #8d8ab4 34.16%, #d9c9c9 113.12%);
+  background-image: url(${LoginImg});
+  background-size: cover;
   width: 100%;
   height: 100vh;
   justify-content: center;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import SignUpLogo from '../../../assets/SignUpLogo.svg';
+
 import SuccessSignUp from '../modal/successSignUpModal';
+import Logo from '../../../assets/For-TEN.png';
 import * as S from './styles';
 import axios from 'axios';
 
@@ -125,9 +126,13 @@ const SignUpPage: React.FC = () => {
 
   return (
     <S.Section>
+      <img
+        src={Logo}
+        style={{ width: '10rem', display: 'flex', position: 'absolute', top: '1rem', left: '2rem' }}
+      ></img>
       <S.LeftColumn>
         <S.Form action="#" method="POST">
-          <S.LogoImage src={SignUpLogo} alt="" />
+          <S.LogoImage>회원가입</S.LogoImage>
           <S.InputWrapper>
             <S.Input
               value={email}
@@ -201,7 +206,15 @@ const SignUpPage: React.FC = () => {
                 checked={role === 'T'}
                 onChange={(e) => setRole(e.target.value as Role)}
               />
-              <label style={{ marginLeft: '0.6rem', marginRight: '1rem' }} htmlFor="T">
+              <label
+                style={{
+                  marginLeft: '0.6rem',
+                  marginRight: '1rem',
+                  color: 'white',
+                  fontWeight: 'bold',
+                }}
+                htmlFor="T"
+              >
                 강사
               </label>
               <input
@@ -211,7 +224,14 @@ const SignUpPage: React.FC = () => {
                 checked={role === 'C'}
                 onChange={(e) => setRole(e.target.value as Role)}
               />
-              <label style={{ marginLeft: '0.6rem' }} htmlFor="C">
+              <label
+                style={{
+                  marginLeft: '0.6rem',
+                  color: 'white',
+                  fontWeight: 'bold',
+                }}
+                htmlFor="C"
+              >
                 컨설턴트
               </label>
             </div>
@@ -231,22 +251,23 @@ const SignUpPage: React.FC = () => {
             </button>
           </S.Button>
 
-          <S.StyledLink to="/login"> 뒤로</S.StyledLink>
+          <S.StyledLink to="/login">back</S.StyledLink>
         </S.Form>
       </S.LeftColumn>
+      {/* 
       <S.RightColumn>
         <S.ImageOverlay />
-        <S.TextContent>
-          {/* <S.Title id="box" className="gradient-border" style={{ fontSize: '1.4rem' }}>
+        <S.TextContent> */}
+      {/* <S.Title id="box" className="gradient-border" style={{ fontSize: '1.4rem' }}>
             Best ENgilsh <br />
           </S.Title>
           <S.Title2 style={{ fontSize: '3.6rem' }}>BLEND</S.Title2> */}
-          <S.Title id="box" className="gradient-border" style={{ fontSize: '1.4rem' }}>
+      {/* <S.Title id="box" className="gradient-border" style={{ fontSize: '1.4rem' }}>
             학생들의 관리를 <br />
           </S.Title>
           <S.Title2 style={{ fontSize: '3.6rem' }}>For:Ten</S.Title2>
         </S.TextContent>
-      </S.RightColumn>
+      </S.RightColumn> */}
     </S.Section>
   );
 };

@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const H1 = styled.h1`
   grid-area: main;
-  font: 12vmin/1 'Libre Franklin';
+  font: 8vmin/1 'Libre Franklin';
   font-weight: 700;
   letter-spacing: 1rem;
   text-shadow: 0 0 1px #ffffff;
@@ -31,10 +31,14 @@ const H3 = styled.h3`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3rem;
+  margin-top: 1rem;
+  margin-right: 0rem;
+  font-size: 2.3rem;
   transition: all 0.3s ease-in-out;
   &:hover {
-    text-shadow: 0 0 1px #7f0000;
+    text-shadow: 0 0 1px #000000;
+    stop-color: 2px #000000;
+    stroke: 2px #000000;
   }
 `;
 

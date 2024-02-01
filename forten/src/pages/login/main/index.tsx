@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Logo from '../../../assets/For-TEN_black.png';
+import Logo from '../../../assets/For-TEN.png';
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
 import TeacherModal from '../modal/TeacherSuccess';
