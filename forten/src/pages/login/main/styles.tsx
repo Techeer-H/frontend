@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import LoginImg from '../../../assets/LoginImg.svg';
-import { background } from '../../consultant/AiPrompt/styles';
+import LoginImg from '../../../assets/LoginImgV3.svg';
 
 export const Section = styled.section`
   display: flex;
   background-image: url(${LoginImg});
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
   height: 100vh;
   justify-content: center;
@@ -22,8 +23,8 @@ export const LeftColumn = styled.div`
   position: relative;
   gap: 2.4rem;
   border-radius: 1rem;
-  background: #fff;
-  border-bottom: 2px solid #bcb1ff;
+  /* background: #fff;
+  border-bottom: 2px solid #bcb1ff; */
 `;
 
 export const Form = styled.form`
@@ -40,6 +41,7 @@ export const LogoImage = styled.img`
   width: 12rem;
   height: 5rem;
   margin-top: 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const TitleSecondary = styled.h2`
@@ -54,18 +56,17 @@ export const TitleSecondary = styled.h2`
 `;
 
 export const TextSecondary = styled.p`
-  margin: 0rem 0 2.45rem -0.3rem;
-  font-size: 0.9rem;
+  margin: 0rem 0 2rem -0.3rem;
+  font-size: 1.1rem;
   line-height: 1.5;
-  color: #d2d5db;
+  font-weight: 700;
+  color: #ffffff;
 `;
 
 export const Link = styled.a`
-  margin-top: 1rem;
-
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #6d5ecf;
+  color: #32fff8;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -80,36 +81,40 @@ export const InputWrapper = styled.div`
   .errorMessageWrap {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
-    color: #ef0000;
-    font-size: 0.7rem;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
   }
 `;
 
 export const Input = styled.input`
-  width: 16rem;
-  height: 2rem;
+  width: 18rem;
+  height: 2.5rem;
   padding: 1rem 1rem;
   border-radius: 0.375rem;
   border-radius: 1.2rem;
   border: 1.328px solid #e3e3e3;
   background: #fff;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
   color: #1f2937;
   &:focus {
     outline: none;
-    border-color: #9590b6;
-    box-shadow: 0 0 0 3px rgba(136, 37, 235, 0.3);
+    border-color: #00ffc3;
+    box-shadow: 0 0 0 4px rgba(0, 255, 217, 0.3);
   }
 `;
 
 export const Button = styled.div`
   .bottomButton {
-    width: 16rem;
-    height: 2rem;
+    width: 18rem;
+    height: 2.4rem;
     border-radius: 1.2em;
     border: none;
     background: #9590b6;
     color: #ffffff;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 
     font-size: 1rem;
     font-weight: 600;
