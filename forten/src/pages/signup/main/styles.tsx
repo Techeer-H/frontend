@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import LoginImg2 from '../../../assets/LoginImg2.svg';
+
+import Signup from '../../../assets/SignUpImg.svg';
+
 import { Link } from 'react-router-dom';
 
 export const Section = styled.section`
   display: flex;
-
-  background: url(${LoginImg2}) no-repeat;
+  background: url(${Signup}) no-repeat;
   background-size: cover;
   width: 100%;
   height: 100vh;
@@ -15,7 +16,6 @@ export const Section = styled.section`
 
 export const LeftColumn = styled.div`
   display: flex;
-  background: #ffffff;
   width: 31rem;
   height: 45rem;
   padding: 2.8em 4rem;
@@ -99,7 +99,7 @@ export const RoleContainer = styled.div`
 
 export const Button = styled.div`
   .bottomButton {
-    width: 16rem;
+    width: 18rem;
     height: 2.4rem;
 
     border-radius: 1.2em;
