@@ -9,8 +9,8 @@
     overflow: hidden;
     background: radial-gradient(
     220% 105% at top center,
-    #1b2947 10%,
-    #000000
+    rgb(40, 61, 107) 10%,
+    #0d0d23
   );
    
   }
@@ -53,7 +53,7 @@
   
   .mod .cube .faces .dot {
     position: absolute;
-    background: #ffffff;
+    background: #eea8ff;
     width: 3px;
     height: 4px;
     border-radius: 100%;

@@ -168,11 +168,11 @@ export const Title2 = styled.p`
   top: 28rem;
   color: #dee58b;
   background-image: -webkit-linear-gradient(92deg, #a3a365, #f6ffbb);
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-animation: hue 8s infinite linear;
+  animation: hue 8s infinite linear;
 
-  @-webkit-keyframes hue {
+  @keyframes hue {
     from {
       -webkit-filter: hue-rotate(120deg);
     }
