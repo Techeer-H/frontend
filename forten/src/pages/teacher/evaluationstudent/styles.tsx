@@ -112,12 +112,11 @@ export const CommentWrapper = styled.ul`
 `;
 
 export const TitleBar = styled.div`
-  background-color: rgba(115, 123, 123, 0.24);
   width: 59rem;
   height: 4rem;
   padding: 1rem;
   border-radius: 0.875rem;
-  background: rgba(146, 151, 179, 0.13);
+  background: rgba(16, 18, 27, 0.4);
 
   display: flex; /* Flexbox를 활성화합니다. */
   align-items: center;

@@ -3,6 +3,7 @@ import BackGround from '../../../assets/BackGround.svg';
 import register from '../../../assets/register.svg';
 import registerHover from '../../../assets/registerHover.svg';
 import BackImg2 from '../../../assets/backImg2.jpg'
+import TestImg from '../../../assets/testImg.png';
 
 export const background = styled.div`
   display: flex;
@@ -10,10 +11,10 @@ export const background = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  min-height: 900px;
+  min-height: 1000px;
   min-width: 1350px;
   padding-top: 2%;
-  background: url(${BackGround}) no-repeat;
+  background: url(${TestImg}) no-repeat;
   background-size: cover; /* This will make the background image cover the entire div */
   background-position: center;
 `;
@@ -36,11 +37,11 @@ export const fullcontainer = styled.div`
 export const LeftFullContainer = styled.div`
   width: 16rem;
   height: 48rem;
-  padding: 2rem 1.8125rem 1.125rem 2.1875rem;
-  flex-direction: column;
-  justify-content: flex-end;
+  padding: 1%;
 
-  margin: 0rem 0rem 4.62rem 2.81rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   border-radius: 0rem 0rem 0rem 1.25rem;
   border-right: 1px solid rgba(213, 213, 213, 0.2);
@@ -53,7 +54,7 @@ export const LeftFullContainer = styled.div`
 export const MarkContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 12rem;
+  width: 100%;
   height: 22rem;
 `;
 
@@ -70,7 +71,6 @@ export const MarkHeader = styled.div`
 `;
 export const MarkList = styled.div`
   height: 23rem;
-  width: 12.3125rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,7 +107,7 @@ export const RightFullContainer = styled.div`
   background: rgba(16, 18, 27, 0.7);
   backdrop-filter: blur(20px);
 
-  margin: 0rem 2.81rem 4.62rem 0rem;
+  position: relative;
 `;
 
 export const StudentListExplan = styled.div`
@@ -170,6 +170,12 @@ export const StyledButton = styled.input`
   background: url(${registerHover}) no-repeat;
   transition: background-color 0.9s ease;
   margin: 0.7rem 5rem 0.8rem 0rem;
+
+  position: absolute;
+  z-index: 5;
+  bottom: 10%;
+  right: 2%;
+
   &:hover {
     background: url(${register}) no-repeat;
     cursor: pointer;
@@ -223,5 +229,5 @@ export const StyledSelect = styled.select`
   width: 4.5rem;
   height: 2rem;
   border-radius: 0.44rem;
-  margin-left: 10rem;
+  margin-left: 17rem;
 `;

@@ -100,6 +100,10 @@ const Text = styled.div`
   margin-left: 1rem;
   width: 60rem;
   color: #f9fafb;
+
+  white-space: nowrap;        /* 줄 바꿈 방지 */
+  overflow: hidden;           /* 넘치는 부분 숨김 */
+  text-overflow: ellipsis;    /* 넘치면 ... 으로 표시 */
 `;
 
 const Rating = styled.div`

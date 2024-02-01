@@ -148,7 +148,6 @@ const ConsultantMainPage = () => {
                 placeholder="Search"
               />
             </S.StudentSearchContainer>
-            <S.StyledButton type="button" onClick={handleClick} />
             <S.StyledSelect onChange={stateSelectHandler} value={stateSelect}>
               <option value="1">전체</option>
               <option value="2">완료</option>
@@ -161,12 +160,12 @@ const ConsultantMainPage = () => {
           <S.LeftFullContainer>
             <S.MarkContainer>
               <S.MarkHeader>MARK</S.MarkHeader>
-              <S.MarkList>
-                <BookMarkList
-                  bookmarkedStudents={bookmarkedStudents}
-                  setBookmarkedStudents={setBookmarkedStudents}
-                />
-              </S.MarkList>
+
+              <BookMarkList
+                bookmarkedStudents={bookmarkedStudents}
+                setBookmarkedStudents={setBookmarkedStudents}
+              />
+
             </S.MarkContainer>
 
             <S.TextareaContainer>
@@ -191,6 +190,8 @@ const ConsultantMainPage = () => {
                 setBookmarkedStudents={setBookmarkedStudents}
               />
             </S.SearchContainer>
+
+            <S.StyledButton type="button" onClick={handleClick} />
           </S.RightFullContainer>
         </S.fullcontainer>
       </S.background>

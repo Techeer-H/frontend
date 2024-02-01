@@ -15,7 +15,7 @@ const TextArea = styled.div`
   background-color: rgba(146, 151, 179, 0.13);
   border-radius: 15px;
   padding: 1%;
-  font-size: 0.875rem;
+  font-size: 1.3rem;
   overflow: auto;
 `;
 

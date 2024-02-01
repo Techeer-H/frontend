@@ -23,27 +23,52 @@ const BookMarkList = ({ bookmarkedStudents, setBookmarkedStudents }: bookmarkedP
   };
 
   return (
-    <div style={{ overflow: 'auto' }}>
+    <Fullcontainer>
       {bookmarkedStudents.map((studentName) => (
         <Wrapper key={studentName}>
-          <img style={{ width: '2rem', marginRight: '1.06rem' }} src={Profile}></img>
+          <img style={{ width: '2rem' }} src={Profile}></img>
           <Name>{studentName}</Name>
           <button onClick={() => removeBookmark(studentName)}>
             <img style={{ width: '1.2rem' }} src={remove} alt="Remove Bookmark" />
           </button>
         </Wrapper>
       ))}
-    </div>
+    </Fullcontainer>
   );
 };
+
+const Fullcontainer = styled.div`
+  height: 23rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-y: auto;
+  
+  /* 스크롤바 커스터마이징 */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(1 2 3 / 80%);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }  
+`;
+
 const Box = styled.div`
   width: 12rem;
 `;
 const Wrapper = styled.div`
+  width: 100%;
   display: flex;
   text-align: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 
   margin-bottom: 0.8rem;
 `;
@@ -54,7 +79,6 @@ const Name = styled.p`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin-right: 3.5rem;
 `;
 
 export default BookMarkList;

@@ -135,7 +135,7 @@ function BlendEnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps
       <BtnWrapper>
         <SummitBtn type="submit">
           <div>
-            <img src={send} alt="전송 아이콘" />
+            저장
           </div>
         </SummitBtn>
       </BtnWrapper>
@@ -205,6 +205,10 @@ const SummitBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 export default BlendEnterGrades;

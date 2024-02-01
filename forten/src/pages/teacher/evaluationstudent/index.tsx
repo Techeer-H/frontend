@@ -149,7 +149,7 @@ const Teacherevaluate = () => {
           <S.RightFullContainer>
             <S.TitleBar>
               <S.Write>평가글</S.Write>
-              <S.Rating>Rating 점수</S.Rating>
+              <S.Rating>평가 점수</S.Rating>
               <S.IconContainer>
                 <S.Upgrade>수정</S.Upgrade>
                 <S.Delete>삭제</S.Delete>
