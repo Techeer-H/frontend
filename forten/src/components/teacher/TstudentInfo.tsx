@@ -185,6 +185,20 @@ const Ul = styled.ul`
   overflow: auto;
   border-radius: 0.875rem;
   background: rgba(146, 151, 179, 0.13);
+
+  /* 스크롤바 커스터마이징 */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(1 2 3 / 80%);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
 `;
 
 const Li = styled.li`
@@ -216,18 +230,18 @@ const Phone = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 7rem;
+  width: 8rem;
 `;
 const ParentPhone = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 7rem;
+  width: 9rem;
 `;
 const Action = styled.div`
   text-align: center;
-  width: 6rem;
+  width: 5rem;
   display: flex;
   justify-content: space-evenly;
 `;

@@ -61,7 +61,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <MainLogo onClick={goMain}>
-        <img src={BlendLogoWhite} alt="Logo" />
+        <img src={Logo} alt="Logo" />
       </MainLogo>
 
       <MemberContainer>

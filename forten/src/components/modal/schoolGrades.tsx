@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import Chart from 'react-apexcharts';
@@ -23,6 +23,10 @@ const RadioContaioner = styled.div`
   justify-content: space-evenly;
   color: #fff;
   font-size: 0.85rem;
+`;
+
+const Input = styled.input`
+  margin-right: 3px;
 `;
 
 interface ScoreDataItem {
@@ -185,15 +189,17 @@ function SchoolGrades(props: SchoolGradesProps) {
       categories: gradesData[selectedSubject].xaxisCategories,
       title: {
         text: '학기/모의고사',
+        offsetY: -5,
         style: {
-          fontSize: '1rem',
+          fontSize: '1.25rem',
           color: '#fff',
         },
       },
     },
     yaxis: {
       title: {
-        // text: '점수',
+        text: '점수',
+        rotate: 0,
         style: {
           fontSize: '1rem',
           color: '#fff',
@@ -202,7 +208,7 @@ function SchoolGrades(props: SchoolGradesProps) {
       min: 0,
       max: 170,
       labels: {
-        show: false, // y축의 값들을 숨깁니다.
+        show: false, // y축의 값들을 숨깁니다. (false)
       },
     },
     fill: {
@@ -218,7 +224,7 @@ function SchoolGrades(props: SchoolGradesProps) {
       <FlexContainer>
         <RadioContaioner>
           <label>
-            <input
+            <Input
               type="radio"
               id="korean"
               name="school"
@@ -229,7 +235,7 @@ function SchoolGrades(props: SchoolGradesProps) {
             국어
           </label>
           <label>
-            <input
+            <Input
               type="radio"
               id="english"
               name="school"
@@ -240,7 +246,7 @@ function SchoolGrades(props: SchoolGradesProps) {
             영어
           </label>
           <label>
-            <input
+            <Input
               type="radio"
               id="math"
               name="school"
@@ -252,7 +258,7 @@ function SchoolGrades(props: SchoolGradesProps) {
           </label>
 
           <label>
-            <input
+            <Input
               type="radio"
               id="test1"
               name="school"
@@ -264,7 +270,7 @@ function SchoolGrades(props: SchoolGradesProps) {
           </label>
 
           <label>
-            <input
+            <Input
               type="radio"
               id="test2"
               name="school"
@@ -276,7 +282,7 @@ function SchoolGrades(props: SchoolGradesProps) {
           </label>
 
           <label>
-            <input
+            <Input
               type="radio"
               id="test2"
               name="school"
@@ -288,7 +294,7 @@ function SchoolGrades(props: SchoolGradesProps) {
           </label>
 
           <label>
-            <input
+            <Input
               type="radio"
               id="test2"
               name="school"
@@ -300,7 +306,7 @@ function SchoolGrades(props: SchoolGradesProps) {
           </label>
 
           <label>
-            <input
+            <Input
               type="radio"
               id="test2"
               name="school"
@@ -312,7 +318,7 @@ function SchoolGrades(props: SchoolGradesProps) {
           </label>
 
           <label>
-            <input
+            <Input
               type="radio"
               id="test2"
               name="school"
@@ -324,7 +330,7 @@ function SchoolGrades(props: SchoolGradesProps) {
           </label>
 
           <label>
-            <input
+            <Input
               type="radio"
               id="test2"
               name="school"
@@ -340,7 +346,7 @@ function SchoolGrades(props: SchoolGradesProps) {
         options={chartOptions}
         series={chartOptions.series}
         type="area"
-        height={630}
+        height={600}
         width={1300}
       />
     </Wrapper>

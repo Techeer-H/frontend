@@ -185,6 +185,8 @@ const InputText = styled.textarea`
   outline: none;
   background: transparent;
   color: #ededed;
+  resize: none;
+
   &:hover {
     outline: none;
     box-shadow: 0 0 0 2px rgba(91, 126, 255, 0.8);

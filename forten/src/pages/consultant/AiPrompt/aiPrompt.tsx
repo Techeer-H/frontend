@@ -12,6 +12,8 @@ import StudentTable from '../../../components/modal/studentTable';
 import BackGround from '../../../assets/BackGround2.jpeg';
 import Pdf from '../../../assets/PDF.svg';
 
+import TestImg from '../../../assets/testImg.png';
+
 import Example from '../../../assets/example.png';
 
 // canvas import
@@ -31,7 +33,7 @@ const Background = styled.div`
   align-items: center;
   min-height: 900px;
   min-width: 1350px;
-  background: url(${BackGround}) no-repeat;
+  background: url(${TestImg}) no-repeat;
   background-size: cover;
   background-position: center;
 `;
@@ -77,7 +79,7 @@ const ButtonPdf = styled.button`
   height: 2.5rem;
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.875rem;
   display: flex;
   border-radius: 0.6rem;
   justify-content: space-around;
@@ -85,6 +87,7 @@ const ButtonPdf = styled.button`
 `;
 
 const GraphContainer = styled.div`
+  width: 100%;
   position: relative;
 `;
 
@@ -132,15 +135,14 @@ function AiPrompt() {
       // html2canvas을 사용하여 컨테이너 내용을 이미지로 캡쳐합니다.
       const canvas = await html2canvas(graphContainer);
 
+
       // 이미지 데이터를 얻어옵니다.
-      const imageData = canvas.toDataURL('image/png');
+      const imageData = canvas.toDataURL('image/jpeg');
 
       // 이미지를 다운로드합니다.
       const link = document.createElement('a');
-
-      //       link.href = Example; -> imageData
-      link.href = Example;
-      link.download = 'chart_image.png';
+      link.href = imageData;
+      link.download = 'chart_image.jpg';
       link.click();
     } catch (error) {
       console.error('Error saving chart image:', error);

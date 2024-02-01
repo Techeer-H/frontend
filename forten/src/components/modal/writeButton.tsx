@@ -6,7 +6,7 @@ const FlexContainer = styled.button`
   height: 2.5rem;
   background: rgba(0, 0, 0, 0.3);
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.875rem;
   display: flex;
   border-radius: 0.6rem;
   justify-content: space-around;
