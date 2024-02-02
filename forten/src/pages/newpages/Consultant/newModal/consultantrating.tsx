@@ -100,10 +100,6 @@ function ConsultantRatingPage(props: any) {
   const parentSliderHandler = (value: number) => {
     setParentRating(value);
   };
-
-  console.log('컨설턴트 레이팅 모달, 학생 점수: ', studentRating);
-  console.log('컨설턴트 레이팅 모달, 부모 점수:', parentRating);
-
   const submitHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
@@ -115,8 +111,7 @@ function ConsultantRatingPage(props: any) {
 
     axios
       .post(`http://3.37.41.244:8000/api/feedback/${user_Id}/`, data)
-      .then((response) => {
-        console.log(response);
+      .then(() => {
         props.close();
       })
       .catch((err) => {

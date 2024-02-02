@@ -6,7 +6,7 @@ export const background = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   min-height: 900px;
   min-width: 1350px;
   padding-top: 2%;

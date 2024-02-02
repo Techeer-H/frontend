@@ -8,7 +8,7 @@ export const background = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   min-height: 1000px;
   min-width: 1350px;
   padding-top: 2%;

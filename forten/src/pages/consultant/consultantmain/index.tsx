@@ -85,8 +85,6 @@ const ConsultantMainPage = () => {
         // 로그인 성공 시 처리
         const userData = response.data.result;
 
-        console.log('성공', userData);
-
         setStudentList(userData);
       })
       .catch((error) => {
@@ -100,8 +98,6 @@ const ConsultantMainPage = () => {
     const selectOption = event.target.value;
     setStateSelect(selectOption);
   };
-
-  console.log(stateSelect);
 
   return (
     // 전체화면

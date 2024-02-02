@@ -23,7 +23,6 @@ const LoginPage: React.FC = () => {
   const navigate = useNavigate();
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setEmail(e.target.value);
 
     const regex =
@@ -36,7 +35,6 @@ const LoginPage: React.FC = () => {
   };
 
   const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setPassword(e.target.value);
     const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/; //정규식
     if (regex.test(password)) {
@@ -62,10 +60,8 @@ const LoginPage: React.FC = () => {
         password,
       })
       .then((response) => {
-        console.log(response);
         // 로그인 성공 시 처리
         if ((response.status = 200)) {
-          console.log('로그인 성공!', response.data);
           localStorage.setItem('user_Id', response.data.user_id);
           localStorage.setItem('user_name', response.data.user_name);
           localStorage.setItem('role', response.data.role);
@@ -76,9 +72,8 @@ const LoginPage: React.FC = () => {
           }
         }
       })
-      .catch((err) => {
+      .catch(() => {
         setIsFailOpen(true);
-        console.log(err);
       });
   };
 

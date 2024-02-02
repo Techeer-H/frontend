@@ -57,7 +57,6 @@ const TeacherPage = () => {
         // 로그인 성공 시 처리
         const userData = response.data.result;
         // setUserData(userData.result);
-        console.log('성공', userData);
         setStudentList(userData);
       })
       .catch((error) => {
@@ -66,8 +65,6 @@ const TeacherPage = () => {
         // 예: 에러 메시지 표시 등
       });
   }, []);
-
-  console.log(stateSelect);
 
   return (
     <S.background>

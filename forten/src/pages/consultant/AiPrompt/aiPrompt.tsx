@@ -137,7 +137,6 @@ function AiPrompt() {
 
       // graphContainer가 존재하지 않으면 함수를 종료합니다.
       if (!graphContainer) {
-        console.error('Graph container not found.');
         return;
       }
 
@@ -162,7 +161,6 @@ function AiPrompt() {
         headers: { 'Content-Type': 'multipart/form-data' },
       })
         .then((res) => {
-          console.log(res, 'pdf 성공');
           const blobData = new Blob([res.data], { type: 'application/pdf' });
           const blobUrl = URL.createObjectURL(blobData);
 
@@ -172,11 +170,11 @@ function AiPrompt() {
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
-        }).catch((err) => {
-          console.log(err, 'pdf 실패');
+        }).catch(() => {
+          alert('pdf 저장 실패');
         })
     } catch (error) {
-      console.error('Error saving chart image:', error);
+      // console.error('Error saving chart image:', error);
     }
   };
 

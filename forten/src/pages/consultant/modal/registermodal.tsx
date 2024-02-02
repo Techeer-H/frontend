@@ -91,13 +91,11 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
         grade,
         birth,
       };
-      console.log(data);
       const response = await axios.post('http://3.37.41.244:8000/api/student/', data, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-      console.log('모달창에서 학생 생성하고 응답 받은 값', response.data.result);
       // 등록이 성공했을 때 모달을 닫음
       setstudentList((pre) => [...pre, response.data.result]); // 등록된 학생 목록에 추가
       handleCloseModal(); // 모달을 닫는 함수 호출
@@ -108,26 +106,21 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
     }
   };
   const studentName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setName(e.target.value);
     // setStudent(e.target.value); // student 상태 업데이트 추가
   };
   const schoolName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setSchool(e.target.value);
     // setStudent(e.target.value); // student 상태 업데이트 추가
   };
   const studentPhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setPhone(e.target.value);
   };
   const parentName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setParentName(e.target.value);
     // setStudent(e.target.value);
   };
   const parentPhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setParentPhone(e.target.value);
     // setStudent(e.target.value);
   };
@@ -155,8 +148,7 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
             <Age
               onChange={(e) => {
                 const selectBirth = e.target.value;
-                console.log(selectBirth);
-                setBirth(e.target.value);
+                setBirth(selectBirth);
               }}
               ref={birthDayEl}
             >
@@ -174,8 +166,7 @@ const RegisterModal = ({ handleClick, setstudentList }: RegisterModalProps) => {
               onChange={(e) => {
                 // e.target.value를 통해 선택된 값에 접근
                 const selectedValue = e.target.value;
-                console.log(selectedValue);
-                setGrade(e.target.value);
+                setGrade(selectedValue);
               }}
             >
               <option> 학년 선택 </option>
