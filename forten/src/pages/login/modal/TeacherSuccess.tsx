@@ -9,11 +9,13 @@ type TeacherSuccessLoginProps = {
 const Container = styled.div`
   position: absolute;
   z-index: 1;
+  border: 1px solid #ffffff; //
   top: 7rem;
   width: 26.25rem;
   height: 15rem;
   border-radius: 1rem;
-  background: #f4f4f4;
+  background: rgba(16, 18, 27, 0.6);
+  backdrop-filter: blur(30px);
 `;
 
 const Text = styled.div`
@@ -22,16 +24,14 @@ const Text = styled.div`
   height: 2.15906rem;
   flex-direction: column;
   justify-content: center;
-  flex-shrink: 0;
-  color: #5a5252;
+  color: #e3ddff;
   margin-left: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2.2rem;
   text-align: center;
   font-family: Inter;
   font-size: 1.375rem;
   font-style: normal;
   font-weight: 525;
-  line-height: normal;
 `;
 const Img = styled.div`
   width: 16rem;
@@ -42,14 +42,15 @@ const Img = styled.div`
 `;
 const Button = styled.div`
   display: flex;
-  width: 10rem;
-  height: 3.75rem;
+  width: 13rem;
+  height: 2.6rem;
   flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
-  flex-shrink: 0;
-  color: #5a5252;
-  background: #fff;
+  margin-left: 6.4rem;
+  color: #eae2ff;
+  border: 2px solid #ffffff; //
+  background: transparent;
   text-align: center;
   font-family: Inter;
   font-size: 1.25rem;
@@ -57,11 +58,6 @@ const Button = styled.div`
   font-weight: 500;
   line-height: normal;
   border-radius: 1rem; //
-  margin-left: 8rem;
-  margin-top: 2.2rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-
   transition: background-color 0.3s ease;
 
   &:hover {

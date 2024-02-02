@@ -1,4 +1,3 @@
-
 import Warningsignid from '../../../assets/Warningsignid.svg';
 import styled from 'styled-components';
 
@@ -9,12 +8,13 @@ type FailLoginProps = {
 const Container = styled.div`
   position: absolute;
   z-index: 1;
-  left: 12rem;
+  border: 1px solid #ffffff; //
   top: 7rem;
   width: 26.25rem;
   height: 15rem;
   border-radius: 1rem;
-  background: #f4f4f4;
+  background: rgba(16, 18, 27, 0.6);
+  backdrop-filter: blur(30px);
 `;
 
 const Text = styled.div`
@@ -23,8 +23,7 @@ const Text = styled.div`
   height: 2.15906rem;
   flex-direction: column;
   justify-content: center;
-  flex-shrink: 0;
-  color: #5a5252;
+  color: #e3ddff;
   margin-left: 0.8rem;
   margin-bottom: 1rem;
 
@@ -51,8 +50,8 @@ const Button = styled.div`
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
-  color: #5a5252;
-  background: #fff;
+  color: #eae2ff;
+  background: transparent;
   text-align: center;
   font-family: Inter;
   font-size: 1.25rem;
@@ -68,7 +67,7 @@ const Button = styled.div`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background: #fdd9ea;
+    background: #ffe7f2;
     color: #7c7c7c;
   }
 `;
