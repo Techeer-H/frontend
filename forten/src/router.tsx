@@ -1,24 +1,22 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import SignUpPage from './pages/signup/main/index';
-import OnBoardPage from './pages/onboard/firstpage';
-import AuthCheckedLayout from './layouts/AuthCheckedLayout';
 import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
-import StartPage from './pages/onboard/startpage/index';
 import TeacherPage from './pages/teacher/main/index';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';
 
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
-import OnBoardingPage from './pages/onboard/thirdpage/index';
+import OnBoardingPage from './pages/onboard/totalpage/index';
 
 // 변경된 페이지들
 import NewAiPrompt from './pages/consultant/AiPrompt/aiPrompt';
 import NewSchoolTest from './pages/consultant/graderegister/inputTest';
-import Jaemin from './pages/onboard/jaeminpage/index';
+import Jaemin from './pages/onboard/wavepage/index';
 import Jaeminse from './pages/onboard/jaeminStartPage/index';
+import JaeminSecond from './pages/onboard/jaeminSecond/index';
 
 const routers = createBrowserRouter([
   {
@@ -32,15 +30,6 @@ const routers = createBrowserRouter([
   {
     path: '*',
     element: <NotFoundPage />,
-  },
-  {
-    path: '/start',
-    element: <StartPage />,
-  },
-
-  {
-    path: '/onboard',
-    element: <OnBoardPage />,
   },
 
   {
@@ -84,6 +73,11 @@ const routers = createBrowserRouter([
   {
     path: '/jaeminse',
     element: <Jaeminse />,
+  },
+
+  {
+    path: '/jaeminsecond',
+    element: <JaeminSecond />,
   },
 
   // 변경된 페이지들 주소
