@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { Box, Tabs, Tab } from '@mui/material';
 import Navbar from '../../../components/consultant/navBar';
 import EnterGrades from '../../../components/consultant/enterGrades';
-import BlendEnterGrades from '../../../components/blend/blendEnterGrades';
+// import BlendEnterGrades from '../../../components/blend/blendEnterGrades';
 import BackgroundImg from '../../../assets/BackGround2.jpeg';
 import StudentTable from '../../../components/modal/studentTable';
 

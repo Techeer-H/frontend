@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import BackGround from '../../../assets/BackGround.svg';
 import register from '../../../assets/register.svg';
 import registerHover from '../../../assets/registerHover.svg';
-import BackImg2 from '../../../assets/backImg2.jpg'
 import TestImg from '../../../assets/testImg.png';
 
 export const background = styled.div`

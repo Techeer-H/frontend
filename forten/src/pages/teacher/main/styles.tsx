@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import BackGround from '../../../assets/BackGround2.jpeg';
-
 import TestImg2 from '../../../assets/testImg2.png';
 
 export const background = styled.div`

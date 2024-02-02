@@ -17,6 +17,7 @@ import first from '../../../assets/2ndno1.svg';
 import second from '../../../assets/2ndno2.svg';
 import third from '../../../assets/2ndno3.svg';
 import fourth from '../../../assets/2ndno4.svg';
+
 const ThirdOnBoardingPage: React.FC = () => {
   const [isScrollTopButtonVisible, setScrollTopButtonVisible] = useState(false);
 
@@ -77,7 +78,6 @@ const ThirdOnBoardingPage: React.FC = () => {
 
   const starsRef = useRef<HTMLImageElement>(null);
   const moonRef = useRef<HTMLImageElement>(null);
-  const mountainBehindRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const btnRef = useRef<HTMLButtonElement>(null);
   const mountainFrontRef = useRef<SVGSVGElement>(null);
@@ -91,31 +91,22 @@ const ThirdOnBoardingPage: React.FC = () => {
 
       applyScrollEffect(starsRef, scrollValue);
       applyScrollEffect(moonRef, scrollValue);
-      applyScrollEffect(mountainBehindRef, scrollValue);
-      applyScrollEffect(mountainFrontRef, scrollValue);
       applyScrollEffect(textRef, scrollValue);
       applyScrollEffect(logoRef, scrollValue);
       applyScrollEffect(btnRef, scrollValue);
 
       // 여러 Ref에 대한 특정 동작을 수행하는 함수
-      function applyScrollEffect(ref: any, scrollValue: any) {
-        if (starsRef.current) {
-          starsRef.current.style.transform = `translateX(${scrollValue * 0.25}px)`;
-        }
-        if (moonRef.current) {
-          moonRef.current.style.transform = `translateY(${scrollValue * 1}px)`;
-        }
-        if (mountainBehindRef.current) {
-          // mountainBehindRef.current.style.transform = `translateY(${scrollValue * 0.5}px)`;
-        }
-        // if (mountainFrontRef.current) {
-        //   mountainFrontRef.current.style.transform = `translateY(${scrollValue * 0}px)`;
-        // }
-        if (textRef.current) {
-          textRef.current.style.transform = `translateY(${scrollValue * 2}px)`;
-        }
-        if (btnRef.current) {
-          btnRef.current.style.transform = `translateY(${scrollValue * 1}px)`;
+      function applyScrollEffect(ref: React.RefObject<any>, scrollValue: number) {
+        if (ref.current) {
+          if (ref === starsRef) {
+            ref.current.style.transform = `translateX(${scrollValue * 0.25}px)`;
+          } else if (ref === moonRef) {
+            ref.current.style.transform = `translateY(${scrollValue * 1}px)`;
+          } else if (ref === textRef) {
+            ref.current.style.transform = `translateY(${scrollValue * 2}px)`;
+          } else if (ref === btnRef) {
+            ref.current.style.transform = `translateY(${scrollValue * 1}px)`;
+          }
         }
       }
     };

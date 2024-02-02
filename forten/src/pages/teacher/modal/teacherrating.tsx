@@ -122,10 +122,6 @@ z-index: 12;
 background: rgba(0, 0, 0, 0.45);
 `;
 
-const Full = styled.form`
-  margin-left: 10rem;
-`;
-
 const Modal = styled.div`
   position: fixed;
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
