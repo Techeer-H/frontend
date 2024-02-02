@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './styles.css'; // Assuming the CSS file is in the same directory as the component
+import stars from '../../../assets/stars.png';
 
 const WavesComponent: React.FC = () => {
+  const starsRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollValue = window.scrollY;
+      applyScrollEffect(starsRef, scrollValue);
+      function applyScrollEffect(ref: any, scrollValue: any) {
+        if (starsRef.current) {
+          starsRef.current.style.transform = `translateX(${scrollValue * 0.25}px)`;
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="header">
       {/* Content before waves */}
@@ -25,7 +44,7 @@ const WavesComponent: React.FC = () => {
             />
           </defs>
           <g className="parallax">
-            <use href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+            <use href="#gentle-wave" x="48" y="1" fill="rgba(255,255,255,0.7)" />
             <use href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
             <use href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
             <use href="#gentle-wave" x="48" y="7" fill="#fff" />

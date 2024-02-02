@@ -30,7 +30,8 @@ export const Full = styled.div`
 export const Bodysec = styled.div`
   height: 100vh;
   width: 100%;
-  background: linear-gradient(#2b1055, #7597de);
+  /* background: linear-gradient(#2b1055, #7597de); */
+  background: radial-gradient(220% 105% at top center, #1b2947 10%, #000000);
   overflow-x: hidden;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -47,6 +48,14 @@ export const Section = styled.div`
   align-items: center;
 `;
 
+export const Svg = styled.svg`
+  position: absolute;
+
+  width: 100%;
+  object-fit: cover;
+  pointer-events: none;
+`;
+
 export const SectionImg = styled.img`
   position: absolute;
   top: 0;
@@ -55,6 +64,7 @@ export const SectionImg = styled.img`
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  overflow-y: hidden;
 
   &.moon {
     mix-blend-mode: screen;
@@ -87,7 +97,7 @@ export const Button = styled.button`
 `;
 
 export const ExplainText = styled.div`
-  font-size: 2.5vw;
+  font-size: 2vw;
   color: #fff;
   white-space: nowrap;
   z-index: 13;
@@ -98,7 +108,7 @@ export const ExplainText = styled.div`
   pointer-events: none;
   justify-content: center;
   display: flex;
-  top: 25rem;
+  top: 18rem;
   /* transform: translateY(5rem); */
 `;
 
@@ -113,6 +123,7 @@ export const Body = styled.div`
 export const MainContent = styled.div`
   width: 100%;
   height: 500vh;
+  background: linear-gradient(180deg, #fff 0%, #4e6085 100%);
 `;
 
 export const Sticky = styled.div`
@@ -155,13 +166,16 @@ export const Front = styled.div`
   border-radius: 1vw;
   overflow: hidden;
   backface-visibility: hidden;
-  background: linear-gradient(to bottom, #9e9bf7 -50.35%, #ffeded 60.89%);
-  font-size: 1.5rem;
+
+  font-size: 1rem;
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: #141313;
+  background: #9297b3;
+  border: 1px solid #fff;
 `;
 // #94c7f6 5%, rgba(251, 70, 255, 0.21) 117.52%
 export const Back = styled.div`
@@ -169,10 +183,12 @@ export const Back = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  background:
-    linear-gradient(to bottom, #94c7f6 5%, rgba(251, 70, 255, 0.21) 117.52%),
-    url(${logo}) center/contain no-repeat;
+  background: #9297b3;
+  border: 1px solid #fff;
 `;
