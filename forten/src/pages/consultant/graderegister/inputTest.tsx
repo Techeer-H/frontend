@@ -252,20 +252,20 @@ function InputTest() {
               }}
             >
               <Tab
-                label="BLEND"
+                label="내신"
                 {...a11yProps(0)}
                 sx={{ color: '#F9FAFB', fontSize: '1rem', margin: '0.5rem 1rem' }}
               />
               <Tab
-                label="내신"
+                label="모의고사"
                 {...a11yProps(1)}
                 sx={{ color: '#F9FAFB', fontSize: '1rem', margin: '0.5rem 1rem' }}
               />
-              <Tab
-                label="모의고사"
+              {/* <Tab
+                label="BLEND"
                 {...a11yProps(2)}
                 sx={{ color: '#F9FAFB', fontSize: '1rem', margin: '0.5rem 1rem' }}
-              />
+              /> */}
             </Tabs>
           </Box>
         </TopFullContainer>
@@ -400,7 +400,7 @@ function InputTest() {
               <div style={{ marginTop: '0.4rem' }}>성적 등록</div>
             </Title>
 
-            <CustomTabPanel value={tabsValue} index={0}>
+            {/* <CustomTabPanel value={tabsValue} index={2}>
               <EnterGradesContainer>
                 <BlendEnterGrades
                   examId="11"
@@ -425,9 +425,9 @@ function InputTest() {
                   studentId={studentId}
                 />
               </EnterGradesContainer>
-            </CustomTabPanel>
+            </CustomTabPanel> */}
 
-            <CustomTabPanel value={tabsValue} index={1}>
+            <CustomTabPanel value={tabsValue} index={0}>
               <EnterGradesContainer>
                 {/* examId 는 어떤 시험인지 구분
                  * selectedGrade는 현재 선택한 학년 구분
@@ -444,7 +444,7 @@ function InputTest() {
 
             </CustomTabPanel>
 
-            <CustomTabPanel value={tabsValue} index={2}>
+            <CustomTabPanel value={tabsValue} index={1}>
 
               <EnterGradesContainer>
                 <EnterGrades examId="5" selectedGrade={selectedOption} studentId={studentId} />

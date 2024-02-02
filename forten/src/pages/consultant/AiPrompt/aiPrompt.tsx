@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 import Navbar from '../../../components/consultant/navBar';
 import StudentAvergy from '../../../components/modal/studentAvergy';
 import ParentAvergy from '../../../components/modal/parentAvergy';
@@ -110,6 +111,7 @@ function AiPrompt() {
   // locaton 이용해서 컨설턴트 메인에서 studentId를 가져와서 api에 연결
   const location = useLocation();
   const studentId = location.state.studentId;
+  const studentName = location.state.studentName;
   const graphContainerRef = useRef(null);
 
   const [isModal, setIsModal] = useState(false);
@@ -120,6 +122,18 @@ function AiPrompt() {
   const closeModal = () => {
     setIsModal(!isModal);
   };
+
+  // Base64 문자열을 Blob으로 변환하는 함수
+  function dataURItoBlob(dataURI: string) {
+    const byteString = atob(dataURI.split(',')[1]);
+    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([ab], { type: mimeString });
+  }
 
   const saveChartImg = async () => {
     try {
@@ -137,13 +151,35 @@ function AiPrompt() {
 
 
       // 이미지 데이터를 얻어옵니다.
-      const imageData = canvas.toDataURL('image/jpeg');
+      const imageData = canvas.toDataURL('image/jpg');
 
-      // 이미지를 다운로드합니다.
-      const link = document.createElement('a');
-      link.href = imageData;
-      link.download = 'chart_image.jpg';
-      link.click();
+      // Base64 문자열을 Blob 객체로 변환합니다.
+      const blobData = dataURItoBlob(imageData);
+
+      // Blob 객체를 파일로 변환합니다.
+      const imageFile = new File([blobData], 'image.jpg', { type: 'image/jpg' });
+
+      // 파일을 FormData에 추가합니다.
+      const formData = new FormData();
+      formData.append('image', imageFile);
+
+      axios.post(`http://3.37.41.244:8000/api/analysis/prompt/${studentId}/`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+        .then((res) => {
+          console.log(res, 'pdf 성공');
+          const blobData = new Blob([res.data], { type: 'application/pdf' });
+          const blobUrl = URL.createObjectURL(blobData);
+
+          const a = document.createElement('a');
+          a.href = blobUrl;
+          a.download = `${studentName}.pdf`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }).catch((err) => {
+          console.log(err, 'pdf 실패');
+        })
     } catch (error) {
       console.error('Error saving chart image:', error);
     }

@@ -114,8 +114,8 @@ const StudentInfo = ({
     navigate('/newschooltest', { state: { studentId } });
   };
 
-  const aiPromptHandler = (studentId: number) => {
-    navigate('/newaiprompt', { state: { studentId } });
+  const aiPromptHandler = (studentId: number, studentName: string) => {
+    navigate('/newaiprompt', { state: { studentId, studentName } });
   };
 
   return (
@@ -143,7 +143,7 @@ const StudentInfo = ({
                 <ImgBox onClick={() => gradeRegisterHandler(student.id)}>
                   <img src={registerGrade} alt="성적등록하기" />
                 </ImgBox>
-                <ImgBox onClick={() => aiPromptHandler(student.id)}>
+                <ImgBox onClick={() => aiPromptHandler(student.id, student.name)}>
                   <img src={aiPrompt} alt="프롬트제작페이지" />
                 </ImgBox>
               </Action>
