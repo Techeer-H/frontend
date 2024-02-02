@@ -29,7 +29,6 @@ const Teacherevaluate = () => {
   const location = useLocation();
   // 학생 아이디 가져오기 성공
   // 통신하는 자식 컴포넌트에게 props 값을 넘겨주면 됨.
-  console.log('ai 프롬트 학생 아이디 가져오기', location.state.studentId);
   const studentId = location.state.studentId;
 
   //2번쨰방법
@@ -56,7 +55,6 @@ const Teacherevaluate = () => {
 
         .get(`http://3.37.41.244:8000/api/feedback/${user_id}/${studentInfo.studentId}/info`)
         .then(function (res) {
-          console.log('res', res);
 
           setEvaluateList(res.data.result);
         })

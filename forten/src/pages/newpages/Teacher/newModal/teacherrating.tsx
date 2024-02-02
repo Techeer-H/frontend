@@ -15,8 +15,6 @@ const NewTeacherRating: React.FC<{
   const [content, setContent] = useState<string | undefined>(undefined);
   const [rating, setRating] = useState<number | undefined>(undefined);
 
-  console.log(feedbackId, comment, studentRating);
-
   const handleSliderChange = (value: number) => {
     setRating(value);
   };
@@ -32,7 +30,6 @@ const NewTeacherRating: React.FC<{
 
   const location = useLocation();
   const student_id = location.state.studentId;
-  console.log(location.state.studentId);
 
   const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = async (event) => {
     event.preventDefault();
@@ -42,8 +39,6 @@ const NewTeacherRating: React.FC<{
       student_rating: rating,
       content: content,
     };
-
-    console.log(data);
 
     try {
       if (feedbackId) {

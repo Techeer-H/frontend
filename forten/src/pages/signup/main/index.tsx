@@ -44,7 +44,6 @@ const SignUpPage: React.FC = () => {
   // };
 
   const emailChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setEmail(e.target.value);
 
     const regex =
@@ -57,7 +56,6 @@ const SignUpPage: React.FC = () => {
   };
 
   const passwordChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
     setPassword(e.target.value);
     const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/; //정규식
     if (regex.test(password)) {
@@ -84,7 +82,6 @@ const SignUpPage: React.FC = () => {
 
   const birthChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBirth(e.target.value);
-    console.log(e.target.value);
     const regex = /^[0-9]{3}$/;
     if (regex.test(birth)) {
       setBirthValid(true);
@@ -114,9 +111,8 @@ const SignUpPage: React.FC = () => {
         role: role,
       })
 
-      .then((response) => {
+      .then(() => {
         setIsSuccessOpen(true);
-        console.log(response);
       })
       .catch((err) => {
         alert('회원가입에 실패하였습니다.');

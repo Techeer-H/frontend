@@ -9,7 +9,7 @@ import StudentTable from '../../../components/modal/studentTable';
 import TestImg from '../../../assets/testImg.png';
 
 const Background = styled.div`
-    padding-top: 2%;
+  padding-top: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
