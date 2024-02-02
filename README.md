@@ -10,17 +10,20 @@
 
 ## **Contents**
 
-- [What is Forten?](#what-is-forten?)
+- [What is Forten?](#what-is-forten)
 - [System Architecture](#system-architecture)
-- [Tech Stack](#tech-stack)
+- [Tech Stack](#techstack)
+- [Service Introduction](#service-introduction)
 - [Database](#database)
 - [API](#api)
-- [Team Member](#team-member)
+- [Monitoring](#monitoring)
+- [Installation](#installation)
+- [Members](#members)
 
 
-##   ![question mark](https://github.com/Techeer-H/frontend/assets/154998592/b3e937fd-cb98-4400-be3b-3ca8542fe033)   **What is Forten?**
+## **What is Forten?**
 **Forten은 학생 정보를 간편하게 등록하고 시각화하는 서비스입니다.**
-1. **AI 프롬프트로 상담내용 구현**
+ 1. **AI 프롬프트로 상담내용 구현**
    - AI 프롬프트를 통해 양질의 컨설팅 내용 생성
    (사진 첨부)
 
@@ -34,17 +37,16 @@
    - 한눈에 들어오는 UI/UX
    - 차트를 통해 종합적인 학생 성적 분석
    (사진 첨부)
+## **System Architecture**
+<img width="952" alt="Untitled" src="https://github.com/Techeer-H/frontend/assets/74411978/091067f9-4e7d-44a9-8ecd-4a5f2a32f7a4">
 
-##  ![tdesign_architecture-hui-style](https://github.com/Techeer-H/frontend/assets/154998592/aee4f92b-c1bb-4558-9f2c-94071936006d) System Architecture
-![system architecture](https://github.com/Techeer-H/frontend/assets/154998592/cd5dadf1-14b7-44a9-91ad-eabc9ee07b43)
 
-
-### ![streamline_ai-technology-spark](https://github.com/Techeer-H/frontend/assets/154998592/0568ce89-f706-4d9d-8821-2fa3d88c3c68) Tech Stack
+## **TechStack**
 | Frontend | Backend | Devops | DB | Others |
 | --- | --- | --- | --- | --- |
 | ![React](https://img.shields.io/badge/react-444444?style=for-the-badge&logo=react) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) | ![Django Rest Framework](https://img.shields.io/badge/Django_Rest_Framework-092E20?style=for-the-badge&logo=django&logoColor=white) ![Celery](https://img.shields.io/badge/Celery-37814A?style=for-the-badge&logo=celery&logoColor=white) ![Gunicorn](https://img.shields.io/badge/Gunicorn-366B9E?style=for-the-badge&logo=gunicorn&logoColor=white) | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/Nginx-269539?style=for-the-badge&logo=nginx&logoColor=white) ![Amazon EC2](https://img.shields.io/badge/Amazon_EC2-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white) ![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white) | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white) | ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black) ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white) ![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) |
 
-## ![eos-icons_service-outlined](https://github.com/Techeer-H/frontend/assets/154998592/5dea5822-e787-4100-bdfe-b359caddd3ce) Service
+## **Service Introduction**
 
 - **시작 페이지**: 온보딩 페이지로 이어지며 포텐의 시작을 알리는 페이지입니다
 - **Onboarding 페이지**: 서비스를 소개하고 사용자에게 이용법을 안내하는 페이지입니다
@@ -54,24 +56,26 @@
 - **컨설턴트 AI 프롬프트 페이지**: 해당 학생에 대한 여러 강사들이 작성한 학생의 수업태도 및 평가를 학부모님과 쉽게 상담할 수 있게 AI가 요약해준 프롬프트를 확인하는 페이지입니다
 - **강사 메인 페이지**: 강사로 로그인 후 첫 화면이자 학생 목록을 조회하고 학생에 대한 평가를 작성하러 이동할 수 있는 페이지입니다
 - **강사 학생 평가 페이지**: 강사가 학생의 수업태도 및 평가를 등록, 수정, 그리고 삭제할 수 있는 페이지입니다
+## **Database**
+<img width="855" alt="image" src="https://github.com/Techeer-H/frontend/assets/74411978/2dc82946-9425-4fda-a7de-30ea9c4147da">
 
-## ![Group](https://github.com/Techeer-H/frontend/assets/154998592/4aa7e8d5-099f-4bd0-9455-b127646b654d) API
+
+## **API**
 
 [Swagger API Documentation](http://3.37.41.244:8000/swagger/ )
 
-## ![pepicons-pencil_monitor](https://github.com/Techeer-H/frontend/assets/154998592/b2cec25a-9d0b-41f4-ac03-44de4c84dfd8) Monitoring
+
+## **Monitoring**
 
 - **Prometheus, Grafana**
   
 ![grafana prometheus](https://github.com/Techeer-H/frontend/assets/154998592/c2c52003-1324-4eb5-907b-e7d293f0497e)
 
 
-## ![directory](https://github.com/Techeer-H/frontend/assets/154998592/95e1c926-87ef-4cf5-8ca2-d2bd0d3a4305) File Directory
 
 
 
-
-## ![install](https://github.com/Techeer-H/frontend/assets/154998592/e2d7d867-e386-44a7-9ff7-a4f7d25559a4) Installation
+## **Installation**
 
 1. **Clone Repository**
    ```bash
@@ -79,7 +83,7 @@
 
    
 
-## ![members](https://github.com/Techeer-H/frontend/assets/154998592/53911adc-8e1d-480c-8d69-726e6ac83988) Members
+## **Members**
 <table width="950px">
     <thead>
     </thead>
