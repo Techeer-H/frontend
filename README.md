@@ -14,7 +14,7 @@
 - [Demo](#demo)
 - [System Architecture](#system-architecture)
 - [Tech Stack](#tech-stack)
-- [Database](#database)
+- [E-R Diagram](#e-r-diagram)
 - [API](#api)
 - [Monitoring](#monitoring)
 - [Installation](#installation)
