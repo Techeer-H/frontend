@@ -42,12 +42,11 @@ const SelectTest = styled.div`
 `;
 
 interface studentId {
-  studentId: string
+  studentId: string;
 }
 
 function ChooseSchoolMock({ studentId }: studentId) {
   const navigate = useNavigate();
-
 
   console.log('내신, 모의고사 선택 컴포넌트', studentId);
 

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import send from '../../assets/send.png';
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -15,10 +14,12 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
   const [koreanGrade, setKoreanGrade] = useState('');
   const [mathGrade, setMathGrade] = useState('');
   const [englishGrade, setEnglishGrade] = useState('');
+  const [scienceGrade, setScienceGrade] = useState('');
+  const [socialGrade, setSocialGrade] = useState('');
 
   // 학생 id를 받아옴, 이 student 값을 통신할 때 보내면
   // 해당 학생에 대한 성적을 입력할 수 있음
-  const student = studentId
+  const student = studentId;
   console.log(student);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -30,23 +31,38 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
         {
           exam_id: examId,
           subject_id: '1',
-          type: '상대',
+          type: '절대',
           grade: selectedGrade,
           score: koreanGrade,
         },
         {
           exam_id: examId,
           subject_id: '2',
-          type: '상대',
+          type: '절대',
           grade: selectedGrade,
           score: mathGrade,
         },
         {
           exam_id: examId,
           subject_id: '3',
-          type: '상대',
+          type: '절대',
           grade: selectedGrade,
           score: englishGrade,
+        },
+        // 새로운 데이터 추가
+        {
+          exam_id: examId,
+          subject_id: '4',
+          type: '절대',
+          grade: selectedGrade,
+          score: scienceGrade,
+        },
+        {
+          exam_id: examId,
+          subject_id: '5',
+          type: '절대',
+          grade: selectedGrade,
+          score: socialGrade,
         },
       ],
     };
@@ -57,10 +73,15 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
     event.preventDefault();
 
     try {
-      const response = await axios.post(`http://3.37.41.244:8000/api/student/${student}/score/`, data);
+      const response = await axios.post(
+        `http://3.37.41.244:8000/api/student/${student}/score/`,
+        data,
+      );
       console.log('성공적으로 저장되었습니다', response.data);
+      alert('성공적으로 저장되었습니다');
     } catch (error) {
       console.error('등급 저장 중 오류 발생', error);
+      alert('저장 오류! 다시 입력해주세요');
     }
   };
 
@@ -94,28 +115,39 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
       <Explan>{getSemesterName(examId)}</Explan>
       <Input
         type="text"
-        placeholder="국어 등급 입력"
+        placeholder="Korean"
         value={koreanGrade}
         onChange={(e) => setKoreanGrade(e.target.value)}
       />
       <Input
         type="text"
-        placeholder="수학 등급 입력"
+        placeholder="Math"
         value={mathGrade}
         onChange={(e) => setMathGrade(e.target.value)}
       />
       <Input
         type="text"
-        placeholder="영어 등급 입력"
+        placeholder="English"
         value={englishGrade}
         onChange={(e) => setEnglishGrade(e.target.value)}
+      />
+      <Input
+        type="text"
+        placeholder="Science"
+        value={scienceGrade}
+        onChange={(e) => setScienceGrade(e.target.value)}
+      />
+      <Input
+        type="text"
+        placeholder="social"
+        value={socialGrade}
+        onChange={(e) => setSocialGrade(e.target.value)}
       />
 
       <BtnWrapper>
         <SummitBtn type="submit">
-          저장하기
           <div>
-            <img src={send} alt="전송 아이콘" />
+            저장
           </div>
         </SummitBtn>
       </BtnWrapper>
@@ -124,37 +156,71 @@ function EnterGrades({ examId, selectedGrade, studentId }: EnterGradesProps) {
 }
 
 const Form = styled.form`
-  width: 8.25rem;
-  height: 15.25rem;
-  background-color: rgba(252, 246, 255, 0.5);
-  border: 1px solid #c1c7ff;
-  border-radius: 5px;
+  display: flex;
+  width: 17rem;
+  height: 17rem;
+  padding: 0.5rem 0.5rem 0rem 0.5rem;
+  align-items: center;
+  background: rgba(146, 151, 179, 0.13);
+  border-radius: 0.875rem;
+  border: 0.5px solid #707070;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  transition: 0.4s ease;
+
+  &:hover {
+    backdrop-filter: blur(20px);
+    scale: 1.05;
+  }
 `;
 
 const Explan = styled.div`
+  width: 100%;
+  padding: 3%;
+  color: #fff;
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 600;
 `;
 
 const Input = styled.input`
-  width: 100%;
-  height: 3rem;
+  width: 12rem;
+  height: 2rem;
   background-color: transparent;
+  border-bottom: 1px solid #3d4450;
+  color: #fff;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const BtnWrapper = styled.div`
-  width: 100%;
-  background-color: #c1c7ff;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 1.25rem;
+  background: #498bfa;
+  margin: 0.5rem 1.19rem 0.56rem 12.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
   display: flex;
   justify-content: center;
+  align-items: center;
+  transition: 0.1s ease;
+  &:hover {
+    background: #005eff;
+  }
 `;
 
 const SummitBtn = styled.button`
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
+
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
 `;
 
 export default EnterGrades;

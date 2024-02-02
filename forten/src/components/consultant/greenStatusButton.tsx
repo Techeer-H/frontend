@@ -1,25 +1,32 @@
 import styled from 'styled-components';
 
 const Button = styled.div`
-  width: 3rem;
-  height: 1.2rem;
-  background-color: #dbffdb;
-  border-radius: 1.22rem;
-  align-items: center; /* 수직 가운데 정렬 */
-  font-size: 0.5rem;
-  padding-left: 1rem;
-  padding-top: 0.2rem;
-`;
+  width: 6rem;
+  height: 1.4rem;
 
+  align-items: center; /* 수직 가운데 정렬 */
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: start;
+`;
+const Circle = styled.div`
+  width: 6px;
+  height: 6px;
+  background-color: #3bf083;
+
+  border-radius: 50%;
+`;
 const TextContainer = styled.text`
-  color: #3eb079;
+  color: #ebfcff;
+  margin-left: 0.5rem;
 `;
 
 const GreenStatusButton = () => {
   return (
     <div id="GreenButton">
       <Button id="GreenButton">
-        <TextContainer>완료</TextContainer>
+        <Circle></Circle>
+        <TextContainer>평가 완료</TextContainer>
       </Button>
     </div>
   );

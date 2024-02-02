@@ -11,7 +11,7 @@ import Tmemo from '../../../components/teacher/Tmemo';
 import TstudentInfo, { StudentType } from '../../../components/teacher/TstudentInfo';
 
 import search from '../../../assets/searchIcon.svg';
-import star from '../../../assets/star.svg';
+
 import axios from 'axios';
 
 export type UserType = {
@@ -57,7 +57,6 @@ const TeacherPage = () => {
         // 로그인 성공 시 처리
         const userData = response.data.result;
         // setUserData(userData.result);
-        console.log('성공', userData);
         setStudentList(userData);
       })
       .catch((error) => {
@@ -67,51 +66,68 @@ const TeacherPage = () => {
       });
   }, []);
 
-  console.log(stateSelect);
-
   return (
     <S.background>
       <Tnavbar />
+
+      <div style={{ justifyContent: 'center', display: 'flex' }}>
+        <S.TopFullContainer>
+          <div style={{ marginLeft: '2rem' }}></div>
+          <div
+            style={{
+              marginTop: '1rem',
+              width: '15px',
+              height: '15px',
+              backgroundColor: '#f96057',
+              borderRadius: '50%',
+              boxShadow: '24px 0 0 0 #f8ce52, 48px 0 0 0 #5fcf65',
+              marginRight: '13.1rem',
+            }}
+          ></div>
+          <S.StudentListExplan>StudentList</S.StudentListExplan>
+
+          <S.StudentSearchContainer>
+            <img
+              src={search}
+              style={{ marginTop: '0.1rem', width: '1rem', height: '1rem' }}
+              alt="Search Icon"
+            />
+            <S.StyledInput
+              onChange={getSearchData}
+              value={studentInput}
+              type="text"
+              placeholder="Search"
+            />
+          </S.StudentSearchContainer>
+
+          <S.StyledSelect onChange={stateSelectHandler} value={stateSelect}>
+            <option value="1">전체</option>
+            <option value="2">완료</option>
+            <option value="3">미완료</option>
+          </S.StyledSelect>
+        </S.TopFullContainer>
+      </div>
+
       <S.fullcontainer>
         <S.LeftFullContainer>
-          <S.purpleCircle>
-            <div>
-              <img src={star} alt="star" style={{ marginLeft: '1rem', marginRight: '1rem' }} />
-            </div>
-            <p>즐겨찾기</p>
-          </S.purpleCircle>
-          <TbookMarkList
-            bookmarkedStudents={bookmarkedStudents}
-            setBookmarkedStudents={setBookmarkedStudents}
-          />
+          <S.MarkContainer>
+            <S.MarkHeader>MARK</S.MarkHeader>
+            <S.MarkList>
+              <TbookMarkList
+                bookmarkedStudents={bookmarkedStudents}
+                setBookmarkedStudents={setBookmarkedStudents}
+              />
+            </S.MarkList>
+          </S.MarkContainer>
+
+          <S.TextareaContainer>
+            <S.TextareaHeader>MEMO</S.TextareaHeader>
+            <Tmemo />
+          </S.TextareaContainer>
         </S.LeftFullContainer>
 
         <S.RightFullContainer>
           <S.SearchContainer>
-            <S.FlexContainer>
-              <S.StudentSearchContainer>
-                <S.StyledInput
-                  onChange={getSearchData}
-                  value={studentInput}
-                  type="text"
-                  placeholder="학생조회"
-                />
-                <S.SearchIcon>
-                  <img src={search} alt="Search Icon" />
-                </S.SearchIcon>
-              </S.StudentSearchContainer>
-              <S.DropDownContainer>
-                <S.StyledSelect
-                  className="text-gray-700"
-                  onChange={stateSelectHandler}
-                  value={stateSelect}
-                >
-                  <option value="1">전체</option>
-                  <option value="2">완료</option>
-                  <option value="3">미완료</option>
-                </S.StyledSelect>
-              </S.DropDownContainer>
-            </S.FlexContainer>
             <TgrayBox />
             <TstudentInfo
               //학생리스트 props
@@ -125,7 +141,6 @@ const TeacherPage = () => {
               setBookmarkedStudents={setBookmarkedStudents}
             />
           </S.SearchContainer>
-          <Tmemo />
         </S.RightFullContainer>
       </S.fullcontainer>
     </S.background>

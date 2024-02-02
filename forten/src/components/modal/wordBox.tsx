@@ -5,16 +5,17 @@ import axios from "axios";
 const Center = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 0.5rem;
+
 `
 
 const TextArea = styled.div`
-  width: 94%;
-  height: 5rem;
-  border: 1px solid #717171;
-  border-radius: 10px;
-  padding: 0.25rem;
-  font-size: 0.875rem;
+  width: 82rem;
+  height: 27.5rem;
+  color: #fff;
+  background-color: rgba(146, 151, 179, 0.13);
+  border-radius: 15px;
+  padding: 1%;
+  font-size: 1.3rem;
   overflow: auto;
 `;
 

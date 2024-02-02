@@ -3,15 +3,41 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import aiPrompt from '../../assets/AIPrompt.svg';
+
 import axios from 'axios';
 import RedStatusButton from '../consultant/redStatusButton';
 import GreenStatusButton from '../consultant/greenStatusButton';
 import Mark from '../../assets/Mark.svg';
 import NoMark from '../../assets/NoMark.svg';
 
+//1차 샘플데이터
+// const studentInfo = () => {
+//   const [studentlist, setStudentList] = useState<
+//     {
+//       id: number;
+//       name: string;
+//       school: string;
+//       birth: string;
+//       phone: string;
+//       parent_phone: string;
+//     }[]
+//   >([]);
+
+//   const getSudentList = async () => {
+//     const response = await axios.get(
+//       'http://3.37.41.244:8000/api/student/?id=1&student_id=37&search=',
+//     );
+//     setStudentList(response.data.result); //여기까지하면 처음페이지 불러올떄 있는 목록만 나옴
+//     console.log(response.data.result);
+//     // setStudentList((prev) => [...prev, response.data]); // api 명세서 보면 response 안에 result , studentList
+//   };
+
+//   useEffect(() => {
+//     getSudentList();
+//   }, []);
+
 export interface StudentType {
   academy_id: number;
-
   id: number;
   name: string;
   school: string;
@@ -38,10 +64,9 @@ interface StudentInfoType {
   school: string;
   birth: string;
 }
-
 const user_Id = localStorage.getItem('user_Id');
 
-const TstudentInfo = ({
+const TStudentInfo = ({
   studentInput,
   selectedStatus,
   studentlist,
@@ -91,7 +116,6 @@ const TstudentInfo = ({
       localStorage.setItem('bookmarkedStudents', JSON.stringify(updatedBookmarks));
     }
   };
-
   const EvaulateListHandler = ({ studentId, studentName, school, birth }: StudentInfoType) => {
     navigate('/evaluate', { state: { studentId, studentName, school, birth } });
   };
@@ -150,19 +174,42 @@ const TstudentInfo = ({
 };
 
 const Ul = styled.ul`
-  width: 47.75rem;
-  font-size: 0.5rem;
-  color: #737b7b;
+  margin-top: 0.5rem;
+  width: 59rem;
+  height: 35rem;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #f9fafb;
   overflow: auto;
+  border-radius: 0.875rem;
+  background: rgba(146, 151, 179, 0.13);
+
+  /* 스크롤바 커스터마이징 */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(1 2 3 / 80%);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
 `;
 
 const Li = styled.li`
+  padding: 1rem;
   display: flex;
-  margin-bottom: 1rem;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid rgba(113, 119, 144, 0.25);
+  transition: background-color 0.3s ease;
   &:hover {
-    scale: 1.04;
+    background: rgba(16, 18, 27, 0.4);
   }
 `;
 const Student = styled.div`
@@ -172,7 +219,7 @@ const Student = styled.div`
 
 const School = styled.div`
   text-align: center;
-  width: 5rem;
+  width: 6rem;
 `;
 const Age = styled.div`
   text-align: center;
@@ -183,22 +230,20 @@ const Phone = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 5rem;
+  width: 8rem;
 `;
 const ParentPhone = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 5rem;
+  width: 9rem;
 `;
 const Action = styled.div`
   text-align: center;
-  width: 4rem;
+  width: 5rem;
   display: flex;
   justify-content: space-evenly;
-  border-radius: 0.6rem;
-  border: 0.1px solid rgb(171, 172, 247);
 `;
 
 const ImgBox = styled.button``;
@@ -209,4 +254,4 @@ const Status = styled.div`
   width: 5rem;
 `;
 
-export default TstudentInfo;
+export default TStudentInfo;

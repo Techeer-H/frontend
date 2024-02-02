@@ -111,11 +111,11 @@ const StudentInfo = ({
     }
   };
   const gradeRegisterHandler = (studentId: number) => {
-    navigate('/schooltest', { state: { studentId } });
+    navigate('/newschooltest', { state: { studentId } });
   };
 
-  const aiPromptHandler = (studentId: number) => {
-    navigate('/aiprompt', { state: { studentId } });
+  const aiPromptHandler = (studentId: number, studentName: string) => {
+    navigate('/newaiprompt', { state: { studentId, studentName } });
   };
 
   return (
@@ -143,7 +143,7 @@ const StudentInfo = ({
                 <ImgBox onClick={() => gradeRegisterHandler(student.id)}>
                   <img src={registerGrade} alt="성적등록하기" />
                 </ImgBox>
-                <ImgBox onClick={() => aiPromptHandler(student.id)}>
+                <ImgBox onClick={() => aiPromptHandler(student.id, student.name)}>
                   <img src={aiPrompt} alt="프롬트제작페이지" />
                 </ImgBox>
               </Action>
@@ -165,19 +165,42 @@ const StudentInfo = ({
 };
 
 const Ul = styled.ul`
-  width: 47.75rem;
-  font-size: 0.5rem;
-  color: #737b7b;
+  margin-top: 0.5rem;
+  width: 59rem;
+  height: 35rem;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #f9fafb;
   overflow: auto;
+  border-radius: 0.875rem;
+  background: rgba(146, 151, 179, 0.13);
+
+  /* 스크롤바 커스터마이징 */
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(1 2 3 / 80%);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
 `;
 
 const Li = styled.li`
+  padding: 1rem;
   display: flex;
-  margin-bottom: 1rem;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid rgba(113, 119, 144, 0.25);
+  transition: background-color 0.3s ease;
   &:hover {
-    scale: 1.04;
+    background: rgba(16, 18, 27, 0.4);
   }
 `;
 const Student = styled.div`
@@ -187,7 +210,7 @@ const Student = styled.div`
 
 const School = styled.div`
   text-align: center;
-  width: 5rem;
+  width: 6rem;
 `;
 const Age = styled.div`
   text-align: center;
@@ -198,22 +221,20 @@ const Phone = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 5rem;
+  width: 8rem;
 `;
 const ParentPhone = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  width: 5rem;
+  width: 8rem;
 `;
 const Action = styled.div`
   text-align: center;
-  width: 4rem;
+  width: 5.5rem;
   display: flex;
   justify-content: space-evenly;
-  border-radius: 0.6rem;
-  border: 0.1px solid rgb(171, 172, 247);
 `;
 
 const ImgBox = styled.button``;

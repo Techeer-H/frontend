@@ -1,31 +1,36 @@
 import styled from 'styled-components';
-import Delete from '../../assets/delete.svg';
-import Modify from '../../assets/modify.svg';
+import Delete from '../../assets/MinusLogo.svg';
+import Modify from '../../assets/Boxpencil.svg';
 import React, { useState } from 'react';
-import TeacherRatingPage from '../../pages/teacher/modal/teacherrating';
 import axios from 'axios';
 
 interface CommentListProps {
   content: string;
   rating: number;
   feedbackId: number;
+  onModifyClick: any;
 }
 const CommentList: React.FC<CommentListProps> = (props) => {
-  const [isModifyModalOpen, setModifyModalOpen] = useState(false);
-  const [modalFeedbackId, setModalFeedbackId] = useState<number | undefined>(undefined); // modalFeedbackId 추가
 
-  const closeModifyModal = () => {
-    setModifyModalOpen(false);
-  };
+  const userId = localStorage.getItem('user_Id')
+  console.log('로컬 값' + userId);
+
+  const [modalFeedbackId, setModalFeedbackId] = useState<number | undefined>(undefined);
+
 
   const modifyHandler = (feedbackId: number) => {
     setModalFeedbackId(feedbackId);
-    setModifyModalOpen(true);
+
+
+    // 수정 버튼 클릭 시, 부모 컴포넌트로 전달받은 함수 호출
+    if (props.onModifyClick) {
+      props.onModifyClick(feedbackId, props.content, props.rating);
+    }
   };
 
   console.log(modalFeedbackId);
   const removeHandler = (feedbackId: number) => {
-    axios.delete(`http://3.37.41.244:8000/api/feedback/2/${feedbackId}`);
+    axios.delete(`http://3.37.41.244:8000/api/feedback/${userId}/${feedbackId}`);
   };
 
   // useEffect(() => {
@@ -46,79 +51,86 @@ const CommentList: React.FC<CommentListProps> = (props) => {
   //   dataApi();
   // }, []);
   return (
-    <FlexComment>
-      <Text>{props.content}</Text>
-      <Rating>
-        <div>학생 점수</div>
-        <div>{props.rating}</div>
-      </Rating>
-      <ActionContainer>
-        <div>
-          수정
+    <div>
+      <FlexComment>
+        <Text>{props.content}</Text>
+        <Rating>{props.rating}</Rating>
+        <ActionContainer>
           <ModifyBtn onClick={() => modifyHandler(props.feedbackId)}>
-            <div>
+            <ImgBox>
               <img src={Modify} alt="수정" style={{ height: '100%' }}></img>
-            </div>
+            </ImgBox>
           </ModifyBtn>
-        </div>
-        <div>
-          삭제
-          <DeleteBtn onClick={() => removeHandler(props.feedbackId)}>
-            <div>
-              <img src={Delete} alt="삭제" style={{ height: '100%' }}></img>
-            </div>
-          </DeleteBtn>
-        </div>
-      </ActionContainer>
 
-      {isModifyModalOpen && (
+          <DeleteBtn onClick={() => removeHandler(props.feedbackId)}>
+            <ImgBox>
+              <img src={Delete} alt="삭제" style={{ height: '100%' }}></img>
+            </ImgBox>
+          </DeleteBtn>
+        </ActionContainer>
+        {/* {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />} */}
+      </FlexComment>
+
+      {/* {isModifyModalOpen && (
         <TeacherRatingPage
           closeModal={closeModifyModal}
           feedbackId={modalFeedbackId}
           comment={props.content}
           studentRating={props.rating}
         />
-      )}
-
-      {/* {isDeleteModalOpen && <TeacherRatingPage closeModal={closeDeleteModal} feedbackId="" />} */}
-    </FlexComment>
+      )} */}
+    </div>
   );
 };
 
 const FlexComment = styled.li`
-  width: 98%;
-  min-height: 6rem;
+  padding: 1rem;
   display: flex;
-  justify-content: space-evenly;
-  margin: 1%;
-  padding: 1%;
-  border: solid 1px #5a5a5a;
-  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(113, 119, 144, 0.25);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background: rgba(16, 18, 27, 0.4);
+  }
 `;
 
 const Text = styled.div`
-  width: 60%;
-  height: 100%;
+  margin-left: 1rem;
+  width: 60rem;
+  color: #f9fafb;
+
+  white-space: nowrap;        /* 줄 바꿈 방지 */
+  overflow: hidden;           /* 넘치는 부분 숨김 */
+  text-overflow: ellipsis;    /* 넘치면 ... 으로 표시 */
 `;
 
 const Rating = styled.div`
-  width: 30%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  width: 15rem;
+  color: #f9fafb;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 `;
 
 const ActionContainer = styled.div`
-  width: 10%;
-  height: 100%;
+  width: 9.5rem;
   display: flex;
   justify-content: space-evenly;
 `;
 const ModifyBtn = styled.button`
   align-items: center;
+  margin-right: 1rem;
 `;
+
+const ImgBox = styled.div`
+  width: 24px;
+  height: 24px;
+`
+
 const DeleteBtn = styled.button`
   align-items: center;
 `;

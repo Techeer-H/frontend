@@ -12,25 +12,30 @@
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.6",
     "@vitejs/plugin-react": "^4.2.1",
     "D": "^1.0.0",
     "apexcharts": "^3.45.1",
     "axios": "^1.6.5",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
+    "gasp": "^0.0.2",
+    "html2canvas": "^1.4.1",
+    "jquery": "^3.7.1",
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18.2.0",
     "react-lottie": "^1.2.4",
-
     "react-router-dom": "^6.21.3",
     "react-select": "^5.8.0",
-
     "styled-components": "^6.1.8",
     "vite": "^5.0.11"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.29",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@types/react-lottie": "^1.2.10",

@@ -8,12 +8,9 @@ export const SliderParent = styled.div`
 `;
 
 export const CustomSlider = styled.input`
+  width: 11rem;
   height: 10px;
-  background: linear-gradient(
-    93deg,
-    #46a6ff -11.56%,
-    rgba(251, 70, 255, 0.21) 70.52%
-  ); /* 원하는 배경색으로 지정하세요 */
+  background: linear-gradient(to right, rgba(141, 138, 180, 1) 0%, rgba(204, 191, 198, 1) 100%);
   border-radius: 5px;
   outline: none;
 
@@ -35,6 +32,9 @@ interface BubbleProps {
 }
 
 export const Bubble = styled.div<BubbleProps>`
+  color: #ededed;
+  font-weight: bold;
+  font-size: 1.5rem;
   position: relative;
   text-align: center;
   /* left: ${(props) => `${Number(props.value / 4)}px`}; */
@@ -46,7 +46,7 @@ interface RatingProps {
 }
 
 const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
-  const [value, onChange] = useState(rating !== undefined ? rating : 1);
+  const [value, onChange] = useState(rating !== undefined ? rating : 5);
 
   useEffect(() => {
     onSliderChange(value); // 부모로 선택한 값을 전달
@@ -74,9 +74,19 @@ const Rating: React.FC<RatingProps> = ({ onSliderChange, rating }) => {
           onChange(Number(radius));
         }}
       />
-      <Bubble value={value} className="bubble">
-        {value}
-      </Bubble>
+      <div
+        style={{
+          marginTop: '1rem',
+          marginLeft: '4.1rem',
+          width: '2.8rem',
+          border: '3px solid  #ededed',
+          borderRadius: '3rem',
+        }}
+      >
+        <Bubble value={value} className="bubble">
+          {value}
+        </Bubble>
+      </div>
     </SliderParent>
   );
 };

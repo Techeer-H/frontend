@@ -1,45 +1,40 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import SignUpPage from './pages/signup/main/index';
-import OnBoardPage from './pages/onboard/firstpage';
-import AuthCheckedLayout from './layouts/AuthCheckedLayout';
 import LoginPage from './pages/login/main';
 import NotFoundPage from './pages/NotFoundPage';
-import StartPage from './pages/onboard/firstpage';
 import TeacherPage from './pages/teacher/main/index';
 import ConsultantMainPage from './pages/consultant/consultantmain';
 
 import ConsultantRating from './pages/consultant/modal/consultantrating';
 
 import Evaluationstudent from './pages/teacher/evaluationstudent/index';
-import OnBoardingPage from './pages/onboard/thirdpage/index';
+import OnBoardingPage from './pages/onboard/totalpage/index';
 
-import AiPromptPage from './pages/consultant/AiPrompt';
-
-import MockGrade from './pages/consultant/graderegister/mockTest';
-import SchoolGrade from './pages/consultant/graderegister/schoolTest';
+// 변경된 페이지들
+import NewAiPrompt from './pages/consultant/AiPrompt/aiPrompt';
+import NewSchoolTest from './pages/consultant/graderegister/inputTest';
+import Jaemin from './pages/onboard/wavepage/index';
+import StartPage from './pages/onboard/StartPage/index';
+import JaeminSecond from './pages/onboard/jaeminSecond/index';
 
 const routers = createBrowserRouter([
-  {
-    path: '/',
-    element: <AuthCheckedLayout />,
-    children: [
-      { index: true, element: <StartPage /> },
-      // { path: '알아서 적으세요', element: <알아서페이지 />  만드시면됩니다},
-    ],
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
-  },
+  // {
+  //   path: '/',
+  //   // element: <AuthCheckedLayout />,
+  //   children: [
+  //     { index: true, element: <StartPage /> },
+  //     // { path: '알아서 적으세요', element: <알아서페이지 />  만드시면됩니다},
+  //   ],
+  // },
+
   {
     path: '/',
     element: <StartPage />,
   },
-
   {
-    path: '/onboard',
-    element: <OnBoardPage />,
+    path: '*',
+    element: <NotFoundPage />,
   },
 
   {
@@ -55,19 +50,6 @@ const routers = createBrowserRouter([
   {
     path: '/consultantMain',
     element: <ConsultantMainPage />,
-  },
-  {
-    path: '/schooltest',
-    element: <SchoolGrade />,
-  },
-
-  {
-    path: '/mocktest',
-    element: <MockGrade />,
-  },
-  {
-    path: '/aiprompt',
-    element: <AiPromptPage />,
   },
   {
     path: '/teacher',
@@ -86,6 +68,26 @@ const routers = createBrowserRouter([
   {
     path: '/onboarding',
     element: <OnBoardingPage />,
+  },
+
+  {
+    path: '/jaemin',
+    element: <Jaemin />,
+  },
+
+  {
+    path: '/jaeminsecond',
+    element: <JaeminSecond />,
+  },
+
+  // 변경된 페이지들 주소
+  {
+    path: '/newaiprompt',
+    element: <NewAiPrompt />,
+  },
+  {
+    path: '/newschooltest',
+    element: <NewSchoolTest />,
   },
 ]);
 

@@ -1,25 +1,32 @@
 import styled from 'styled-components';
 
 const Button = styled.div`
-  width: 3rem;
-  height: 1.2rem;
-  background-color: #ff3d50;
-  border-radius: 1.22rem;
+  width: 6rem;
+  height: 1.4rem;
+
   align-items: center; /* 수직 가운데 정렬 */
-  font-size: 0.5rem;
-  padding-left: 0.84rem;
-  padding-top: 0.2rem;
+  font-size: 0.875rem;
+  display: flex;
+  justify-content: start;
 `;
 
+const Circle = styled.div`
+  width: 6px;
+  height: 6px;
+  background-color: #f0398e;
+  border-radius: 50%;
+`;
 const TextContainer = styled.div`
-  color: #fff0f0;
+  color: #ebfcff;
+  margin-left: 0.5rem;
 `;
 
 const RedStatusButton = () => {
   return (
     <div id="RedButton">
       <Button id="RedButton">
-        <TextContainer>미완료</TextContainer>
+        <Circle></Circle>
+        <TextContainer>평가 미완료</TextContainer>
       </Button>
     </div>
   );

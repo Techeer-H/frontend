@@ -1,83 +1,87 @@
 import styled from 'styled-components';
+import TestImg2 from '../../../assets/testImg2.png';
 
-export const Fullcontainer = styled.div`
-  background: white;
-`;
-export const Container = styled.div`
-  height: 8.125rem;
-  border-bottom: 0.316px solid #a3a8ff;
-  background: linear-gradient(
-    270deg,
-    #e1fbff 14.43%,
-    rgba(242, 255, 225, 0.61) 57.19%,
-    rgba(255, 248, 225, 0.53) 95.11%
-  );
+export const Background = styled.div`
   display: flex;
   align-items: center;
-`;
-export const NameBox = styled.div`
-  display: flex;
-  align-items: flex-start;
-  margin-left: 20em;
-  height: 0.1875rem;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 900px;
+  min-width: 1350px;
+  padding-top: 2%;
+  background: url(${TestImg2}) no-repeat;
+  background-size: cover; /* This will make the background image cover the entire div */
+  background-position: center;
 `;
 
-export const NameImg = styled.img``;
-export const Img = styled.div`
-  color: black;
-  font-family: Inter;
-  font-size: 1.72944rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  margin: 0 0 0.75rem 0rem;
+export const TopFullContainer = styled.div`
+  width: 84rem;
+  height: 4rem;
+  border-radius: 1.25rem 1.25rem 0rem 0rem;
+  border-bottom: 1px solid rgba(213, 213, 213, 0.2);
+  background: rgba(16, 18, 27, 0.4);
+  backdrop-filter: blur(20px);
+  display: flex;
 `;
+export const fullcontainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const FlexContainer = styled.div`
+  justify-content: space-evenly;
+  display: flex;
+  width: 49rem;
+  padding-top: 2rem;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const LeftFullContainer = styled.div`
+  width: 16rem;
+  height: 48rem;
+  padding: 1.13rem 2.5rem 0rem 1.5rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0rem 0rem 4.62rem 2.81rem;
+  border-radius: 0rem 0rem 0rem 1.25rem;
+  border-right: 1px solid rgba(213, 213, 213, 0.2);
+  background: rgba(16, 18, 27, 0.4);
+  backdrop-filter: blur(20px);
+`;
+
+export const RightFullContainer = styled.div`
+  width: 68rem;
+  height: 48rem;
+  display: flex;
+  padding: 2.44rem 4.12rem 1rem 4.5rem;
+  flex-direction: column;
+
+  border-radius: 0rem 0rem 1.25rem 0rem;
+  background: rgba(16, 18, 27, 0.7);
+  backdrop-filter: blur(20px);
+
+  margin: 0rem 2.81rem 4.62rem 0rem;
+`;
+
+export const NameBox = styled.div``;
 
 export const CommentBox = styled.div`
-  width: 67.25rem;
-  height: 36rem;
-  flex-shrink: 0;
+  width: 64rem;
+  height: 42rem;
+
   fill: #fff;
-  margin: 0 auto;
-`;
-export const TitleBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 7rem auto 0 auto;
-`;
-export const TitleBar = styled.div`
-  width: 100%;
-  height: 0.1875rem;
-  background: linear-gradient(154deg, #6936f2 9.75%, #366cf7 97.11%);
-  margin: 0rem auto 1.5rem auto;
+  margin: 1.6rem 1.5rem 1.56rem 1.5rem;
 `;
 
-export const LeftContainer = styled.textarea`
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  margin-left: 6.75rem;
-  margin-right: 2.3rem;
-  border: 0.1rem solid #85a1ff;
-  border-radius: 0.4rem;
-  width: 40rem;
-  height: 28.875rem;
-  fill: #ffffff;
-  padding: 1rem;
-  ::placeholder {
-    color: black;
-    content: 'Comment';
-    opacity: 0.5;
-  }
-`;
-
-export const RightContainer = styled.div``;
 export const NamesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 0.9rem;
-  margin-top: 0.5rem;
 `;
 export const Name = styled.span`
   color: #000;
@@ -91,46 +95,114 @@ export const Name = styled.span`
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  margin-right: 10px;
-`;
-export const EvaluationImage = styled.img`
-  /* 기존 스타일 유지 */
-  margin-left: -20px; /* 음수 값으로 조절 */
 `;
 
-export const Explan = styled.div`
-  margin-top: 7rem;
-  font-size: 1.25rem;
-  font-weight: 900;
-`;
 export const CommentWrapper = styled.ul`
-  width: 100%;
-  height: 30rem;
-  margin-top: 2%;
-  padding: 1%;
-  border: solid 1px #6f99fa;
-  border-radius: 20px;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
+  margin-top: 0.5rem;
+  width: 59rem;
+  height: 35rem;
+  font-size: 0.9rem;
+  padding-top: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #f9fafb;
+  overflow: auto;
+  border-radius: 0.875rem;
+  background: rgba(146, 151, 179, 0.13);
+`;
+
+export const TitleBar = styled.div`
+  width: 59rem;
+  height: 4rem;
+  padding: 1rem;
+  border-radius: 0.875rem;
+  background: rgba(16, 18, 27, 0.4);
+
+  display: flex; /* Flexbox를 활성화합니다. */
   align-items: center;
+  justify-content: space-between; /* 수직 가운데 정렬 */
+  font-size: 0.9rem;
+  font-weight: 400;
+  position: sticky;
+  color: #ededed;
+  margin-bottom: 1.5rem;
+`;
+
+export const Write = styled.div`
+  width: 23rem;
+  display: flex;
+  justify-content: center;
+  color: #ededed;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+`;
+export const Rating = styled.div`
+  width: 31rem;
+  padding-right: 2rem;
+  display: flex;
+  justify-content: end;
+  color: #ededed;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+`;
+export const IconContainer = styled.div`
+  width: 8rem;
+  display: flex;
+  justify-content: space-evenly;
+`;
+export const Upgrade = styled.div`
+  color: #ededed;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+`;
+export const Delete = styled.div`
+  color: #ededed;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+`;
+
+export const StudentListExplan = styled.div`
+  color: #f9fafb;
+  font-family: inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  display: flex;
+  width: 10.4375rem;
+  height: 4rem;
+  padding: 0.875rem 1.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-bottom: 2px solid #fff;
 `;
 
 export const BtnContainer = styled.div`
-  width: 8.125rem;
-  height: 2.5rem;
-  margin: 4% auto 0 auto;
-  background: linear-gradient(to right, #73a6ff, #efc2ff);
-  border-radius: 15px;
+  width: 9.3125rem;
+  height: 3.0625rem;
+  background: rgba(63, 63, 63, 0.6);
+  border-radius: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem 2.61rem 0.5rem 45.25rem;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background: rgba(30, 30, 30, 0.9);
+  }
 `;
-
 export const WriteBtn = styled.button`
-  width: 100%;
-  height: 100%;
+  width: 9rem;
+  height: 3rem;
   color: #fff;
   font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;

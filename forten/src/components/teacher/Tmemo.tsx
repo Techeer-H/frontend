@@ -1,4 +1,5 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
+import styled from 'styled-components';
 
 const TMemo: React.FC = () => {
   const [memoContent, setMemoContent] = useState<string>('');
@@ -17,28 +18,27 @@ const TMemo: React.FC = () => {
   };
 
   return (
-    <div>
-      <textarea
-        className="maincontainer flex-shrink-0"
-        style={{
-          width: '50rem',
-          minHeight: '11rem',
-          overflow: 'scroll',
-          resize: 'vertical',
-          boxSizing: 'border-box',
-          margin: '0 0 0.44rem 0',
-          padding: '0.625rem',
-          position: 'relative',
-          borderRadius: '1.73688rem',
-          filter: 'drop-shadow(4px 4px 4px rgba(0,0,0,0.25))',
-          border: '1px solid #dadada',
-        }}
-        placeholder="기억해야할 것들을 적어주세요"
-        value={memoContent}
-        onChange={handleMemoChange}
-      />
-    </div>
+    <Textarea
+      placeholder="기억해야할 것들을 적어주세요"
+      value={memoContent}
+      onChange={handleMemoChange}
+    />
   );
 };
+
+const Textarea = styled.textarea`
+  width: 12.3125rem;
+  height: 16rem;
+  font-size: 0.875rem;
+  resize: none;
+  padding-top: 1rem;
+  padding-left: 0.6rem;
+  background: transparent;
+  color: #eff5ff;
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 export default TMemo;
