@@ -60,8 +60,9 @@
 
 
 
+
 ## **📚E-R Diagram**
-<img width="855" alt="image" src="https://github.com/Techeer-H/frontend/assets/74411978/2dc82946-9425-4fda-a7de-30ea9c4147da">
+<img width="855" alt="image" src="https://github.com/Techeer-H/frontend/assets/74411978/fa47a648-3872-4964-9749-4b5aad35c603">
 
 
 ## **🗿API**
