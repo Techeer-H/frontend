@@ -1,17 +1,13 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import * as S from './styles';
-
+import axios from 'axios';
 import Navbar from '../../../components/consultant/navBar';
 import GrayBox from '../../../components/consultant/grayBox';
 import BookMarkList from '../../../components/consultant/bookMarkList';
 import Memo from '../../../components/consultant/memo';
-
 import StudentInfo, { StudentType } from '../../../components/consultant/studentInfo';
-
 import search from '../../../assets/searchIcon.svg';
-
 import RegisterModal from '../modal/registermodal';
-import axios from 'axios';
 
 
 

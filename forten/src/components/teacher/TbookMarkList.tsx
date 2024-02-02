@@ -36,17 +36,15 @@ const TBookMarkList = ({ bookmarkedStudents, setBookmarkedStudents }: bookmarked
     </div>
   );
 };
-const Box = styled.div`
-  width: 12rem;
-`;
+
 const Wrapper = styled.div`
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 0.8rem;
 `;
+
 const Name = styled.p`
   color: #f9fafb;
   font-family: Inter;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import BackGround from '../../../assets/BackGround.svg';
+import TestImg2 from '../../../assets/testImg2.png';
 
 export const Background = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const Background = styled.div`
   min-height: 900px;
   min-width: 1350px;
   padding-top: 2%;
-  background: url(${BackGround}) no-repeat;
+  background: url(${TestImg2}) no-repeat;
   background-size: cover; /* This will make the background image cover the entire div */
   background-position: center;
 `;

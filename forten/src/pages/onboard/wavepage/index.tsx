@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './styles.css'; // Assuming the CSS file is in the same directory as the component
-import stars from '../../../assets/stars.png';
 
 const WavesComponent: React.FC = () => {
   const starsRef = useRef<HTMLImageElement>(null);
@@ -9,7 +8,7 @@ const WavesComponent: React.FC = () => {
     const handleScroll = () => {
       const scrollValue = window.scrollY;
       applyScrollEffect(starsRef, scrollValue);
-      function applyScrollEffect(ref: any, scrollValue: any) {
+      function applyScrollEffect(starsRef: any, scrollValue: any) {
         if (starsRef.current) {
           starsRef.current.style.transform = `translateX(${scrollValue * 0.25}px)`;
         }

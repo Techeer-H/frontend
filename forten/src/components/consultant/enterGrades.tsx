@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import send from '../../assets/send.png';
 import React, { useState } from 'react';
 import axios from 'axios';
 

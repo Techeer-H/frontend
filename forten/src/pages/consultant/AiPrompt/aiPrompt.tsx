@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import html2canvas from 'html2canvas';  // canvas import
 import Navbar from '../../../components/consultant/navBar';
 import StudentAvergy from '../../../components/modal/studentAvergy';
 import ParentAvergy from '../../../components/modal/parentAvergy';
@@ -10,15 +11,9 @@ import SchoolGrades from '../../../components/modal/schoolGrades';
 import WordBox from '../../../components/modal/wordBox';
 import ConsultantRatingPage from '../../../pages/newpages/Consultant/newModal/consultantrating';
 import StudentTable from '../../../components/modal/studentTable';
-import BackGround from '../../../assets/BackGround2.jpeg';
 import Pdf from '../../../assets/PDF.svg';
-
 import TestImg from '../../../assets/testImg.png';
 
-import Example from '../../../assets/example.png';
-
-// canvas import
-import html2canvas from 'html2canvas';
 
 const Background = styled.div`
   display: flex;

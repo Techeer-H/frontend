@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Delete from '../../assets/MinusLogo.svg';
 import Modify from '../../assets/Boxpencil.svg';
 import React, { useState } from 'react';
-import TeacherRatingPage from '../../pages/teacher/modal/teacherrating';
 import axios from 'axios';
 
 interface CommentListProps {

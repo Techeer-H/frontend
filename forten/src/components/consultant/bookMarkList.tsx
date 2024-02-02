@@ -60,9 +60,6 @@ const Fullcontainer = styled.div`
   }  
 `;
 
-const Box = styled.div`
-  width: 12rem;
-`;
 const Wrapper = styled.div`
   width: 100%;
   display: flex;

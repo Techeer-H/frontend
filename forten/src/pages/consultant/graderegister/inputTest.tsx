@@ -4,9 +4,9 @@ import { useLocation } from 'react-router-dom';
 import { Box, Tabs, Tab } from '@mui/material';
 import Navbar from '../../../components/consultant/navBar';
 import EnterGrades from '../../../components/consultant/enterGrades';
-import BlendEnterGrades from '../../../components/blend/blendEnterGrades';
-import BackgroundImg from '../../../assets/BackGround2.jpeg';
+// import BlendEnterGrades from '../../../components/blend/blendEnterGrades';
 import StudentTable from '../../../components/modal/studentTable';
+import TestImg from '../../../assets/testImg.png';
 
 const Background = styled.div`
     padding-top: 2%;
@@ -17,7 +17,7 @@ const Background = styled.div`
   min-width: 1450px;
   height: 100vh;
   min-height: 1050px;
-  background: url(${BackgroundImg});
+  background: url(${TestImg});
   background-size: 100% 100%; /* 이미지 크기를 100%로 설정 */
   background-position: center;
   background-repeat: no-repeat;
