@@ -6,10 +6,10 @@ import * as S from './styles';
 import stars from '../../../assets/stars.png';
 import logo from '../../../assets/For-TEN.png';
 import moon from '../../../assets/moon (2).png';
-import test from '../../../assets/Chart_graph.svg';
-import rating from '../../../assets/chart_rating.svg';
-import ai from '../../../assets/AI.svg';
-import pdf from '../../../assets/pdfPic.svg';
+import test from '../../../assets/test.png';
+import rating from '../../../assets/rating.png';
+import ai from '../../../assets/Ai.png';
+import pdf from '../../../assets/Pdf.png';
 import '../wavepage/styles.css';
 import '../cubepage/styles.css';
 import { Full } from './styles';
@@ -31,7 +31,6 @@ const ThirdOnBoardingPage: React.FC = () => {
         setTimeout(
           () => {
             animate(star as HTMLElement);
-            setInterval(() => animate(star as HTMLElement), 1000);
           },
           index++ * (interval / 3),
         );
@@ -146,13 +145,13 @@ const ThirdOnBoardingPage: React.FC = () => {
             />
           </S.Header>
           <S.Section>
-            <S.SectionImg ref={starsRef} src={stars} alt="stars" />
+            <S.SectionImg ref={starsRef} style={{ height: '75rem' }} src={stars} alt="stars" />
 
             <S.SectionImg ref={moonRef} src={moon} alt="moon" className="moon" />
 
             {/* <S.SectionImg ref={mountainBehindRef} src={mountainBehind} alt="mountainBehind" /> */}
 
-            <S.ExplainText ref={textRef}>학원의 포텐을 ForTen과 함께 </S.ExplainText>
+            <S.ExplainText ref={textRef}>학원의 포텐을 For:Ten 과 함께 </S.ExplainText>
             <Link to="/login" style={{ display: 'flex', justifyContent: 'center' }}>
               <S.Button ref={btnRef}>서비스 시작하기</S.Button>
             </Link>
@@ -192,10 +191,10 @@ const ThirdOnBoardingPage: React.FC = () => {
         <S.Sticky className="Sticky">
           <S.CardFrame>
             <S.Card className="Card">
-              <S.Front>
-                <img src={ai} alt="main" style={{ marginBottom: '5rem' }}></img>
+              <S.Front2>
+                <img src={ai} alt="main" style={{ width: '20rem' }}></img>
                 AI 요약 서비스로 컨설팅을 <br /> 보다 쉽게 진행합니다
-              </S.Front>
+              </S.Front2>
               <S.Back>
                 {/* <S.Logo /> */}
                 <img
@@ -206,10 +205,10 @@ const ThirdOnBoardingPage: React.FC = () => {
               </S.Back>
             </S.Card>
             <S.Card className="Card">
-              <S.Front>
-                <img src={test} alt="test" style={{ marginBottom: '5rem' }}></img>
+              <S.Front2>
+                <img src={test} alt="test" style={{}}></img>
                 학생 성적을 시각화 자료를 통해 <br /> 분석합니다
-              </S.Front>
+              </S.Front2>
               <S.Back>
                 <img
                   src={second}
@@ -219,10 +218,10 @@ const ThirdOnBoardingPage: React.FC = () => {
               </S.Back>
             </S.Card>
             <S.Card className="Card">
-              <S.Front>
-                <img src={rating} alt="rating" style={{ marginBottom: '6rem' }}></img>
+              <S.Front2>
+                <img src={rating} alt="rating" style={{}}></img>
                 학생, 학부모 만족도 조사를 통해 <br /> 맞춤 수업 제공합니다
-              </S.Front>
+              </S.Front2>
               <S.Back>
                 <img
                   src={third}
@@ -233,7 +232,7 @@ const ThirdOnBoardingPage: React.FC = () => {
             </S.Card>
             <S.Card className="Card">
               <S.Front>
-                <img src={pdf} alt="pdf" style={{ marginBottom: '5rem' }}></img>
+                <img src={pdf} alt="pdf" style={{ marginBottom: '4rem', width: '14rem' }}></img>
                 학생 정보를 pdf로 저장하여 <br /> 쉽게 관리합니다
               </S.Front>
               <S.Back>
@@ -268,6 +267,7 @@ const ThirdOnBoardingPage: React.FC = () => {
           ⇑ 위로 가기
         </button>
       )}
+
       <div className="full">
         <div className="mod">
           <div className="cube">
@@ -397,7 +397,6 @@ const ThirdOnBoardingPage: React.FC = () => {
 
             <Root>
               <H1>
-                10대의
                 <span className="magic">
                   <span className="magic-star">
                     <svg viewBox="0 0 512 512">
@@ -416,7 +415,7 @@ const ThirdOnBoardingPage: React.FC = () => {
                   </span>
                   <span className="magic-text">잠재력</span>
                 </span>
-                을올려보아요
+                을 기록하세요
               </H1>
             </Root>
           </Link>
@@ -492,10 +491,6 @@ const Root = styled.div`
   --violet: rgb(103, 58, 183);
   --white: rgb(227, 181, 255);
   --pink: rgb(244, 143, 177);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 `;
 
 const backgroundPan = keyframes`
@@ -530,6 +525,8 @@ const rotate = keyframes`
 
 const H1 = styled.h1`
   color: white;
+
+  display: flex;
 
   position: relative;
   /* 

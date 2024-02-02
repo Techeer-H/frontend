@@ -15,17 +15,22 @@ import OnBoardingPage from './pages/onboard/totalpage/index';
 import NewAiPrompt from './pages/consultant/AiPrompt/aiPrompt';
 import NewSchoolTest from './pages/consultant/graderegister/inputTest';
 import Jaemin from './pages/onboard/wavepage/index';
-import Jaeminse from './pages/onboard/jaeminStartPage/index';
+import StartPage from './pages/onboard/StartPage/index';
 import JaeminSecond from './pages/onboard/jaeminSecond/index';
 
 const routers = createBrowserRouter([
+  // {
+  //   path: '/',
+  //   // element: <AuthCheckedLayout />,
+  //   children: [
+  //     { index: true, element: <StartPage /> },
+  //     // { path: '알아서 적으세요', element: <알아서페이지 />  만드시면됩니다},
+  //   ],
+  // },
+
   {
     path: '/',
-    // element: <AuthCheckedLayout />,
-    children: [
-      { index: true, element: <LoginPage /> },
-      // { path: '알아서 적으세요', element: <알아서페이지 />  만드시면됩니다},
-    ],
+    element: <StartPage />,
   },
   {
     path: '*',
@@ -68,11 +73,6 @@ const routers = createBrowserRouter([
   {
     path: '/jaemin',
     element: <Jaemin />,
-  },
-
-  {
-    path: '/jaeminse',
-    element: <Jaeminse />,
   },
 
   {
