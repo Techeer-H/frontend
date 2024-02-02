@@ -58,8 +58,6 @@ export const Svg = styled.svg`
 
 export const SectionImg = styled.img`
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -85,8 +83,8 @@ export const Image = styled.img.attrs({ id: 'moon', mixBlendMode: 'screen' })`
 export const Button = styled.button`
   padding: 0.5rem 3rem;
   border-radius: 3rem;
-  background: #000000;
-  color: #fff;
+  background: #ffffff;
+  color: #5e5e5e;
   /* transform: translateY(10rem); */
   display: inline-block;
   position: absolute;
@@ -97,7 +95,10 @@ export const Button = styled.button`
 `;
 
 export const ExplainText = styled.div`
-  font-size: 2vw;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  margin-left: 2rem;
   color: #fff;
   white-space: nowrap;
   z-index: 13;
@@ -108,7 +109,7 @@ export const ExplainText = styled.div`
   pointer-events: none;
   justify-content: center;
   display: flex;
-  top: 18rem;
+  top: 25rem;
   /* transform: translateY(5rem); */
 `;
 
@@ -123,7 +124,7 @@ export const Body = styled.div`
 export const MainContent = styled.div`
   width: 100%;
   height: 500vh;
-  background: linear-gradient(180deg, #fff 0%, #4e6085 100%);
+  background: linear-gradient(180deg, #fff 0%, #1b2947 100%);
 `;
 
 export const Sticky = styled.div`
@@ -167,15 +168,37 @@ export const Front = styled.div`
   overflow: hidden;
   backface-visibility: hidden;
 
-  font-size: 1rem;
+  font-size: 1.6rem;
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #141313;
-  background: #9297b3;
+  color: #fbfbfb;
+  background: rgba(16, 18, 27, 0.6);
+  backdrop-filter: blur(30px);
   border: 1px solid #fff;
+`;
+
+export const Front2 = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1vw;
+  overflow: hidden;
+  backface-visibility: hidden;
+
+  font-size: 1.6rem;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fbfbfb;
+  background: rgba(16, 18, 27, 0.6);
+  backdrop-filter: blur(30px);
+  border: 2px solid #fff;
+  padding-bottom: 2rem;
 `;
 // #94c7f6 5%, rgba(251, 70, 255, 0.21) 117.52%
 export const Back = styled.div`
@@ -189,6 +212,7 @@ export const Back = styled.div`
   overflow: hidden;
   backface-visibility: hidden;
   transform: rotateY(180deg);
-  background: #9297b3;
-  border: 1px solid #fff;
+  background: rgba(16, 18, 27, 0.6);
+  backdrop-filter: blur(30px);
+  border: 2px solid #fff;
 `;
