@@ -18,7 +18,7 @@ const FlexContainer = styled.div`
 `;
 
 const RadioContaioner = styled.div`
-  width: 50rem;
+  width: 20rem;
   display: flex;
   justify-content: space-evenly;
   color: #fff;
@@ -76,16 +76,16 @@ function SchoolGrades(props: SchoolGradesProps) {
         return 4;
       case 'social':
         return 5;
-      case 'fluency':
-        return 6;
-      case 'pronunciation':
-        return 7;
-      case 'vocabulary':
-        return 8;
-      case 'syntax':
-        return 9;
-      case 'activeListening':
-        return 10;
+      // case 'fluency':
+      //   return 6;
+      // case 'pronunciation':
+      //   return 7;
+      // case 'vocabulary':
+      //   return 8;
+      // case 'syntax':
+      //   return 9;
+      // case 'activeListening':
+      //   return 10;
       default:
         return 1;
     }
@@ -102,10 +102,10 @@ function SchoolGrades(props: SchoolGradesProps) {
     '8': '7',
     '9': '9',
     '10': '10',
-    '11': '1-1학기 중간',
-    '12': '1-2학기 기말',
-    '13': '2-1학기 중간',
-    '14': '2-2학기 기말',
+    // '11': '1-1학기 중간',
+    // '12': '1-2학기 기말',
+    // '13': '2-1학기 중간',
+    // '14': '2-2학기 기말',
   };
 
   const fetchData = async () => {
@@ -281,7 +281,7 @@ function SchoolGrades(props: SchoolGradesProps) {
             사회
           </label>
 
-          <label>
+          {/* <label>
             <Input
               type="radio"
               id="test2"
@@ -339,7 +339,7 @@ function SchoolGrades(props: SchoolGradesProps) {
               onChange={() => inputRadioHandler('activeListening')}
             />
             Active Listening
-          </label>
+          </label> */}
         </RadioContaioner>
       </FlexContainer>
       <Chart
