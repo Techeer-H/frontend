@@ -9,7 +9,6 @@ type TeacherSuccessLoginProps = {
 const Container = styled.div`
   position: absolute;
   z-index: 1;
-  left: 12rem;
   top: 7rem;
   width: 26.25rem;
   height: 15rem;
