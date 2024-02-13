@@ -1,6 +1,6 @@
 <div align="center">
-  <img src="https://github.com/Techeer-H/frontend/assets/74411978/9c586935-97ac-4ff5-a9b5-14b68553a4d9" alt="For-TEN_3forten">
-  
+  <img src="https://github.com/Techeer-H/frontend/assets/74411978/20db23a6-d42b-49bd-830b-5ea4faa38c91" alt="For-TEN_3forten">
+
 
 <br>
 <h3>
