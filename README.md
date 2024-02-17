@@ -67,7 +67,9 @@
 
 ## **🗿API**
 
-[Swagger API Documentation](http://3.37.41.244:8000/swagger/ )
+![image](https://github.com/Techeer-H/frontend/assets/87237022/e85bfcdb-9fe4-4d10-aa60-1b65db5cc6c7)
+![image](https://github.com/Techeer-H/frontend/assets/87237022/d27c86c7-aabb-4c62-87cb-6b7b3839a1e5)
+
 
 
 ## **💻Monitoring**
