@@ -3,9 +3,17 @@
 
 
 <br>
+<h1 align="center">For:TEN</h1>
 <h3>
  간편한 학생 관리 서비스
 </h3>
+
+
+<br>
+
+### Medium(Kor) https://medium.com/@penloo0422/siliconvalley-winter-bootcamp-for-ten-korean-68cd6a8471a0
+
+
 </div>
 
  ## **Contents**
