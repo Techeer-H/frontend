@@ -1,5 +1,7 @@
 <div align="center">
-  <img src="https://github.com/Techeer-H/frontend/assets/74411978/20db23a6-d42b-49bd-830b-5ea4faa38c91" alt="For-TEN_3forten">
+
+![For-TEN_black](https://github.com/Techeer-H/frontend/assets/44522204/65defec1-be83-42e9-adc5-eb4618ec0c42)
+
 
 
 <br>
@@ -53,8 +55,17 @@
 
 <br>
 
-## **🌏Demo**
-여기 데모 영상이 올라갑니다
+## **🌏Service**
+
+[Main]
+[onBoarding]
+[Sign Up & Login]
+[Consultant Main]
+[학생 등록 & 즐겨찾기]
+[성적 등록 페이지]
+[프롬트 페이지]
+[Teacher Main]
+[학생평가]
 
 
 ## **🎰System Architecture**
