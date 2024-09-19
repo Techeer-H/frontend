@@ -56,17 +56,46 @@
 <br>
 
 ## **🌏Service**
-
-[Main]
-[onBoarding]
-[Sign Up & Login]
-[Consultant Main]
-[학생 등록 & 즐겨찾기]
-[성적 등록 페이지]
-[프롬트 페이지]
-[Teacher Main]
-[학생평가]
-
+<div align="center">
+<table>
+  <tr>
+    <th>메인 페이지</th>
+    <th>온보딩 페이지</th>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/fff69c4e-b5bf-4c2a-954b-4ed833f2020b" alt="이미지 1" width="300" height="250"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/343dab95-752d-4db8-979f-fd1730c131e3" alt="이미지 2" width="300" height="250"/>
+    </td>
+  </tr>
+  <tr>
+    <th>컨설턴트 메인 페이지</th>
+    <th>AI Prompt 페이지</th>
+  </tr>
+ <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/13715038-54ba-478a-bf0b-5619bb49f1b4" alt="이미지 1" width="300" height="250"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/8355f953-043d-4030-9ba3-fb030d35bfe8" alt="이미지 1" width="300" height="250"/>
+    </td>
+ </tr>
+   <tr>
+    <th>강사 메인 페이지</th>
+    <th>학생 평가 페이지</th>
+  </tr>
+ <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/00c82a80-4a6e-45f8-87f8-9cc65cf1bfba" alt="이미지 1" width="300" height="250"/>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/381cd871-0fe6-40b1-8586-cdd27897548f" alt="이미지 1" width="300" height="250"/>
+    </td>
+ </tr>
+</table>
+</div>
 
 ## **🎰System Architecture**
 <img width="952" alt="Untitled" src="https://github.com/Techeer-H/frontend/assets/74411978/091067f9-4e7d-44a9-8ecd-4a5f2a32f7a4">
